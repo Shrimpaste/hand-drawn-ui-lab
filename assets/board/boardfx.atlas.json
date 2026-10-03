@@ -1,0 +1,3392 @@
+{
+ "version": 1,
+ "name": "boardfx",
+ "padding": 3,
+ "alpha": "straight",
+ "bleed": true,
+ "timeLayout": "RGB: R ink q8, G fill q8, B silhouette alpha; same layout as the colour page",
+ "pages": [
+  {
+   "index": 0,
+   "w": 2048,
+   "h": 1024,
+   "color": "boardfx-0.png",
+   "time": "boardfx-0.t.png",
+   "fill": 0.6665
+  }
+ ],
+ "entries": {
+  "cap-ring-cool-0": {
+   "page": 0,
+   "x": 1485,
+   "y": 3,
+   "w": 184,
+   "h": 185,
+   "uv": [
+    0.72509765625,
+    0.0029296875,
+    0.81494140625,
+    0.18359375
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 22,
+    "y": 29
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -51,
+    -47.5,
+    41,
+    45
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.6605,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-ring-cool",
+    "variant": 0
+   },
+   "bledTexels": 10397
+  },
+  "cap-ring-cool-1": {
+   "page": 0,
+   "x": 451,
+   "y": 210,
+   "w": 194,
+   "h": 193,
+   "uv": [
+    0.22021484375,
+    0.205078125,
+    0.31494140625,
+    0.3935546875
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 20,
+    "y": 25
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -52,
+    -49.5,
+    45,
+    47
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.7824,
+    "strokeCount": 5,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-ring-cool",
+    "variant": 1
+   },
+   "bledTexels": 12515
+  },
+  "cap-ring-cool-2": {
+   "page": 0,
+   "x": 875,
+   "y": 3,
+   "w": 204,
+   "h": 179,
+   "uv": [
+    0.42724609375,
+    0.0029296875,
+    0.52685546875,
+    0.177734375
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 18,
+    "y": 32
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -53,
+    -46,
+    49,
+    43.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.7087,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-ring-cool",
+    "variant": 2
+   },
+   "bledTexels": 11010
+  },
+  "cap-ring-warm-0": {
+   "page": 0,
+   "x": 663,
+   "y": 3,
+   "w": 206,
+   "h": 194,
+   "uv": [
+    0.32373046875,
+    0.0029296875,
+    0.42431640625,
+    0.1923828125
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 13,
+    "y": 19
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -55.5,
+    -52.5,
+    47.5,
+    44.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.8517,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-ring-warm",
+    "variant": 0
+   },
+   "bledTexels": 12713
+  },
+  "cap-ring-warm-1": {
+   "page": 0,
+   "x": 237,
+   "y": 212,
+   "w": 193,
+   "h": 189,
+   "uv": [
+    0.11572265625,
+    0.20703125,
+    0.2099609375,
+    0.3916015625
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 26,
+    "y": 25
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -49,
+    -49.5,
+    47.5,
+    45
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.6059,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-ring-warm",
+    "variant": 1
+   },
+   "bledTexels": 10235
+  },
+  "cap-ring-warm-2": {
+   "page": 0,
+   "x": 196,
+   "y": 601,
+   "w": 180,
+   "h": 165,
+   "uv": [
+    0.095703125,
+    0.5869140625,
+    0.18359375,
+    0.748046875
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 31,
+    "y": 44
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -46.5,
+    -40,
+    43.5,
+    42.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.6565,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-ring-warm",
+    "variant": 2
+   },
+   "bledTexels": 11753
+  },
+  "cap-x-cool-0": {
+   "page": 0,
+   "x": 933,
+   "y": 575,
+   "w": 86,
+   "h": 82,
+   "uv": [
+    0.45556640625,
+    0.5615234375,
+    0.49755859375,
+    0.6416015625
+   ],
+   "source": {
+    "w": 120,
+    "h": 120
+   },
+   "trim": {
+    "x": 19,
+    "y": 25
+   },
+   "pivot": [
+    60,
+    60
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -20.5,
+    -17.5,
+    22.5,
+    23.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1284,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-x-cool",
+    "variant": 0
+   },
+   "bledTexels": 2983
+  },
+  "cap-x-cool-1": {
+   "page": 0,
+   "x": 1271,
+   "y": 621,
+   "w": 87,
+   "h": 80,
+   "uv": [
+    0.62060546875,
+    0.6064453125,
+    0.6630859375,
+    0.6845703125
+   ],
+   "source": {
+    "w": 120,
+    "h": 120
+   },
+   "trim": {
+    "x": 20,
+    "y": 25
+   },
+   "pivot": [
+    60,
+    60
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -20,
+    -17.5,
+    23.5,
+    22.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1262,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-x-cool",
+    "variant": 1
+   },
+   "bledTexels": 2962
+  },
+  "cap-x-cool-2": {
+   "page": 0,
+   "x": 1403,
+   "y": 598,
+   "w": 85,
+   "h": 87,
+   "uv": [
+    0.68505859375,
+    0.583984375,
+    0.7265625,
+    0.6689453125
+   ],
+   "source": {
+    "w": 120,
+    "h": 120
+   },
+   "trim": {
+    "x": 22,
+    "y": 19
+   },
+   "pivot": [
+    60,
+    60
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -19,
+    -20.5,
+    23.5,
+    23
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1369,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-x-cool",
+    "variant": 2
+   },
+   "bledTexels": 3067
+  },
+  "cap-x-warm-0": {
+   "page": 0,
+   "x": 1179,
+   "y": 398,
+   "w": 81,
+   "h": 90,
+   "uv": [
+    0.57568359375,
+    0.388671875,
+    0.615234375,
+    0.4765625
+   ],
+   "source": {
+    "w": 120,
+    "h": 120
+   },
+   "trim": {
+    "x": 21,
+    "y": 18
+   },
+   "pivot": [
+    60,
+    60
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -19.5,
+    -21,
+    21,
+    24
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1575,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-x-warm",
+    "variant": 0
+   },
+   "bledTexels": 3044
+  },
+  "cap-x-warm-1": {
+   "page": 0,
+   "x": 1403,
+   "y": 503,
+   "w": 84,
+   "h": 89,
+   "uv": [
+    0.68505859375,
+    0.4912109375,
+    0.72607421875,
+    0.578125
+   ],
+   "source": {
+    "w": 120,
+    "h": 120
+   },
+   "trim": {
+    "x": 21,
+    "y": 20
+   },
+   "pivot": [
+    60,
+    60
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -19.5,
+    -20,
+    22.5,
+    24.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1237,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-x-warm",
+    "variant": 1
+   },
+   "bledTexels": 3057
+  },
+  "cap-x-warm-2": {
+   "page": 0,
+   "x": 1025,
+   "y": 649,
+   "w": 84,
+   "h": 84,
+   "uv": [
+    0.50048828125,
+    0.6337890625,
+    0.54150390625,
+    0.7158203125
+   ],
+   "source": {
+    "w": 120,
+    "h": 120
+   },
+   "trim": {
+    "x": 21,
+    "y": 19
+   },
+   "pivot": [
+    60,
+    60
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -19.5,
+    -20.5,
+    22.5,
+    21.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1225,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "cap-x-warm",
+    "variant": 2
+   },
+   "bledTexels": 2979
+  },
+  "check-0": {
+   "page": 0,
+   "x": 451,
+   "y": 3,
+   "w": 206,
+   "h": 201,
+   "uv": [
+    0.22021484375,
+    0.0029296875,
+    0.32080078125,
+    0.19921875
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 23,
+    "y": 25
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -50.5,
+    -49.5,
+    52.5,
+    51
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.423,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "check",
+    "variant": 0
+   },
+   "bledTexels": 10406
+  },
+  "check-1": {
+   "page": 0,
+   "x": 3,
+   "y": 3,
+   "w": 228,
+   "h": 226,
+   "uv": [
+    0.00146484375,
+    0.0029296875,
+    0.11279296875,
+    0.2236328125
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 5,
+    "y": 11
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -59.5,
+    -56.5,
+    54.5,
+    56.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.4428,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "check",
+    "variant": 1
+   },
+   "bledTexels": 11781
+  },
+  "check-2": {
+   "page": 0,
+   "x": 663,
+   "y": 203,
+   "w": 194,
+   "h": 198,
+   "uv": [
+    0.32373046875,
+    0.1982421875,
+    0.41845703125,
+    0.3916015625
+   ],
+   "source": {
+    "w": 248,
+    "h": 248
+   },
+   "trim": {
+    "x": 26,
+    "y": 20
+   },
+   "pivot": [
+    124,
+    124
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -49,
+    -52,
+    48,
+    47
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.571,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "check",
+    "variant": 2
+   },
+   "bledTexels": 11348
+  },
+  "dest-cool-0": {
+   "page": 0,
+   "x": 3,
+   "y": 613,
+   "w": 178,
+   "h": 179,
+   "uv": [
+    0.00146484375,
+    0.5986328125,
+    0.08837890625,
+    0.7734375
+   ],
+   "source": {
+    "w": 216,
+    "h": 216
+   },
+   "trim": {
+    "x": 20,
+    "y": 12
+   },
+   "pivot": [
+    108,
+    108
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -44,
+    -48,
+    45,
+    41.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1681,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dest-cool",
+    "variant": 0
+   },
+   "bledTexels": 7385
+  },
+  "dest-cool-1": {
+   "page": 0,
+   "x": 875,
+   "y": 188,
+   "w": 200,
+   "h": 191,
+   "uv": [
+    0.42724609375,
+    0.18359375,
+    0.52490234375,
+    0.3701171875
+   ],
+   "source": {
+    "w": 216,
+    "h": 216
+   },
+   "trim": {
+    "x": 10,
+    "y": 14
+   },
+   "pivot": [
+    108,
+    108
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -49,
+    -47,
+    51,
+    48.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.285,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dest-cool",
+    "variant": 1
+   },
+   "bledTexels": 8014
+  },
+  "dest-cool-2": {
+   "page": 0,
+   "x": 3,
+   "y": 427,
+   "w": 187,
+   "h": 180,
+   "uv": [
+    0.00146484375,
+    0.4169921875,
+    0.0927734375,
+    0.5927734375
+   ],
+   "source": {
+    "w": 216,
+    "h": 216
+   },
+   "trim": {
+    "x": 9,
+    "y": 20
+   },
+   "pivot": [
+    108,
+    108
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -49.5,
+    -44,
+    44,
+    46
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.2153,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dest-cool",
+    "variant": 2
+   },
+   "bledTexels": 7515
+  },
+  "dest-warm-0": {
+   "page": 0,
+   "x": 237,
+   "y": 3,
+   "w": 208,
+   "h": 203,
+   "uv": [
+    0.11572265625,
+    0.0029296875,
+    0.21728515625,
+    0.201171875
+   ],
+   "source": {
+    "w": 216,
+    "h": 216
+   },
+   "trim": {
+    "x": 7,
+    "y": 12
+   },
+   "pivot": [
+    108,
+    108
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -50.5,
+    -48,
+    53.5,
+    53.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.2422,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dest-warm",
+    "variant": 0
+   },
+   "bledTexels": 8371
+  },
+  "dest-warm-1": {
+   "page": 0,
+   "x": 3,
+   "y": 235,
+   "w": 190,
+   "h": 186,
+   "uv": [
+    0.00146484375,
+    0.2294921875,
+    0.09423828125,
+    0.4111328125
+   ],
+   "source": {
+    "w": 216,
+    "h": 216
+   },
+   "trim": {
+    "x": 12,
+    "y": 10
+   },
+   "pivot": [
+    108,
+    108
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -48,
+    -49,
+    47,
+    44
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.289,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dest-warm",
+    "variant": 1
+   },
+   "bledTexels": 7708
+  },
+  "dest-warm-2": {
+   "page": 0,
+   "x": 1085,
+   "y": 3,
+   "w": 202,
+   "h": 199,
+   "uv": [
+    0.52978515625,
+    0.0029296875,
+    0.62841796875,
+    0.197265625
+   ],
+   "source": {
+    "w": 216,
+    "h": 216
+   },
+   "trim": {
+    "x": 7,
+    "y": 14
+   },
+   "pivot": [
+    108,
+    108
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -50.5,
+    -47,
+    50.5,
+    52.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.2354,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dest-warm",
+    "variant": 2
+   },
+   "bledTexels": 8276
+  },
+  "dot-0": {
+   "page": 0,
+   "x": 890,
+   "y": 661,
+   "w": 36,
+   "h": 36,
+   "uv": [
+    0.4345703125,
+    0.6455078125,
+    0.4521484375,
+    0.6806640625
+   ],
+   "source": {
+    "w": 80,
+    "h": 80
+   },
+   "trim": {
+    "x": 23,
+    "y": 22
+   },
+   "pivot": [
+    40,
+    40
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -8.5,
+    -9,
+    9.5,
+    9
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0703,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dot",
+    "variant": 0
+   },
+   "bledTexels": 701
+  },
+  "dot-1": {
+   "page": 0,
+   "x": 1728,
+   "y": 347,
+   "w": 38,
+   "h": 39,
+   "uv": [
+    0.84375,
+    0.3388671875,
+    0.8623046875,
+    0.376953125
+   ],
+   "source": {
+    "w": 80,
+    "h": 80
+   },
+   "trim": {
+    "x": 21,
+    "y": 20
+   },
+   "pivot": [
+    40,
+    40
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -9.5,
+    -10,
+    9.5,
+    9.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1032,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dot",
+    "variant": 1
+   },
+   "bledTexels": 724
+  },
+  "dot-2": {
+   "page": 0,
+   "x": 736,
+   "y": 666,
+   "w": 37,
+   "h": 38,
+   "uv": [
+    0.359375,
+    0.650390625,
+    0.37744140625,
+    0.6875
+   ],
+   "source": {
+    "w": 80,
+    "h": 80
+   },
+   "trim": {
+    "x": 22,
+    "y": 20
+   },
+   "pivot": [
+    40,
+    40
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -9,
+    -10,
+    9.5,
+    9
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1284,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "dot",
+    "variant": 2
+   },
+   "bledTexels": 703
+  },
+  "fmn-blue-0": {
+   "page": 0,
+   "x": 1583,
+   "y": 194,
+   "w": 80,
+   "h": 141,
+   "uv": [
+    0.77294921875,
+    0.189453125,
+    0.81201171875,
+    0.3271484375
+   ],
+   "source": {
+    "w": 136,
+    "h": 180
+   },
+   "trim": {
+    "x": 20,
+    "y": 29
+   },
+   "pivot": [
+    68,
+    168
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -24,
+    -69.5,
+    16,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.5657,
+    "strokeCount": 8,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 3740
+  },
+  "fmn-blue-1": {
+   "page": 0,
+   "x": 1675,
+   "y": 185,
+   "w": 94,
+   "h": 156,
+   "uv": [
+    0.81787109375,
+    0.1806640625,
+    0.86376953125,
+    0.3330078125
+   ],
+   "source": {
+    "w": 136,
+    "h": 180
+   },
+   "trim": {
+    "x": 22,
+    "y": 14
+   },
+   "pivot": [
+    68,
+    168
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -23,
+    -77,
+    24,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.4206,
+    "strokeCount": 22,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 6167
+  },
+  "fmn-blue-2": {
+   "page": 0,
+   "x": 1050,
+   "y": 522,
+   "w": 90,
+   "h": 121,
+   "uv": [
+    0.5126953125,
+    0.509765625,
+    0.556640625,
+    0.6279296875
+   ],
+   "source": {
+    "w": 136,
+    "h": 180
+   },
+   "trim": {
+    "x": 20,
+    "y": 49
+   },
+   "pivot": [
+    68,
+    168
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -24,
+    -59.5,
+    21,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.9819,
+    "strokeCount": 15,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 4039
+  },
+  "fmn-grey-0": {
+   "page": 0,
+   "x": 1483,
+   "y": 356,
+   "w": 80,
+   "h": 141,
+   "uv": [
+    0.72412109375,
+    0.34765625,
+    0.76318359375,
+    0.4853515625
+   ],
+   "source": {
+    "w": 136,
+    "h": 180
+   },
+   "trim": {
+    "x": 20,
+    "y": 29
+   },
+   "pivot": [
+    68,
+    168
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -24,
+    -69.5,
+    16,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.5232,
+    "strokeCount": 8,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 3512
+  },
+  "fmn-grey-1": {
+   "page": 0,
+   "x": 1483,
+   "y": 194,
+   "w": 94,
+   "h": 156,
+   "uv": [
+    0.72412109375,
+    0.189453125,
+    0.77001953125,
+    0.341796875
+   ],
+   "source": {
+    "w": 136,
+    "h": 180
+   },
+   "trim": {
+    "x": 22,
+    "y": 14
+   },
+   "pivot": [
+    68,
+    168
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -23,
+    -77,
+    24,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.3083,
+    "strokeCount": 22,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 5282
+  },
+  "fmn-grey-2": {
+   "page": 0,
+   "x": 1307,
+   "y": 494,
+   "w": 90,
+   "h": 121,
+   "uv": [
+    0.63818359375,
+    0.482421875,
+    0.68212890625,
+    0.6005859375
+   ],
+   "source": {
+    "w": 136,
+    "h": 180
+   },
+   "trim": {
+    "x": 20,
+    "y": 49
+   },
+   "pivot": [
+    68,
+    168
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -24,
+    -59.5,
+    21,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.9747,
+    "strokeCount": 15,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 3433
+  },
+  "hover-0": {
+   "page": 0,
+   "x": 1081,
+   "y": 208,
+   "w": 184,
+   "h": 184,
+   "uv": [
+    0.52783203125,
+    0.203125,
+    0.61767578125,
+    0.3828125
+   ],
+   "source": {
+    "w": 224,
+    "h": 224
+   },
+   "trim": {
+    "x": 20,
+    "y": 18
+   },
+   "pivot": [
+    112,
+    112
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -46,
+    -47,
+    46,
+    45
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.8803,
+    "strokeCount": 8,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "hover",
+    "variant": 0
+   },
+   "bledTexels": 5807
+  },
+  "hover-1": {
+   "page": 0,
+   "x": 199,
+   "y": 407,
+   "w": 184,
+   "h": 188,
+   "uv": [
+    0.09716796875,
+    0.3974609375,
+    0.18701171875,
+    0.5810546875
+   ],
+   "source": {
+    "w": 224,
+    "h": 224
+   },
+   "trim": {
+    "x": 22,
+    "y": 20
+   },
+   "pivot": [
+    112,
+    112
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -45,
+    -46,
+    47,
+    48
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.8954,
+    "strokeCount": 8,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "hover",
+    "variant": 1
+   },
+   "bledTexels": 5894
+  },
+  "hover-2": {
+   "page": 0,
+   "x": 651,
+   "y": 407,
+   "w": 183,
+   "h": 178,
+   "uv": [
+    0.31787109375,
+    0.3974609375,
+    0.4072265625,
+    0.5712890625
+   ],
+   "source": {
+    "w": 224,
+    "h": 224
+   },
+   "trim": {
+    "x": 20,
+    "y": 24
+   },
+   "pivot": [
+    112,
+    112
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -46,
+    -44,
+    45.5,
+    45
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.904,
+    "strokeCount": 8,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "hover",
+    "variant": 2
+   },
+   "bledTexels": 4955
+  },
+  "pebble-open-0": {
+   "page": 0,
+   "x": 1583,
+   "y": 347,
+   "w": 139,
+   "h": 144,
+   "uv": [
+    0.77294921875,
+    0.3388671875,
+    0.8408203125,
+    0.4794921875
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 27,
+    "y": 4
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -34.5,
+    -68,
+    35,
+    4
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 2.7583,
+    "strokeCount": 46,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 9991
+  },
+  "pebble-open-1": {
+   "page": 0,
+   "x": 1909,
+   "y": 406,
+   "w": 119,
+   "h": 141,
+   "uv": [
+    0.93212890625,
+    0.396484375,
+    0.990234375,
+    0.5341796875
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 37,
+    "y": 8
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -29.5,
+    -66,
+    30,
+    4.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 2.4721,
+    "strokeCount": 43,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 9176
+  },
+  "pebble-open-2": {
+   "page": 0,
+   "x": 1856,
+   "y": 3,
+   "w": 157,
+   "h": 137,
+   "uv": [
+    0.90625,
+    0.0029296875,
+    0.98291015625,
+    0.13671875
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 17,
+    "y": 12
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -39.5,
+    -64,
+    39,
+    4.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 2.8318,
+    "strokeCount": 49,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 10101
+  },
+  "pebble-open-3": {
+   "page": 0,
+   "x": 1775,
+   "y": 256,
+   "w": 128,
+   "h": 148,
+   "uv": [
+    0.86669921875,
+    0.25,
+    0.92919921875,
+    0.39453125
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 30,
+    "y": 1
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -33,
+    -69.5,
+    31,
+    4.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 2.7501,
+    "strokeCount": 45,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 9830
+  },
+  "pebble-shut-0": {
+   "page": 0,
+   "x": 1728,
+   "y": 410,
+   "w": 140,
+   "h": 111,
+   "uv": [
+    0.84375,
+    0.400390625,
+    0.912109375,
+    0.5087890625
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 27,
+    "y": 37
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -34.5,
+    -51.5,
+    35.5,
+    4
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.8756,
+    "strokeCount": 32,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 8439
+  },
+  "pebble-shut-1": {
+   "page": 0,
+   "x": 1271,
+   "y": 380,
+   "w": 131,
+   "h": 108,
+   "uv": [
+    0.62060546875,
+    0.37109375,
+    0.6845703125,
+    0.4765625
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 25,
+    "y": 41
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -35.5,
+    -49.5,
+    30,
+    4.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.7179,
+    "strokeCount": 30,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 8312
+  },
+  "pebble-shut-2": {
+   "page": 0,
+   "x": 1856,
+   "y": 146,
+   "w": 157,
+   "h": 104,
+   "uv": [
+    0.90625,
+    0.142578125,
+    0.98291015625,
+    0.244140625
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 17,
+    "y": 45
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -39.5,
+    -47.5,
+    39,
+    4.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 2.0554,
+    "strokeCount": 35,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 8503
+  },
+  "pebble-shut-3": {
+   "page": 0,
+   "x": 1852,
+   "y": 553,
+   "w": 135,
+   "h": 112,
+   "uv": [
+    0.904296875,
+    0.5400390625,
+    0.97021484375,
+    0.6494140625
+   ],
+   "source": {
+    "w": 192,
+    "h": 156
+   },
+   "trim": {
+    "x": 23,
+    "y": 37
+   },
+   "pivot": [
+    96,
+    140
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -36.5,
+    -51.5,
+    31,
+    4.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.962,
+    "strokeCount": 32,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "pebble"
+   },
+   "bledTexels": 8681
+  },
+  "sel-cool-0": {
+   "page": 0,
+   "x": 1293,
+   "y": 3,
+   "w": 186,
+   "h": 180,
+   "uv": [
+    0.63134765625,
+    0.0029296875,
+    0.72216796875,
+    0.1787109375
+   ],
+   "source": {
+    "w": 232,
+    "h": 232
+   },
+   "trim": {
+    "x": 22,
+    "y": 31
+   },
+   "pivot": [
+    116,
+    116
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -47,
+    -42.5,
+    46,
+    47.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.9292,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sel-cool",
+    "variant": 0
+   },
+   "bledTexels": 10228
+  },
+  "sel-cool-1": {
+   "page": 0,
+   "x": 389,
+   "y": 409,
+   "w": 183,
+   "h": 174,
+   "uv": [
+    0.18994140625,
+    0.3994140625,
+    0.279296875,
+    0.5693359375
+   ],
+   "source": {
+    "w": 232,
+    "h": 232
+   },
+   "trim": {
+    "x": 24,
+    "y": 27
+   },
+   "pivot": [
+    116,
+    116
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -46,
+    -44.5,
+    45.5,
+    42.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.8671,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sel-cool",
+    "variant": 1
+   },
+   "bledTexels": 10354
+  },
+  "sel-cool-2": {
+   "page": 0,
+   "x": 1293,
+   "y": 189,
+   "w": 184,
+   "h": 185,
+   "uv": [
+    0.63134765625,
+    0.1845703125,
+    0.72119140625,
+    0.365234375
+   ],
+   "source": {
+    "w": 232,
+    "h": 232
+   },
+   "trim": {
+    "x": 23,
+    "y": 25
+   },
+   "pivot": [
+    116,
+    116
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -46.5,
+    -45.5,
+    45.5,
+    47
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.7698,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sel-cool",
+    "variant": 2
+   },
+   "bledTexels": 10061
+  },
+  "sel-warm-0": {
+   "page": 0,
+   "x": 863,
+   "y": 385,
+   "w": 181,
+   "h": 184,
+   "uv": [
+    0.42138671875,
+    0.3759765625,
+    0.509765625,
+    0.5556640625
+   ],
+   "source": {
+    "w": 232,
+    "h": 232
+   },
+   "trim": {
+    "x": 27,
+    "y": 24
+   },
+   "pivot": [
+    116,
+    116
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -44.5,
+    -46,
+    46,
+    46
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.7354,
+    "strokeCount": 3,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sel-warm",
+    "variant": 0
+   },
+   "bledTexels": 8719
+  },
+  "sel-warm-1": {
+   "page": 0,
+   "x": 389,
+   "y": 589,
+   "w": 182,
+   "h": 176,
+   "uv": [
+    0.18994140625,
+    0.5751953125,
+    0.27880859375,
+    0.7470703125
+   ],
+   "source": {
+    "w": 232,
+    "h": 232
+   },
+   "trim": {
+    "x": 27,
+    "y": 30
+   },
+   "pivot": [
+    116,
+    116
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -44.5,
+    -43,
+    46.5,
+    45
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.7468,
+    "strokeCount": 3,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sel-warm",
+    "variant": 1
+   },
+   "bledTexels": 10312
+  },
+  "sel-warm-2": {
+   "page": 0,
+   "x": 1675,
+   "y": 3,
+   "w": 175,
+   "h": 176,
+   "uv": [
+    0.81787109375,
+    0.0029296875,
+    0.9033203125,
+    0.1748046875
+   ],
+   "source": {
+    "w": 232,
+    "h": 232
+   },
+   "trim": {
+    "x": 34,
+    "y": 26
+   },
+   "pivot": [
+    116,
+    116
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -41,
+    -45,
+    46.5,
+    43
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.8741,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sel-warm",
+    "variant": 2
+   },
+   "bledTexels": 8267
+  },
+  "sweat-0": {
+   "page": 0,
+   "x": 1050,
+   "y": 398,
+   "w": 123,
+   "h": 118,
+   "uv": [
+    0.5126953125,
+    0.388671875,
+    0.57275390625,
+    0.50390625
+   ],
+   "source": {
+    "w": 168,
+    "h": 200
+   },
+   "trim": {
+    "x": 27,
+    "y": 71
+   },
+   "pivot": [
+    68,
+    184
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -20.5,
+    -56.5,
+    41,
+    2.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.1099,
+    "strokeCount": 17,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sweat",
+    "variant": 0
+   },
+   "bledTexels": 4496
+  },
+  "sweat-1": {
+   "page": 0,
+   "x": 1146,
+   "y": 614,
+   "w": 119,
+   "h": 112,
+   "uv": [
+    0.5595703125,
+    0.599609375,
+    0.61767578125,
+    0.708984375
+   ],
+   "source": {
+    "w": 168,
+    "h": 200
+   },
+   "trim": {
+    "x": 31,
+    "y": 75
+   },
+   "pivot": [
+    68,
+    184
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -18.5,
+    -54.5,
+    41,
+    1.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.1306,
+    "strokeCount": 17,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sweat",
+    "variant": 1
+   },
+   "bledTexels": 3922
+  },
+  "sweat-2": {
+   "page": 0,
+   "x": 1179,
+   "y": 494,
+   "w": 122,
+   "h": 114,
+   "uv": [
+    0.57568359375,
+    0.482421875,
+    0.63525390625,
+    0.59375
+   ],
+   "source": {
+    "w": 168,
+    "h": 200
+   },
+   "trim": {
+    "x": 28,
+    "y": 75
+   },
+   "pivot": [
+    68,
+    184
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -20,
+    -54.5,
+    41,
+    2.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 1.0869,
+    "strokeCount": 17,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "sweat",
+    "variant": 2
+   },
+   "bledTexels": 4038
+  },
+  "target-0": {
+   "page": 0,
+   "x": 1909,
+   "y": 256,
+   "w": 130,
+   "h": 144,
+   "uv": [
+    0.93212890625,
+    0.25,
+    0.99560546875,
+    0.390625
+   ],
+   "source": {
+    "w": 180,
+    "h": 184
+   },
+   "trim": {
+    "x": 19,
+    "y": 20
+   },
+   "pivot": [
+    84,
+    100
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -32.5,
+    -40,
+    32.5,
+    32
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.9166,
+    "strokeCount": 14,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "target",
+    "variant": 0
+   },
+   "bledTexels": 5504
+  },
+  "target-1": {
+   "page": 0,
+   "x": 1569,
+   "y": 497,
+   "w": 134,
+   "h": 139,
+   "uv": [
+    0.76611328125,
+    0.4853515625,
+    0.83154296875,
+    0.62109375
+   ],
+   "source": {
+    "w": 180,
+    "h": 184
+   },
+   "trim": {
+    "x": 18,
+    "y": 23
+   },
+   "pivot": [
+    84,
+    100
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -33,
+    -38.5,
+    34,
+    31
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.7913,
+    "strokeCount": 13,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "target",
+    "variant": 1
+   },
+   "bledTexels": 5618
+  },
+  "target-2": {
+   "page": 0,
+   "x": 1709,
+   "y": 527,
+   "w": 137,
+   "h": 136,
+   "uv": [
+    0.83447265625,
+    0.5146484375,
+    0.9013671875,
+    0.6474609375
+   ],
+   "source": {
+    "w": 180,
+    "h": 184
+   },
+   "trim": {
+    "x": 19,
+    "y": 27
+   },
+   "pivot": [
+    84,
+    100
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -32.5,
+    -36.5,
+    36,
+    31.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.8611,
+    "strokeCount": 13,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "target",
+    "variant": 2
+   },
+   "bledTexels": 5552
+  },
+  "ticks-0": {
+   "page": 0,
+   "x": 1146,
+   "y": 522,
+   "w": 27,
+   "h": 26,
+   "uv": [
+    0.5595703125,
+    0.509765625,
+    0.57275390625,
+    0.53515625
+   ],
+   "source": {
+    "w": 96,
+    "h": 60
+   },
+   "trim": {
+    "x": 36,
+    "y": 24
+   },
+   "pivot": [
+    48,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -6,
+    -12,
+    7.5,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1464,
+    "strokeCount": 3,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 699
+  },
+  "ticks-1": {
+   "page": 0,
+   "x": 847,
+   "y": 661,
+   "w": 37,
+   "h": 37,
+   "uv": [
+    0.41357421875,
+    0.6455078125,
+    0.431640625,
+    0.681640625
+   ],
+   "source": {
+    "w": 96,
+    "h": 60
+   },
+   "trim": {
+    "x": 27,
+    "y": 13
+   },
+   "pivot": [
+    48,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -10.5,
+    -17.5,
+    8,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.2339,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 1170
+  },
+  "ticks-2": {
+   "page": 0,
+   "x": 1115,
+   "y": 649,
+   "w": 24,
+   "h": 24,
+   "uv": [
+    0.54443359375,
+    0.6337890625,
+    0.55615234375,
+    0.6572265625
+   ],
+   "source": {
+    "w": 96,
+    "h": 60
+   },
+   "trim": {
+    "x": 35,
+    "y": 26
+   },
+   "pivot": [
+    48,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -6.5,
+    -11,
+    5.5,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1476,
+    "strokeCount": 3,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 633
+  },
+  "ticks-3": {
+   "page": 0,
+   "x": 802,
+   "y": 661,
+   "w": 39,
+   "h": 32,
+   "uv": [
+    0.3916015625,
+    0.6455078125,
+    0.41064453125,
+    0.6767578125
+   ],
+   "source": {
+    "w": 96,
+    "h": 60
+   },
+   "trim": {
+    "x": 25,
+    "y": 18
+   },
+   "pivot": [
+    48,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -11.5,
+    -15,
+    8,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1967,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 1148
+  },
+  "toad-0": {
+   "page": 0,
+   "x": 649,
+   "y": 591,
+   "w": 81,
+   "h": 78,
+   "uv": [
+    0.31689453125,
+    0.5771484375,
+    0.3564453125,
+    0.6533203125
+   ],
+   "source": {
+    "w": 120,
+    "h": 124
+   },
+   "trim": {
+    "x": 19,
+    "y": 36
+   },
+   "pivot": [
+    60,
+    112
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -20.5,
+    -38,
+    20,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.8626,
+    "strokeCount": 15,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 3272
+  },
+  "toad-1": {
+   "page": 0,
+   "x": 1775,
+   "y": 185,
+   "w": 63,
+   "h": 61,
+   "uv": [
+    0.86669921875,
+    0.1806640625,
+    0.8974609375,
+    0.240234375
+   ],
+   "source": {
+    "w": 120,
+    "h": 124
+   },
+   "trim": {
+    "x": 29,
+    "y": 53
+   },
+   "pivot": [
+    60,
+    112
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -15.5,
+    -29.5,
+    16,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.5842,
+    "strokeCount": 10,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 2381
+  },
+  "toad-2": {
+   "page": 0,
+   "x": 840,
+   "y": 575,
+   "w": 87,
+   "h": 80,
+   "uv": [
+    0.41015625,
+    0.5615234375,
+    0.45263671875,
+    0.6396484375
+   ],
+   "source": {
+    "w": 120,
+    "h": 124
+   },
+   "trim": {
+    "x": 18,
+    "y": 34
+   },
+   "pivot": [
+    60,
+    112
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -21,
+    -39,
+    22.5,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.9128,
+    "strokeCount": 16,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 3312
+  },
+  "trail-arrow-cool-0": {
+   "page": 0,
+   "x": 1408,
+   "y": 380,
+   "w": 67,
+   "h": 84,
+   "uv": [
+    0.6875,
+    0.37109375,
+    0.72021484375,
+    0.453125
+   ],
+   "source": {
+    "w": 96,
+    "h": 96
+   },
+   "trim": {
+    "x": 22,
+    "y": 8
+   },
+   "pivot": [
+    80,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -29,
+    -20,
+    4.5,
+    22
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1094,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-arrow-cool",
+    "variant": 0
+   },
+   "bledTexels": 2053
+  },
+  "trail-arrow-cool-1": {
+   "page": 0,
+   "x": 577,
+   "y": 595,
+   "w": 66,
+   "h": 81,
+   "uv": [
+    0.28173828125,
+    0.5810546875,
+    0.31396484375,
+    0.66015625
+   ],
+   "source": {
+    "w": 96,
+    "h": 96
+   },
+   "trim": {
+    "x": 22,
+    "y": 9
+   },
+   "pivot": [
+    80,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -29,
+    -19.5,
+    4,
+    21
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0974,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-arrow-cool",
+    "variant": 1
+   },
+   "bledTexels": 2015
+  },
+  "trail-arrow-cool-2": {
+   "page": 0,
+   "x": 1494,
+   "y": 590,
+   "w": 64,
+   "h": 81,
+   "uv": [
+    0.7294921875,
+    0.576171875,
+    0.7607421875,
+    0.6552734375
+   ],
+   "source": {
+    "w": 96,
+    "h": 96
+   },
+   "trim": {
+    "x": 24,
+    "y": 6
+   },
+   "pivot": [
+    80,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -28,
+    -21,
+    4,
+    19.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.107,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-arrow-cool",
+    "variant": 2
+   },
+   "bledTexels": 1972
+  },
+  "trail-arrow-warm-0": {
+   "page": 0,
+   "x": 578,
+   "y": 409,
+   "w": 66,
+   "h": 88,
+   "uv": [
+    0.2822265625,
+    0.3994140625,
+    0.314453125,
+    0.4853515625
+   ],
+   "source": {
+    "w": 96,
+    "h": 96
+   },
+   "trim": {
+    "x": 22,
+    "y": 4
+   },
+   "pivot": [
+    80,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -29,
+    -22,
+    4,
+    22
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1006,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-arrow-warm",
+    "variant": 0
+   },
+   "bledTexels": 2085
+  },
+  "trail-arrow-warm-1": {
+   "page": 0,
+   "x": 578,
+   "y": 503,
+   "w": 65,
+   "h": 86,
+   "uv": [
+    0.2822265625,
+    0.4912109375,
+    0.31396484375,
+    0.5751953125
+   ],
+   "source": {
+    "w": 96,
+    "h": 96
+   },
+   "trim": {
+    "x": 23,
+    "y": 5
+   },
+   "pivot": [
+    80,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -28.5,
+    -21.5,
+    4,
+    21.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1042,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-arrow-warm",
+    "variant": 1
+   },
+   "bledTexels": 2013
+  },
+  "trail-arrow-warm-2": {
+   "page": 0,
+   "x": 1494,
+   "y": 503,
+   "w": 65,
+   "h": 81,
+   "uv": [
+    0.7294921875,
+    0.4912109375,
+    0.76123046875,
+    0.5703125
+   ],
+   "source": {
+    "w": 96,
+    "h": 96
+   },
+   "trim": {
+    "x": 23,
+    "y": 6
+   },
+   "pivot": [
+    80,
+    48
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -28.5,
+    -21,
+    4,
+    19.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0993,
+    "strokeCount": 2,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-arrow-warm",
+    "variant": 2
+   },
+   "bledTexels": 1987
+  },
+  "trail-dot-cool-0": {
+   "page": 0,
+   "x": 2019,
+   "y": 3,
+   "w": 26,
+   "h": 24,
+   "uv": [
+    0.98583984375,
+    0.0029296875,
+    0.99853515625,
+    0.0263671875
+   ],
+   "source": {
+    "w": 48,
+    "h": 48
+   },
+   "trim": {
+    "x": 12,
+    "y": 13
+   },
+   "pivot": [
+    24,
+    24
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -6,
+    -5.5,
+    7,
+    6.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0415,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-dot-cool",
+    "variant": 0
+   },
+   "bledTexels": 453
+  },
+  "trail-dot-cool-1": {
+   "page": 0,
+   "x": 1408,
+   "y": 470,
+   "w": 25,
+   "h": 27,
+   "uv": [
+    0.6875,
+    0.458984375,
+    0.69970703125,
+    0.4853515625
+   ],
+   "source": {
+    "w": 48,
+    "h": 48
+   },
+   "trim": {
+    "x": 10,
+    "y": 12
+   },
+   "pivot": [
+    24,
+    24
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -7,
+    -6,
+    5.5,
+    7.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0564,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-dot-cool",
+    "variant": 1
+   },
+   "bledTexels": 462
+  },
+  "trail-dot-cool-2": {
+   "page": 0,
+   "x": 1874,
+   "y": 410,
+   "w": 28,
+   "h": 29,
+   "uv": [
+    0.9150390625,
+    0.400390625,
+    0.9287109375,
+    0.4287109375
+   ],
+   "source": {
+    "w": 48,
+    "h": 48
+   },
+   "trim": {
+    "x": 11,
+    "y": 11
+   },
+   "pivot": [
+    24,
+    24
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -6.5,
+    -6.5,
+    7.5,
+    8
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0474,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-dot-cool",
+    "variant": 2
+   },
+   "bledTexels": 520
+  },
+  "trail-dot-warm-0": {
+   "page": 0,
+   "x": 1115,
+   "y": 679,
+   "w": 23,
+   "h": 24,
+   "uv": [
+    0.54443359375,
+    0.6630859375,
+    0.5556640625,
+    0.6865234375
+   ],
+   "source": {
+    "w": 48,
+    "h": 48
+   },
+   "trim": {
+    "x": 14,
+    "y": 11
+   },
+   "pivot": [
+    24,
+    24
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -5,
+    -6.5,
+    6.5,
+    5.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0581,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-dot-warm",
+    "variant": 0
+   },
+   "bledTexels": 424
+  },
+  "trail-dot-warm-1": {
+   "page": 0,
+   "x": 1874,
+   "y": 479,
+   "w": 29,
+   "h": 26,
+   "uv": [
+    0.9150390625,
+    0.4677734375,
+    0.92919921875,
+    0.4931640625
+   ],
+   "source": {
+    "w": 48,
+    "h": 48
+   },
+   "trim": {
+    "x": 11,
+    "y": 10
+   },
+   "pivot": [
+    24,
+    24
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -6.5,
+    -7,
+    8,
+    6
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0549,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-dot-warm",
+    "variant": 1
+   },
+   "bledTexels": 520
+  },
+  "trail-dot-warm-2": {
+   "page": 0,
+   "x": 1874,
+   "y": 445,
+   "w": 29,
+   "h": 28,
+   "uv": [
+    0.9150390625,
+    0.4345703125,
+    0.92919921875,
+    0.4619140625
+   ],
+   "source": {
+    "w": 48,
+    "h": 48
+   },
+   "trim": {
+    "x": 11,
+    "y": 10
+   },
+   "pivot": [
+    24,
+    24
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -6.5,
+    -7,
+    8,
+    7
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.0462,
+    "strokeCount": 1,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "marker",
+    "base": "trail-dot-warm",
+    "variant": 2
+   },
+   "bledTexels": 530
+  },
+  "tuft-0": {
+   "page": 0,
+   "x": 1993,
+   "y": 647,
+   "w": 34,
+   "h": 61,
+   "uv": [
+    0.97314453125,
+    0.6318359375,
+    0.98974609375,
+    0.69140625
+   ],
+   "source": {
+    "w": 112,
+    "h": 116
+   },
+   "trim": {
+    "x": 40,
+    "y": 45
+   },
+   "pivot": [
+    56,
+    104
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -8,
+    -29.5,
+    9,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.2045,
+    "strokeCount": 4,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 1337
+  },
+  "tuft-1": {
+   "page": 0,
+   "x": 1993,
+   "y": 553,
+   "w": 40,
+   "h": 88,
+   "uv": [
+    0.97314453125,
+    0.5400390625,
+    0.99267578125,
+    0.6259765625
+   ],
+   "source": {
+    "w": 112,
+    "h": 116
+   },
+   "trim": {
+    "x": 43,
+    "y": 20
+   },
+   "pivot": [
+    56,
+    104
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -6.5,
+    -42,
+    13.5,
+    2
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.3551,
+    "strokeCount": 7,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 2187
+  },
+  "tuft-2": {
+   "page": 0,
+   "x": 2034,
+   "y": 406,
+   "w": 11,
+   "h": 52,
+   "uv": [
+    0.9931640625,
+    0.396484375,
+    0.99853515625,
+    0.447265625
+   ],
+   "source": {
+    "w": 112,
+    "h": 116
+   },
+   "trim": {
+    "x": 50,
+    "y": 54
+   },
+   "pivot": [
+    56,
+    104
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -3,
+    -25,
+    2.5,
+    1
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.1244,
+    "strokeCount": 3,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 528
+  },
+  "tuft-3": {
+   "page": 0,
+   "x": 736,
+   "y": 591,
+   "w": 60,
+   "h": 69,
+   "uv": [
+    0.359375,
+    0.5771484375,
+    0.388671875,
+    0.64453125
+   ],
+   "source": {
+    "w": 112,
+    "h": 116
+   },
+   "trim": {
+    "x": 31,
+    "y": 39
+   },
+   "pivot": [
+    56,
+    104
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -12.5,
+    -32.5,
+    17.5,
+    2
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 0.3096,
+    "strokeCount": 6,
+    "matte": "none",
+    "marks": {},
+    "kind": "decal",
+    "group": "garden"
+   },
+   "bledTexels": 2435
+  }
+ },
+ "ppu": 200,
+ "artUnitsPerWorldUnit": 100
+}

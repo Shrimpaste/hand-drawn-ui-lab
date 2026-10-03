@@ -1,0 +1,154 @@
+{
+ "version": 1,
+ "name": "tape",
+ "padding": 3,
+ "alpha": "straight",
+ "bleed": true,
+ "timeLayout": "RGB: R ink q8, G fill q8, B silhouette alpha; same layout as the colour page",
+ "pages": [
+  {
+   "index": 0,
+   "w": 1024,
+   "h": 512,
+   "color": "tape-0.png",
+   "time": "tape-0.t.png",
+   "fill": 0.5694
+  }
+ ],
+ "entries": {
+  "tape-0": {
+   "page": 0,
+   "x": 3,
+   "y": 219,
+   "w": 478,
+   "h": 189,
+   "uv": [
+    0.0029296875,
+    0.427734375,
+    0.4697265625,
+    0.796875
+   ],
+   "source": {
+    "w": 516,
+    "h": 224
+   },
+   "trim": {
+    "x": 18,
+    "y": 20
+   },
+   "pivot": [
+    258,
+    112
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -120,
+    -46,
+    119,
+    48.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 11.2422,
+    "strokeCount": 48,
+    "matte": "none",
+    "marks": {},
+    "kind": "tape",
+    "lenWorld": 2.3,
+    "widWorld": 0.84
+   },
+   "bledTexels": 26196
+  },
+  "tape-1": {
+   "page": 0,
+   "x": 3,
+   "y": 3,
+   "w": 562,
+   "h": 210,
+   "uv": [
+    0.0029296875,
+    0.005859375,
+    0.5517578125,
+    0.416015625
+   ],
+   "source": {
+    "w": 580,
+    "h": 236
+   },
+   "trim": {
+    "x": 12,
+    "y": 17
+   },
+   "pivot": [
+    290,
+    118
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -139,
+    -50.5,
+    142,
+    54.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 12.9607,
+    "strokeCount": 60,
+    "matte": "none",
+    "marks": {},
+    "kind": "tape",
+    "lenWorld": 2.62,
+    "widWorld": 0.9
+   },
+   "bledTexels": 36164
+  },
+  "tape-2": {
+   "page": 0,
+   "x": 571,
+   "y": 3,
+   "w": 416,
+   "h": 187,
+   "uv": [
+    0.5576171875,
+    0.005859375,
+    0.9638671875,
+    0.37109375
+   ],
+   "source": {
+    "w": 464,
+    "h": 216
+   },
+   "trim": {
+    "x": 24,
+    "y": 10
+   },
+   "pivot": [
+    232,
+    108
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -104,
+    -49,
+    104,
+    44.5
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 9.2301,
+    "strokeCount": 44,
+    "matte": "none",
+    "marks": {},
+    "kind": "tape",
+    "lenWorld": 2.04,
+    "widWorld": 0.8
+   },
+   "bledTexels": 16913
+  }
+ },
+ "ppu": 200,
+ "artUnitsPerWorldUnit": 100
+}

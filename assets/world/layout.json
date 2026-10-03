@@ -1,0 +1,6339 @@
+{
+ "version": 1,
+ "generatedBy": "tools/lab-world-layout-json.mjs from tools/lab-world-layout-data.mjs + tools/lab-world-actors-data.mjs (run: node art/world/layout-sketch.mjs)",
+ "units": "1 = one board square; x right, y away from the player (white side at -y), z up; rect = [x0, y0, x1, y1]; 1 world unit ~ 100 PenHands art units",
+ "sheet": {
+  "x0": -11,
+  "y0": -10,
+  "x1": 11,
+  "y1": 10
+ },
+ "board": {
+  "rect": [
+   -4,
+   -4,
+   4,
+   4
+  ],
+  "ringRect": [
+   -4.9,
+   -4.75,
+   4.6,
+   4.6
+  ],
+  "note": "the ring (frame, coordinates, corner pebbles, tape) belongs to board-paper; the world keeps everything else out of it, except standing sprites that overlap its rim"
+ },
+ "flatPictureStretch": {
+  "yStretch": 1.2,
+  "note": "the paper is seen at 56 degrees: ground y is foreshortened to ~0.83. Region artists draw pictures as they should look on screen and bake them with ctx.scale(1, 1.2) so the world rect height = 1.2 x picture height."
+ },
+ "camera": {
+  "requestedFit": {
+   "x0": -5.2,
+   "y0": -6.1,
+   "x1": 5.2,
+   "y1": 5.6
+  },
+  "currentFit": {
+   "x0": -5.2,
+   "y0": -5.4,
+   "x1": 5.2,
+   "y1": 5.6
+  },
+  "alwaysVisible": "the requestedFit rect x -5.2..5.2, y -6.1..5.6 is visible in every window shape; in addition y -6.1..7.9 (aspect >= 1.2) is visible up to the half-widths in `table`",
+  "modes": {
+   "W": {
+    "minAspect": 1.3
+   },
+   "S": {
+    "minAspect": 0.72
+   },
+   "T": {
+    "minAspect": 0
+   },
+   "hysteresis": 0.05
+  },
+  "table": [
+   {
+    "aspect": 0.46,
+    "size": [
+     460,
+     1000
+    ],
+    "mode": "T",
+    "visible": {
+     "yNear": -13.08,
+     "yFar": 17.31,
+     "xNear": [
+      -4.89,
+      4.89
+     ],
+     "xFar": [
+      -6.7,
+      6.7
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 5.67,
+     "4": 5.91,
+     "6": 6.02,
+     "-5.5": 5.34,
+     "-4": 5.43,
+     "7.5": 6.11
+    },
+    "pxPerUnit": {
+     "boardCentre": 40.58,
+     "nearEdge": 47.01,
+     "farEdge": 34.35,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      34,
+      426
+     ],
+     "yPx": [
+      344,
+      654
+     ],
+     "belowRingPx": 346,
+     "aboveRingPx": 344
+    },
+    "dock": {
+     "twoRows": true,
+     "slide": 0,
+     "uiScale": 1.5,
+     "statusScale": 1.54
+    }
+   },
+   {
+    "aspect": 0.56,
+    "size": [
+     560,
+     1000
+    ],
+    "mode": "T",
+    "visible": {
+     "yNear": -10.93,
+     "yFar": 14.37,
+     "xNear": [
+      -4.96,
+      4.96
+     ],
+     "xFar": [
+      -6.79,
+      6.79
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 5.75,
+     "4": 6.04,
+     "6": 6.18,
+     "-5.5": 5.35,
+     "-4": 5.46,
+     "7.5": 6.29
+    },
+    "pxPerUnit": {
+     "boardCentre": 48.72,
+     "nearEdge": 56.48,
+     "farEdge": 41.27,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      42,
+      518
+     ],
+     "yPx": [
+      315,
+      686
+     ],
+     "belowRingPx": 314,
+     "aboveRingPx": 315
+    },
+    "dock": {
+     "twoRows": true,
+     "slide": 0,
+     "uiScale": 1.36,
+     "statusScale": 1.27
+    }
+   },
+   {
+    "aspect": 0.75,
+    "size": [
+     750,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -8.42,
+     "yFar": 10.94,
+     "xNear": [
+      -5.08,
+      5.08
+     ],
+     "xFar": [
+      -6.96,
+      6.96
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 5.9,
+     "4": 6.28,
+     "6": 6.48,
+     "-5.5": 5.36,
+     "-4": 5.51,
+     "7.5": 6.62
+    },
+    "pxPerUnit": {
+     "boardCentre": 63.59,
+     "nearEdge": 73.79,
+     "farEdge": 53.92,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      59,
+      691
+     ],
+     "yPx": [
+      262,
+      748
+     ],
+     "belowRingPx": 252,
+     "aboveRingPx": 262
+    },
+    "dock": {
+     "twoRows": true,
+     "slide": 0,
+     "uiScale": 1.02,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 0.9,
+    "size": [
+     900,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -7.19,
+     "yFar": 9.25,
+     "xNear": [
+      -5.18,
+      5.18
+     ],
+     "xFar": [
+      -7.09,
+      7.09
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 6.01,
+     "4": 6.48,
+     "6": 6.71,
+     "-5.5": 5.38,
+     "-4": 5.55,
+     "7.5": 6.89
+    },
+    "pxPerUnit": {
+     "boardCentre": 74.81,
+     "nearEdge": 86.86,
+     "farEdge": 63.48,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      72,
+      828
+     ],
+     "yPx": [
+      224,
+      796
+     ],
+     "belowRingPx": 204,
+     "aboveRingPx": 224
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1,
+    "size": [
+     1000,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -6.58,
+     "yFar": 8.41,
+     "xNear": [
+      -5.24,
+      5.24
+     ],
+     "xFar": [
+      -7.18,
+      7.18
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 6.09,
+     "4": 6.61,
+     "6": 6.87,
+     "-5.5": 5.38,
+     "-4": 5.58,
+     "7.5": 7.06
+    },
+    "pxPerUnit": {
+     "boardCentre": 82.05,
+     "nearEdge": 95.31,
+     "farEdge": 69.66,
+     "vertical_over_horizontal": 0.82
+    },
+    "boardRing": {
+     "xPx": [
+      82,
+      918
+     ],
+     "yPx": [
+      199,
+      828
+     ],
+     "belowRingPx": 172,
+     "aboveRingPx": 199
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.2,
+    "size": [
+     1200,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -6.2,
+     "yFar": 7.9,
+     "xNear": [
+      -5.92,
+      5.92
+     ],
+     "xFar": [
+      -8.11,
+      8.11
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 6.88,
+     "4": 7.5,
+     "6": 7.81,
+     "-5.5": 6.03,
+     "-4": 6.26,
+     "7.5": 8.05
+    },
+    "pxPerUnit": {
+     "boardCentre": 87.16,
+     "nearEdge": 101.28,
+     "farEdge": 74.02,
+     "vertical_over_horizontal": 0.82
+    },
+    "boardRing": {
+     "xPx": [
+      153,
+      1047
+     ],
+     "yPx": [
+      182,
+      851
+     ],
+     "belowRingPx": 149,
+     "aboveRingPx": 182
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.33,
+    "size": [
+     1330,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -6.2,
+     "yFar": 7.9,
+     "xNear": [
+      -6.56,
+      6.56
+     ],
+     "xFar": [
+      -8.99,
+      8.99
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 7.63,
+     "4": 8.32,
+     "6": 8.66,
+     "-5.5": 6.68,
+     "-4": 6.94,
+     "7.5": 8.92
+    },
+    "pxPerUnit": {
+     "boardCentre": 87.16,
+     "nearEdge": 101.28,
+     "farEdge": 74.02,
+     "vertical_over_horizontal": 0.82
+    },
+    "boardRing": {
+     "xPx": [
+      218,
+      1112
+     ],
+     "yPx": [
+      182,
+      851
+     ],
+     "belowRingPx": 149,
+     "aboveRingPx": 182
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0.77,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.6,
+    "size": [
+     1600,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -6.2,
+     "yFar": 7.9,
+     "xNear": [
+      -7.9,
+      7.9
+     ],
+     "xFar": [
+      -10.81,
+      10.81
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 9.18,
+     "4": 10,
+     "6": 10.42,
+     "-5.5": 8.04,
+     "-4": 8.35,
+     "7.5": 10.73
+    },
+    "pxPerUnit": {
+     "boardCentre": 87.16,
+     "nearEdge": 101.28,
+     "farEdge": 74.02,
+     "vertical_over_horizontal": 0.82
+    },
+    "boardRing": {
+     "xPx": [
+      353,
+      1247
+     ],
+     "yPx": [
+      182,
+      851
+     ],
+     "belowRingPx": 149,
+     "aboveRingPx": 182
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.7,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.78,
+    "size": [
+     1780,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -6.2,
+     "yFar": 7.9,
+     "xNear": [
+      -8.79,
+      8.79
+     ],
+     "xFar": [
+      -12.03,
+      12.03
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 10.21,
+     "4": 11.13,
+     "6": 11.59,
+     "-5.5": 8.95,
+     "-4": 9.29,
+     "7.5": 11.93
+    },
+    "pxPerUnit": {
+     "boardCentre": 87.16,
+     "nearEdge": 101.28,
+     "farEdge": 74.02,
+     "vertical_over_horizontal": 0.82
+    },
+    "boardRing": {
+     "xPx": [
+      443,
+      1337
+     ],
+     "yPx": [
+      182,
+      851
+     ],
+     "belowRingPx": 149,
+     "aboveRingPx": 182
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.7,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 2.1,
+    "size": [
+     2100,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -6.2,
+     "yFar": 7.9,
+     "xNear": [
+      -10.36,
+      10.36
+     ],
+     "xFar": [
+      -14.19,
+      14.19
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 12.05,
+     "4": 13.13,
+     "6": 13.67,
+     "-5.5": 10.56,
+     "-4": 10.96,
+     "7.5": 14.08
+    },
+    "pxPerUnit": {
+     "boardCentre": 87.16,
+     "nearEdge": 101.28,
+     "farEdge": 74.02,
+     "vertical_over_horizontal": 0.82
+    },
+    "boardRing": {
+     "xPx": [
+      603,
+      1497
+     ],
+     "yPx": [
+      182,
+      851
+     ],
+     "belowRingPx": 149,
+     "aboveRingPx": 182
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.7,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 2.4,
+    "size": [
+     2400,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -6.2,
+     "yFar": 7.9,
+     "xNear": [
+      -11.85,
+      11.85
+     ],
+     "xFar": [
+      -16.21,
+      16.21
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 13.77,
+     "4": 15.01,
+     "6": 15.63,
+     "-5.5": 12.06,
+     "-4": 12.53,
+     "7.5": 16.09
+    },
+    "pxPerUnit": {
+     "boardCentre": 87.16,
+     "nearEdge": 101.28,
+     "farEdge": 74.02,
+     "vertical_over_horizontal": 0.82
+    },
+    "boardRing": {
+     "xPx": [
+      753,
+      1647
+     ],
+     "yPx": [
+      182,
+      851
+     ],
+     "belowRingPx": 149,
+     "aboveRingPx": 182
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.7,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   }
+  ],
+  "tableCurrentFit": [
+   {
+    "aspect": 0.46,
+    "size": [
+     460,
+     1000
+    ],
+    "mode": "T",
+    "visible": {
+     "yNear": -12.68,
+     "yFar": 17.59,
+     "xNear": [
+      -4.87,
+      4.87
+     ],
+     "xFar": [
+      -6.67,
+      6.67
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 5.63,
+     "4": 5.86,
+     "6": 5.98,
+     "-5.5": 5.3,
+     "-4": 5.39,
+     "7.5": 6.07
+    },
+    "pxPerUnit": {
+     "boardCentre": 40.88,
+     "nearEdge": 47.19,
+     "farEdge": 34.48,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      32,
+      428
+     ],
+     "yPx": [
+      355,
+      667
+     ],
+     "belowRingPx": 333,
+     "aboveRingPx": 355
+    },
+    "dock": {
+     "twoRows": true,
+     "slide": 0,
+     "uiScale": 1.5,
+     "statusScale": 1.53
+    }
+   },
+   {
+    "aspect": 0.56,
+    "size": [
+     560,
+     1000
+    ],
+    "mode": "T",
+    "visible": {
+     "yNear": -10.53,
+     "yFar": 14.65,
+     "xNear": [
+      -4.94,
+      4.94
+     ],
+     "xFar": [
+      -6.76,
+      6.76
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 5.7,
+     "4": 5.99,
+     "6": 6.13,
+     "-5.5": 5.3,
+     "-4": 5.41,
+     "7.5": 6.24
+    },
+    "pxPerUnit": {
+     "boardCentre": 49.15,
+     "nearEdge": 56.73,
+     "farEdge": 41.45,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      40,
+      520
+     ],
+     "yPx": [
+      327,
+      703
+     ],
+     "belowRingPx": 297,
+     "aboveRingPx": 327
+    },
+    "dock": {
+     "twoRows": true,
+     "slide": 0,
+     "uiScale": 1.35,
+     "statusScale": 1.26
+    }
+   },
+   {
+    "aspect": 0.75,
+    "size": [
+     750,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -8.03,
+     "yFar": 11.22,
+     "xNear": [
+      -5.05,
+      5.05
+     ],
+     "xFar": [
+      -6.92,
+      6.92
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 5.83,
+     "4": 6.22,
+     "6": 6.41,
+     "-5.5": 5.3,
+     "-4": 5.44,
+     "7.5": 6.56
+    },
+    "pxPerUnit": {
+     "boardCentre": 64.33,
+     "nearEdge": 74.21,
+     "farEdge": 54.23,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      55,
+      695
+     ],
+     "yPx": [
+      277,
+      771
+     ],
+     "belowRingPx": 229,
+     "aboveRingPx": 277
+    },
+    "dock": {
+     "twoRows": true,
+     "slide": 0,
+     "uiScale": 1.01,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 0.9,
+    "size": [
+     900,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -6.79,
+     "yFar": 9.54,
+     "xNear": [
+      -5.14,
+      5.14
+     ],
+     "xFar": [
+      -7.04,
+      7.04
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 5.93,
+     "4": 6.4,
+     "6": 6.63,
+     "-5.5": 5.29,
+     "-4": 5.47,
+     "7.5": 6.8
+    },
+    "pxPerUnit": {
+     "boardCentre": 75.84,
+     "nearEdge": 87.46,
+     "farEdge": 63.92,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      67,
+      833
+     ],
+     "yPx": [
+      240,
+      825
+     ],
+     "belowRingPx": 175,
+     "aboveRingPx": 240
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1,
+    "size": [
+     1000,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -6.18,
+     "yFar": 8.7,
+     "xNear": [
+      -5.21,
+      5.21
+     ],
+     "xFar": [
+      -7.13,
+      7.13
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 6,
+     "4": 6.52,
+     "6": 6.78,
+     "-5.5": 5.29,
+     "-4": 5.49,
+     "7.5": 6.97
+    },
+    "pxPerUnit": {
+     "boardCentre": 83.29,
+     "nearEdge": 96.03,
+     "farEdge": 70.18,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      75,
+      925
+     ],
+     "yPx": [
+      217,
+      860
+     ],
+     "belowRingPx": 140,
+     "aboveRingPx": 217
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.2,
+    "size": [
+     1200,
+     1000
+    ],
+    "mode": "S",
+    "visible": {
+     "yNear": -5.5,
+     "yFar": 7.76,
+     "xNear": [
+      -5.57,
+      5.57
+     ],
+     "xFar": [
+      -7.62,
+      7.62
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 6.42,
+     "4": 7.04,
+     "6": 7.35,
+     "-5.5": null,
+     "-4": 5.8,
+     "7.5": 7.58
+    },
+    "pxPerUnit": {
+     "boardCentre": 93.46,
+     "nearEdge": 107.72,
+     "farEdge": 78.73,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      116,
+      1084
+     ],
+     "yPx": [
+      186,
+      910
+     ],
+     "belowRingPx": 90,
+     "aboveRingPx": 186
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.33,
+    "size": [
+     1330,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -5.5,
+     "yFar": 7.76,
+     "xNear": [
+      -6.17,
+      6.17
+     ],
+     "xFar": [
+      -8.45,
+      8.45
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 7.12,
+     "4": 7.8,
+     "6": 8.15,
+     "-5.5": null,
+     "-4": 6.43,
+     "7.5": 8.4
+    },
+    "pxPerUnit": {
+     "boardCentre": 93.46,
+     "nearEdge": 107.72,
+     "farEdge": 78.73,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      181,
+      1149
+     ],
+     "yPx": [
+      186,
+      910
+     ],
+     "belowRingPx": 90,
+     "aboveRingPx": 186
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 0.46,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.6,
+    "size": [
+     1600,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -5.5,
+     "yFar": 7.76,
+     "xNear": [
+      -7.42,
+      7.42
+     ],
+     "xFar": [
+      -10.16,
+      10.16
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 8.56,
+     "4": 9.39,
+     "6": 9.8,
+     "-5.5": null,
+     "-4": 7.73,
+     "7.5": 10.11
+    },
+    "pxPerUnit": {
+     "boardCentre": 93.46,
+     "nearEdge": 107.72,
+     "farEdge": 78.73,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      316,
+      1284
+     ],
+     "yPx": [
+      186,
+      910
+     ],
+     "belowRingPx": 90,
+     "aboveRingPx": 186
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.46,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 1.78,
+    "size": [
+     1780,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -5.5,
+     "yFar": 7.76,
+     "xNear": [
+      -8.26,
+      8.26
+     ],
+     "xFar": [
+      -11.31,
+      11.31
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 9.52,
+     "4": 10.44,
+     "6": 10.9,
+     "-5.5": null,
+     "-4": 8.6,
+     "7.5": 11.25
+    },
+    "pxPerUnit": {
+     "boardCentre": 93.46,
+     "nearEdge": 107.72,
+     "farEdge": 78.73,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      406,
+      1374
+     ],
+     "yPx": [
+      186,
+      910
+     ],
+     "belowRingPx": 90,
+     "aboveRingPx": 186
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.7,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 2.1,
+    "size": [
+     2100,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -5.5,
+     "yFar": 7.76,
+     "xNear": [
+      -9.74,
+      9.74
+     ],
+     "xFar": [
+      -13.34,
+      13.34
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 11.23,
+     "4": 12.32,
+     "6": 12.86,
+     "-5.5": null,
+     "-4": 10.15,
+     "7.5": 13.27
+    },
+    "pxPerUnit": {
+     "boardCentre": 93.46,
+     "nearEdge": 107.72,
+     "farEdge": 78.73,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      566,
+      1534
+     ],
+     "yPx": [
+      186,
+      910
+     ],
+     "belowRingPx": 90,
+     "aboveRingPx": 186
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.7,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   },
+   {
+    "aspect": 2.4,
+    "size": [
+     2400,
+     1000
+    ],
+    "mode": "W",
+    "visible": {
+     "yNear": -5.5,
+     "yFar": 7.76,
+     "xNear": [
+      -11.14,
+      11.14
+     ],
+     "xFar": [
+      -15.24,
+      15.24
+     ]
+    },
+    "halfWidthAtY": {
+     "0": 12.84,
+     "4": 14.08,
+     "6": 14.7,
+     "-5.5": null,
+     "-4": 11.6,
+     "7.5": 15.16
+    },
+    "pxPerUnit": {
+     "boardCentre": 93.46,
+     "nearEdge": 107.72,
+     "farEdge": 78.73,
+     "vertical_over_horizontal": 0.83
+    },
+    "boardRing": {
+     "xPx": [
+      716,
+      1684
+     ],
+     "yPx": [
+      186,
+      910
+     ],
+     "belowRingPx": 90,
+     "aboveRingPx": 186
+    },
+    "dock": {
+     "twoRows": false,
+     "slide": 1.7,
+     "uiScale": 1,
+     "statusScale": 1
+    }
+   }
+  ]
+ },
+ "dock": {
+  "rule": "tools/lab-world-layout-data.mjs dockLayout({mode, yNear, hwNear, ppuDock}); the game should port this function verbatim (it is 20 lines)",
+  "examples": {
+   "1": {
+    "mode": "S",
+    "twoRows": false,
+    "slide": 0,
+    "uiScale": 1,
+    "statusScale": 1,
+    "dab": {
+     "at": [
+      -4.55,
+      -5.65
+     ],
+     "scale": 1
+    },
+    "btn-new": {
+     "at": [
+      -4.55,
+      -5.65
+     ],
+     "scale": 1
+    },
+    "pen-red": {
+     "at": [
+      -3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "pen-blue": {
+     "at": [
+      3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "status": {
+     "at": [
+      0,
+      -5.55
+     ],
+     "scale": 1
+    },
+    "tape-note": {
+     "at": [
+      -3.1,
+      -4.98
+     ],
+     "visible": false
+    },
+    "btn-undo": {
+     "at": [
+      4.1,
+      -5.25
+     ],
+     "scale": 1
+    },
+    "btn-sound": {
+     "at": [
+      4.9,
+      -5.25
+     ],
+     "scale": 1
+    },
+    "btn-level": {
+     "at": [
+      4.5,
+      -5.9
+     ],
+     "scale": 1
+    }
+   },
+   "0.56": {
+    "mode": "T",
+    "twoRows": true,
+    "slide": 0,
+    "uiScale": 1.36,
+    "statusScale": 1.269,
+    "dab": {
+     "at": [
+      -4.55,
+      -5.65
+     ],
+     "scale": 1.2
+    },
+    "btn-new": {
+     "at": [
+      -4.55,
+      -5.65
+     ],
+     "scale": 1.2
+    },
+    "pen-red": {
+     "at": [
+      -3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "pen-blue": {
+     "at": [
+      3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "status": {
+     "at": [
+      0,
+      -5.55
+     ],
+     "scale": 1.269
+    },
+    "tape-note": {
+     "at": [
+      -3.1,
+      -4.98
+     ],
+     "visible": false
+    },
+    "btn-undo": {
+     "at": [
+      -4.1,
+      -6.9
+     ],
+     "scale": 1.36
+    },
+    "btn-sound": {
+     "at": [
+      -2.8,
+      -6.9
+     ],
+     "scale": 1.36
+    },
+    "btn-level": {
+     "at": [
+      1.907,
+      -6.9
+     ],
+     "scale": 3.242,
+     "spacing": 0.843
+    }
+   },
+   "1.33": {
+    "mode": "W",
+    "twoRows": false,
+    "slide": 0.771,
+    "uiScale": 1,
+    "statusScale": 1,
+    "dab": {
+     "at": [
+      -5.421,
+      -5.65
+     ],
+     "scale": 1
+    },
+    "btn-new": {
+     "at": [
+      -5.421,
+      -5.65
+     ],
+     "scale": 1
+    },
+    "pen-red": {
+     "at": [
+      -3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "pen-blue": {
+     "at": [
+      3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "status": {
+     "at": [
+      0,
+      -5.55
+     ],
+     "scale": 1
+    },
+    "tape-note": {
+     "at": [
+      -3.871,
+      -4.98
+     ],
+     "visible": false
+    },
+    "btn-undo": {
+     "at": [
+      4.871,
+      -5.25
+     ],
+     "scale": 1
+    },
+    "btn-sound": {
+     "at": [
+      5.671,
+      -5.25
+     ],
+     "scale": 1
+    },
+    "btn-level": {
+     "at": [
+      5.271,
+      -5.9
+     ],
+     "scale": 1
+    }
+   },
+   "1.78": {
+    "mode": "W",
+    "twoRows": false,
+    "slide": 1.7,
+    "uiScale": 1,
+    "statusScale": 1,
+    "dab": {
+     "at": [
+      -6.35,
+      -5.65
+     ],
+     "scale": 1
+    },
+    "btn-new": {
+     "at": [
+      -6.35,
+      -5.65
+     ],
+     "scale": 1
+    },
+    "pen-red": {
+     "at": [
+      -3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "pen-blue": {
+     "at": [
+      3.2,
+      -5.4
+     ],
+     "scale": 1
+    },
+    "status": {
+     "at": [
+      0,
+      -5.55
+     ],
+     "scale": 1
+    },
+    "tape-note": {
+     "at": [
+      -4.8,
+      -4.98
+     ],
+     "visible": true
+    },
+    "btn-undo": {
+     "at": [
+      5.8,
+      -5.25
+     ],
+     "scale": 1
+    },
+    "btn-sound": {
+     "at": [
+      6.6,
+      -5.25
+     ],
+     "scale": 1
+    },
+    "btn-level": {
+     "at": [
+      6.2,
+      -5.9
+     ],
+     "scale": 1
+    }
+   }
+  }
+ },
+ "sorting": {
+  "flat": "sheet ink, region art, the pens, buttons, status line, star rope, sun/moon/cloud faces, whale, lily pads, rainbow, puddle rings, dandelion seeds in flight (flat batch, sortKey = layer only)",
+  "stand": "Dab, Gus, Dot, Bibi, sunflower, bee, snail, palm, monarch, raindrops, ants, spider, sleepers, pebbles, forget-me-not, dandelion head (billboard batch, sortKey = -groundY*100 + layer)",
+  "layers": {
+   "sheet": 0,
+   "regionStatics": 1,
+   "stateOverlays": 2,
+   "flatActors": 3,
+   "shadows": 4,
+   "standing": 10,
+   "particles": 20
+  },
+  "note": "flat sprites are always under all standing sprites (batch order), so a tall Dusk piece can hide a star: accepted"
+ },
+ "regions": [
+  {
+   "id": "dock",
+   "name": "desk edge (status, pens, buttons, Dab)",
+   "tier": "core",
+   "compass": "S",
+   "rect": [
+    -5.4,
+    -6.1,
+    5.4,
+    -4.75
+   ],
+   "ppu": 160,
+   "colour": [
+    "Dab: butter + leaf green + rose blush (character sheet)",
+    "pen red / pen blue (line only, two inks)"
+   ],
+   "purpose": "Everything the player touches or must read lives on one strip of paper right under the board: the status line written in the hand of whoever is to move, the two pens that show whose turn it is, Dab holding the new-game sign, the undo arrow, the speaker and the five level stars.",
+   "modes": {
+    "W": {
+     "slide": true
+    },
+    "S": {
+     "slide": false
+    },
+    "T": {
+     "rows": 2
+    }
+   },
+   "tRelocation": null,
+   "elements": [
+    "status",
+    "pen-red",
+    "pen-blue",
+    "dab",
+    "btn-new",
+    "btn-undo",
+    "btn-sound",
+    "btn-level",
+    "tape-note"
+   ],
+   "statics": []
+  },
+  {
+   "id": "sky",
+   "name": "sky band: sun | star rope | moon",
+   "tier": "core",
+   "compass": "N",
+   "rect": [
+    -6.1,
+    5,
+    6.1,
+    7.85
+   ],
+   "ppu": 160,
+   "colour": [
+    "sun: butter + honey",
+    "moon: pale butter + lilac",
+    "rope stars: one gold dab each (15 stars, tiny)"
+   ],
+   "purpose": "The far edge of the table is the sky: the sun of the Sunrise crew on the left, the moon of the Dusk company on the right and between them the star rope that is the captured-Dusk gallery. Universal: inside the always-visible column in every aspect.",
+   "tRelocation": null,
+   "elements": [
+    "sun",
+    "moon",
+    "rope",
+    "spider"
+   ],
+   "statics": [
+    {
+     "region": "sky",
+     "id": "sun-disc",
+     "what": "button sun: disc, 4 stitch holes, thread ends; (butter + honey pencil, 2 passes)",
+     "size": [
+      1.4,
+      1.4
+     ],
+     "colour": "butter + honey",
+     "drawings": 1,
+     "wp": "A"
+    },
+    {
+     "region": "sky",
+     "id": "moon-crescent",
+     "what": "crescent in a nightcap with pom-pom (pale butter + lilac)",
+     "size": [
+      1.3,
+      1.5
+     ],
+     "colour": "pale butter + lilac",
+     "drawings": 1,
+     "wp": "A"
+    },
+    {
+     "region": "sky",
+     "id": "rope-nails",
+     "what": "slack rope between two nails, tiny knots",
+     "size": [
+      7,
+      0.7
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "A"
+    }
+   ]
+  },
+  {
+   "id": "nw",
+   "name": "NW meadow: monarchs, dandelion clock, Sunrise margin note",
+   "tier": "side",
+   "compass": "NW",
+   "rect": [
+    -10.6,
+    2.45,
+    -5,
+    7.7
+   ],
+   "ppu": 128,
+   "colour": [
+    "monarchs: one orange dab each (3 static + 1 animated)",
+    "dandelion: none (line only)"
+   ],
+   "purpose": "A morning corner: a dotted trail of three monarchs drifting down from the sun, a dandelion clock that lets go of a seed every move, and the Sunrise crew's margin note (warm hand) waiting for an answer.",
+   "tRelocation": null,
+   "elements": [
+    "monarch-trail",
+    "monarch",
+    "dandelion",
+    "note-warm"
+   ],
+   "statics": [
+    {
+     "region": "nw",
+     "id": "monarch-trail",
+     "what": "short dotted flight path from the sun towards the dandelion, 3 monarchs each different (orange dab each)",
+     "size": [
+      2,
+      2
+     ],
+     "colour": "honey x3 tiny",
+     "drawings": 1,
+     "wp": "F"
+    },
+    {
+     "region": "nw",
+     "id": "dandelion-stalk",
+     "what": "stalk + two leaves + a tuft",
+     "size": [
+      0.8,
+      1
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "F"
+    },
+    {
+     "region": "nw",
+     "id": "note-paper-warm",
+     "what": "note paper with a folded corner and a pin (text is written live)",
+     "size": [
+      1.9,
+      1.05
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "F"
+    }
+   ]
+  },
+  {
+   "id": "ne",
+   "name": "NE night: cloud, connect-the-dots, Dusk margin note",
+   "tier": "side",
+   "compass": "NE",
+   "rect": [
+    5,
+    2.45,
+    10.6,
+    7.7
+   ],
+   "ppu": 128,
+   "colour": [
+    "none (line only; the moon's twinkle ticks are gold and belong to the sky)"
+   ],
+   "purpose": "The quiet corner: a sleepy cloud, a 14-dot connect-the-dots that gains one dashed line per full move (it completes into a star-bell around move 14) and the Dusk crew's margin note (cool hand) answering the Sunrise note.",
+   "tRelocation": null,
+   "elements": [
+    "cloud-ne",
+    "dots",
+    "note-cool"
+   ],
+   "statics": [
+    {
+     "region": "ne",
+     "id": "cloud-ne",
+     "what": "sleepy cloud",
+     "size": [
+      1.8,
+      0.9
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "D"
+    },
+    {
+     "region": "ne",
+     "id": "dots-base",
+     "what": "14 numbered dots (numerals 1-14 written in the neutral hand), no lines",
+     "size": [
+      3,
+      2.3
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "D"
+    },
+    {
+     "region": "ne",
+     "id": "note-paper-cool",
+     "what": "note paper (cool hand pin)",
+     "size": [
+      1.9,
+      1.05
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "D"
+    }
+   ]
+  },
+  {
+   "id": "rain",
+   "name": "W rain cloud",
+   "tier": "side",
+   "compass": "W",
+   "rect": [
+    -8.4,
+    -0.5,
+    -4.9,
+    2.2
+   ],
+   "ppu": 128,
+   "colour": [
+    "raindrops: wet blue, three tiny drops"
+   ],
+   "purpose": "A small sleepy rain cloud over the rainbow. Three faced raindrops fall (one per full move, in turn) into the puddle below; undo makes the last one climb back up.",
+   "tRelocation": null,
+   "elements": [
+    "rain-cloud",
+    "raindrops"
+   ],
+   "statics": []
+  },
+  {
+   "id": "puddle",
+   "name": "SW puddle: rainbow, nap boats, tree with the owl, tally stone",
+   "tier": "side",
+   "compass": "SW",
+   "rect": [
+    -8.3,
+    -4.5,
+    -4.8,
+    -0.4
+   ],
+   "ppu": 160,
+   "colour": [
+    "rainbow: 7 pale pencil bands that arrive one by one (starts as an inked arc with no colour)",
+    "lily pads: leaf green wash",
+    "tree/owl/cattails: line only"
+   ],
+   "purpose": "Dab's corner and the home of the Sunrise crew's sleepers: a puddle with lily-pad nap boats (captured Sunrise pieces), a rainbow that gains one band every six half-moves and completes on checkmate, a tree with an owl asleep in the knot and a tally stone where the winner scratches a stroke.",
+   "tRelocation": {
+    "region": "puddle",
+    "origin": [
+     -6.5,
+     -3.2
+    ],
+    "to": [
+     -2.7,
+     -8.7
+    ],
+    "scale": 0.62,
+    "note": "Dab's corner in miniature (puddle, rainbow, boats, tree): S band, left"
+   },
+   "elements": [
+    "rainbow",
+    "puddle-water",
+    "lily-pads",
+    "tree-owl",
+    "tally-stone"
+   ],
+   "statics": [
+    {
+     "region": "puddle",
+     "id": "rainbow-ink",
+     "what": "compass-arc construction line + inked outline of the 7 bands (no colour)",
+     "size": [
+      3.5,
+      2.4
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "C"
+    },
+    {
+     "region": "puddle",
+     "id": "puddle-cattails",
+     "what": "puddle with ripple rings, reeds, 3 cattails, lily-pad outlines (6)",
+     "size": [
+      2.9,
+      1.1
+     ],
+     "colour": "leaf wash on pads",
+     "drawings": 1,
+     "wp": "C"
+    },
+    {
+     "region": "puddle",
+     "id": "tree-knot",
+     "what": "small tree under the arch, owl asleep in the knot, dead leaf on his head",
+     "size": [
+      0.9,
+      1.7
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "C"
+    },
+    {
+     "region": "puddle",
+     "id": "stone",
+     "what": "tally stone (blank; the marks are tally-N strings)",
+     "size": [
+      0.7,
+      0.5
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "C"
+    }
+   ]
+  },
+  {
+   "id": "hills",
+   "name": "E dusk hills and the lit house",
+   "tier": "side",
+   "compass": "E",
+   "rect": [
+    5,
+    0.7,
+    10,
+    2.45
+   ],
+   "ppu": 128,
+   "colour": [
+    "house window: one gold dab",
+    "hills: blue ballpoint hatch only"
+   ],
+   "purpose": "Rolling ballpoint hills with a house whose window is lit and whose chimney smokes. The far side of the whale island's sea.",
+   "tRelocation": null,
+   "elements": [
+    "hills-ink",
+    "smoke"
+   ],
+   "statics": [
+    {
+     "region": "hills",
+     "id": "hills-house",
+     "what": "one hill line with a short blue hatch, a second low line, house (lit window: one gold dab), chimney, one pine",
+     "size": [
+      3.6,
+      1.4
+     ],
+     "colour": "gold x1 tiny",
+     "drawings": 1,
+     "wp": "D"
+    }
+   ]
+  },
+  {
+   "id": "whale",
+   "name": "E whale island (Dusk nap place)",
+   "tier": "side",
+   "compass": "E",
+   "rect": [
+    5,
+    -2.5,
+    9.4,
+    0.6
+   ],
+   "ppu": 160,
+   "colour": [
+    "whale: sea blue + indigo pencil",
+    "palm: teal-green (2 strokes)",
+    "sleepers: their own colours (character sheet)"
+   ],
+   "purpose": "\"The whale keeps the sleepers.\" An off-duty cousin of the Dusk king lies in a calm sea with a palm on his back; every Dusk piece the player captures is carried here by ants and tucked in to sleep on his back (up to 10 visible).",
+   "tRelocation": {
+    "region": "whale",
+    "origin": [
+     7.3,
+     -0.75
+    ],
+    "to": [
+     0,
+     9
+    ],
+    "scale": 0.62,
+    "note": "whale island in miniature, centred in the N band above the star rope"
+   },
+   "elements": [
+    "whale-island",
+    "palm",
+    "whale-sleepers",
+    "whale-label"
+   ],
+   "statics": [
+    {
+     "region": "whale",
+     "id": "sea-lines",
+     "what": "calm sea lines around the island",
+     "size": [
+      4.6,
+      0.6
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "D"
+    }
+   ]
+  },
+  {
+   "id": "garden",
+   "name": "SE garden gate: Gus, Dot, Bibi, sunflower + bee, snail",
+   "tier": "side",
+   "compass": "SE",
+   "rect": [
+    5,
+    -4.6,
+    8.3,
+    -2.8
+   ],
+   "ppu": 160,
+   "colour": [
+    "sunflower: butter petals",
+    "Dot: poppy red (character)",
+    "toadstool caps: three tiny red dabs"
+   ],
+   "purpose": "The cast that watches from the garden: Gus (hungry, lashes, sighs), Dot (counts captures in spots), Bibi (a fly with an alibi), a sunflower with a bee and the snail that crosses the paper one pen-width per half-move. (The forget-me-not that stays grey until somebody wins belongs to board-paper: it grows on the border of the board itself.)",
+   "tRelocation": {
+    "region": "garden",
+    "origin": [
+     6.6,
+     -3.9
+    ],
+    "to": [
+     2.3,
+     -8.85
+    ],
+    "scale": 0.85,
+    "note": "garden gate in miniature (Gus, Dot, Bibi, sunflower, snail): S band, right"
+   },
+   "elements": [
+    "garden-line",
+    "gus",
+    "dot",
+    "bibi",
+    "sunflower",
+    "bee",
+    "snail"
+   ],
+   "statics": [
+    {
+     "region": "garden",
+     "id": "garden-ground",
+     "what": "ground line in 3 pieces, grass tufts, 2 pebbles, 3 toadstools (optional garnish if there is room: a stick sign \"do not feed\" by Gus)",
+     "size": [
+      3.4,
+      0.9
+     ],
+     "colour": "toadstool caps: poppy x3 tiny",
+     "drawings": 1,
+     "wp": "E"
+    }
+   ]
+  },
+  {
+   "id": "ants",
+   "name": "ant road (nests, trails, stretcher crews)",
+   "tier": "side",
+   "compass": "W+E",
+   "rect": [
+    -6,
+    -3.8,
+    6,
+    0.7
+   ],
+   "ppu": 160,
+   "colour": [
+    "none (ballpoint line)"
+   ],
+   "purpose": "Two tiny anthills (one west above the puddle, one east below the hills); the trails are NOT drawn: the ants leave a faint dotted footprint line behind them that fades in 10 s. Ants carry the captured pieces on a petal stretcher; they are also the thinking/undo indicator (they hush while the AI thinks and turn round on undo).",
+   "tRelocation": null,
+   "elements": [
+    "anthill-w",
+    "anthill-e",
+    "ants"
+   ],
+   "statics": [
+    {
+     "region": "ants",
+     "id": "anthills",
+     "what": "two tiny anthills (W above the puddle at (-5.45,-0.3), E below the hills at (5.4,0.5)); no drawn trails: the ants leave a fading dotted footprint line",
+     "size": [
+      1.6,
+      0.9
+     ],
+     "colour": "none",
+     "drawings": 1,
+     "wp": "F"
+    }
+   ]
+  }
+ ],
+ "elements": [
+  {
+   "id": "status",
+   "region": "dock",
+   "cls": "ui",
+   "sort": "flat",
+   "at": [
+    0,
+    -5.55
+   ],
+   "size": [
+    5,
+    1
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": "baseline y = -5.55 (W/S/T row 1; ascenders reach -4.77, clear of the file-letter row which ends at -4.72); x-height 0.40 u (times statusScale on tall windows); written in the warm hand on the player's turn, cool hand while the AI thinks; draw-on 0.5-0.9 s; underline stroke under it"
+  },
+  {
+   "id": "pen-red",
+   "region": "dock",
+   "cls": "actor",
+   "sort": "flat",
+   "at": [
+    -3.2,
+    -5.4
+   ],
+   "size": [
+    1,
+    0.32
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": "Sunrise pen, lies at 14 degrees pointing at the status text"
+  },
+  {
+   "id": "pen-blue",
+   "region": "dock",
+   "cls": "actor",
+   "sort": "flat",
+   "at": [
+    3.2,
+    -5.4
+   ],
+   "size": [
+    1,
+    0.32
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": "Dusk pen, mirrored (-14 degrees)"
+  },
+  {
+   "id": "dab",
+   "region": "dock",
+   "cls": "cast",
+   "sort": "stand",
+   "at": [
+    -4.65,
+    -5.65
+   ],
+   "size": [
+    1,
+    1.25
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 224,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": "W: x slides out to -(4.65 + slide), slide = clamp(0.8*(hwNear-5.6), 0, 1.7). Holds the \"new game\" sign (a prop part of her rig)"
+  },
+  {
+   "id": "btn-new",
+   "region": "dock",
+   "cls": "ui",
+   "sort": "stand",
+   "at": [
+    -4.65,
+    -5.65
+   ],
+   "size": [
+    0.95,
+    0.62
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": "the sign in Dab's arms; follows her pose; hit box = sign rect grown by 0.1"
+  },
+  {
+   "id": "btn-undo",
+   "region": "dock",
+   "cls": "ui",
+   "sort": "flat",
+   "at": [
+    4.1,
+    -5.25
+   ],
+   "size": [
+    0.62,
+    0.62
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": null
+  },
+  {
+   "id": "btn-sound",
+   "region": "dock",
+   "cls": "ui",
+   "sort": "flat",
+   "at": [
+    4.9,
+    -5.25
+   ],
+   "size": [
+    0.62,
+    0.62
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": null
+  },
+  {
+   "id": "btn-level",
+   "region": "dock",
+   "cls": "ui",
+   "sort": "flat",
+   "at": [
+    4.5,
+    -5.9
+   ],
+   "size": [
+    1.3,
+    0.34
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": "five tiny stars = the five engine levels (sleepy dreamy steady keen sharp)"
+  },
+  {
+   "id": "tape-note",
+   "region": "dock",
+   "cls": "text",
+   "sort": "flat",
+   "at": [
+    -4.85,
+    -4.98
+   ],
+   "size": [
+    1.8,
+    0.4
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": true,
+   "modes": {
+    "W": "dockLayout",
+    "S": "dockLayout",
+    "T": "dockLayout"
+   },
+   "note": "lettering string dab-saw-that: appears between Dab and the red pen after the AI captures a Sunrise piece"
+  },
+  {
+   "id": "sun",
+   "region": "sky",
+   "cls": "state",
+   "sort": "flat",
+   "at": [
+    -4.75,
+    6.3
+   ],
+   "size": [
+    2.3,
+    2
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "button sun (four stitch holes), face, 16 rays = 16 Sunrise pieces alive; a captured Sunrise piece dims one ray"
+  },
+  {
+   "id": "moon",
+   "region": "sky",
+   "cls": "state",
+   "sort": "flat",
+   "at": [
+    4.75,
+    6.3
+   ],
+   "size": [
+    2,
+    2
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "crescent moon in a nightcap; asleep until the Dusk side has something to do"
+  },
+  {
+   "id": "rope",
+   "region": "sky",
+   "cls": "state",
+   "sort": "flat",
+   "at": [
+    0,
+    6.6
+   ],
+   "size": [
+    7.2,
+    2
+   ],
+   "essential": true,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "slack rope between two nails + 15 stars on threads of different length: the captured-Dusk gallery"
+  },
+  {
+   "id": "spider",
+   "region": "sky",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    -2,
+    7.06
+   ],
+   "size": [
+    0.34,
+    0.32
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "foot point = where the thread is tied to the rope (x -2.0, between files b and c, so the Dusk king and queen never hide it); lowers on its thread to y 5.2 (1.9 u) while the AI thinks"
+  },
+  {
+   "id": "monarch-trail",
+   "region": "nw",
+   "cls": "static",
+   "sort": "flat",
+   "at": [
+    -7.55,
+    5.05
+   ],
+   "size": [
+    2,
+    2
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "a short dotted flight path from the sun towards the dandelion with 3 monarchs (each different)"
+  },
+  {
+   "id": "monarch",
+   "region": "nw",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    -7.3,
+    5
+   ],
+   "size": [
+    0.42,
+    0.34
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "one animated monarch drifting slowly along the trail (wings 2 poses, 3 boil)"
+  },
+  {
+   "id": "dandelion",
+   "region": "nw",
+   "cls": "state",
+   "sort": "stand",
+   "at": [
+    -7.9,
+    3.3
+   ],
+   "size": [
+    0.9,
+    1.75
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "clock with 24 seeds; loses one per full move (flat seed decals float away east), lets go of all at game end"
+  },
+  {
+   "id": "note-warm",
+   "region": "nw",
+   "cls": "text",
+   "sort": "flat",
+   "at": [
+    -5.95,
+    3.05
+   ],
+   "size": [
+    1.9,
+    1.05
+   ],
+   "essential": false,
+   "cull": "full",
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "margin note, warm hand, 2 lines, an arrow pointing at the board; replaced every ~6 plies"
+  },
+  {
+   "id": "cloud-ne",
+   "region": "ne",
+   "cls": "static",
+   "sort": "flat",
+   "at": [
+    7.8,
+    6.5
+   ],
+   "size": [
+    1.8,
+    0.85
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "sleepy cloud (static)"
+  },
+  {
+   "id": "dots",
+   "region": "ne",
+   "cls": "state",
+   "sort": "flat",
+   "at": [
+    8.4,
+    4.6
+   ],
+   "size": [
+    3,
+    2.3
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "connect-the-dots, 14 numbered dots that draw a star-bell; one dashed line per full move (draw-on progress = min(1, fullMoves/13))"
+  },
+  {
+   "id": "note-cool",
+   "region": "ne",
+   "cls": "text",
+   "sort": "flat",
+   "at": [
+    5.95,
+    3.05
+   ],
+   "size": [
+    1.9,
+    1.05
+   ],
+   "essential": false,
+   "cull": "full",
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "the answer, cool hand (back-slanted), 2 lines; appears after the warm note by one ply"
+  },
+  {
+   "id": "rain-cloud",
+   "region": "rain",
+   "cls": "actor",
+   "sort": "flat",
+   "at": [
+    -6.7,
+    1.3
+   ],
+   "size": [
+    1.7,
+    0.85
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "sleepy cloud with a face; shudders when it sheds a drop"
+  },
+  {
+   "id": "raindrops",
+   "region": "rain",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    -6.7,
+    0.6
+   ],
+   "size": [
+    0.16,
+    0.22
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "three faced raindrops, fall one per full move in rotation to the puddle at y = -3.3 (path length 3.9 u); ripples in the puddle"
+  },
+  {
+   "id": "rainbow",
+   "region": "puddle",
+   "cls": "state",
+   "sort": "flat",
+   "at": [
+    -6.5,
+    -1.85
+   ],
+   "size": [
+    3.5,
+    2.4
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "compass-arc construction line + 7 bands; band k colours in at ply 6k; the remaining bands sweep in at checkmate"
+  },
+  {
+   "id": "puddle-water",
+   "region": "puddle",
+   "cls": "static",
+   "sort": "flat",
+   "at": [
+    -6.6,
+    -3.5
+   ],
+   "size": [
+    2.9,
+    1
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "the puddle: ripple rings, reeds, three cattails; NOTE rainbow ends dip into it"
+  },
+  {
+   "id": "lily-pads",
+   "region": "puddle",
+   "cls": "state",
+   "sort": "flat",
+   "at": [
+    -6.6,
+    -3.5
+   ],
+   "size": [
+    2.6,
+    0.9
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "6 lily pads = nap boats; a pad is filled by the k-th captured Sunrise piece (slot order east -> west)"
+  },
+  {
+   "id": "tree-owl",
+   "region": "puddle",
+   "cls": "actor",
+   "sort": "flat",
+   "at": [
+    -7.35,
+    -2.3
+   ],
+   "size": [
+    0.9,
+    1.7
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "a small tree under the arch; night-shift owl asleep in the knot with a dead leaf on his head (he has not noticed); blinks once per ~12 s"
+  },
+  {
+   "id": "tally-stone",
+   "region": "puddle",
+   "cls": "state",
+   "sort": "flat",
+   "at": [
+    -5.3,
+    -3.95
+   ],
+   "size": [
+    0.7,
+    0.5
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "stone (static) + tally-N strings of the lettering kit as the scratch marks: the results of this browser (warm hand = Sunrise won, cool = Dusk won, a draw = one short stroke of each)"
+  },
+  {
+   "id": "hills-ink",
+   "region": "hills",
+   "cls": "static",
+   "sort": "flat",
+   "at": [
+    8.1,
+    1.5
+   ],
+   "size": [
+    3.6,
+    1.3
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "one hill line with a short blue hatch, a second low line, a house with a lit window and chimney, one pine"
+  },
+  {
+   "id": "smoke",
+   "region": "hills",
+   "cls": "actor",
+   "sort": "flat",
+   "at": [
+    7.3,
+    2.05
+   ],
+   "size": [
+    0.5,
+    0.7
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 128,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "chimney smoke curl (3 poses), lazy loop 3.2 s; wakes at wake level 1"
+  },
+  {
+   "id": "whale-island",
+   "region": "whale",
+   "cls": "actor",
+   "sort": "flat",
+   "at": [
+    7.3,
+    -0.75
+   ],
+   "size": [
+    4.4,
+    1.7
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "the whale (head towards the board), belly breathes, blink, spout; calm sea lines"
+  },
+  {
+   "id": "palm",
+   "region": "whale",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    8.35,
+    -0.6
+   ],
+   "size": [
+    0.8,
+    1.2
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "palm on the whale's back (sways 2 poses)"
+  },
+  {
+   "id": "whale-sleepers",
+   "region": "whale",
+   "cls": "state",
+   "sort": "stand",
+   "at": [
+    7.2,
+    -0.65
+   ],
+   "size": [
+    2.6,
+    0.8
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "10 nap slots (see anchors.napDusk); sleeper = the captured piece's sleepy pose at 0.42 scale + zzz"
+  },
+  {
+   "id": "whale-label",
+   "region": "whale",
+   "cls": "text",
+   "sort": "flat",
+   "at": [
+    6.2,
+    -2.15
+   ],
+   "size": [
+    2.3,
+    0.75
+   ],
+   "essential": false,
+   "cull": "full",
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "\"the whale keeps / the sleepers\" (cool hand, 2 lines); writes itself when the FIRST sleeper arrives; only drawn when fully on screen"
+  },
+  {
+   "id": "garden-line",
+   "region": "garden",
+   "cls": "static",
+   "sort": "flat",
+   "at": [
+    6.6,
+    -4.15
+   ],
+   "size": [
+    3.4,
+    0.5
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "wobbly ground line laid in 3 pieces, grass tufts, 2 pebbles, 3 toadstools (static ink)"
+  },
+  {
+   "id": "gus",
+   "region": "garden",
+   "cls": "cast",
+   "sort": "stand",
+   "at": [
+    5.6,
+    -4
+   ],
+   "size": [
+    0.85,
+    1
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 224,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "Gus, the hungry plant: head with lashes and teeth on a stem, two leaf hands"
+  },
+  {
+   "id": "dot",
+   "region": "garden",
+   "cls": "cast",
+   "sort": "stand",
+   "at": [
+    6.85,
+    -4
+   ],
+   "size": [
+    0.6,
+    0.42
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 224,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "Dot the ladybird; 7 spots = captures so far; walks 4 steps left/right along her ground line"
+  },
+  {
+   "id": "bibi",
+   "region": "garden",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    5.6,
+    -3.15
+   ],
+   "size": [
+    0.2,
+    0.18
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 224,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "Bibi the fly on a dotted orbit (r 0.55) around Gus's head; lands on a piece when the player idles"
+  },
+  {
+   "id": "sunflower",
+   "region": "garden",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    7.3,
+    -4
+   ],
+   "size": [
+    0.6,
+    1.1
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "sunflower, head turns to the winner at the end; bee circles it on a dotted path"
+  },
+  {
+   "id": "bee",
+   "region": "garden",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    7.3,
+    -3.15
+   ],
+   "size": [
+    0.25,
+    0.2
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "sunflower bee (2 wing poses)"
+  },
+  {
+   "id": "forget-me-not",
+   "region": "board",
+   "cls": "state",
+   "sort": "stand",
+   "at": [
+    4.28,
+    0
+   ],
+   "size": [
+    0.4,
+    0.7
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": null,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "board-paper's border-garden decals fmn-grey-N -> fmn-blue-N (the layout.garden entries that carry `swap`); the world only fires the swap"
+  },
+  {
+   "id": "snail",
+   "region": "garden",
+   "cls": "state",
+   "sort": "stand",
+   "at": [
+    5.25,
+    -4.45
+   ],
+   "size": [
+    0.32,
+    0.26
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "relocated"
+   },
+   "note": "crosses the paper from x = 5.25 to the flower foot (6.95) in 120 plies: 0.0142 u = 1.5 art units = about one pen-width per half-move"
+  },
+  {
+   "id": "anthill-w",
+   "region": "ants",
+   "cls": "static",
+   "sort": "flat",
+   "at": [
+    -5.45,
+    -0.3
+   ],
+   "size": [
+    0.7,
+    0.45
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "little anthill (Sunrise ants) + the beginning of a dotted trail to the puddle"
+  },
+  {
+   "id": "anthill-e",
+   "region": "ants",
+   "cls": "static",
+   "sort": "flat",
+   "at": [
+    5.4,
+    0.5
+   ],
+   "size": [
+    0.7,
+    0.45
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "little anthill (Dusk ants) + dotted trail to the whale's head"
+  },
+  {
+   "id": "ants",
+   "region": "ants",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    -5.45,
+    -0.45
+   ],
+   "size": [
+    0.5,
+    0.25
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 160,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "two crews of two ants + petal stretcher; up to one crew per side moving at once, a second capture queues"
+  },
+  {
+   "id": "pebbles",
+   "region": "board",
+   "cls": "actor",
+   "sort": "stand",
+   "at": [
+    4.42,
+    4.3
+   ],
+   "size": [
+    0.7,
+    0.6
+   ],
+   "essential": false,
+   "cull": null,
+   "ppu": 200,
+   "wideOnly": false,
+   "modes": {
+    "W": "at",
+    "S": "at (cropped by the window)",
+    "T": "at (cropped)"
+   },
+   "note": "board-paper's pebble-shut-N / pebble-open-N at (+-4.42, +-4.30); the world only asks them to open for 0.8 s (capture near / castling glance); game logic opens them while their corner is attacked"
+  }
+ ],
+ "actors": [
+  {
+   "id": "dab",
+   "name": "Dab (the witness)",
+   "cls": "cast",
+   "region": "dock",
+   "sort": "stand",
+   "workPackage": "B",
+   "ppu": 224,
+   "frameSize": [
+    0.6,
+    0.7
+   ],
+   "quietAtStart": "awake",
+   "boil": "3 variants @ 8 fps",
+   "drawings": 66,
+   "parts": [
+    "body (egg) + leaf hat",
+    "face plate (eyes L/R with pupil overlays, brows, bill, blush)",
+    "wing L",
+    "wing R",
+    "feet",
+    "sign prop (front + 3 faces: new game / sure? / again?)",
+    "flag prop",
+    "zz + gasp + oops fx"
+   ],
+   "states": [
+    {
+     "id": "idle",
+     "what": "breathe 3.6 s, blink every 3.3 s +-15 %, head sway 7 s, eyes drift to the last move",
+     "loop": "3.6 s"
+    },
+    {
+     "id": "lean",
+     "what": "select: lean 0.12 rad toward the board, eyes on the selected square",
+     "loop": "hold"
+    },
+    {
+     "id": "watch",
+     "what": "pupils follow hover / moving piece",
+     "loop": "follow"
+    },
+    {
+     "id": "point",
+     "what": "hint: wing points at from, holds, swings to",
+     "loop": "0.5 + 0.35 s"
+    },
+    {
+     "id": "wince",
+     "what": "illegal / own piece lost: eyes squeezed, wings in",
+     "loop": "0.35 s"
+    },
+    {
+     "id": "gasp-hide",
+     "what": "check: wings over eyes, hold, peek",
+     "loop": "0.25 + 0.9 + 0.5 s"
+    },
+    {
+     "id": "clap-hop",
+     "what": "promotion / small joy: two claps or hops",
+     "loop": "1.0 s"
+    },
+    {
+     "id": "cheer",
+     "what": "checkmate (human won): 3 hops waving the sign",
+     "loop": "2.2 s"
+    },
+    {
+     "id": "pat",
+     "what": "checkmate (human lost): one gentle hop, pats the air, sign flips to \"again?\"",
+     "loop": "1.6 s"
+    },
+    {
+     "id": "shrug",
+     "what": "stalemate / draw: wings up, brows up, then sits",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "rewind",
+     "what": "undo: slow backwards wing circle, \"wait, what?\"",
+     "loop": "0.7 s"
+    },
+    {
+     "id": "flag",
+     "what": "resign: tiny white flag on a stick",
+     "loop": "0.6 s"
+    },
+    {
+     "id": "shake-sheet",
+     "what": "newGame: flips the sign, shakes the whole sheet out",
+     "loop": "1.0 s"
+    },
+    {
+     "id": "yawn / doze",
+     "what": "idle >= 60 s yawn, >= 90 s falls asleep sitting on the sign; startle-awake hop on return",
+     "loop": "2.0 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "select",
+     "does": "lean toward the board 0.12 rad and look at the selected square (0.25 s); brows worry if `threatened.length > 0`"
+    },
+    {
+     "event": "deselect",
+     "does": "straighten up (0.25 s), eyes back to the board centre"
+    },
+    {
+     "event": "hover",
+     "does": "pupils follow the hovered square (throttled to 8 Hz) only if `grabbable` or `target`; never moves the body"
+    },
+    {
+     "event": "hint",
+     "does": "points a wing at `from`, holds 0.5 s, swings to `to` (0.35 s), whispers \"psst...\" (string world-dab-psst)"
+    },
+    {
+     "event": "illegal",
+     "does": "wince + the one-word bubble \"oops\" (string oops, 0.35 s draw-on)"
+    },
+    {
+     "event": "moveStart",
+     "does": "eyes follow the moving piece from `from` to `to` (duration of the move), body still"
+    },
+    {
+     "event": "capture",
+     "does": "victim is a Sunrise piece: winces, \"ouch\" bubble, and (W mode) dab-saw-that is written beside her (draw-on 0.8 s, wiped after 6 s); victim is Dusk: one small clap"
+    },
+    {
+     "event": "castle",
+     "does": "head tilt \"oh, clever\" (0.5 s)"
+    },
+    {
+     "event": "promotion",
+     "does": "two little claps / hops (1.0 s), the bubble \"nice!\""
+    },
+    {
+     "event": "check",
+     "does": "gasps, wings over the eyes (0.25 s), holds 0.9 s, peeks (0.5 s)"
+    },
+    {
+     "event": "checkmate",
+     "does": "humanWon: three hops and waves the sign; lost: one gentle hop, pats the air, the sign flips to \"again?\""
+    },
+    {
+     "event": "stalemate",
+     "does": "shrugs (wings up, brows up 0.8 s), the bubble \"hmm\", then sits down"
+    },
+    {
+     "event": "undo",
+     "does": "rewind gesture: a slow backwards wing circle, \"wait, what?\" (0.7 s)"
+    },
+    {
+     "event": "newGame",
+     "does": "flips the sign, shakes the sheet out (whole world shudders 0.5 s; stage.look shake 0.02 u)"
+    },
+    {
+     "event": "idle",
+     "does": "seconds >= 35: looks up at the sky; >= 60: yawns; >= 90: falls asleep sitting on the sign; `seconds: 0` (player is back): startles awake with a small hop"
+    },
+    {
+     "event": "resign",
+     "does": "holds up a tiny white flag on a stick (0.6 s), sighs"
+    }
+   ]
+  },
+  {
+   "id": "gus",
+   "name": "Gus (the hungry plant)",
+   "cls": "cast",
+   "region": "garden",
+   "sort": "stand",
+   "workPackage": "E",
+   "ppu": 224,
+   "frameSize": [
+    0.5,
+    0.6
+   ],
+   "quietAtStart": "asleep",
+   "boil": "3 variants @ 8 fps (2 when asleep)",
+   "drawings": 30,
+   "parts": [
+    "stem + two leaf hands",
+    "head (lashes, teeth)",
+    "eyelids (closed / half / open / wide)",
+    "pupil overlays",
+    "zzz, sweat, burp puff fx"
+   ],
+   "states": [
+    {
+     "id": "doze",
+     "what": "eyes closed, zzz, slow bob (start)",
+     "loop": "4 s"
+    },
+    {
+     "id": "half-lid",
+     "what": "wake level 2: one eye half open, follows Bibi",
+     "loop": "3 s"
+    },
+    {
+     "id": "snap",
+     "what": "capture: snaps at Bibi and misses, embarrassed",
+     "loop": "0.5 + 0.6 s"
+    },
+    {
+     "id": "sigh",
+     "what": "idle >= 20 s",
+     "loop": "1.4 s"
+    },
+    {
+     "id": "gulp",
+     "what": "check: throat bulge",
+     "loop": "0.5 s"
+    },
+    {
+     "id": "wide",
+     "what": "tension > 0.6: eyes widen",
+     "loop": "hold"
+    },
+    {
+     "id": "burp-sleep",
+     "what": "checkmate: happy burp then asleep",
+     "loop": "1.2 s + hold"
+    },
+    {
+     "id": "sleep-snap",
+     "what": "stalemate: asleep mid-snap, Bibi on his nose",
+     "loop": "hold"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "thinkStart",
+     "does": "eyes follow Bibi's orbit (wake level 2 only)"
+    },
+    {
+     "event": "capture",
+     "does": "snaps at Bibi and misses (0.5 s), looks embarrassed; wakes to level 2 if needed"
+    },
+    {
+     "event": "check",
+     "does": "gulps (throat bulge)"
+    },
+    {
+     "event": "checkmate",
+     "does": "burps happily, falls asleep (zzz) after 2 s"
+    },
+    {
+     "event": "stalemate",
+     "does": "falls asleep in mid-snap; Bibi lands on his nose and stays"
+    },
+    {
+     "event": "idle",
+     "does": "seconds >= 20: sighs; seconds >= 60: nods off (zzz)"
+    }
+   ]
+  },
+  {
+   "id": "dot",
+   "name": "Dot (the ladybird who counts)",
+   "cls": "cast",
+   "region": "garden",
+   "sort": "stand",
+   "workPackage": "E",
+   "ppu": 224,
+   "frameSize": [
+    0.35,
+    0.3
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 8 fps",
+   "drawings": 26,
+   "parts": [
+    "shell (wings closed)",
+    "7 spot overlays (pop in one by one)",
+    "wing cases open / flutter",
+    "legs (4-step walk)",
+    "head + face (eyes, blush)",
+    "fingers-count pose"
+   ],
+   "states": [
+    {
+     "id": "tucked",
+     "what": "start: tucked under Gus's leaf, only a shell edge shows",
+     "loop": "hold"
+    },
+    {
+     "id": "walk",
+     "what": "idle >= 25 s: 4 steps along her ground line and back",
+     "loop": "3 s"
+    },
+    {
+     "id": "pip",
+     "what": "capture: pops the next spot with a tiny pip",
+     "loop": "0.3 s"
+    },
+    {
+     "id": "count-shrug",
+     "what": "the 7th spot: counts on her fingers and shrugs",
+     "loop": "1.2 s"
+    },
+    {
+     "id": "flutter",
+     "what": "promotion / checkmate: wing cases open, Bibi lands on her",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "shrug-tuck",
+     "what": "stalemate",
+     "loop": "0.8 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "capture",
+     "does": "pops the next spot with a tiny \"pip\" (0.3 s); the 7th: counts on her fingers and shrugs"
+    },
+    {
+     "event": "promotion",
+     "does": "flutters her wing cases open for 0.8 s"
+    },
+    {
+     "event": "checkmate",
+     "does": "flutters; Bibi lands on her"
+    },
+    {
+     "event": "stalemate",
+     "does": "shrugs and tucks her wings"
+    },
+    {
+     "event": "undo",
+     "does": "if a capture is taken back: spot un-pops; star rises; ray brightens; the newest sleeper wakes, stretches, hops off (0.8 s) and is removed"
+    },
+    {
+     "event": "idle",
+     "does": "seconds >= 25: walks 4 steps and back"
+    }
+   ]
+  },
+  {
+   "id": "bibi",
+   "name": "Bibi (the fly with an alibi)",
+   "cls": "actor",
+   "region": "garden",
+   "sort": "stand",
+   "workPackage": "E",
+   "ppu": 224,
+   "frameSize": [
+    0.25,
+    0.22
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 12 fps",
+   "drawings": 6,
+   "parts": [
+    "body",
+    "wings x2 poses",
+    "landed pose"
+   ],
+   "states": [
+    {
+     "id": "parked",
+     "what": "start: sits on Gus's leaf",
+     "loop": "hold"
+    },
+    {
+     "id": "orbit",
+     "what": "dotted orbit r 0.55 around Gus's head (procedural path)",
+     "loop": "5.2 s"
+    },
+    {
+     "id": "dodge",
+     "what": "loop-the-loop on capture",
+     "loop": "0.7 s"
+    },
+    {
+     "id": "freeze",
+     "what": "check: freezes mid-air",
+     "loop": "1 s"
+    },
+    {
+     "id": "land",
+     "what": "idle >= 45 s lands on a piece (director freezes it) / on Gus's nose (stalemate)",
+     "loop": "6 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "capture",
+     "does": "loops the loop to dodge (0.7 s)"
+    },
+    {
+     "event": "check",
+     "does": "freezes mid-air for 1 s"
+    },
+    {
+     "event": "idle",
+     "does": "seconds >= 45 and every 180 s: lands on a piece (director freezes it: \"tries very hard to stay still\") for 6 s"
+    }
+   ]
+  },
+  {
+   "id": "sun",
+   "name": "Sun (button sun)",
+   "cls": "state",
+   "region": "sky",
+   "sort": "flat",
+   "workPackage": "A",
+   "ppu": 160,
+   "frameSize": [
+    0.45,
+    0.3
+   ],
+   "quietAtStart": "awake",
+   "boil": "2 variants @ 7 fps on the face + rays only",
+   "drawings": 52,
+   "parts": [
+    "disc + 4 stitch holes (static, sheet ink)",
+    "face plate overlays: eyes (open / half / closed / follow), mouth (smile / o / big smile / flat), blush, sweat drop",
+    "16 rays (lit + dim-stub pair each)",
+    "twinkle ticks (4 gold)"
+   ],
+   "states": [
+    {
+     "id": "awake",
+     "what": "smiling, rays shimmer 1 px, eyes follow moves",
+     "loop": "3 s"
+    },
+    {
+     "id": "doze",
+     "what": "half lids (AI's turn)",
+     "loop": "4 s"
+    },
+    {
+     "id": "yawn",
+     "what": "idle >= 12 s",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "sweat",
+     "what": "Sunrise king in check",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "lost-ray",
+     "what": "a Sunrise piece captured: the next ray dims to a dotted stub",
+     "loop": "0.5 s"
+    },
+    {
+     "id": "win / lose / draw",
+     "what": "checkmate: rays +15 % big smile / eyes closed zz; draw: faces the moon, half lids",
+     "loop": "hold"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "moveStart",
+     "does": "the luminary of the mover's side turns its eyes to `to` (0.3 s)"
+    },
+    {
+     "event": "moveEnd",
+     "does": "turn posture swaps (awake <-> doze, 0.5 s)"
+    },
+    {
+     "event": "capture",
+     "does": "victim Sunrise: the next ray dims to a dotted stub (0.5 s) with a small flicker of the neighbouring rays"
+    },
+    {
+     "event": "promotion",
+     "does": "the promoting side's luminary twinkles (4 gold ticks, 0.7 s)"
+    },
+    {
+     "event": "check",
+     "does": "the checked side's luminary sweats one drop"
+    },
+    {
+     "event": "checkmate",
+     "does": "winner's luminary: rays lengthen 15 %, big smile; loser's: eyes close, zzz"
+    },
+    {
+     "event": "stalemate",
+     "does": "both turn to face each other, half-lidded (0.5 s)"
+    },
+    {
+     "event": "undo",
+     "does": "if a capture is taken back: spot un-pops; star rises; ray brightens; the newest sleeper wakes, stretches, hops off (0.8 s) and is removed"
+    },
+    {
+     "event": "idle",
+     "does": "seconds >= 12: yawns (0.8 s), repeats every 20 s"
+    },
+    {
+     "event": "resign",
+     "does": "the resigning luminary closes its eyes"
+    }
+   ]
+  },
+  {
+   "id": "moon",
+   "name": "Moon (crescent in a nightcap)",
+   "cls": "state",
+   "region": "sky",
+   "sort": "flat",
+   "workPackage": "A",
+   "ppu": 160,
+   "frameSize": [
+    0.5,
+    0.4
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 7 fps",
+   "drawings": 28,
+   "parts": [
+    "crescent + cap (static sheet ink)",
+    "face overlays: eyes closed / half / one open / both open, mouth, blush, sweat",
+    "cap pom-pom swing (2 poses)",
+    "zz"
+   ],
+   "states": [
+    {
+     "id": "asleep",
+     "what": "closed eyes, zz, pom-pom sways (start)",
+     "loop": "4 s"
+    },
+    {
+     "id": "one-eye",
+     "what": "thinkStart (or Dusk to move)",
+     "loop": "hold"
+    },
+    {
+     "id": "awake",
+     "what": "Dusk moved / AI's turn",
+     "loop": "3 s"
+    },
+    {
+     "id": "sweat",
+     "what": "Dusk king in check; also the AI's sheepish mistake",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "win / lose / draw",
+     "what": "as the sun",
+     "loop": "hold"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "thinkStart",
+     "does": "wake level >= 1: opens one eye (if the AI plays Dusk; the sun's half lid if the AI plays Sunrise); at level 0 the moon wakes with the AI's first reply"
+    },
+    {
+     "event": "thinkEnd",
+     "does": "`mistake` set: one sweat drop on the AI's luminary (0.8 s) - the AI is sheepish, never a spoiler"
+    },
+    {
+     "event": "moveStart",
+     "does": "the luminary of the mover's side turns its eyes to `to` (0.3 s)"
+    },
+    {
+     "event": "moveEnd",
+     "does": "turn posture swaps (awake <-> doze, 0.5 s)"
+    },
+    {
+     "event": "promotion",
+     "does": "the promoting side's luminary twinkles (4 gold ticks, 0.7 s)"
+    },
+    {
+     "event": "check",
+     "does": "the checked side's luminary sweats one drop"
+    },
+    {
+     "event": "checkmate",
+     "does": "winner's luminary: rays lengthen 15 %, big smile; loser's: eyes close, zzz"
+    },
+    {
+     "event": "stalemate",
+     "does": "both turn to face each other, half-lidded (0.5 s)"
+    },
+    {
+     "event": "resign",
+     "does": "the resigning luminary closes its eyes"
+    }
+   ]
+  },
+  {
+   "id": "rope",
+   "name": "Star rope (captured-Dusk gallery)",
+   "cls": "state",
+   "region": "sky",
+   "sort": "flat",
+   "workPackage": "A",
+   "ppu": 160,
+   "frameSize": [
+    0.32,
+    0.32
+   ],
+   "quietAtStart": "awake (still)",
+   "boil": "none at rest; 2 variants while swaying",
+   "drawings": 22,
+   "parts": [
+    "rope + 2 nails (static sheet ink)",
+    "5 star designs x 3 states (hanging, twinkle, lowered-asleep)",
+    "thread (one straight hand-drawn line sprite, stretched)",
+    "tear particle",
+    "tink sparkle x2"
+   ],
+   "states": [
+    {
+     "id": "hang",
+     "what": "stars sway 2-4 px with their own phase (wake level 1)",
+     "loop": "3.5-5 s each"
+    },
+    {
+     "id": "lower",
+     "what": "capture: thread +0.35 u, eyes close, sways at half speed",
+     "loop": "0.7 s"
+    },
+    {
+     "id": "tear",
+     "what": "check: the star nearest the king's file drops a tear",
+     "loop": "0.6 s"
+    },
+    {
+     "id": "wave",
+     "what": "checkmate (human won): twinkle wave along the rope",
+     "loop": "1.5 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "capture",
+     "does": "victim Dusk: star starOrder[k] lowers by 0.35 u (0.7 s), eyes close, tiny tink"
+    },
+    {
+     "event": "promotion",
+     "does": "the star nearest to the promotion file gives a gold sparkle and a ding"
+    },
+    {
+     "event": "check",
+     "does": "the star nearest to the king's file drops one tear (particle falls 0.6 u, tink)"
+    },
+    {
+     "event": "checkmate",
+     "does": "humanWon: a wave of twinkles runs along the stars; lost: star eyes close one by one"
+    },
+    {
+     "event": "undo",
+     "does": "if a capture is taken back: spot un-pops; star rises; ray brightens; the newest sleeper wakes, stretches, hops off (0.8 s) and is removed"
+    }
+   ]
+  },
+  {
+   "id": "spider",
+   "name": "Spider on a thread (the AI is thinking)",
+   "cls": "actor",
+   "region": "sky",
+   "sort": "stand",
+   "workPackage": "A",
+   "ppu": 160,
+   "frameSize": [
+    0.3,
+    0.3
+   ],
+   "quietAtStart": "asleep (folded away)",
+   "boil": "2 variants @ 8 fps",
+   "drawings": 10,
+   "parts": [
+    "body",
+    "legs x3 phases",
+    "bow pose",
+    "thread (shared stretched line)"
+   ],
+   "states": [
+    {
+     "id": "away",
+     "what": "hidden above the top edge (start)",
+     "loop": "-"
+    },
+    {
+     "id": "lower",
+     "what": "thinkStart: lowers 1.2 s to y 5.2",
+     "loop": "1.2 s"
+    },
+    {
+     "id": "bob",
+     "what": "thinking: slow bob",
+     "loop": "2.4 s"
+    },
+    {
+     "id": "rise-bow",
+     "what": "thinkEnd: climbs 0.8 s with a tiny bow",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "impatient",
+     "what": "illegal not-your-turn: two bobs",
+     "loop": "0.6 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "illegal",
+     "does": "reason `not-your-turn`: bobs impatiently twice on its thread (only if hanging)"
+    },
+    {
+     "event": "thinkStart",
+     "does": "wake level >= 1: lowers on its thread to y 5.2 in 1.2 s, then bobs slowly (2.4 s loop) while the AI thinks (at level 0 only the pen and the status line show the thinking)"
+    },
+    {
+     "event": "thinkEnd",
+     "does": "outcome `move`: climbs back up in 0.8 s with a tiny bow; `cancelled`: drops out of sight in 0.3 s"
+    }
+   ]
+  },
+  {
+   "id": "pen-red",
+   "name": "Red pen (Sunrise turn indicator)",
+   "cls": "actor",
+   "region": "dock",
+   "sort": "flat",
+   "workPackage": "B",
+   "ppu": 160,
+   "frameSize": [
+    0.7,
+    0.3
+   ],
+   "quietAtStart": "awake",
+   "boil": "2 variants @ 7 fps when awake",
+   "drawings": 12,
+   "parts": [
+    "barrel with face (eyes open / closed / x)",
+    "cap (separate sprite, hops)",
+    "tip scribble (draw-on spiral)",
+    "zz, sweat"
+   ],
+   "states": [
+    {
+     "id": "asleep",
+     "what": "capped, eyes closed, zz",
+     "loop": "4 s"
+    },
+    {
+     "id": "awake",
+     "what": "cap off, tip inked, eyes open, tiny scribble",
+     "loop": "3 s"
+    },
+    {
+     "id": "swap",
+     "what": "cap hops on (0.35 s) / yawn + uncap (0.5 s)",
+     "loop": "0.5 s"
+    },
+    {
+     "id": "no",
+     "what": "illegal: barrel shakes +-4 degrees",
+     "loop": "0.4 s"
+    },
+    {
+     "id": "rattle",
+     "what": "check",
+     "loop": "0.5 s"
+    },
+    {
+     "id": "lie-x",
+     "what": "resign: lies on its back, x eyes",
+     "loop": "hold"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "select",
+     "does": "the awake pen lifts its tip 2 px (it is ready)"
+    },
+    {
+     "event": "illegal",
+     "does": "the awake pen shakes its barrel +-4 degrees twice (0.4 s) = \"no\""
+    },
+    {
+     "event": "thinkStart",
+     "does": "the AI side's pen wakes (cap off), scribbles a small spiral beside the status line"
+    },
+    {
+     "event": "moveEnd",
+     "does": "pens swap: the awake pen caps itself (cap hops on, 0.35 s), the other yawns and uncaps (0.5 s) (ply >= 0)"
+    },
+    {
+     "event": "check",
+     "does": "the checked side's pen rattles its cap (0.5 s)"
+    },
+    {
+     "event": "checkmate",
+     "does": "the winner's pen writes the result (you-win / you-lose, in its hand), the loser's pen writes back 1.2 s later (gg / again); both capped after 5 s"
+    },
+    {
+     "event": "stalemate",
+     "does": "both capped and asleep"
+    },
+    {
+     "event": "undo",
+     "does": "pens swap back"
+    },
+    {
+     "event": "resign",
+     "does": "the resigning side's pen caps itself and lies on its back with x eyes"
+    }
+   ]
+  },
+  {
+   "id": "pen-blue",
+   "name": "Blue pen (Dusk turn indicator)",
+   "cls": "actor",
+   "region": "dock",
+   "sort": "flat",
+   "workPackage": "B",
+   "ppu": 160,
+   "frameSize": [
+    0.7,
+    0.3
+   ],
+   "quietAtStart": "asleep",
+   "boil": "as the red pen",
+   "drawings": 12,
+   "parts": [
+    "as the red pen, blue ink"
+   ],
+   "states": [
+    {
+     "id": "asleep",
+     "what": "capped, zz (start)",
+     "loop": "4 s"
+    },
+    {
+     "id": "awake",
+     "what": "AI to move / thinking: scribbles a spiral",
+     "loop": "3 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "select",
+     "does": "the awake pen lifts its tip 2 px (it is ready)"
+    },
+    {
+     "event": "illegal",
+     "does": "the awake pen shakes its barrel +-4 degrees twice (0.4 s) = \"no\""
+    },
+    {
+     "event": "thinkStart",
+     "does": "the AI side's pen wakes (cap off), scribbles a small spiral beside the status line"
+    },
+    {
+     "event": "moveEnd",
+     "does": "pens swap: the awake pen caps itself (cap hops on, 0.35 s), the other yawns and uncaps (0.5 s) (ply >= 0)"
+    },
+    {
+     "event": "check",
+     "does": "the checked side's pen rattles its cap (0.5 s)"
+    },
+    {
+     "event": "checkmate",
+     "does": "the winner's pen writes the result (you-win / you-lose, in its hand), the loser's pen writes back 1.2 s later (gg / again); both capped after 5 s"
+    },
+    {
+     "event": "stalemate",
+     "does": "both capped and asleep"
+    },
+    {
+     "event": "undo",
+     "does": "pens swap back"
+    },
+    {
+     "event": "resign",
+     "does": "the resigning side's pen caps itself and lies on its back with x eyes"
+    }
+   ]
+  },
+  {
+   "id": "ants",
+   "name": "Ant crews (stretcher bearers, thinking + undo indicator)",
+   "cls": "actor",
+   "region": "ants",
+   "sort": "stand",
+   "workPackage": "F",
+   "ppu": 160,
+   "frameSize": [
+    0.35,
+    0.2
+   ],
+   "quietAtStart": "asleep (at the nests)",
+   "boil": "2 variants @ 10 fps",
+   "drawings": 20,
+   "parts": [
+    "ant walk x4 phases (mirror for direction)",
+    "stretcher: 2 ants + petal (carrying pose)",
+    "sulky pose (undo)",
+    "sit / hush pose",
+    "sleeping at the nest"
+   ],
+   "states": [
+    {
+     "id": "nest",
+     "what": "sleeping on the anthill (start)",
+     "loop": "-"
+    },
+    {
+     "id": "fetch",
+     "what": "capture: walk to the dropZone, 1.5 s, lift token onto the petal",
+     "loop": "1.5 + 0.6 s"
+    },
+    {
+     "id": "carry",
+     "what": "walk the trail to the nap slot at 1.1 u/s in step (\"left, right\")",
+     "loop": "path"
+    },
+    {
+     "id": "hush",
+     "what": "thinking / check: freeze holding the stretcher",
+     "loop": "hold"
+    },
+    {
+     "id": "u-turn",
+     "what": "undo in transit: turn round, sulky, carry back",
+     "loop": "path"
+    },
+    {
+     "id": "sit",
+     "what": "game over: sit and watch",
+     "loop": "hold"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "thinkStart",
+     "does": "freeze and hold the stretcher still (shh) for the duration"
+    },
+    {
+     "event": "thinkEnd",
+     "does": "resume"
+    },
+    {
+     "event": "capture",
+     "does": "the crew of the victim's side walks to the dropZone (1.5 s), lifts the fainted token onto the petal and carries it to its nap slot; second capture in transit queues a second crew"
+    },
+    {
+     "event": "check",
+     "does": "freeze"
+    },
+    {
+     "event": "checkmate",
+     "does": "sit down and watch"
+    },
+    {
+     "event": "undo",
+     "does": "a crew in transit turns round and carries the token back to the dropZone (they look sulky); idle crews do nothing"
+    },
+    {
+     "event": "newGame",
+     "does": "drop the stretchers and scurry home"
+    }
+   ]
+  },
+  {
+   "id": "whale-island",
+   "name": "Whale island (Dusk nap place)",
+   "cls": "actor",
+   "region": "whale",
+   "sort": "flat",
+   "workPackage": "D",
+   "ppu": 160,
+   "frameSize": [
+    1,
+    0.55
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 6 fps on the animated parts only",
+   "drawings": 22,
+   "parts": [
+    "whale ink (static sheet ink, drawn at load)",
+    "whale colour layer (sea blue + indigo, separate sprite with time map: colours in on the FIRST sleeper)",
+    "eye states (closed / blink / one open / both open)",
+    "mouth smile x2",
+    "spout x3",
+    "tail flick x2",
+    "sea ripple lines x3 loops",
+    "leaf blanket"
+   ],
+   "states": [
+    {
+     "id": "sleep",
+     "what": "belly breathes 4.5 s (procedural squash), tail flick every ~9 s, ink only (no colour) at the start",
+     "loop": "4.5 s"
+    },
+    {
+     "id": "welcome",
+     "what": "a sleeper lands: colour-in (0.9 s), blink, tiny pfft",
+     "loop": "1.8 s"
+    },
+    {
+     "id": "spout",
+     "what": "checkmate: tall spout with a small rainbow in it",
+     "loop": "1.2 s"
+    },
+    {
+     "id": "still",
+     "what": "tension > 0.6: stops blinking",
+     "loop": "hold"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "capture",
+     "does": "on the ants' arrival: the sleeper is tucked in on its slot (0.8 s), the whale blinks and spouts a tiny pfft / the pad dips and rings"
+    },
+    {
+     "event": "checkmate",
+     "does": "a tall spout with a small rainbow in it (1.2 s)"
+    }
+   ]
+  },
+  {
+   "id": "palm",
+   "name": "Palm on the whale",
+   "cls": "actor",
+   "region": "whale",
+   "sort": "stand",
+   "workPackage": "D",
+   "ppu": 160,
+   "frameSize": [
+    0.9,
+    1.3
+   ],
+   "quietAtStart": "awake (gentle)",
+   "boil": "2 variants @ 5 fps",
+   "drawings": 4,
+   "parts": [
+    "trunk + fronds, 2 sway poses"
+   ],
+   "states": [
+    {
+     "id": "sway",
+     "what": "gentle sway",
+     "loop": "5 s"
+    }
+   ],
+   "triggers": []
+  },
+  {
+   "id": "whale-sleepers",
+   "name": "Sleepers on the whale (state)",
+   "cls": "state",
+   "region": "whale",
+   "sort": "stand",
+   "workPackage": "CHAR",
+   "ppu": 160,
+   "frameSize": [
+    0.5,
+    0.5
+   ],
+   "quietAtStart": "none",
+   "boil": "chars pipeline",
+   "drawings": 0,
+   "parts": [
+    "sleepy pose of each captured Dusk piece at 0.42 scale + zzz (from the character atlas)"
+   ],
+   "states": [
+    {
+     "id": "tucked",
+     "what": "placed on napDusk[i]; zzz rises; breathes",
+     "loop": "4 s"
+    },
+    {
+     "id": "wake-off",
+     "what": "undo: sits up, stretches, hops off, removed",
+     "loop": "0.8 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "undo",
+     "does": "if a capture is taken back: spot un-pops; star rises; ray brightens; the newest sleeper wakes, stretches, hops off (0.8 s) and is removed"
+    },
+    {
+     "event": "newGame",
+     "does": "sleepers hop off and fade"
+    }
+   ]
+  },
+  {
+   "id": "lily-pads",
+   "name": "Lily-pad nap boats (state)",
+   "cls": "state",
+   "region": "puddle",
+   "sort": "flat",
+   "workPackage": "C",
+   "ppu": 160,
+   "frameSize": [
+    0.5,
+    0.3
+   ],
+   "quietAtStart": "none",
+   "boil": "2 variants on dip",
+   "drawings": 11,
+   "parts": [
+    "6 pad designs (static sheet ink + leaf-green wash)",
+    "dip x2 poses",
+    "ring ripple x3",
+    "leaf blanket"
+   ],
+   "states": [
+    {
+     "id": "empty",
+     "what": "pad bobs 1 px",
+     "loop": "5 s"
+    },
+    {
+     "id": "tucked",
+     "what": "sleeper from the character atlas on the pad; pad dips, ring ripple",
+     "loop": "0.9 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "capture",
+     "does": "on the ants' arrival: the sleeper is tucked in on its slot (0.8 s), the whale blinks and spouts a tiny pfft / the pad dips and rings"
+    },
+    {
+     "event": "undo",
+     "does": "if a capture is taken back: spot un-pops; star rises; ray brightens; the newest sleeper wakes, stretches, hops off (0.8 s) and is removed"
+    },
+    {
+     "event": "newGame",
+     "does": "sleepers hop off and fade"
+    }
+   ]
+  },
+  {
+   "id": "rainbow",
+   "name": "Rainbow (band every six half-moves)",
+   "cls": "state",
+   "region": "puddle",
+   "sort": "flat",
+   "workPackage": "C",
+   "ppu": 160,
+   "frameSize": [
+    3.5,
+    2.3
+   ],
+   "quietAtStart": "awake (ink only)",
+   "boil": "none (static once drawn)",
+   "drawings": 3,
+   "parts": [
+    "compass-arc construction line + ink outline of the 7 bands (static sheet ink)",
+    "ONE colour sprite of all 7 pencil bands whose time map is ordered band by band (band k occupies progress [k/7, (k+1)/7], stroke by stroke inside it): progress = bands/7 gives the state, a sweep is progress -> 1, a rub-out progress <- lower",
+    "glow ring for the finale",
+    "top-band fade overlay"
+   ],
+   "states": [
+    {
+     "id": "band k",
+     "what": "colours in over 0.9 s when plies reaches 6k",
+     "loop": "0.9 s"
+    },
+    {
+     "id": "sweep",
+     "what": "checkmate: all remaining bands, one sweep",
+     "loop": "1.6 s"
+    },
+    {
+     "id": "rub-out",
+     "what": "newGame: bands fade 0.5 s; undo across a boundary: top band fades back",
+     "loop": "0.5-0.7 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "moveEnd",
+     "does": "when plies crosses a multiple of 6 the next band colours in stroke by stroke (0.9 s)"
+    },
+    {
+     "event": "checkmate",
+     "does": "all remaining bands colour in, one sweep (1.6 s); a soft glow ring"
+    },
+    {
+     "event": "undo",
+     "does": "if a band boundary was crossed the top band fades back to ink outline (0.7 s)"
+    },
+    {
+     "event": "newGame",
+     "does": "bands rub out (fade 0.5 s); the ink arc stays"
+    },
+    {
+     "event": "resign",
+     "does": "no sweep (only checkmate earns it)"
+    }
+   ]
+  },
+  {
+   "id": "rain-cloud",
+   "name": "Rain cloud",
+   "cls": "actor",
+   "region": "rain",
+   "sort": "flat",
+   "workPackage": "C",
+   "ppu": 128,
+   "frameSize": [
+    0.6,
+    0.4
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 6 fps",
+   "drawings": 8,
+   "parts": [
+    "cloud (static face closed)",
+    "face overlays: asleep / shudder x2 / drip",
+    "zz"
+   ],
+   "states": [
+    {
+     "id": "asleep",
+     "what": "zz, slow drift +-0.1 u",
+     "loop": "8 s"
+    },
+    {
+     "id": "shed",
+     "what": "shudders and lets the next drop go",
+     "loop": "0.6 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "moveEnd",
+     "does": "wake level >= 1: after each completed full move the next raindrop of three falls (1.6 s) into the puddle, ring ripples 0.9 s"
+    },
+    {
+     "event": "capture",
+     "does": "sheds an extra drop (not counted in the cycle)"
+    },
+    {
+     "event": "undo",
+     "does": "the last raindrop climbs back up the way it came down (0.9 s), ripple runs backwards"
+    }
+   ]
+  },
+  {
+   "id": "raindrops",
+   "name": "Three faced raindrops",
+   "cls": "actor",
+   "region": "rain",
+   "sort": "stand",
+   "workPackage": "C",
+   "ppu": 160,
+   "frameSize": [
+    0.2,
+    0.28
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 8 fps",
+   "drawings": 12,
+   "parts": [
+    "3 drop designs x 2 boil",
+    "splash x3 + ripple rings x3 (flat, in the puddle)"
+   ],
+   "states": [
+    {
+     "id": "fall",
+     "what": "1.6 s from the cloud to the puddle (y 0.85 -> -3.3), tiny face looks down",
+     "loop": "1.6 s"
+    },
+    {
+     "id": "climb",
+     "what": "undo: the same frames reversed 0.9 s, ripple runs backwards",
+     "loop": "0.9 s"
+    }
+   ],
+   "triggers": []
+  },
+  {
+   "id": "tree-owl",
+   "name": "Tree with the night-shift owl",
+   "cls": "actor",
+   "region": "puddle",
+   "sort": "flat",
+   "workPackage": "C",
+   "ppu": 160,
+   "frameSize": [
+    0.4,
+    0.4
+   ],
+   "quietAtStart": "asleep",
+   "boil": "none",
+   "drawings": 4,
+   "parts": [
+    "tree + knot (static sheet ink)",
+    "owl asleep (static)",
+    "overlays: slow blink, one eye open, both eyes open, leaf slip"
+   ],
+   "states": [
+    {
+     "id": "asleep",
+     "what": "dead leaf on his head, he has not noticed",
+     "loop": "-"
+    },
+    {
+     "id": "blink",
+     "what": "every ~12 s at wake level 2; hint: one eye",
+     "loop": "0.6 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "hint",
+     "does": "opens one eye and looks at `from` (0.6 s) then shuts it; if `mate != null` both eyes open and the leaf slips (easter egg)"
+    },
+    {
+     "event": "idle",
+     "does": "seconds >= 30: a slow blink; the leaf does not move"
+    }
+   ]
+  },
+  {
+   "id": "tally-stone",
+   "name": "Tally stone",
+   "cls": "state",
+   "region": "puddle",
+   "sort": "flat",
+   "workPackage": "C",
+   "ppu": 160,
+   "frameSize": [
+    0.7,
+    0.5
+   ],
+   "quietAtStart": "awake",
+   "boil": "none",
+   "drawings": 0,
+   "parts": [
+    "stone: static sheet ink (STATICS stone)",
+    "scratch marks are the lettering kit's tally-1..5 strings (warm / cool hand) with their own draw-on"
+   ],
+   "states": [
+    {
+     "id": "mark",
+     "what": "a result adds one stroke (0.8 s); a draw adds one short stroke of each hand",
+     "loop": "0.8 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "checkmate",
+     "does": "the next tally-N stroke is written on the stone in the winner's hand (0.8 s)"
+    },
+    {
+     "event": "stalemate",
+     "does": "a short stroke of each hand is written"
+    },
+    {
+     "event": "resign",
+     "does": "a tally stroke in the winner's hand"
+    }
+   ]
+  },
+  {
+   "id": "dandelion",
+   "name": "Dandelion clock",
+   "cls": "state",
+   "region": "nw",
+   "sort": "stand",
+   "workPackage": "F",
+   "ppu": 128,
+   "frameSize": [
+    0.3,
+    0.3
+   ],
+   "quietAtStart": "awake (still)",
+   "boil": "2 variants @ 5 fps while swaying",
+   "drawings": 12,
+   "parts": [
+    "stalk + leaves (static sheet ink)",
+    "seed head base",
+    "8 seed variants x 24 positions (each seed its own sprite)",
+    "seed in flight x2"
+   ],
+   "states": [
+    {
+     "id": "full",
+     "what": "24 seeds, trembles with tension",
+     "loop": "-"
+    },
+    {
+     "id": "release",
+     "what": "a seed detaches and floats east 3 s, fades",
+     "loop": "3 s"
+    },
+    {
+     "id": "let-go",
+     "what": "game end: all remaining seeds go (3 s)",
+     "loop": "3 s"
+    },
+    {
+     "id": "return",
+     "what": "undo: the seed drifts back; newGame: 24 float in from the east edge",
+     "loop": "0.8-1.2 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "moveEnd",
+     "does": "wake level >= 1: after each completed full move one seed detaches and floats east (flat decal, 3 s drift, fades)"
+    },
+    {
+     "event": "checkmate",
+     "does": "lets go of all remaining seeds (3 s)"
+    },
+    {
+     "event": "undo",
+     "does": "the last seed drifts back and re-attaches (0.8 s)"
+    },
+    {
+     "event": "newGame",
+     "does": "seeds float back in from the east edge and settle (1.2 s)"
+    }
+   ]
+  },
+  {
+   "id": "monarch",
+   "name": "One animated monarch",
+   "cls": "actor",
+   "region": "nw",
+   "sort": "stand",
+   "workPackage": "F",
+   "ppu": 128,
+   "frameSize": [
+    0.45,
+    0.4
+   ],
+   "quietAtStart": "asleep",
+   "boil": "3 variants @ 8 fps",
+   "drawings": 6,
+   "parts": [
+    "wings open / closed"
+   ],
+   "states": [
+    {
+     "id": "drift",
+     "what": "follows the dotted trail slowly (wake level 1), lands on Dab's sign at idle >= 35 s",
+     "loop": "40 s path"
+    }
+   ],
+   "triggers": []
+  },
+  {
+   "id": "dots",
+   "name": "Connect-the-dots (star-bell)",
+   "cls": "state",
+   "region": "ne",
+   "sort": "flat",
+   "workPackage": "D",
+   "ppu": 128,
+   "frameSize": [
+    1.5,
+    1.2
+   ],
+   "quietAtStart": "awake (dots only)",
+   "boil": "none",
+   "drawings": 4,
+   "parts": [
+    "14 numbered dots (static sheet ink)",
+    "line sprite with a time map in 13 segments",
+    "completion sparkle x2"
+   ],
+   "states": [
+    {
+     "id": "draw",
+     "what": "segment k draws on when full move k completes (0.8 s)",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "undo",
+     "what": "segment un-draws (progress reversed) + two eraser crumbs",
+     "loop": "0.6 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "moveEnd",
+     "does": "wake level >= 1: after each completed full move the next dashed line draws on (0.8 s)"
+    },
+    {
+     "event": "undo",
+     "does": "the last dashed line un-draws (draw-on progress reversed, 0.6 s) with two eraser crumbs"
+    }
+   ]
+  },
+  {
+   "id": "smoke",
+   "name": "Chimney smoke",
+   "cls": "actor",
+   "region": "hills",
+   "sort": "flat",
+   "workPackage": "D",
+   "ppu": 128,
+   "frameSize": [
+    0.5,
+    0.7
+   ],
+   "quietAtStart": "asleep",
+   "boil": "none",
+   "drawings": 3,
+   "parts": [
+    "3 poses"
+   ],
+   "states": [
+    {
+     "id": "curl",
+     "what": "lazy loop",
+     "loop": "3.2 s"
+    }
+   ],
+   "triggers": []
+  },
+  {
+   "id": "snail",
+   "name": "Snail (game clock)",
+   "cls": "state",
+   "region": "garden",
+   "sort": "stand",
+   "workPackage": "E",
+   "ppu": 160,
+   "frameSize": [
+    0.35,
+    0.3
+   ],
+   "quietAtStart": "awake",
+   "boil": "2 variants @ 6 fps while moving",
+   "drawings": 8,
+   "parts": [
+    "crawl x3 phases",
+    "shell-in pose",
+    "happy arrival",
+    "slime trail (dashed hand line, grows)"
+   ],
+   "states": [
+    {
+     "id": "crawl",
+     "what": "+0.0142 u per half-move (0.6 s)",
+     "loop": "0.6 s"
+    },
+    {
+     "id": "glide",
+     "what": "game end: glides to the flower foot 3 s; newGame: slides home 1.5 s",
+     "loop": "1.5-3 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "moveEnd",
+     "does": "crawls +0.021 u (one pen-width; 0.6 s) - in the QUIET first move too"
+    },
+    {
+     "event": "checkmate",
+     "does": "glides to the flower foot (3 s)"
+    },
+    {
+     "event": "stalemate",
+     "does": "glides to the flower foot (3 s)"
+    },
+    {
+     "event": "undo",
+     "does": "crawls back to the state position (0.6 s)"
+    },
+    {
+     "event": "newGame",
+     "does": "slides home quickly with a \"wheee\" trail (1.5 s)"
+    }
+   ]
+  },
+  {
+   "id": "sunflower",
+   "name": "Sunflower",
+   "cls": "actor",
+   "region": "garden",
+   "sort": "stand",
+   "workPackage": "E",
+   "ppu": 160,
+   "frameSize": [
+    0.7,
+    1.3
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 5 fps",
+   "drawings": 7,
+   "parts": [
+    "stalk + leaves",
+    "head turn poses W / front / E",
+    "sway x2",
+    "bud-nodding pose"
+   ],
+   "states": [
+    {
+     "id": "nod",
+     "what": "start: head nodding low",
+     "loop": "6 s"
+    },
+    {
+     "id": "sway",
+     "what": "wake level 2",
+     "loop": "4 s"
+    },
+    {
+     "id": "turn",
+     "what": "game end: turns to the winner (W Sunrise / E Dusk)",
+     "loop": "1.2 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "checkmate",
+     "does": "turns its head towards the winner's side (W = Sunrise, E = Dusk)"
+    }
+   ]
+  },
+  {
+   "id": "bee",
+   "name": "Sunflower bee",
+   "cls": "actor",
+   "region": "garden",
+   "sort": "stand",
+   "workPackage": "E",
+   "ppu": 160,
+   "frameSize": [
+    0.28,
+    0.24
+   ],
+   "quietAtStart": "asleep",
+   "boil": "2 variants @ 14 fps",
+   "drawings": 5,
+   "parts": [
+    "body",
+    "wings x2",
+    "asleep on the flower"
+   ],
+   "states": [
+    {
+     "id": "orbit",
+     "what": "dotted orbit r 0.5 around the flower",
+     "loop": "4.5 s"
+    },
+    {
+     "id": "loop",
+     "what": "promotion: loop-the-loop",
+     "loop": "0.9 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "promotion",
+     "does": "loops the loop around the sunflower"
+    }
+   ]
+  },
+  {
+   "id": "pebbles",
+   "name": "Four sleepy pebbles (board corners; board-paper decals)",
+   "cls": "actor",
+   "region": "board",
+   "sort": "stand",
+   "workPackage": "BOARD",
+   "ppu": 200,
+   "frameSize": [
+    0.7,
+    0.6
+   ],
+   "quietAtStart": "asleep",
+   "boil": "board-paper: pebble-shut-0..3 / pebble-open-0..3",
+   "drawings": 0,
+   "parts": [
+    "board-paper's pebble-shut-N and pebble-open-N (no new drawings)"
+   ],
+   "states": [
+    {
+     "id": "nearest-wakes",
+     "what": "capture: the pebble nearest the victim square shows pebble-open for 0.8 s",
+     "loop": "0.8 s"
+    },
+    {
+     "id": "castle-glance",
+     "what": "castle: the two pebbles on the castling side show pebble-open for 0.8 s",
+     "loop": "0.8 s"
+    }
+   ],
+   "triggers": [
+    {
+     "event": "capture",
+     "does": "the pebble at the corner nearest the victim square shows board-paper's pebble-open-N for 0.8 s"
+    },
+    {
+     "event": "castle",
+     "does": "the two pebbles on the castling side show pebble-open-N for 0.8 s (they swap a glance)"
+    }
+   ]
+  },
+  {
+   "id": "btn-undo",
+   "name": "Undo arrow",
+   "cls": "ui",
+   "region": "dock",
+   "sort": "flat",
+   "workPackage": "B",
+   "ppu": 160,
+   "frameSize": [
+    0.7,
+    0.7
+   ],
+   "quietAtStart": "awake",
+   "boil": "2 variants @ 6 fps on hover",
+   "drawings": 6,
+   "parts": [
+    "rest (pale), hover (darker, tip wiggles), pressed trail, disabled (dotted)"
+   ],
+   "states": [],
+   "triggers": [
+    {
+     "event": "illegal",
+     "does": "reason `nothing-to-undo`: the arrow shakes and turns dotted for 1 s"
+    }
+   ]
+  },
+  {
+   "id": "btn-sound",
+   "name": "Speaker",
+   "cls": "ui",
+   "region": "dock",
+   "sort": "flat",
+   "workPackage": "B",
+   "ppu": 160,
+   "frameSize": [
+    0.7,
+    0.7
+   ],
+   "quietAtStart": "awake",
+   "boil": "2 variants",
+   "drawings": 6,
+   "parts": [
+    "cone + 2 arcs (on), hover shimmer x2, x scribble (off), pop"
+   ],
+   "states": [],
+   "triggers": []
+  },
+  {
+   "id": "btn-level",
+   "name": "Level stars",
+   "cls": "ui",
+   "region": "dock",
+   "sort": "flat",
+   "workPackage": "B",
+   "ppu": 160,
+   "frameSize": [
+    0.3,
+    0.3
+   ],
+   "quietAtStart": "awake",
+   "boil": "2 variants",
+   "drawings": 6,
+   "parts": [
+    "star outline, star scribbled-in, hover preview; level name written on hover (5 strings)"
+   ],
+   "states": [],
+   "triggers": []
+  }
+ ],
+ "anchors": {
+  "boardCorners": {
+   "a1": [
+    -3.5,
+    -3.5
+   ],
+   "h1": [
+    3.5,
+    -3.5
+   ],
+   "a8": [
+    -3.5,
+    3.5
+   ],
+   "h8": [
+    3.5,
+    3.5
+   ]
+  },
+  "pebbleCorners": [
+   [
+    -4.42,
+    -4.3
+   ],
+   [
+    4.42,
+    -4.3
+   ],
+   [
+    -4.42,
+    4.3
+   ],
+   [
+    4.42,
+    4.3
+   ]
+  ],
+  "dropZone": {
+   "sunrise": {
+    "x": -5.05,
+    "y0": -2.6,
+    "y1": -0.9
+   },
+   "dusk": {
+    "x": 5.05,
+    "y0": -1.2,
+    "y1": 0.3
+   }
+  },
+  "antTrail": {
+   "sunrise": [
+    [
+     -5.45,
+     -0.5
+    ],
+    [
+     -5.25,
+     -1.5
+    ],
+    [
+     -5.3,
+     -2.6
+    ],
+    [
+     -5.5,
+     -3.2
+    ],
+    [
+     -5.85,
+     -3.4
+    ]
+   ],
+   "dusk": [
+    [
+     5.45,
+     0.35
+    ],
+    [
+     5.3,
+     -0.1
+    ],
+    [
+     5.4,
+     -0.45
+    ],
+    [
+     5.75,
+     -0.65
+    ]
+   ]
+  },
+  "napSunrise": [
+   {
+    "i": 0,
+    "pos": [
+     -5.7,
+     -3.36
+    ],
+    "scale": 0.4
+   },
+   {
+    "i": 1,
+    "pos": [
+     -6.13,
+     -3.58
+    ],
+    "scale": 0.4
+   },
+   {
+    "i": 2,
+    "pos": [
+     -6.5,
+     -3.36
+    ],
+    "scale": 0.4
+   },
+   {
+    "i": 3,
+    "pos": [
+     -6.93,
+     -3.58
+    ],
+    "scale": 0.4
+   },
+   {
+    "i": 4,
+    "pos": [
+     -7.3,
+     -3.36
+    ],
+    "scale": 0.4
+   },
+   {
+    "i": 5,
+    "pos": [
+     -7.73,
+     -3.58
+    ],
+    "scale": 0.4
+   }
+  ],
+  "napDusk": [
+   {
+    "i": 0,
+    "pos": [
+     6.4,
+     -0.47
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 1,
+    "pos": [
+     6.58,
+     -0.81
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 2,
+    "pos": [
+     6.82,
+     -0.47
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 3,
+    "pos": [
+     7,
+     -0.81
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 4,
+    "pos": [
+     7.24,
+     -0.47
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 5,
+    "pos": [
+     7.42,
+     -0.81
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 6,
+    "pos": [
+     7.66,
+     -0.47
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 7,
+    "pos": [
+     7.84,
+     -0.81
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 8,
+    "pos": [
+     8.08,
+     -0.47
+    ],
+    "scale": 0.42
+   },
+   {
+    "i": 9,
+    "pos": [
+     8.26,
+     -0.81
+    ],
+    "scale": 0.42
+   }
+  ],
+  "starRope": {
+   "nails": [
+    [
+     -3.35,
+     7.28
+    ],
+    [
+     3.35,
+     7.28
+    ]
+   ],
+   "sag": 0.34,
+   "spacing": 0.44,
+   "count": 15,
+   "threadLen": [
+    0.5,
+    1.25
+   ]
+  },
+  "starOrder": [
+   7,
+   2,
+   11,
+   4,
+   13,
+   0,
+   9,
+   5,
+   14,
+   1,
+   8,
+   12,
+   3,
+   10,
+   6
+  ],
+  "snail": {
+   "from": [
+    5.25,
+    -4.45
+   ],
+   "to": [
+    6.95,
+    -4.45
+   ],
+   "pliesToArrive": 120
+  },
+  "rainbow": {
+   "centre": [
+    -6.5,
+    -3.05
+   ],
+   "bands": 7,
+   "plyPerBand": 6,
+   "outerRx": 1.7,
+   "outerRy": 2.25,
+   "bandWidth": 0.1
+  },
+  "dandelion": {
+   "head": [
+    -7.9,
+    4.85
+   ],
+   "seeds": 24
+  },
+  "rainPath": {
+   "from": [
+    -6.7,
+    0.85
+   ],
+   "to": [
+    -6.7,
+    -3.3
+   ],
+   "drops": 3
+  },
+  "spider": {
+   "tie": [
+    -2,
+    7.06
+   ],
+   "lowest": [
+    -2,
+    5.2
+   ]
+  },
+  "gusHead": [
+   5.6,
+   -3.15
+  ],
+  "dotWalk": {
+   "y": -4,
+   "x0": 6.55,
+   "x1": 7.05
+  },
+  "dab": {
+   "home": [
+    -4.65,
+    -5.65
+   ],
+   "eyeHeight": 0.85
+  },
+  "napCameraNote": "napSunrise / napDusk positions are world ground points; sleeper sprites stand there"
+ },
+ "ui": [
+  {
+   "id": "btn-new",
+   "name": "new game sign (in Dab's arms)",
+   "space": "card of dab",
+   "box": [
+    -0.5,
+    0.05,
+    0.5,
+    0.65
+   ],
+   "grow": 0.1,
+   "minPx": 44,
+   "asleep": "the sign hangs at her chest, \"new game\" in ink (pressure 0.5)",
+   "hover": "she lifts the sign 0.15 u in 0.15 s and smiles; the words darken (bold frame)",
+   "pressed": "she flips the sign (0.3 s) and shakes the sheet; mid-game: the sign first turns to \"sure?\" for 3 s and a second press confirms",
+   "disabled": "never",
+   "keys": "N"
+  },
+  {
+   "id": "dab-body",
+   "name": "Dab herself = hint",
+   "space": "card of dab",
+   "box": [
+    -0.5,
+    0,
+    0.5,
+    1.25
+   ],
+   "grow": 0,
+   "minPx": 44,
+   "asleep": "idle",
+   "hover": "she waves a wing (no tooltip)",
+   "pressed": "asks the engine for a hint (event hint); she points",
+   "disabled": "while the AI thinks or the game is over (she shrugs)",
+   "keys": "H"
+  },
+  {
+   "id": "btn-undo",
+   "name": "undo arrow",
+   "space": "paper",
+   "box": "at +-0.31 x +-0.31 (dockLayout)",
+   "grow": 0.05,
+   "minPx": 44,
+   "asleep": "a pale curved arrow, pressure 0.35",
+   "hover": "darker, the tip wiggles left twice",
+   "pressed": "the arrow swings once around its curve leaving a dashed trail (0.35 s)",
+   "disabled": "nothing to undo: dotted, pressure 0.2, no hover; a press shakes it",
+   "keys": "U / Backspace"
+  },
+  {
+   "id": "btn-sound",
+   "name": "speaker",
+   "space": "paper",
+   "box": "at +-0.31 x +-0.31 (dockLayout)",
+   "grow": 0.05,
+   "minPx": 44,
+   "asleep": "cone + two arcs",
+   "hover": "the arcs shimmer (2 boil frames)",
+   "pressed": "arcs pop / are crossed out with an x scribble (muted)",
+   "disabled": "never",
+   "keys": "M"
+  },
+  {
+   "id": "btn-level",
+   "name": "level stars (5 = sleepy dreamy steady keen sharp)",
+   "space": "paper",
+   "box": "5 boxes 0.26 wide x 0.5 tall, spacing 0.26 (one row) or >= 44 px spacing (two rows)",
+   "grow": 0.05,
+   "minPx": 44,
+   "asleep": "the current level scribbled solid, the rest outline",
+   "hover": "stars 1..k darken; the level name (level-sleepy .. level-sharp) is written under them",
+   "pressed": "stars 1..k fill in with a 0.3 s scribble; the blue pen twitches; touch: a tap on the group cycles the level",
+   "disabled": "never (takes effect on the next AI move)",
+   "keys": "F"
+  }
+ ],
+ "stateMap": [
+  {
+   "display": "rainbow bands",
+   "region": "puddle",
+   "formula": "bands = min(7, floor(plies / 6)); band k (1..7) is coloured from ply 6k; on checkmate all 7 sweep in (1.6 s); draw / stalemate / resign leave it as is"
+  },
+  {
+   "display": "snail",
+   "region": "garden",
+   "formula": "x = 5.25 + 1.7 * min(1, plies / 120); at any game end the snail glides the rest of the way in 3 s"
+  },
+  {
+   "display": "star rope",
+   "region": "sky",
+   "formula": "star starOrder[k] is lowered (thread +0.35, eyes closed, sways at half speed) for the k-th captured Dusk piece; count = tally.byWhite.length"
+  },
+  {
+   "display": "sun rays",
+   "region": "sky",
+   "formula": "ray j is dim (dotted stub) for the j-th captured Sunrise piece, ray order = clockwise from the top-right; count = tally.byBlack.length (16 rays, the king ray never dims)"
+  },
+  {
+   "display": "Dot's spots",
+   "region": "garden",
+   "formula": "spots = min(7, total captures); the 7th spot: she counts them on her fingers and shrugs"
+  },
+  {
+   "display": "whale sleepers",
+   "region": "whale",
+   "formula": "sleeper i (i < 10) = tally.byWhite[i] piece type, tucked in on napDusk[i]; more than 10 captures: the extras are only zzz above the whale"
+  },
+  {
+   "display": "lily-pad boats",
+   "region": "puddle",
+   "formula": "boat i (i < 6) = tally.byBlack[i] piece type on napSunrise[i]; more than 6: extras are zzz bubbles on the water"
+  },
+  {
+   "display": "dandelion seeds",
+   "region": "nw",
+   "formula": "seeds = max(0, 24 - fullMoves); one seed leaves per completed full move; at game end the clock lets go of all of them (3 s) and stays bare"
+  },
+  {
+   "display": "dots puzzle",
+   "region": "ne",
+   "formula": "lines drawn = min(13, fullMoves); dot k is inked when line k-1 reaches it; completes = a star-bell"
+  },
+  {
+   "display": "forget-me-nots",
+   "region": "board",
+   "formula": "grey (board-paper fmn-grey-N) while the game runs; on checkmate / resign with a winner every one swaps to its blue twin (crossfade 0.9 s); they stay grey on a draw"
+  },
+  {
+   "display": "tally stone",
+   "region": "puddle",
+   "formula": "localStorage record of this browser (last 15 results): tally-N strings of the lettering kit, warm = Sunrise won, cool = Dusk won, a draw adds one short stroke of each hand; every 5th stroke is the diagonal"
+  },
+  {
+   "display": "pens",
+   "region": "dock",
+   "formula": "the pen of the side to move is awake (cap off, tip inked), the other capped and asleep; both capped after a game ends"
+  },
+  {
+   "display": "sun / moon posture",
+   "region": "sky",
+   "formula": "side to move: awake and smiling; other side: dozing (half lids). at game start only the sun is awake (QUIET)"
+  },
+  {
+   "display": "margin notes",
+   "region": "nw+ne",
+   "formula": "a new pair every 6 plies from pool index floor(plies/6) mod 8 (deterministic); wiped with a tiny eraser scribble, rewritten by draw-on"
+  }
+ ],
+ "wakeLevels": [
+  {
+   "level": 0,
+   "when": "game start until the AI has played its first reply (plies 0 - 1)",
+   "awake": [
+    "dab",
+    "sun",
+    "pen-red",
+    "pen-blue",
+    "snail"
+   ],
+   "asleep": [
+    "moon",
+    "gus",
+    "dot",
+    "bibi",
+    "whale-island",
+    "stars",
+    "spider",
+    "ants",
+    "rain-cloud",
+    "dandelion (still)",
+    "tree-owl",
+    "sunflower",
+    "bee",
+    "smoke"
+   ]
+  },
+  {
+   "level": 1,
+   "when": "plies >= 2 (from the AI's first reply on)",
+   "awake": [
+    "moon",
+    "spider",
+    "stars (gentle sway)",
+    "dandelion (seeds)",
+    "dots (lines)",
+    "rain-cloud (drops)",
+    "smoke",
+    "monarch",
+    "margin notes (first pair)"
+   ]
+  },
+  {
+   "level": 2,
+   "when": "ply >= 8, or the first capture, or the first check",
+   "awake": [
+    "gus",
+    "dot",
+    "bibi",
+    "whale-island",
+    "ants",
+    "sunflower",
+    "bee",
+    "tree-owl"
+   ]
+  }
+ ],
+ "reactions": {
+  "select": [
+   {
+    "who": "dab",
+    "does": "lean toward the board 0.12 rad and look at the selected square (0.25 s); brows worry if `threatened.length > 0`"
+   },
+   {
+    "who": "pen-red|pen-blue",
+    "does": "the awake pen lifts its tip 2 px (it is ready)"
+   }
+  ],
+  "deselect": [
+   {
+    "who": "dab",
+    "does": "straighten up (0.25 s), eyes back to the board centre"
+   }
+  ],
+  "hover": [
+   {
+    "who": "dab",
+    "does": "pupils follow the hovered square (throttled to 8 Hz) only if `grabbable` or `target`; never moves the body"
+   }
+  ],
+  "hint": [
+   {
+    "who": "dab",
+    "does": "points a wing at `from`, holds 0.5 s, swings to `to` (0.35 s), whispers \"psst...\" (string world-dab-psst)"
+   },
+   {
+    "who": "tree-owl",
+    "does": "opens one eye and looks at `from` (0.6 s) then shuts it; if `mate != null` both eyes open and the leaf slips (easter egg)"
+   }
+  ],
+  "illegal": [
+   {
+    "who": "dab",
+    "does": "wince + the one-word bubble \"oops\" (string oops, 0.35 s draw-on)"
+   },
+   {
+    "who": "pen-red|pen-blue",
+    "does": "the awake pen shakes its barrel +-4 degrees twice (0.4 s) = \"no\""
+   },
+   {
+    "who": "btn-undo",
+    "does": "reason `nothing-to-undo`: the arrow shakes and turns dotted for 1 s"
+   },
+   {
+    "who": "spider",
+    "does": "reason `not-your-turn`: bobs impatiently twice on its thread (only if hanging)"
+   }
+  ],
+  "thinkStart": [
+   {
+    "who": "spider",
+    "does": "wake level >= 1: lowers on its thread to y 5.2 in 1.2 s, then bobs slowly (2.4 s loop) while the AI thinks (at level 0 only the pen and the status line show the thinking)"
+   },
+   {
+    "who": "pen-blue|pen-red",
+    "does": "the AI side's pen wakes (cap off), scribbles a small spiral beside the status line"
+   },
+   {
+    "who": "status",
+    "does": "writes \"thinking\" in the AI's hand (string thinking; its parts dot1..dot3 appear one every 0.6 s, restart after 3)"
+   },
+   {
+    "who": "moon",
+    "does": "wake level >= 1: opens one eye (if the AI plays Dusk; the sun's half lid if the AI plays Sunrise); at level 0 the moon wakes with the AI's first reply"
+   },
+   {
+    "who": "ants",
+    "does": "freeze and hold the stretcher still (shh) for the duration"
+   },
+   {
+    "who": "gus",
+    "does": "eyes follow Bibi's orbit (wake level 2 only)"
+   }
+  ],
+  "thinkEnd": [
+   {
+    "who": "spider",
+    "does": "outcome `move`: climbs back up in 0.8 s with a tiny bow; `cancelled`: drops out of sight in 0.3 s"
+   },
+   {
+    "who": "status",
+    "does": "dots wiped (tiny eraser scribble) when the move starts"
+   },
+   {
+    "who": "moon",
+    "does": "`mistake` set: one sweat drop on the AI's luminary (0.8 s) - the AI is sheepish, never a spoiler"
+   },
+   {
+    "who": "ants",
+    "does": "resume"
+   }
+  ],
+  "moveStart": [
+   {
+    "who": "dab",
+    "does": "eyes follow the moving piece from `from` to `to` (duration of the move), body still"
+   },
+   {
+    "who": "sun|moon",
+    "does": "the luminary of the mover's side turns its eyes to `to` (0.3 s)"
+   }
+  ],
+  "moveEnd": [
+   {
+    "who": "pen-red|pen-blue",
+    "does": "pens swap: the awake pen caps itself (cap hops on, 0.35 s), the other yawns and uncaps (0.5 s) (ply >= 0)"
+   },
+   {
+    "who": "sun|moon",
+    "does": "turn posture swaps (awake <-> doze, 0.5 s)"
+   },
+   {
+    "who": "snail",
+    "does": "crawls +0.021 u (one pen-width; 0.6 s) - in the QUIET first move too"
+   },
+   {
+    "who": "dandelion",
+    "does": "wake level >= 1: after each completed full move one seed detaches and floats east (flat decal, 3 s drift, fades)"
+   },
+   {
+    "who": "dots",
+    "does": "wake level >= 1: after each completed full move the next dashed line draws on (0.8 s)"
+   },
+   {
+    "who": "rain-cloud",
+    "does": "wake level >= 1: after each completed full move the next raindrop of three falls (1.6 s) into the puddle, ring ripples 0.9 s"
+   },
+   {
+    "who": "rainbow",
+    "does": "when plies crosses a multiple of 6 the next band colours in stroke by stroke (0.9 s)"
+   },
+   {
+    "who": "note-warm|note-cool",
+    "does": "every 6th ply the old note is wiped and the pair is rewritten (warm first, cool 1.2 s later)"
+   }
+  ],
+  "capture": [
+   {
+    "who": "dot",
+    "does": "pops the next spot with a tiny \"pip\" (0.3 s); the 7th: counts on her fingers and shrugs"
+   },
+   {
+    "who": "gus",
+    "does": "snaps at Bibi and misses (0.5 s), looks embarrassed; wakes to level 2 if needed"
+   },
+   {
+    "who": "bibi",
+    "does": "loops the loop to dodge (0.7 s)"
+   },
+   {
+    "who": "dab",
+    "does": "victim is a Sunrise piece: winces, \"ouch\" bubble, and (W mode) dab-saw-that is written beside her (draw-on 0.8 s, wiped after 6 s); victim is Dusk: one small clap"
+   },
+   {
+    "who": "ants",
+    "does": "the crew of the victim's side walks to the dropZone (1.5 s), lifts the fainted token onto the petal and carries it to its nap slot; second capture in transit queues a second crew"
+   },
+   {
+    "who": "rope",
+    "does": "victim Dusk: star starOrder[k] lowers by 0.35 u (0.7 s), eyes close, tiny tink"
+   },
+   {
+    "who": "sun",
+    "does": "victim Sunrise: the next ray dims to a dotted stub (0.5 s) with a small flicker of the neighbouring rays"
+   },
+   {
+    "who": "pebbles",
+    "does": "the pebble at the corner nearest the victim square shows board-paper's pebble-open-N for 0.8 s"
+   },
+   {
+    "who": "rain-cloud",
+    "does": "sheds an extra drop (not counted in the cycle)"
+   },
+   {
+    "who": "whale-island|lily-pads",
+    "does": "on the ants' arrival: the sleeper is tucked in on its slot (0.8 s), the whale blinks and spouts a tiny pfft / the pad dips and rings"
+   }
+  ],
+  "castle": [
+   {
+    "who": "pebbles",
+    "does": "the two pebbles on the castling side show pebble-open-N for 0.8 s (they swap a glance)"
+   },
+   {
+    "who": "dab",
+    "does": "head tilt \"oh, clever\" (0.5 s)"
+   }
+  ],
+  "promotion": [
+   {
+    "who": "dab",
+    "does": "two little claps / hops (1.0 s), the bubble \"nice!\""
+   },
+   {
+    "who": "sun|moon",
+    "does": "the promoting side's luminary twinkles (4 gold ticks, 0.7 s)"
+   },
+   {
+    "who": "rope",
+    "does": "the star nearest to the promotion file gives a gold sparkle and a ding"
+   },
+   {
+    "who": "dot",
+    "does": "flutters her wing cases open for 0.8 s"
+   },
+   {
+    "who": "bee",
+    "does": "loops the loop around the sunflower"
+   }
+  ],
+  "check": [
+   {
+    "who": "dab",
+    "does": "gasps, wings over the eyes (0.25 s), holds 0.9 s, peeks (0.5 s)"
+   },
+   {
+    "who": "rope",
+    "does": "the star nearest to the king's file drops one tear (particle falls 0.6 u, tink)"
+   },
+   {
+    "who": "sun|moon",
+    "does": "the checked side's luminary sweats one drop"
+   },
+   {
+    "who": "pen-red|pen-blue",
+    "does": "the checked side's pen rattles its cap (0.5 s)"
+   },
+   {
+    "who": "gus",
+    "does": "gulps (throat bulge)"
+   },
+   {
+    "who": "bibi",
+    "does": "freezes mid-air for 1 s"
+   },
+   {
+    "who": "ants",
+    "does": "freeze"
+   }
+  ],
+  "checkmate": [
+   {
+    "who": "rainbow",
+    "does": "all remaining bands colour in, one sweep (1.6 s); a soft glow ring"
+   },
+   {
+    "who": "forget-me-not",
+    "does": "every board-paper forget-me-not swaps grey -> blue twin (crossfade 0.9 s)"
+   },
+   {
+    "who": "sun|moon",
+    "does": "winner's luminary: rays lengthen 15 %, big smile; loser's: eyes close, zzz"
+   },
+   {
+    "who": "dab",
+    "does": "humanWon: three hops and waves the sign; lost: one gentle hop, pats the air, the sign flips to \"again?\""
+   },
+   {
+    "who": "pen-red|pen-blue",
+    "does": "the winner's pen writes the result (you-win / you-lose, in its hand), the loser's pen writes back 1.2 s later (gg / again); both capped after 5 s"
+   },
+   {
+    "who": "tally-stone",
+    "does": "the next tally-N stroke is written on the stone in the winner's hand (0.8 s)"
+   },
+   {
+    "who": "whale-island",
+    "does": "a tall spout with a small rainbow in it (1.2 s)"
+   },
+   {
+    "who": "snail",
+    "does": "glides to the flower foot (3 s)"
+   },
+   {
+    "who": "sunflower",
+    "does": "turns its head towards the winner's side (W = Sunrise, E = Dusk)"
+   },
+   {
+    "who": "dandelion",
+    "does": "lets go of all remaining seeds (3 s)"
+   },
+   {
+    "who": "rope",
+    "does": "humanWon: a wave of twinkles runs along the stars; lost: star eyes close one by one"
+   },
+   {
+    "who": "gus",
+    "does": "burps happily, falls asleep (zzz) after 2 s"
+   },
+   {
+    "who": "dot",
+    "does": "flutters; Bibi lands on her"
+   },
+   {
+    "who": "ants",
+    "does": "sit down and watch"
+   }
+  ],
+  "stalemate": [
+   {
+    "who": "sun|moon",
+    "does": "both turn to face each other, half-lidded (0.5 s)"
+   },
+   {
+    "who": "gus",
+    "does": "falls asleep in mid-snap; Bibi lands on his nose and stays"
+   },
+   {
+    "who": "dot",
+    "does": "shrugs and tucks her wings"
+   },
+   {
+    "who": "dab",
+    "does": "shrugs (wings up, brows up 0.8 s), the bubble \"hmm\", then sits down"
+   },
+   {
+    "who": "pen-red|pen-blue",
+    "does": "both capped and asleep"
+   },
+   {
+    "who": "tally-stone",
+    "does": "a short stroke of each hand is written"
+   },
+   {
+    "who": "forget-me-not",
+    "does": "the border forget-me-nots stay grey"
+   },
+   {
+    "who": "snail",
+    "does": "glides to the flower foot (3 s)"
+   }
+  ],
+  "draw": [
+   {
+    "who": "all",
+    "does": "same as stalemate; Dab's aside is one of world.dab.draw.threefold / fifty / material"
+   }
+  ],
+  "undo": [
+   {
+    "who": "rain-cloud",
+    "does": "the last raindrop climbs back up the way it came down (0.9 s), ripple runs backwards"
+   },
+   {
+    "who": "dandelion",
+    "does": "the last seed drifts back and re-attaches (0.8 s)"
+   },
+   {
+    "who": "snail",
+    "does": "crawls back to the state position (0.6 s)"
+   },
+   {
+    "who": "dots",
+    "does": "the last dashed line un-draws (draw-on progress reversed, 0.6 s) with two eraser crumbs"
+   },
+   {
+    "who": "rainbow",
+    "does": "if a band boundary was crossed the top band fades back to ink outline (0.7 s)"
+   },
+   {
+    "who": "dot|rope|sun|whale-sleepers|lily-pads",
+    "does": "if a capture is taken back: spot un-pops; star rises; ray brightens; the newest sleeper wakes, stretches, hops off (0.8 s) and is removed"
+   },
+   {
+    "who": "ants",
+    "does": "a crew in transit turns round and carries the token back to the dropZone (they look sulky); idle crews do nothing"
+   },
+   {
+    "who": "dab",
+    "does": "rewind gesture: a slow backwards wing circle, \"wait, what?\" (0.7 s)"
+   },
+   {
+    "who": "pen-red|pen-blue",
+    "does": "pens swap back"
+   },
+   {
+    "who": "note-warm|note-cool",
+    "does": "restored to the pair of the earlier state"
+   }
+  ],
+  "newGame": [
+   {
+    "who": "dab",
+    "does": "flips the sign, shakes the sheet out (whole world shudders 0.5 s; stage.look shake 0.02 u)"
+   },
+   {
+    "who": "all",
+    "does": "everything resets to wake level 0 with its reverse animation compressed to 1.2 s; the world wakes up \"a little confused\": eyes dart, one double blink at +0.8 s"
+   },
+   {
+    "who": "rainbow",
+    "does": "bands rub out (fade 0.5 s); the ink arc stays"
+   },
+   {
+    "who": "dandelion",
+    "does": "seeds float back in from the east edge and settle (1.2 s)"
+   },
+   {
+    "who": "snail",
+    "does": "slides home quickly with a \"wheee\" trail (1.5 s)"
+   },
+   {
+    "who": "ants",
+    "does": "drop the stretchers and scurry home"
+   },
+   {
+    "who": "whale-sleepers|lily-pads",
+    "does": "sleepers hop off and fade"
+   },
+   {
+    "who": "forget-me-not",
+    "does": "swap back to grey"
+   }
+  ],
+  "idle": [
+   {
+    "who": "sun",
+    "does": "seconds >= 12: yawns (0.8 s), repeats every 20 s"
+   },
+   {
+    "who": "gus",
+    "does": "seconds >= 20: sighs; seconds >= 60: nods off (zzz)"
+   },
+   {
+    "who": "dot",
+    "does": "seconds >= 25: walks 4 steps and back"
+   },
+   {
+    "who": "dab",
+    "does": "seconds >= 35: looks up at the sky; >= 60: yawns; >= 90: falls asleep sitting on the sign; `seconds: 0` (player is back): startles awake with a small hop"
+   },
+   {
+    "who": "bibi",
+    "does": "seconds >= 45 and every 180 s: lands on a piece (director freezes it: \"tries very hard to stay still\") for 6 s"
+   },
+   {
+    "who": "tree-owl",
+    "does": "seconds >= 30: a slow blink; the leaf does not move"
+   }
+  ],
+  "tension": [
+   {
+    "who": "all",
+    "does": "ambient loops run at speed x(0.7 + 0.6 * value); micro-shiver on stars, seeds and clouds with amplitude value^2; value > 0.6: Gus's eyes widen, Dab's cheeks puff (holding her breath), the whale stops blinking; value < 0.25: everything slows and yawns a little"
+   }
+  ],
+  "resign": [
+   {
+    "who": "dab",
+    "does": "holds up a tiny white flag on a stick (0.6 s), sighs"
+   },
+   {
+    "who": "pen-red|pen-blue",
+    "does": "the resigning side's pen caps itself and lies on its back with x eyes"
+   },
+   {
+    "who": "sun|moon",
+    "does": "the resigning luminary closes its eyes"
+   },
+   {
+    "who": "forget-me-not",
+    "does": "swap to blue (a winner exists)"
+   },
+   {
+    "who": "tally-stone",
+    "does": "a tally stroke in the winner's hand"
+   },
+   {
+    "who": "rainbow",
+    "does": "no sweep (only checkmate earns it)"
+   }
+  ]
+ },
+ "opening": [
+  {
+   "t": [
+    0,
+    0.5
+   ],
+   "who": "paper",
+   "does": "blank cream sheet fades up from the paper colour (grain overlay only); a single pen dot appears at a1"
+  },
+  {
+   "t": [
+    0.3,
+    1.9
+   ],
+   "who": "board (board-paper)",
+   "does": "the frame is drawn, then the files, then the ranks, then the sage hatching square by square (draw-on with the board time map)"
+  },
+  {
+   "t": [
+    1.4,
+    2.3
+   ],
+   "who": "ring",
+   "does": "coordinates are written a to h and 1 to 8 (two pens: a-d one, e-h the other), four pebbles pop onto the corners with a soft plop and fall asleep"
+  },
+  {
+   "t": [
+    1.6,
+    3.4
+   ],
+   "who": "pieces (director)",
+   "does": "rank by rank, 0.09 s stagger, each piece hops in from the near edge and settles; the pawns first"
+  },
+  {
+   "t": [
+    2,
+    2.6
+   ],
+   "who": "dab",
+   "does": "Dab pops up from behind the bottom edge of the paper, holding the sign, looks at the board, blinks (this is the first thing that moves)"
+  },
+  {
+   "t": [
+    2.2,
+    3
+   ],
+   "who": "sun",
+   "does": "the button sun draws itself (disc, stitches, rays one after another, face last) and smiles"
+  },
+  {
+   "t": [
+    2.2,
+    4.2
+   ],
+   "who": "world statics by distance",
+   "does": "radius 5-7 u from the board centre draws on 2.2-3.2 s, 7-9 u 2.8-3.8 s, > 9 u 3.4-4.4 s; each region takes 1.0-1.6 s; ordering inside a region follows the artist's pen order (time map)"
+  },
+  {
+   "t": [
+    3.2,
+    4
+   ],
+   "who": "pens",
+   "does": "the red pen uncaps and stretches; the blue pen yawns and puts its cap on"
+  },
+  {
+   "t": [
+    3.4,
+    4.2
+   ],
+   "who": "status",
+   "does": "\"your move\" is written in the warm hand, underlined; the game accepts input from t = 3.4 s"
+  },
+  {
+   "t": [
+    3.6,
+    4.8
+   ],
+   "who": "everything else",
+   "does": "the world tiptoes: only the snail moves; the moon, Gus, Dot, the whale, the rain cloud, the ants are drawn in their asleep pose and stay asleep (QUIET)"
+  }
+ ],
+ "strings": {
+  "newFile": "art/lettering/strings.d/world-director.json",
+  "newIds": [
+   "world-sign-sure",
+   "world-dab-psst",
+   "world-dab-threefold",
+   "world-dab-fifty",
+   "world-dab-material",
+   "world-zzz",
+   "world-ants-lr",
+   "world-dot-1",
+   "world-dot-2",
+   "world-dot-3",
+   "world-dot-4",
+   "world-dot-5",
+   "world-dot-6",
+   "world-dot-7",
+   "world-dot-8",
+   "world-dot-9",
+   "world-dot-10",
+   "world-dot-11",
+   "world-dot-12",
+   "world-dot-13",
+   "world-dot-14",
+   "world-note-w4",
+   "world-note-c4",
+   "world-note-w5",
+   "world-note-c5",
+   "world-note-w6",
+   "world-note-c6",
+   "world-note-w7",
+   "world-note-c7",
+   "world-note-c8"
+  ],
+  "reused": [
+   {
+    "id": "your-move / thinking / check / checkmate / stalemate / draw / well-played",
+    "use": "the status line (drawn on at the dock, hand = whoever moves; thinking has parts dot1..3 = the dots that appear one by one)"
+   },
+   {
+    "id": "you-win / you-lose",
+    "use": "end of game, status line, in the winner's hand"
+   },
+   {
+    "id": "gg (cool) / rematch / again (warm)",
+    "use": "the loser writes back: human won -> the cool hand writes \"gg\" beside the blue pen 1.2 s after \"you win!\"; human lost -> the warm hand writes \"again?\" (or \"rematch?\") beside the red pen; also written on Dab's sign flip side"
+   },
+   {
+    "id": "new-game",
+    "use": "Dab's sign (button size, anchor centre)"
+   },
+   {
+    "id": "undo / sound / level",
+    "use": "hover labels written under the arrow, the speaker and the stars (0.3 s draw-on, wiped on leave)"
+   },
+   {
+    "id": "level-sleepy / level-dreamy / level-steady / level-keen / level-sharp",
+    "use": "written under the level stars on hover / press"
+   },
+   {
+    "id": "tally-1 .. tally-5 (warm, cool)",
+    "use": "the scratch marks on the tally stone (kind tally, own draw-on); 5th stroke = the diagonal"
+   },
+   {
+    "id": "dab-saw-that (neutral)",
+    "use": "dock, between Dab and the red pen: after the AI captures a Sunrise piece (W mode, slide >= 1.2)"
+   },
+   {
+    "id": "whale-keeps-the-sleepers (neutral)",
+    "use": "below the whale island; written when the FIRST Dusk piece falls asleep there; only when fully on screen"
+   },
+   {
+    "id": "ur-bishop-looks-lost (cool) -> its-called-a-plan (warm)",
+    "use": "margin note pair 1"
+   },
+   {
+    "id": "resign (cool) -> lol-no (warm)",
+    "use": "margin note pair 2 (\"resign?\" / \"lol no\")"
+   },
+   {
+    "id": "foul (cool) -> its-a-knight (warm)",
+    "use": "margin note pair 3"
+   },
+   {
+    "id": "best-of-3 (warm)",
+    "use": "margin note pair 8 opener (answer is new: world-note-c8)"
+   },
+   {
+    "id": "oops / hmm / ouch / zzz / nice (react group)",
+    "use": "Dab and friends' one-word reactions: oops = illegal, ouch = own piece captured, hmm = stalemate/draw and the AI's mistake, nice = promotion / human captures a queen, zzz = big sleepers (moon, Gus, Dab idle)"
+   },
+   {
+    "id": "ellipsis / interrobang",
+    "use": "the spider's \"...\" while thinking (optional), Dab's \"?!\" on a blunder"
+   },
+   {
+    "id": "file-a..h / rank-1..8 (coord group)",
+    "use": "board ring coordinates: NOT the world's (board-paper reserved the bands)"
+   }
+  ],
+  "notePairs": [
+   [
+    "ur-bishop-looks-lost",
+    "its-called-a-plan"
+   ],
+   [
+    "resign",
+    "lol-no"
+   ],
+   [
+    "foul",
+    "its-a-knight"
+   ],
+   [
+    "world-note-w4",
+    "world-note-c4"
+   ],
+   [
+    "world-note-w5",
+    "world-note-c5"
+   ],
+   [
+    "world-note-w6",
+    "world-note-c6"
+   ],
+   [
+    "world-note-w7",
+    "world-note-c7"
+   ],
+   [
+    "best-of-3",
+    "world-note-c8"
+   ]
+  ],
+  "note": "pair index = floor(plies / 6) mod 8; the first id is written first (hand as in the string), the second 1.2 s later"
+ },
+ "workPackages": [
+  {
+   "id": "A",
+   "name": "Sky (sun, moon, star rope, spider)",
+   "owner": "artist-sky",
+   "files": [
+    "art/world/sky.mjs",
+    "public/assets/world/sky/*"
+   ],
+   "regions": [
+    "sky"
+   ],
+   "tools": "ballpoint (sepia, blue, gold) + ONE pencil (butter/honey for the sun, lilac for the moon)",
+   "statics": 3,
+   "drawings": 112,
+   "note": "the hero of the top edge; the sun and moon faces carry the turn state."
+  },
+  {
+   "id": "B",
+   "name": "Dock (Dab, pens, buttons)",
+   "owner": "artist-dab",
+   "files": [
+    "art/world/dab.mjs",
+    "art/world/dock.mjs",
+    "public/assets/world/dock/*"
+   ],
+   "regions": [
+    "dock"
+   ],
+   "tools": "rainbow-run character style (butter + leaf green pencil, rose blush) for Dab; ballpoint red and blue for the pens; sepia for buttons",
+   "statics": 0,
+   "drawings": 108,
+   "note": "Dab is the most-looked-at world drawing: give her the full six-round treatment; the pens and buttons are small."
+  },
+  {
+   "id": "C",
+   "name": "Puddle corner (rainbow, puddle, boats, tree + owl, stone, rain cloud, raindrops)",
+   "owner": "artist-puddle",
+   "files": [
+    "art/world/puddle.mjs",
+    "art/world/rain.mjs",
+    "public/assets/world/puddle/*"
+   ],
+   "regions": [
+    "puddle",
+    "rain"
+   ],
+   "tools": "ballpoint (sepia, blue, green line) + ONE pencil for the 7 rainbow bands and the leaf-green pad wash",
+   "statics": 4,
+   "drawings": 38,
+   "note": "the rainbow colour is ONE sprite whose time map orders the 7 bands; the tally marks are the lettering kit's."
+  },
+  {
+   "id": "D",
+   "name": "Dusk side (whale island, palm, hills + house, dots puzzle, NE cloud/twinkles, margin note paper)",
+   "owner": "artist-whale",
+   "files": [
+    "art/world/whale.mjs",
+    "art/world/hills.mjs",
+    "art/world/dots.mjs",
+    "public/assets/world/dusk/*"
+   ],
+   "regions": [
+    "whale",
+    "hills",
+    "ne"
+   ],
+   "tools": "ballpoint blue + ONE pencil (sea blue + indigo for the whale)",
+   "statics": 5,
+   "drawings": 33,
+   "note": "the whale has two layers: ink drawn at load, colour layer that arrives with the first sleeper."
+  },
+  {
+   "id": "E",
+   "name": "Garden gate (Gus, Dot, Bibi, sunflower + bee, snail, ground)",
+   "owner": "artist-garden",
+   "files": [
+    "art/world/garden.mjs",
+    "public/assets/world/garden/*"
+   ],
+   "regions": [
+    "garden"
+   ],
+   "tools": "ballpoint (sepia, green, red, grey) + ONE pencil (butter for the sunflower, poppy for Dot)",
+   "statics": 1,
+   "drawings": 82,
+   "note": "two of the three reactive characters; Gus and Dot follow the rainbow-run face grammar."
+  },
+  {
+   "id": "F",
+   "name": "Meadow + ants (3 monarchs + trail, dandelion clock, note paper, ant crews, anthills/trails)",
+   "owner": "artist-meadow",
+   "files": [
+    "art/world/meadow.mjs",
+    "art/world/ants.mjs",
+    "public/assets/world/meadow/*"
+   ],
+   "regions": [
+    "nw",
+    "ants"
+   ],
+   "tools": "ballpoint sepia / grey / green; a single orange dab per monarch",
+   "statics": 4,
+   "drawings": 38,
+   "note": "the ants must read at 0.5 u long: silhouettes first."
+  },
+  {
+   "id": "I",
+   "name": "Integrator (atlas packing, src/world runtime, WorldState, dockLayout port)",
+   "owner": "lead-appointed (world-runtime)",
+   "files": [
+    "art/world/pack.mjs",
+    "src/world/*",
+    "public/assets/world/manifest.json"
+   ],
+   "regions": [
+    "all"
+   ],
+   "tools": "no drawing",
+   "statics": 0,
+   "drawings": 0,
+   "note": "reads layout.json; the only writer of the shared atlas and manifest; runs `node tools/lab-world-check.mjs` in its gate."
+  }
+ ],
+ "integration": [
+  "each WP writes only its own folder public/assets/world/<wp>/: one PNG per frame (+ `.t.png` time map where a state says draw-on), one `static-<region>.png` per region it owns, and `frames.json` {frameId: {file, ppu, pivot, anchors, meta}} keyed by the ids of layout.json (`<actorId>.<state>.<n>`, boil variants `.b0/.b1/.b2`); deterministic (seeded) and re-runnable; WPs never write an atlas or a shared manifest",
+  "the integrator (WP I) packs all frames.json into ONE atlas `world` (art/kit/atlas.mjs, <= 2 colour pages) and writes public/assets/world/manifest.json; the statics stay separate textures for sheet.ts",
+  "statics: one ink-only PNG per region (straight alpha, `paper: null` solve) + time map page, rect from layout.json; sheet.ts composites them on the paper and draws them on at the opening",
+  "every actor id in layout.json has: all listed states present as frames, a `pivot` at the foot (stand) or the centre (flat), `ppu` in the manifest, boil variants named `<frame>.b0/.b1/.b2`",
+  "the three cast members (dab, gus, dot) have full rigs like the pieces (parts + anchors) and are the only ones with eye tracking",
+  "world/ (runtime) reads layout.json + a WorldState, picks mode W/S/T from the aspect (hysteresis 0.05), applies dockLayout(), culls elements with cull:\"full\", subscribes to the 21 events (layout.json `reactions`)",
+  "lettering: `node tools/lab-world-strings.mjs` writes art/lettering/strings.d/world-director.json and validates it with the lettering kit's own loader; every id used by layout.json exists in public/assets/text/manifest.json after `node art/lettering/bake.mjs`",
+  "Node checks: `node tools/lab-world-check.mjs` (0 problems at all 11 aspects), `node art/world/layout-sketch.mjs` re-renders the composition; a contact sheet of each WP's frames in the true perspective at 1.33 / 1.78 / 0.56",
+  "density audit on the assembled sheet: ink 5-12 %, 35-60 % of 90 px cells empty outside the board; colour: the page at game start has colour only on Dab, sun, moon (pale) and the pieces / sage squares",
+  "lead verifies in WebKit (one window): the opening, one capture (ants + sleeper + star + spot + ray), check, checkmate finale, undo, newGame, portrait window"
+ ],
+ "textureBudget": {
+  "rows": [
+   {
+    "region": "sky",
+    "staticMP": 0.54,
+    "staticMB": 2.8,
+    "spriteMP": 0.48,
+    "spriteMB": 2.4,
+    "drawings": 112
+   },
+   {
+    "region": "nw",
+    "staticMP": 0.27,
+    "staticMB": 1.4,
+    "spriteMP": 0.04,
+    "spriteMB": 0.2,
+    "drawings": 18
+   },
+   {
+    "region": "ne",
+    "staticMP": 0.41,
+    "staticMB": 2.1,
+    "spriteMP": 0.28,
+    "spriteMB": 1.4,
+    "drawings": 4
+   },
+   {
+    "region": "hills",
+    "staticMP": 0.2,
+    "staticMB": 1,
+    "spriteMP": 0.02,
+    "spriteMB": 0.1,
+    "drawings": 3
+   },
+   {
+    "region": "whale",
+    "staticMP": 0.17,
+    "staticMB": 0.9,
+    "spriteMP": 0.86,
+    "spriteMB": 4.4,
+    "drawings": 26
+   },
+   {
+    "region": "puddle",
+    "staticMP": 0.83,
+    "staticMB": 4.2,
+    "spriteMP": 1.55,
+    "spriteMB": 7.9,
+    "drawings": 18
+   },
+   {
+    "region": "garden",
+    "staticMP": 0.19,
+    "staticMB": 1,
+    "spriteMP": 0.8,
+    "spriteMB": 4.1,
+    "drawings": 82
+   },
+   {
+    "region": "ants",
+    "staticMP": 0.09,
+    "staticMB": 0.4,
+    "spriteMP": 0.04,
+    "spriteMB": 0.2,
+    "drawings": 20
+   },
+   {
+    "region": "dock",
+    "staticMP": 0,
+    "staticMB": 0,
+    "spriteMP": 1.74,
+    "spriteMB": 8.9,
+    "drawings": 108
+   },
+   {
+    "region": "rain",
+    "staticMP": 0,
+    "staticMB": 0,
+    "spriteMP": 0.05,
+    "spriteMB": 0.3,
+    "drawings": 20
+   }
+  ],
+  "total": {
+   "staticMP": 2.7,
+   "staticMB": 13.8,
+   "spriteMP": 5.86,
+   "spriteMB": 29.9,
+   "animatedDrawings": 411,
+   "staticDrawings": 17
+  }
+ },
+ "_checks": {
+  "reactionIdsWithoutElement": [],
+  "events": 21
+ }
+}

@@ -1,0 +1,478 @@
+{
+ "version": 1,
+ "name": "board",
+ "padding": 3,
+ "alpha": "straight",
+ "bleed": true,
+ "timeLayout": "RGB: R ink q8, G fill q8, B silhouette alpha; same layout as the colour page",
+ "pages": [
+  {
+   "index": 0,
+   "w": 2048,
+   "h": 2048,
+   "color": "board-0.png",
+   "time": "board-0.t.png",
+   "fill": 0.659
+  }
+ ],
+ "entries": {
+  "board": {
+   "page": 0,
+   "x": 3,
+   "y": 3,
+   "w": 1655,
+   "h": 1658,
+   "uv": [
+    0.00146484375,
+    0.00146484375,
+    0.8095703125,
+    0.81103515625
+   ],
+   "source": {
+    "w": 2000,
+    "h": 2000
+   },
+   "trim": {
+    "x": 171,
+    "y": 172
+   },
+   "pivot": [
+    1000,
+    1000
+   ],
+   "anchors": {},
+   "scale": 2,
+   "world": [
+    -414.5,
+    -414,
+    413,
+    415
+   ],
+   "hasTime": true,
+   "meta": {
+    "duration": 4.57,
+    "strokeCount": 36,
+    "matte": "none",
+    "marks": {
+     "frame": {
+      "t": 0.6447056665721554,
+      "q": 37
+     },
+     "grid": {
+      "t": 2.6960333643201597,
+      "q": 151
+     },
+     "hatch": {
+      "t": 4.570033364320159,
+      "q": 255
+     }
+    },
+    "kind": "board-tile",
+    "worldRect": [
+     -5,
+     -5,
+     5,
+     5
+    ],
+    "boardRect": [
+     -4,
+     -4,
+     4,
+     4
+    ],
+    "ppu": 200,
+    "squares": [
+     {
+      "file": 0,
+      "rank": 7,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 1,
+      "rank": 7,
+      "dark": true,
+      "angle": 115.1
+     },
+     {
+      "file": 2,
+      "rank": 7,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 3,
+      "rank": 7,
+      "dark": true,
+      "angle": 106.8
+     },
+     {
+      "file": 4,
+      "rank": 7,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 5,
+      "rank": 7,
+      "dark": true,
+      "angle": 118.4
+     },
+     {
+      "file": 6,
+      "rank": 7,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 7,
+      "rank": 7,
+      "dark": true,
+      "angle": 110.6
+     },
+     {
+      "file": 0,
+      "rank": 6,
+      "dark": true,
+      "angle": 119.9
+     },
+     {
+      "file": 1,
+      "rank": 6,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 2,
+      "rank": 6,
+      "dark": true,
+      "angle": 111.1
+     },
+     {
+      "file": 3,
+      "rank": 6,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 4,
+      "rank": 6,
+      "dark": true,
+      "angle": 110.7
+     },
+     {
+      "file": 5,
+      "rank": 6,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 6,
+      "rank": 6,
+      "dark": true,
+      "angle": 122.5
+     },
+     {
+      "file": 7,
+      "rank": 6,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 0,
+      "rank": 5,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 1,
+      "rank": 5,
+      "dark": true,
+      "angle": 106.2
+     },
+     {
+      "file": 2,
+      "rank": 5,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 3,
+      "rank": 5,
+      "dark": true,
+      "angle": 110.5
+     },
+     {
+      "file": 4,
+      "rank": 5,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 5,
+      "rank": 5,
+      "dark": true,
+      "angle": 117.7
+     },
+     {
+      "file": 6,
+      "rank": 5,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 7,
+      "rank": 5,
+      "dark": true,
+      "angle": 110.9
+     },
+     {
+      "file": 0,
+      "rank": 4,
+      "dark": true,
+      "angle": 117.2
+     },
+     {
+      "file": 1,
+      "rank": 4,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 2,
+      "rank": 4,
+      "dark": true,
+      "angle": 104.4
+     },
+     {
+      "file": 3,
+      "rank": 4,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 4,
+      "rank": 4,
+      "dark": true,
+      "angle": 112.2
+     },
+     {
+      "file": 5,
+      "rank": 4,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 6,
+      "rank": 4,
+      "dark": true,
+      "angle": 116.2
+     },
+     {
+      "file": 7,
+      "rank": 4,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 0,
+      "rank": 3,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 1,
+      "rank": 3,
+      "dark": true,
+      "angle": 126
+     },
+     {
+      "file": 2,
+      "rank": 3,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 3,
+      "rank": 3,
+      "dark": true,
+      "angle": 114.6
+     },
+     {
+      "file": 4,
+      "rank": 3,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 5,
+      "rank": 3,
+      "dark": true,
+      "angle": 116.1
+     },
+     {
+      "file": 6,
+      "rank": 3,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 7,
+      "rank": 3,
+      "dark": true,
+      "angle": 124.2
+     },
+     {
+      "file": 0,
+      "rank": 2,
+      "dark": true,
+      "angle": 115.1
+     },
+     {
+      "file": 1,
+      "rank": 2,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 2,
+      "rank": 2,
+      "dark": true,
+      "angle": 114.7
+     },
+     {
+      "file": 3,
+      "rank": 2,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 4,
+      "rank": 2,
+      "dark": true,
+      "angle": 117.1
+     },
+     {
+      "file": 5,
+      "rank": 2,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 6,
+      "rank": 2,
+      "dark": true,
+      "angle": 111.2
+     },
+     {
+      "file": 7,
+      "rank": 2,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 0,
+      "rank": 1,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 1,
+      "rank": 1,
+      "dark": true,
+      "angle": 112
+     },
+     {
+      "file": 2,
+      "rank": 1,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 3,
+      "rank": 1,
+      "dark": true,
+      "angle": 111.4
+     },
+     {
+      "file": 4,
+      "rank": 1,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 5,
+      "rank": 1,
+      "dark": true,
+      "angle": 124.6
+     },
+     {
+      "file": 6,
+      "rank": 1,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 7,
+      "rank": 1,
+      "dark": true,
+      "angle": 115.9
+     },
+     {
+      "file": 0,
+      "rank": 0,
+      "dark": true,
+      "angle": 111
+     },
+     {
+      "file": 1,
+      "rank": 0,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 2,
+      "rank": 0,
+      "dark": true,
+      "angle": 121
+     },
+     {
+      "file": 3,
+      "rank": 0,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 4,
+      "rank": 0,
+      "dark": true,
+      "angle": 114.5
+     },
+     {
+      "file": 5,
+      "rank": 0,
+      "dark": false,
+      "angle": null
+     },
+     {
+      "file": 6,
+      "rank": 0,
+      "dark": true,
+      "angle": 106.7
+     },
+     {
+      "file": 7,
+      "rank": 0,
+      "dark": false,
+      "angle": null
+     }
+    ],
+    "seed": 11,
+    "drawOnSeconds": 4.57
+   },
+   "bledTexels": 426993
+  }
+ },
+ "ppu": 200,
+ "artUnitsPerWorldUnit": 100
+}

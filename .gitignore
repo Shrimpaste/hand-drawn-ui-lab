@@ -1,0 +1,14 @@
+node_modules/
+research/reference.js
+research/reference.pretty.js
+research/reference.html
+*.log
+
+# Local configuration and generated caches
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.cache/
+coverage/

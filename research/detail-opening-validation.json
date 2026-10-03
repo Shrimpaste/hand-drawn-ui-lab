@@ -1,0 +1,390 @@
+[
+  {
+    "state": {
+      "selected": null,
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 14,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 0,
+      "reduced": false,
+      "soundEnabled": true,
+      "opening": {
+        "elapsed": 0.8041999999999959,
+        "interactive": false,
+        "done": false
+      },
+      "paper": {
+        "matrix": [
+          0.9999999529260541,
+          0.0003068352807991859,
+          -0.0003068352807991859,
+          0.9999999529260541,
+          -0.5355110906950835,
+          -2.145118250133123
+        ]
+      },
+      "feedback": {
+        "dust": 6,
+        "impact": 4,
+        "sound": 40,
+        "particles": 0
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 1,
+          "target": 1
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    },
+    "metrics": {
+      "frames": 180,
+      "fps": 239.99999999999997,
+      "meanDrawMs": 0.5799999980462922,
+      "p95DrawMs": 1.4000000059604645,
+      "backingStore": [
+        1280,
+        800
+      ]
+    }
+  },
+  {
+    "state": {
+      "selected": null,
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 14,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 0,
+      "reduced": false,
+      "soundEnabled": true,
+      "opening": {
+        "elapsed": 2.6040999999999976,
+        "interactive": false,
+        "done": false
+      },
+      "paper": {
+        "matrix": [
+          0.9999999530092286,
+          0.00030656408898799905,
+          -0.00030656408898799905,
+          0.9999999530092286,
+          -0.5350378137473222,
+          -2.144944720643764
+        ]
+      },
+      "feedback": {
+        "dust": 6,
+        "impact": 4,
+        "sound": 40,
+        "particles": 0
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 1,
+          "target": 1
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    },
+    "metrics": {
+      "frames": 180,
+      "fps": 240.03200426723285,
+      "meanDrawMs": 1.2550000003642505,
+      "p95DrawMs": 2.5999999940395355,
+      "backingStore": [
+        1280,
+        800
+      ]
+    }
+  },
+  {
+    "state": {
+      "selected": null,
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 14,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 0,
+      "reduced": false,
+      "soundEnabled": true,
+      "opening": {
+        "elapsed": 3.404199999999976,
+        "interactive": false,
+        "done": false
+      },
+      "paper": {
+        "matrix": [
+          0.9999999530096675,
+          0.0003065626572425191,
+          -0.0003065626572425191,
+          0.9999999530096675,
+          -0.5350353151020288,
+          -2.1449438045021907
+        ]
+      },
+      "feedback": {
+        "dust": 7,
+        "impact": 4,
+        "sound": 53,
+        "particles": 10
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 1,
+          "target": 1
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    },
+    "metrics": {
+      "frames": 180,
+      "fps": 236.06557377049182,
+      "meanDrawMs": 2.5422222228513824,
+      "p95DrawMs": 4,
+      "backingStore": [
+        1280,
+        800
+      ]
+    }
+  },
+  {
+    "state": {
+      "selected": null,
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 14,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 0,
+      "reduced": false,
+      "soundEnabled": true,
+      "opening": {
+        "elapsed": 4.850199999999972,
+        "interactive": true,
+        "done": true
+      },
+      "paper": {
+        "matrix": [
+          0.9999999530097163,
+          0.0003065624978005998,
+          -0.0003065624978005998,
+          0.9999999530097163,
+          -0.5350350368480798,
+          -2.1449437024788836
+        ]
+      },
+      "feedback": {
+        "dust": 9,
+        "impact": 6,
+        "sound": 60,
+        "particles": 0
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 1,
+          "target": 1
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    },
+    "metrics": {
+      "frames": 180,
+      "fps": 239.9360170621177,
+      "meanDrawMs": 1.316666667494509,
+      "p95DrawMs": 1.9000000059604645,
+      "backingStore": [
+        1280,
+        800
+      ]
+    }
+  }
+]

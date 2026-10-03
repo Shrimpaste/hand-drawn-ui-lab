@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-03",
+  "timezone": "Asia/Hong_Kong",
+  "tests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "browserChecks": {
+    "clickSelect": true,
+    "freeMove": true,
+    "drag": true,
+    "undo": true,
+    "napSleep": [
+      "w-pawn"
+    ],
+    "napWake": [],
+    "gag": true,
+    "keyboardMove": true,
+    "reducedToggle": true,
+    "reset": true
+  },
+  "desktop": {
+    "state": {
+      "selected": "w-pawn",
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 28,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 1,
+      "reduced": false,
+      "soundEnabled": false
+    },
+    "metrics": {
+      "frames": 180,
+      "fps": 239.99999999999997,
+      "meanDrawMs": 1.1550000001986822,
+      "p95DrawMs": 1.4000000059604645,
+      "backingStore": [
+        1280,
+        800
+      ]
+    },
+    "view": {
+      "width": 1280,
+      "height": 800,
+      "unit": 55.166666666666664,
+      "x": 640,
+      "y": 396,
+      "dpr": 1.0000000298023224,
+      "groundScale": 0.8290375725550417
+    },
+    "externalResources": []
+  },
+  "mobile": {
+    "state": {
+      "selected": "w-queen",
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 20,
+        "w-king": 13,
+        "w-pawn": 28,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 2,
+      "reduced": false,
+      "soundEnabled": false
+    },
+    "metrics": {
+      "frames": 180,
+      "fps": 239.99999999999997,
+      "meanDrawMs": 1.1877777773472997,
+      "p95DrawMs": 1.600000023841858,
+      "backingStore": [
+        390,
+        844
+      ]
+    },
+    "view": {
+      "width": 390,
+      "height": 844,
+      "unit": 38.613861386138616,
+      "x": 195,
+      "y": 373.53,
+      "dpr": 1.0000000298023224,
+      "groundScale": 0.8290375725550417
+    },
+    "overflow": false
+  },
+  "limitations": [
+    "In-app CDP touch injection unsupported; no real touch-device claim",
+    "Canvas submission timing does not measure completed GPU rendering"
+  ],
+  "console": {
+    "historicalBeforeFix": [
+      {
+        "level": "error",
+        "message": "RangeError: Clip: duration must be >= 0 (got 0.82[object Object])\n    at new e (http://127.0.0.1:5184/src/vendor/reference-motion.js:1296:13)\n    at EP (http://127.0.0.1:5184/src/vendor/reference-motion.js:11084:7)\n    at Module.vF (http://127.0.0.1:5184/src/vendor/reference-motion.js:12258:10)\n    at Object.entrance (http://127.0.0.1:5184/src/vendor/reference-motion.js:13288:36)\n    at makeCast (http://127.0.0.1:5184/src/main.js:96:34)\n    at init (http://127.0.0.1:5184/src/main.js:374:3)",
+        "timestamp": "2026-10-02T17:51:28.184Z",
+        "url": "http://127.0.0.1:5184/src/main.js"
+      }
+    ],
+    "afterFixNewErrors": 0,
+    "note": "The initial entrance argument error was fixed before all reported browser checks."
+  },
+  "screenshots": [
+    "local.jpg",
+    "local-mobile.jpg",
+    "local-gag.jpg"
+  ]
+}

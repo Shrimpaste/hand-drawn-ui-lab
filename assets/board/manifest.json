@@ -1,0 +1,822 @@
+{
+ "version": 1,
+ "name": "board",
+ "generator": "art/board/bake-all.mjs",
+ "units": {
+  "world": "1 = one board square; x right (files), y away from the player (ranks), white side at -y; square (f,r) centre = (f-3.5, r-3.5)",
+  "ppu": 200,
+  "artUnitsPerWorldUnit": 100,
+  "note": "both atlases: entry.scale = px per ART unit (2); ppu (px per WORLD unit) = 200.  entry.pivot is in SOURCE px; the pivot is the world point that is placed at the decal's ground position."
+ },
+ "atlases": [
+  {
+   "name": "board",
+   "file": "board.atlas.json",
+   "ppu": 200,
+   "sprites": [
+    "board"
+   ],
+   "hasTime": true
+  },
+  {
+   "name": "boardfx",
+   "file": "boardfx.atlas.json",
+   "ppu": 200,
+   "sprites": 76,
+   "hasTime": true
+  }
+ ],
+ "tile": {
+  "sprite": "board",
+  "worldRect": [
+   -5,
+   -5,
+   5,
+   5
+  ],
+  "boardRect": [
+   -4,
+   -4,
+   4,
+   4
+  ],
+  "pivot": "tile centre = world (0,0); image row 0 = far edge y = +5",
+  "drawOn": {
+   "marks": {
+    "frame": {
+     "t": 0.6447056665721554,
+     "q": 37
+    },
+    "grid": {
+     "t": 2.6960333643201597,
+     "q": 151
+    },
+    "hatch": {
+     "t": 4.570033364320159,
+     "q": 255
+    }
+   },
+   "duration": 4.57,
+   "note": "progress p = t/duration; frame ruling first, then the inner verticals, then the inner horizontals, then the 32 hatched squares in reading order (rank 8..1, file a..h)"
+  }
+ },
+ "groups": {
+  "cap-ring-cool": [
+   "cap-ring-cool-0",
+   "cap-ring-cool-1",
+   "cap-ring-cool-2"
+  ],
+  "cap-ring-warm": [
+   "cap-ring-warm-0",
+   "cap-ring-warm-1",
+   "cap-ring-warm-2"
+  ],
+  "cap-x-cool": [
+   "cap-x-cool-0",
+   "cap-x-cool-1",
+   "cap-x-cool-2"
+  ],
+  "cap-x-warm": [
+   "cap-x-warm-0",
+   "cap-x-warm-1",
+   "cap-x-warm-2"
+  ],
+  "check": [
+   "check-0",
+   "check-1",
+   "check-2"
+  ],
+  "dest-cool": [
+   "dest-cool-0",
+   "dest-cool-1",
+   "dest-cool-2"
+  ],
+  "dest-warm": [
+   "dest-warm-0",
+   "dest-warm-1",
+   "dest-warm-2"
+  ],
+  "dot": [
+   "dot-0",
+   "dot-1",
+   "dot-2"
+  ],
+  "fmn-blue": [
+   "fmn-blue-0",
+   "fmn-blue-1",
+   "fmn-blue-2"
+  ],
+  "fmn-grey": [
+   "fmn-grey-0",
+   "fmn-grey-1",
+   "fmn-grey-2"
+  ],
+  "hover": [
+   "hover-0",
+   "hover-1",
+   "hover-2"
+  ],
+  "pebble-open": [
+   "pebble-open-0",
+   "pebble-open-1",
+   "pebble-open-2",
+   "pebble-open-3"
+  ],
+  "pebble-shut": [
+   "pebble-shut-0",
+   "pebble-shut-1",
+   "pebble-shut-2",
+   "pebble-shut-3"
+  ],
+  "sel-cool": [
+   "sel-cool-0",
+   "sel-cool-1",
+   "sel-cool-2"
+  ],
+  "sel-warm": [
+   "sel-warm-0",
+   "sel-warm-1",
+   "sel-warm-2"
+  ],
+  "sweat": [
+   "sweat-0",
+   "sweat-1",
+   "sweat-2"
+  ],
+  "target": [
+   "target-0",
+   "target-1",
+   "target-2"
+  ],
+  "ticks": [
+   "ticks-0",
+   "ticks-1",
+   "ticks-2",
+   "ticks-3"
+  ],
+  "toad": [
+   "toad-0",
+   "toad-1",
+   "toad-2"
+  ],
+  "trail-arrow-cool": [
+   "trail-arrow-cool-0",
+   "trail-arrow-cool-1",
+   "trail-arrow-cool-2"
+  ],
+  "trail-arrow-warm": [
+   "trail-arrow-warm-0",
+   "trail-arrow-warm-1",
+   "trail-arrow-warm-2"
+  ],
+  "trail-dot-cool": [
+   "trail-dot-cool-0",
+   "trail-dot-cool-1",
+   "trail-dot-cool-2"
+  ],
+  "trail-dot-warm": [
+   "trail-dot-warm-0",
+   "trail-dot-warm-1",
+   "trail-dot-warm-2"
+  ],
+  "tuft": [
+   "tuft-0",
+   "tuft-1",
+   "tuft-2",
+   "tuft-3"
+  ]
+ },
+ "placement": {
+  "sel-warm": {
+   "batch": "flat",
+   "at": "square centre (f-3.5, r-3.5)",
+   "layer": 4000,
+   "use": "under the selected piece, warm mover (Sunrise crew)",
+   "variants": 3,
+   "sizeWorld": [
+    0.905,
+    0.92
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.445,
+    0.46
+   ],
+   "naturalSeconds": [
+    0.74,
+    0.87
+   ]
+  },
+  "sel-cool": {
+   "batch": "flat",
+   "at": "square centre",
+   "layer": 4000,
+   "use": "under the selected piece, cool mover (Dusk company)",
+   "variants": 3,
+   "sizeWorld": [
+    0.93,
+    0.9
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.47,
+    0.475
+   ],
+   "naturalSeconds": [
+    0.77,
+    0.93
+   ]
+  },
+  "target": {
+   "batch": "flat",
+   "at": "square centre",
+   "layer": 3000,
+   "use": "every legal EMPTY destination: hollow gold ring + leaf tick; also the capture-target hint if no cap-ring is wanted",
+   "variants": 3,
+   "sizeWorld": [
+    0.65,
+    0.72
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.325,
+    0.32
+   ],
+   "naturalSeconds": [
+    0.79,
+    0.92
+   ]
+  },
+  "dot": {
+   "batch": "flat",
+   "at": "square centre",
+   "layer": 3000,
+   "use": "quiet-move dot (low-noise alternative to `target`, keyboard cursor, hints)",
+   "variants": 3,
+   "sizeWorld": [
+    0.18,
+    0.18
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.085,
+    0.09
+   ],
+   "naturalSeconds": [
+    0.07,
+    0.13
+   ]
+  },
+  "cap-ring-warm": {
+   "batch": "flat",
+   "at": "square centre of the VICTIM",
+   "layer": 5000,
+   "use": "capture: wobbling double ring in the mover's ink; the 3 variants wobble differently, cycle them",
+   "variants": 3,
+   "sizeWorld": [
+    1.03,
+    0.97
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.555,
+    0.445
+   ],
+   "naturalSeconds": [
+    0.61,
+    0.85
+   ]
+  },
+  "cap-ring-cool": {
+   "batch": "flat",
+   "at": "square centre of the VICTIM",
+   "layer": 5000,
+   "use": "capture, cool mover",
+   "variants": 3,
+   "sizeWorld": [
+    0.92,
+    0.925
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.51,
+    0.45
+   ],
+   "naturalSeconds": [
+    0.66,
+    0.78
+   ]
+  },
+  "cap-x-warm": {
+   "batch": "flat",
+   "at": "square centre of the victim",
+   "layer": 5000,
+   "use": "capture alternative: small x (use for the hover/preview of a capture, or when rings would be too many)",
+   "variants": 3,
+   "sizeWorld": [
+    0.405,
+    0.45
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.195,
+    0.24
+   ],
+   "naturalSeconds": [
+    0.12,
+    0.16
+   ]
+  },
+  "cap-x-cool": {
+   "batch": "flat",
+   "at": "square centre of the victim",
+   "layer": 5000,
+   "use": "capture alternative, cool mover",
+   "variants": 3,
+   "sizeWorld": [
+    0.43,
+    0.41
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.205,
+    0.235
+   ],
+   "naturalSeconds": [
+    0.13,
+    0.14
+   ]
+  },
+  "trail-dot-warm": {
+   "batch": "flat",
+   "at": "centre of the dot, every ~0.27 along the line from the FROM centre to the TO centre, starting 0.34 from FROM and stopping 0.5 before TO; vary the 3 designs along the line",
+   "layer": 2000,
+   "use": "last-move dotted trail, warm mover",
+   "variants": 3,
+   "sizeWorld": [
+    0.115,
+    0.12
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.05,
+    0.055
+   ],
+   "naturalSeconds": [
+    0.05,
+    0.06
+   ]
+  },
+  "trail-dot-cool": {
+   "batch": "flat",
+   "at": "as trail-dot-warm",
+   "layer": 2000,
+   "use": "last-move dotted trail, cool mover",
+   "variants": 3,
+   "sizeWorld": [
+    0.13,
+    0.12
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.06,
+    0.065
+   ],
+   "naturalSeconds": [
+    0.04,
+    0.06
+   ]
+  },
+  "trail-arrow-warm": {
+   "batch": "flat",
+   "at": "the TIP, 0.36 before the TO centre on the line; image +x points along the move (rotate the card by atan2(dy, dx))",
+   "layer": 2100,
+   "use": "last-move arrowhead (open chevron), warm",
+   "variants": 3,
+   "sizeWorld": [
+    0.33,
+    0.44
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.29,
+    0.22
+   ],
+   "naturalSeconds": [
+    0.1,
+    0.1
+   ]
+  },
+  "trail-arrow-cool": {
+   "batch": "flat",
+   "at": "as trail-arrow-warm",
+   "layer": 2100,
+   "use": "last-move arrowhead, cool",
+   "variants": 3,
+   "sizeWorld": [
+    0.335,
+    0.42
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.29,
+    0.22
+   ],
+   "naturalSeconds": [
+    0.1,
+    0.11
+   ]
+  },
+  "dest-warm": {
+   "batch": "flat",
+   "at": "square centre of the TO square",
+   "layer": 1000,
+   "use": "last-move target-square circle, warm",
+   "variants": 3,
+   "sizeWorld": [
+    1.04,
+    1.015
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.505,
+    0.535
+   ],
+   "naturalSeconds": [
+    0.24,
+    0.29
+   ]
+  },
+  "dest-cool": {
+   "batch": "flat",
+   "at": "square centre of the TO square",
+   "layer": 1000,
+   "use": "last-move target-square circle, cool",
+   "variants": 3,
+   "sizeWorld": [
+    0.89,
+    0.895
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.44,
+    0.415
+   ],
+   "naturalSeconds": [
+    0.17,
+    0.28
+   ]
+  },
+  "check": {
+   "batch": "flat",
+   "at": "square centre of the checked king",
+   "layer": 6000,
+   "use": "red starburst; the king's sweat/shake is the rig's",
+   "variants": 3,
+   "sizeWorld": [
+    1.03,
+    1.005
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.505,
+    0.51
+   ],
+   "naturalSeconds": [
+    0.42,
+    0.57
+   ]
+  },
+  "hover": {
+   "batch": "flat",
+   "at": "square centre under the pointer",
+   "layer": 0,
+   "use": "faint gold wash + four corner ticks; draw on in ~0.12 s",
+   "variants": 3,
+   "sizeWorld": [
+    0.92,
+    0.92
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.46,
+    0.45
+   ],
+   "naturalSeconds": [
+    0.88,
+    0.9
+   ]
+  },
+  "sweat": {
+   "batch": "billboard",
+   "at": "bottom of the big drop = card origin; put it at the piece's head/shoulder (piece anchor `top` minus ~0.1 up, +0.25 to the side)",
+   "layer": 1,
+   "use": "threatened piece: a blue sweat drop + a small one; standing card",
+   "variants": 3,
+   "sizeWorld": [
+    0.615,
+    0.59
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.205,
+    0.025
+   ],
+   "naturalSeconds": [
+    1.09,
+    1.13
+   ]
+  },
+  "tuft": {
+   "batch": "flat",
+   "at": "ground contact (base centre); picture grows toward +y",
+   "layer": -500000,
+   "use": "border garden, green ballpoint grass",
+   "variants": 4,
+   "sizeWorld": [
+    0.17,
+    0.305
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.08,
+    0.01
+   ],
+   "naturalSeconds": [
+    0.12,
+    0.36
+   ]
+  },
+  "ticks": {
+   "batch": "flat",
+   "at": "base centre",
+   "layer": -500000,
+   "use": "tiny grass ticks (sepia)",
+   "variants": 4,
+   "sizeWorld": [
+    0.135,
+    0.13
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.06,
+    0.01
+   ],
+   "naturalSeconds": [
+    0.15,
+    0.23
+   ]
+  },
+  "toad": {
+   "batch": "flat",
+   "at": "base centre",
+   "layer": -500000,
+   "use": "toadstool with a red cap",
+   "variants": 3,
+   "sizeWorld": [
+    0.405,
+    0.39
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.205,
+    0.01
+   ],
+   "naturalSeconds": [
+    0.58,
+    0.91
+   ]
+  },
+  "fmn-grey": {
+   "batch": "flat",
+   "at": "base centre",
+   "layer": -500000,
+   "use": "forget-me-not, GREY (default all game)",
+   "variants": 3,
+   "sizeWorld": [
+    0.4,
+    0.705
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.24,
+    0.01
+   ],
+   "naturalSeconds": [
+    0.52,
+    1.31
+   ]
+  },
+  "fmn-blue": {
+   "batch": "flat",
+   "at": "base centre (same as the grey with the same index)",
+   "layer": -500000,
+   "use": "forget-me-not turned blue at CHECKMATE: swap the sprite (or cross-fade) of the same index",
+   "variants": 3,
+   "sizeWorld": [
+    0.4,
+    0.705
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.24,
+    0.01
+   ],
+   "naturalSeconds": [
+    0.57,
+    1.42
+   ]
+  },
+  "pebble-shut": {
+   "batch": "billboard (or flat)",
+   "at": "base centre = card origin; layout.pebbles gives the 4 corners",
+   "layer": 0,
+   "use": "sleepy corner pebble (eyes closed, z)",
+   "variants": 4,
+   "sizeWorld": [
+    0.7,
+    0.555
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.345,
+    0.04
+   ],
+   "naturalSeconds": [
+    1.72,
+    2.06
+   ]
+  },
+  "pebble-open": {
+   "batch": "billboard (or flat)",
+   "at": "same origin as the shut one of the same index",
+   "layer": 0,
+   "use": "the same pebble awake and alarmed while its corner square is attacked",
+   "variants": 4,
+   "sizeWorld": [
+    0.695,
+    0.72
+   ],
+   "pivotFromBottomLeftWorld": [
+    0.345,
+    0.04
+   ],
+   "naturalSeconds": [
+    2.47,
+    2.83
+   ]
+  }
+ },
+ "flatLayers": {
+  "note": "SpriteBatch sortKey = -groundY*100 + layer (larger = later).  The board tile must be the FIRST flat item of all: give it layer -1e6 (or draw it as its own mesh); garden -5e5; marker kinds in steps of 1000 as below",
+  "tile": -1000000,
+  "garden": -500000
+ },
+ "coordinates": {
+  "note": "NOT baked here (the text/handwriting owner writes them).  Reserved bands so the garden keeps clear of them: file letters a..h centred at (f-3.5, -4.42), rank digits 1..8 centred at (-4.42, r-3.5); the bottom margin y in [-4.72, -4.18] and the left margin x in [-4.62, -4.22] hold no garden item"
+ },
+ "layout": {
+  "garden": [
+   {
+    "name": "tuft-1",
+    "x": -3.25,
+    "y": 4.136
+   },
+   {
+    "name": "ticks-2",
+    "x": -2.242,
+    "y": 4.148
+   },
+   {
+    "name": "fmn-grey-0",
+    "x": -1.663,
+    "y": 4.14,
+    "swap": "fmn-blue-0"
+   },
+   {
+    "name": "tuft-0",
+    "x": -0.859,
+    "y": 4.119
+   },
+   {
+    "name": "toad-0",
+    "x": 0.078,
+    "y": 4.151
+   },
+   {
+    "name": "tuft-3",
+    "x": 0.771,
+    "y": 4.143
+   },
+   {
+    "name": "fmn-grey-1",
+    "x": 1.591,
+    "y": 4.115,
+    "swap": "fmn-blue-1"
+   },
+   {
+    "name": "ticks-1",
+    "x": 2.297,
+    "y": 4.143
+   },
+   {
+    "name": "tuft-2",
+    "x": 3.12,
+    "y": 4.153
+   },
+   {
+    "name": "ticks-0",
+    "x": 4.253,
+    "y": -2.936
+   },
+   {
+    "name": "tuft-2",
+    "x": 4.277,
+    "y": -1.951
+   },
+   {
+    "name": "fmn-grey-2",
+    "x": 4.296,
+    "y": -1.288,
+    "swap": "fmn-blue-2"
+   },
+   {
+    "name": "tuft-1",
+    "x": 4.3,
+    "y": -0.429
+   },
+   {
+    "name": "toad-2",
+    "x": 4.256,
+    "y": 0.403
+   },
+   {
+    "name": "tuft-3",
+    "x": 4.257,
+    "y": 1.433
+   },
+   {
+    "name": "fmn-grey-1",
+    "x": 4.287,
+    "y": 2.221,
+    "swap": "fmn-blue-1"
+   },
+   {
+    "name": "tuft-0",
+    "x": 4.295,
+    "y": 2.937
+   },
+   {
+    "name": "tuft-0",
+    "x": -4.8,
+    "y": 2.488
+   },
+   {
+    "name": "toad-1",
+    "x": -4.8,
+    "y": -0.776
+   },
+   {
+    "name": "tuft-3",
+    "x": -4.8,
+    "y": -2.769
+   },
+   {
+    "name": "ticks-1",
+    "x": -3.3,
+    "y": -4.9
+   },
+   {
+    "name": "ticks-2",
+    "x": -1.24,
+    "y": -4.9
+   },
+   {
+    "name": "ticks-3",
+    "x": 1.366,
+    "y": -4.9
+   },
+   {
+    "name": "ticks-0",
+    "x": 3.076,
+    "y": -4.9
+   }
+  ],
+  "pebbles": [
+   {
+    "corner": "a1",
+    "shut": "pebble-shut-0",
+    "open": "pebble-open-0",
+    "x": -4.42,
+    "y": -4.3,
+    "name": "pebble-shut-0"
+   },
+   {
+    "corner": "h1",
+    "shut": "pebble-shut-1",
+    "open": "pebble-open-1",
+    "x": 4.42,
+    "y": -4.3,
+    "name": "pebble-shut-1"
+   },
+   {
+    "corner": "a8",
+    "shut": "pebble-shut-2",
+    "open": "pebble-open-2",
+    "x": -4.42,
+    "y": 4.3,
+    "name": "pebble-shut-2"
+   },
+   {
+    "corner": "h8",
+    "shut": "pebble-shut-3",
+    "open": "pebble-open-3",
+    "x": 4.42,
+    "y": 4.3,
+    "name": "pebble-shut-3"
+   }
+  ],
+  "note": "garden: flat decals (pivot = ground contact, picture grows toward +y); `swap` = the blue version of a grey forget-me-not (same drawing) to swap in at checkmate; pebbles: sprite `shut` normally, `open` while that corner square is attacked"
+ },
+ "gpuMB": {
+  "board": 37.3,
+  "boardfx": 18.7
+ }
+}

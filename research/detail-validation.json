@@ -1,0 +1,903 @@
+{
+  "afterLeave": {
+    "selected": null,
+    "moving": [],
+    "sleeping": [],
+    "positions": {
+      "w-rook": 9,
+      "w-knight": 10,
+      "w-bishop": 11,
+      "w-queen": 12,
+      "w-king": 13,
+      "w-pawn": 14,
+      "b-rook": 49,
+      "b-knight": 50,
+      "b-bishop": 51,
+      "b-queen": 52,
+      "b-king": 53,
+      "b-pawn": 54
+    },
+    "history": 0,
+    "reduced": false,
+    "soundEnabled": true,
+    "opening": {
+      "elapsed": 143.08276666668306,
+      "interactive": true,
+      "done": true
+    },
+    "paper": {
+      "matrix": [
+        0.9999997797644665,
+        0.000663679906680577,
+        -0.000663679906680577,
+        0.9999997797644665,
+        -1.1582263983157108,
+        -1.555050343531775
+      ]
+    },
+    "audioState": "locked",
+    "feedback": {
+      "dust": 3,
+      "impact": 2,
+      "sound": 20,
+      "particles": 0
+    },
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 0,
+        "target": 0
+      }
+    ]
+  },
+  "move": {
+    "selected": "w-pawn",
+    "moving": [
+      "w-pawn"
+    ],
+    "sleeping": [],
+    "positions": {
+      "w-rook": 9,
+      "w-knight": 10,
+      "w-bishop": 11,
+      "w-queen": 12,
+      "w-king": 13,
+      "w-pawn": 28,
+      "b-rook": 49,
+      "b-knight": 50,
+      "b-bishop": 51,
+      "b-queen": 52,
+      "b-king": 53,
+      "b-pawn": 54
+    },
+    "history": 1,
+    "reduced": false,
+    "soundEnabled": true,
+    "opening": {
+      "elapsed": 194.2491666666597,
+      "interactive": true,
+      "done": true
+    },
+    "paper": {
+      "matrix": [
+        0.9999999934964695,
+        0.00011404850303038865,
+        -0.00011404850303038865,
+        0.9999999934964695,
+        -0.19905271624525678,
+        -0.32861962850205373
+      ]
+    },
+    "audioState": "running",
+    "feedback": {
+      "dust": 3,
+      "impact": 3,
+      "sound": 23,
+      "particles": 2
+    },
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 0,
+        "target": 0
+      }
+    ]
+  },
+  "landed": {
+    "selected": "w-pawn",
+    "moving": [],
+    "sleeping": [],
+    "positions": {
+      "w-rook": 9,
+      "w-knight": 10,
+      "w-bishop": 11,
+      "w-queen": 12,
+      "w-king": 13,
+      "w-pawn": 28,
+      "b-rook": 49,
+      "b-knight": 50,
+      "b-bishop": 51,
+      "b-queen": 52,
+      "b-king": 53,
+      "b-pawn": 54
+    },
+    "history": 1,
+    "reduced": false,
+    "soundEnabled": true,
+    "opening": {
+      "elapsed": 210.87406666664748,
+      "interactive": true,
+      "done": true
+    },
+    "paper": {
+      "matrix": [
+        0.999999997116748,
+        0.00007593749992701823,
+        -0.00007593749992701823,
+        0.999999997116748,
+        -0.1325372172479108,
+        -0.16031134665252011
+      ]
+    },
+    "audioState": "running",
+    "feedback": {
+      "dust": 3,
+      "impact": 5,
+      "sound": 25,
+      "particles": 0
+    },
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 0,
+        "target": 0
+      }
+    ]
+  },
+  "sway": {
+    "selected": "w-pawn",
+    "moving": [
+      "w-pawn"
+    ],
+    "sleeping": [],
+    "positions": {
+      "w-rook": 9,
+      "w-knight": 10,
+      "w-bishop": 11,
+      "w-queen": 12,
+      "w-king": 13,
+      "w-pawn": 14,
+      "b-rook": 49,
+      "b-knight": 50,
+      "b-bishop": 51,
+      "b-queen": 52,
+      "b-king": 53,
+      "b-pawn": 54
+    },
+    "history": 0,
+    "reduced": false,
+    "soundEnabled": true,
+    "opening": {
+      "elapsed": 211.81156666664683,
+      "interactive": true,
+      "done": true
+    },
+    "paper": {
+      "matrix": [
+        0.999998964265238,
+        0.0014392596885771825,
+        -0.0014392596885771825,
+        0.999998964265238,
+        -2.5113794114922023,
+        0.7516594824450067
+      ]
+    },
+    "audioState": "running",
+    "feedback": {
+      "dust": 3,
+      "impact": 7,
+      "sound": 30,
+      "particles": 2
+    },
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 0,
+        "target": 0
+      }
+    ]
+  },
+  "drag": {
+    "selected": "w-king",
+    "moving": [
+      "w-king"
+    ],
+    "sleeping": [],
+    "positions": {
+      "w-rook": 9,
+      "w-knight": 10,
+      "w-bishop": 11,
+      "w-queen": 12,
+      "w-king": 27,
+      "w-pawn": 14,
+      "b-rook": 49,
+      "b-knight": 50,
+      "b-bishop": 51,
+      "b-queen": 52,
+      "b-king": 53,
+      "b-pawn": 54
+    },
+    "history": 1,
+    "reduced": false,
+    "soundEnabled": true,
+    "opening": {
+      "elapsed": 212.14076666664667,
+      "interactive": true,
+      "done": true
+    },
+    "paper": {
+      "matrix": [
+        0.9999998334273164,
+        0.0005771874388379488,
+        -0.0005771874388379488,
+        0.9999998334273164,
+        -1.0072993161347272,
+        0.22548469482649125
+      ]
+    },
+    "audioState": "running",
+    "feedback": {
+      "dust": 3,
+      "impact": 8,
+      "sound": 30,
+      "particles": 2
+    },
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 0,
+        "target": 0
+      }
+    ]
+  },
+  "mobile": {
+    "view": {
+      "width": 390,
+      "height": 844,
+      "unit": 38.613861386138616,
+      "x": 195,
+      "y": 373.53,
+      "dpr": 1.0000000298023224,
+      "groundScale": 0.8290375725550417
+    },
+    "state": {
+      "selected": null,
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 14,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 0,
+      "reduced": false,
+      "soundEnabled": true,
+      "opening": {
+        "elapsed": 35.14916666666774,
+        "interactive": true,
+        "done": true
+      },
+      "paper": {
+        "matrix": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      },
+      "audioState": "locked",
+      "feedback": {
+        "dust": 3,
+        "impact": 2,
+        "sound": 20,
+        "particles": 0
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    },
+    "overflow": false
+  },
+  "keyboardFocus": {
+    "focused": "celebrate",
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0.7839999999999907,
+        "target": 1
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 0,
+        "target": 0
+      }
+    ]
+  },
+  "reducedReset": {
+    "selected": null,
+    "moving": [],
+    "sleeping": [],
+    "positions": {
+      "w-rook": 9,
+      "w-knight": 10,
+      "w-bishop": 11,
+      "w-queen": 12,
+      "w-king": 13,
+      "w-pawn": 14,
+      "b-rook": 49,
+      "b-knight": 50,
+      "b-bishop": 51,
+      "b-queen": 52,
+      "b-king": 53,
+      "b-pawn": 54
+    },
+    "history": 0,
+    "reduced": true,
+    "soundEnabled": true,
+    "opening": {
+      "elapsed": 0.2939000000000089,
+      "interactive": true,
+      "done": true
+    },
+    "paper": {
+      "matrix": [
+        0.9999999994304543,
+        0.00003375042940993466,
+        -0.00003375042940993466,
+        0.9999999994304543,
+        -0.03643854563002907,
+        -0.008267324780376839
+      ]
+    },
+    "audioState": "running",
+    "feedback": {
+      "dust": 3,
+      "impact": 5,
+      "sound": 25,
+      "particles": 0
+    },
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 1,
+        "target": 1
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 0,
+        "target": 0
+      }
+    ]
+  },
+  "finalReducedRegression": {
+    "selected": null,
+    "moving": [],
+    "sleeping": [],
+    "positions": {
+      "w-rook": 9,
+      "w-knight": 10,
+      "w-bishop": 11,
+      "w-queen": 12,
+      "w-king": 13,
+      "w-pawn": 14,
+      "b-rook": 49,
+      "b-knight": 50,
+      "b-bishop": 51,
+      "b-queen": 52,
+      "b-king": 53,
+      "b-pawn": 54
+    },
+    "history": 0,
+    "reduced": false,
+    "soundEnabled": true,
+    "opening": {
+      "elapsed": 5.079999999999999,
+      "interactive": true,
+      "done": true
+    },
+    "paper": {
+      "matrix": [
+        0.9999999020685049,
+        0.0004425640978694534,
+        -0.0004425640978694534,
+        0.9999999020685049,
+        -0.7723756182482804,
+        -1.413431296076567
+      ]
+    },
+    "audioState": "running",
+    "feedback": {
+      "dust": 0,
+      "impact": 0,
+      "sound": 0,
+      "particles": 0
+    },
+    "controls": [
+      {
+        "id": "celebrate",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "nap",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "gag",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "undo",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reset",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "replay",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "sound",
+        "progress": 0,
+        "target": 0
+      },
+      {
+        "id": "reduced",
+        "progress": 1,
+        "target": 1
+      }
+    ]
+  },
+  "mobileInteractions": {
+    "clickMove": "g2 to e4 confirmed in accessibility state",
+    "overflow": false,
+    "keyboardFocus": {
+      "focused": "celebrate",
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0.7839999999999907,
+          "target": 1
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    }
+  },
+  "errors": [],
+  "final": {
+    "state": {
+      "selected": null,
+      "moving": [],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 14,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 0,
+      "reduced": false,
+      "soundEnabled": true,
+      "opening": {
+        "elapsed": 83.89019999999964,
+        "interactive": true,
+        "done": true
+      },
+      "paper": {
+        "matrix": [
+          0.9999997341668638,
+          0.0007291544430198408,
+          -0.0007291544430198408,
+          0.9999997341668638,
+          -1.2724745656784633,
+          -2.4256550769529213
+        ]
+      },
+      "audioState": "running",
+      "feedback": {
+        "dust": 0,
+        "impact": 0,
+        "sound": 0,
+        "particles": 0
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "sound",
+          "progress": 0.2383333333333333,
+          "target": 1
+        },
+        {
+          "id": "reduced",
+          "progress": 0.6519953275034294,
+          "target": 0
+        }
+      ]
+    },
+    "metrics": {
+      "frames": 180,
+      "fps": 178.58914574858463,
+      "meanDrawMs": 1.9377777786718475,
+      "p95DrawMs": 2.5999999940395355,
+      "backingStore": [
+        1920,
+        1200
+      ]
+    },
+    "overflow": false,
+    "externalResources": []
+  }
+}

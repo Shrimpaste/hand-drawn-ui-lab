@@ -1,0 +1,1601 @@
+{
+ "schema": "ballpoint-gambit/cast-states@1",
+ "rigs": {
+  "gus": "public/assets/chars/gus.json",
+  "dot": "public/assets/chars/dot.json"
+ },
+ "format": "state = { loop: s|null, hold?, base: pose, keys: [{t, pose}] }; every key inherits what the earlier keys set; numbers ease (smoothstep), strings/facing/bodyPose/props.*.state step at the key time; pose fields as RIG-SPEC 8; fx = shared fx rig names",
+ "anchors": {
+  "gusHead": "rig gus anchors.face (card units, origin = ground contact); Bibi orbits it; the layout value (5.6,-3.15) is a loose 0.85 above the foot, the drawn head centre is ~0.48 above the foot",
+  "dotWalk": {
+   "y": -4,
+   "x0": 6.55,
+   "x1": 7.05
+  }
+ },
+ "restPlacement": {
+  "note": "where the actors stand at the QUIET start (world x, y = ground point; lift = card units up).  Sort: Gus y -4.0; Dot is farther (y -3.98) so Gus's leaf hand covers her; Bibi (y -4.02) is nearer than Gus so she sits ON his left leaf hand.",
+  "gus": {
+   "at": [
+    5.6,
+    -4
+   ],
+   "state": "doze"
+  },
+  "dot": {
+   "at": [
+    6,
+    -3.98
+   ],
+   "state": "tucked",
+   "spots": 0
+  },
+  "bibi": {
+   "at": [
+    5.4,
+    -4.02
+   ],
+   "lift": 0.235,
+   "frame": "bibi.parked.0",
+   "note": "on Gus's LEFT leaf hand; pivot = the body centre; anchors.foot is 0.084 u below it"
+  },
+  "sunflower": {
+   "at": [
+    7.3,
+    -4
+   ],
+   "frame": "sunflower.nod.0"
+  },
+  "bee": {
+   "at": "sunflower head anchor + (0.2, 0.05)",
+   "frame": "bee.asleep.0"
+  },
+  "snail": {
+   "at": [
+    5.25,
+    -4.45
+   ],
+   "frame": "snail.crawl.1",
+   "note": "x = 5.25 + 1.7 * min(1, plies / 120)"
+  }
+ },
+ "gus": {
+  "doze": {
+   "loop": 4,
+   "base": {
+    "mood": "sleepy",
+    "arm": {
+     "L": {
+      "deg": 38
+     },
+     "R": {
+      "deg": 38
+     }
+    },
+    "props": {
+     "lobeL": {
+      "rot": 1.28
+     },
+     "lobeR": {
+      "rot": -1.2
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "sy": 1,
+      "sx": 1
+     }
+    },
+    {
+     "t": 2,
+     "pose": {
+      "sy": 0.972,
+      "sx": 1.014,
+      "props": {
+       "lobeL": {
+        "rot": 1.32
+       },
+       "lobeR": {
+        "rot": -1.24
+       }
+      }
+     }
+    },
+    {
+     "t": 4,
+     "pose": {
+      "sy": 1,
+      "sx": 1
+     }
+    }
+   ],
+   "fx": [
+    {
+     "fx": "zzz",
+     "at": "headTopR",
+     "every": 1.6
+    }
+   ]
+  },
+  "half-lid": {
+   "loop": 3,
+   "base": {
+    "mood": "neutral",
+    "eye": "half",
+    "arm": {
+     "L": {
+      "deg": 84
+     },
+     "R": {
+      "deg": 84
+     }
+    },
+    "props": {
+     "lobeL": {
+      "rot": 0.55
+     },
+     "lobeR": {
+      "rot": 0.12
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "sy": 1,
+      "look": {
+       "x": -0.3,
+       "y": 0.2
+      }
+     }
+    },
+    {
+     "t": 1.5,
+     "pose": {
+      "sy": 1.02,
+      "look": {
+       "x": 0.35,
+       "y": 0.25
+      },
+      "props": {
+       "lobeL": {
+        "rot": 0.5
+       },
+       "lobeR": {
+        "rot": 0.18
+       }
+      }
+     }
+    },
+    {
+     "t": 3,
+     "pose": {
+      "sy": 1,
+      "look": {
+       "x": -0.3,
+       "y": 0.2
+      }
+     }
+    }
+   ]
+  },
+  "snap": {
+   "loop": null,
+   "base": {
+    "mood": "neutral",
+    "arm": {
+     "L": {
+      "deg": 84
+     },
+     "R": {
+      "deg": 84
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "sx": 1,
+      "sy": 1,
+      "lean": 0,
+      "lift": 0,
+      "eye": "open",
+      "mouth": "smile",
+      "props": {
+       "lobeL": {
+        "rot": 0.55
+       },
+       "lobeR": {
+        "rot": 0.12
+       }
+      }
+     }
+    },
+    {
+     "t": 0.1,
+     "pose": {
+      "sx": 1.09,
+      "sy": 0.9,
+      "lean": -0.07,
+      "eye": "wide",
+      "brow": "raised",
+      "mouth": "wide",
+      "props": {
+       "lobeL": {
+        "rot": 0.85
+       },
+       "lobeR": {
+        "rot": -0.85
+       }
+      }
+     }
+    },
+    {
+     "t": 0.2,
+     "pose": {
+      "sx": 0.92,
+      "sy": 1.12,
+      "lean": 0.2,
+      "lift": 0.03,
+      "eye": "glare",
+      "brow": "angry",
+      "mouth": "wide",
+      "props": {
+       "lobeL": {
+        "rot": 0.9
+       },
+       "lobeR": {
+        "rot": -0.9
+       }
+      },
+      "arm": {
+       "L": {
+        "deg": 128
+       },
+       "R": {
+        "deg": 128
+       }
+      }
+     }
+    },
+    {
+     "t": 0.27,
+     "pose": {
+      "sx": 1.04,
+      "sy": 0.96,
+      "lean": 0.24,
+      "lift": 0,
+      "eye": "squeezed",
+      "brow": "none",
+      "mouth": "chomp",
+      "props": {
+       "lobeL": {
+        "rot": -0.14
+       },
+       "lobeR": {
+        "rot": 0.14
+       }
+      }
+     }
+    },
+    {
+     "t": 0.5,
+     "pose": {
+      "sx": 1,
+      "sy": 1,
+      "lean": 0.06,
+      "eye": "open",
+      "brow": "none",
+      "mouth": "flat",
+      "look": {
+       "x": 0.6,
+       "y": 0.7
+      },
+      "props": {
+       "lobeL": {
+        "rot": -0.05
+       },
+       "lobeR": {
+        "rot": 0.05
+       }
+      },
+      "arm": {
+       "L": {
+        "deg": 84
+       },
+       "R": {
+        "deg": 84
+       }
+      }
+     }
+    },
+    {
+     "t": 0.75,
+     "pose": {
+      "sx": 1.02,
+      "sy": 0.96,
+      "lean": -0.03,
+      "mood": "shy",
+      "eye": "half",
+      "mouth": "wavy",
+      "blush": 1.6,
+      "look": {
+       "x": -0.7,
+       "y": -0.6
+      },
+      "props": {
+       "lobeL": {
+        "rot": 0.9
+       },
+       "lobeR": {
+        "rot": -0.7
+       }
+      }
+     }
+    },
+    {
+     "t": 1.1,
+     "pose": {
+      "sx": 1,
+      "sy": 1,
+      "lean": 0,
+      "mood": "neutral",
+      "eye": "half",
+      "mouth": "smile",
+      "blush": 1,
+      "look": {
+       "x": 0,
+       "y": 0
+      },
+      "props": {
+       "lobeL": {
+        "rot": 0.55
+       },
+       "lobeR": {
+        "rot": 0.12
+       }
+      }
+     }
+    }
+   ],
+   "fx": [
+    {
+     "fx": "sweat",
+     "at": "headTopL",
+     "t": 0.6
+    }
+   ]
+  },
+  "sigh": {
+   "loop": null,
+   "base": {
+    "mood": "sleepy",
+    "eye": "half",
+    "arm": {
+     "L": {
+      "deg": 84
+     },
+     "R": {
+      "deg": 84
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "sy": 1,
+      "mouth": "smile",
+      "props": {
+       "lobeL": {
+        "rot": 0.55
+       },
+       "lobeR": {
+        "rot": 0.12
+       }
+      }
+     }
+    },
+    {
+     "t": 0.55,
+     "pose": {
+      "sy": 1.06,
+      "sx": 0.97,
+      "mouth": "o",
+      "mouthScale": 1.3,
+      "eye": "sleepy",
+      "props": {
+       "lobeL": {
+        "rot": 0.35
+       },
+       "lobeR": {
+        "rot": 0.3
+       }
+      }
+     }
+    },
+    {
+     "t": 1.4,
+     "pose": {
+      "sy": 0.94,
+      "sx": 1.05,
+      "mouth": "flat",
+      "eye": "sleepy",
+      "arm": {
+       "L": {
+        "deg": 38
+       },
+       "R": {
+        "deg": 38
+       }
+      },
+      "props": {
+       "lobeL": {
+        "rot": 1.25
+       },
+       "lobeR": {
+        "rot": -1.1
+       }
+      }
+     }
+    }
+   ],
+   "fx": [
+    {
+     "fx": "puff",
+     "at": "mouth",
+     "t": 0.9
+    }
+   ]
+  },
+  "gulp": {
+   "loop": null,
+   "base": {
+    "mood": "worried",
+    "eye": "wide",
+    "arm": {
+     "L": {
+      "deg": 84
+     },
+     "R": {
+      "deg": 84
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "sy": 1.02,
+      "mouth": "flat",
+      "props": {
+       "lobeL": {
+        "rot": 0.3
+       },
+       "lobeR": {
+        "rot": -0.3
+       },
+       "bulge": {
+        "state": "on",
+        "dx": 0,
+        "dy": 0.03,
+        "sx": 0.6,
+        "sy": 0.6
+       }
+      }
+     }
+    },
+    {
+     "t": 0.15,
+     "pose": {
+      "sy": 1.06,
+      "mouth": "chomp",
+      "props": {
+       "lobeL": {
+        "rot": 0.35
+       },
+       "lobeR": {
+        "rot": -0.35
+       },
+       "bulge": {
+        "state": "on",
+        "dy": -0.02,
+        "sx": 1,
+        "sy": 1
+       }
+      }
+     }
+    },
+    {
+     "t": 0.4,
+     "pose": {
+      "sy": 0.98,
+      "mouth": "flat",
+      "props": {
+       "lobeL": {
+        "rot": 0.3
+       },
+       "lobeR": {
+        "rot": -0.3
+       },
+       "bulge": {
+        "state": "on",
+        "dy": -0.2,
+        "sx": 0.9,
+        "sy": 0.9
+       }
+      }
+     }
+    },
+    {
+     "t": 0.5,
+     "pose": {
+      "sy": 1,
+      "mouth": "smile",
+      "props": {
+       "lobeL": {
+        "rot": 0.4
+       },
+       "lobeR": {
+        "rot": -0.2
+       },
+       "bulge": {
+        "state": "off",
+        "dy": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  "wide": {
+   "loop": null,
+   "hold": true,
+   "base": {
+    "mood": "surprised",
+    "blush": 0.5,
+    "arm": {
+     "L": {
+      "deg": 128
+     },
+     "R": {
+      "deg": 128
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "sy": 1.06,
+      "sx": 0.97,
+      "props": {
+       "lobeL": {
+        "rot": 0.3
+       },
+       "lobeR": {
+        "rot": -0.3
+       }
+      }
+     }
+    },
+    {
+     "t": 0.3,
+     "pose": {
+      "sy": 1.06,
+      "sx": 0.97,
+      "props": {
+       "lobeL": {
+        "rot": 0.36
+       },
+       "lobeR": {
+        "rot": -0.36
+       }
+      }
+     }
+    }
+   ]
+  },
+  "burp-sleep": {
+   "loop": null,
+   "hold": true,
+   "base": {
+    "arm": {
+     "L": {
+      "deg": 84
+     },
+     "R": {
+      "deg": 84
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "mood": "happy",
+      "sy": 1,
+      "props": {
+       "lobeL": {
+        "rot": 0.55
+       },
+       "lobeR": {
+        "rot": -0.3
+       }
+      }
+     }
+    },
+    {
+     "t": 0.3,
+     "pose": {
+      "mood": "happy",
+      "bodyPose": "stretch",
+      "sx": 0.92,
+      "sy": 1.13,
+      "mouth": "burp",
+      "arm": {
+       "L": {
+        "deg": 128
+       },
+       "R": {
+        "deg": 128
+       }
+      },
+      "props": {
+       "lobeL": {
+        "rot": 0.7
+       },
+       "lobeR": {
+        "rot": -0.7
+       }
+      }
+     }
+    },
+    {
+     "t": 0.6,
+     "pose": {
+      "mood": "happy",
+      "bodyPose": "idle",
+      "sx": 1.05,
+      "sy": 0.94,
+      "mouth": "o",
+      "arm": {
+       "L": {
+        "deg": 84
+       },
+       "R": {
+        "deg": 84
+       }
+      },
+      "props": {
+       "lobeL": {
+        "rot": 0.5
+       },
+       "lobeR": {
+        "rot": -0.5
+       }
+      }
+     }
+    },
+    {
+     "t": 0.9,
+     "pose": {
+      "mood": "sleepy",
+      "sx": 1.06,
+      "sy": 0.92,
+      "props": {
+       "lobeL": {
+        "rot": 1
+       },
+       "lobeR": {
+        "rot": -0.9
+       }
+      }
+     }
+    },
+    {
+     "t": 1.2,
+     "pose": {
+      "mood": "sleepy",
+      "sx": 1,
+      "sy": 0.972,
+      "arm": {
+       "L": {
+        "deg": 38
+       },
+       "R": {
+        "deg": 38
+       }
+      },
+      "props": {
+       "lobeL": {
+        "rot": 1.3
+       },
+       "lobeR": {
+        "rot": -1.22
+       }
+      }
+     }
+    }
+   ],
+   "fx": [
+    {
+     "fx": "puff",
+     "at": "mouthR",
+     "t": 0.3
+    },
+    {
+     "fx": "zzz",
+     "at": "headTopR",
+     "t": 3.2,
+     "every": 1.6
+    }
+   ]
+  },
+  "sleep-snap": {
+   "loop": null,
+   "hold": true,
+   "base": {
+    "mood": "sleepy",
+    "mouth": "wide",
+    "lean": 0.13,
+    "sy": 1,
+    "arm": {
+     "L": {
+      "deg": 128
+     },
+     "R": {
+      "deg": 84
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "props": {
+       "lobeL": {
+        "rot": 0.7
+       },
+       "lobeR": {
+        "rot": -0.62
+       }
+      }
+     }
+    },
+    {
+     "t": 2,
+     "pose": {
+      "sy": 0.985,
+      "props": {
+       "lobeL": {
+        "rot": 0.76
+       },
+       "lobeR": {
+        "rot": -0.68
+       }
+      }
+     }
+    },
+    {
+     "t": 4,
+     "pose": {
+      "sy": 1,
+      "props": {
+       "lobeL": {
+        "rot": 0.7
+       },
+       "lobeR": {
+        "rot": -0.62
+       }
+      }
+     }
+    }
+   ],
+   "fx": [
+    {
+     "fx": "zzz",
+     "at": "headTopR",
+     "every": 1.6
+    }
+   ]
+  }
+ },
+ "dot": {
+  "tucked": {
+   "loop": null,
+   "hold": true,
+   "placement": {
+    "x": 6,
+    "y": -3.98,
+    "note": "behind Gus's right leaf hand (his sort key is nearer): only the poppy shell edge shows"
+   },
+   "base": {
+    "facing": -1,
+    "mood": "sleepy",
+    "sy": 0.86,
+    "sx": 1.08,
+    "bodyPose": "squash",
+    "arm": {
+     "L": {
+      "deg": 14
+     },
+     "R": {
+      "deg": 14
+     }
+    },
+    "props": {
+     "wings": {
+      "state": "tuck"
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {}
+    }
+   ]
+  },
+  "walk": {
+   "loop": 3,
+   "placement": {
+    "home": 6.6,
+    "x0": 6.36,
+    "x1": 6.8,
+    "note": "x(t) is the runtime's (four ~0.11 u steps out, four back); the gait below is a 0.25 s step: footL step / footR flat, then swapped; facing +1 on the way out (the twin), -1 on the way back.  Her rest bounds are -0.46 .. +0.29 u around x (head to the left), so the head must stay left of the flower stalk (x 7.3): the layout's 6.55 - 7.05 would walk her into it"
+   },
+   "base": {
+    "mood": "neutral",
+    "arm": {
+     "L": {
+      "deg": 14
+     },
+     "R": {
+      "deg": 14
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "facing": 1,
+      "foot": {
+       "L": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       },
+       "R": {
+        "pick": "flat",
+        "dx": -0.03
+       }
+      },
+      "lift": 0.006
+     }
+    },
+    {
+     "t": 0.25,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "flat",
+        "dx": 0
+       },
+       "R": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       }
+      },
+      "lift": 0
+     }
+    },
+    {
+     "t": 0.5,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       },
+       "R": {
+        "pick": "flat",
+        "dx": 0
+       }
+      },
+      "lift": 0.006
+     }
+    },
+    {
+     "t": 0.75,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "flat",
+        "dx": 0
+       },
+       "R": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       }
+      },
+      "lift": 0
+     }
+    },
+    {
+     "t": 1.5,
+     "pose": {
+      "facing": -1,
+      "foot": {
+       "L": {
+        "pick": "flat"
+       },
+       "R": {
+        "pick": "flat"
+       }
+      },
+      "lift": 0
+     }
+    },
+    {
+     "t": 1.75,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       },
+       "R": {
+        "pick": "flat"
+       }
+      },
+      "lift": 0.006
+     }
+    },
+    {
+     "t": 2,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "flat"
+       },
+       "R": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       }
+      },
+      "lift": 0
+     }
+    },
+    {
+     "t": 2.25,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       },
+       "R": {
+        "pick": "flat"
+       }
+      },
+      "lift": 0.006
+     }
+    },
+    {
+     "t": 2.5,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "flat"
+       },
+       "R": {
+        "pick": "step",
+        "dx": 0.03,
+        "dy": 0.012
+       }
+      },
+      "lift": 0
+     }
+    },
+    {
+     "t": 3,
+     "pose": {
+      "foot": {
+       "L": {
+        "pick": "flat"
+       },
+       "R": {
+        "pick": "flat"
+       }
+      }
+     }
+    }
+   ]
+  },
+  "pip": {
+   "loop": null,
+   "param": "spot",
+   "base": {
+    "mood": "neutral",
+    "arm": {
+     "L": {
+      "deg": 14
+     },
+     "R": {
+      "deg": 14
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "sy": 1,
+      "sx": 1,
+      "eye": "open"
+     }
+    },
+    {
+     "t": 0.06,
+     "pose": {
+      "sy": 0.92,
+      "sx": 1.05,
+      "eye": "wide",
+      "brow": "raised",
+      "lift": 0
+     }
+    },
+    {
+     "t": 0.12,
+     "pose": {
+      "sy": 1.07,
+      "sx": 0.96,
+      "lift": 0.025,
+      "eye": "wide",
+      "props": {
+       "<spot>": {
+        "state": "on",
+        "sx": 1.8,
+        "sy": 1.8
+       }
+      }
+     }
+    },
+    {
+     "t": 0.22,
+     "pose": {
+      "sy": 1,
+      "sx": 1,
+      "lift": 0,
+      "eye": "open",
+      "brow": "none",
+      "props": {
+       "<spot>": {
+        "state": "on",
+        "sx": 1,
+        "sy": 1
+       }
+      }
+     }
+    },
+    {
+     "t": 0.3,
+     "pose": {
+      "mood": "happy",
+      "props": {
+       "<spot>": {
+        "state": "on",
+        "sx": 1,
+        "sy": 1
+       }
+      }
+     }
+    }
+   ]
+  },
+  "count-shrug": {
+   "loop": null,
+   "base": {
+    "mood": "neutral",
+    "props": {
+     "spot1": {
+      "state": "on"
+     },
+     "spot2": {
+      "state": "on"
+     },
+     "spot3": {
+      "state": "on"
+     },
+     "spot4": {
+      "state": "on"
+     },
+     "spot5": {
+      "state": "on"
+     },
+     "spot6": {
+      "state": "on"
+     },
+     "spot7": {
+      "state": "on"
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 150
+       },
+       "R": {
+        "deg": 14
+       }
+      },
+      "eye": "open",
+      "mouth": "smile",
+      "look": {
+       "x": -0.3,
+       "y": -0.5
+      }
+     }
+    },
+    {
+     "t": 0.12,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 14
+       },
+       "R": {
+        "deg": 150
+       }
+      }
+     }
+    },
+    {
+     "t": 0.24,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 150
+       },
+       "R": {
+        "deg": 14
+       }
+      }
+     }
+    },
+    {
+     "t": 0.36,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 14
+       },
+       "R": {
+        "deg": 150
+       }
+      }
+     }
+    },
+    {
+     "t": 0.48,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 150
+       },
+       "R": {
+        "deg": 14
+       }
+      }
+     }
+    },
+    {
+     "t": 0.6,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 14
+       },
+       "R": {
+        "deg": 150
+       }
+      }
+     }
+    },
+    {
+     "t": 0.72,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 150
+       },
+       "R": {
+        "deg": 14
+       }
+      }
+     }
+    },
+    {
+     "t": 0.84,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 14
+       },
+       "R": {
+        "deg": 14
+       }
+      },
+      "look": {
+       "x": 0,
+       "y": 0
+      }
+     }
+    },
+    {
+     "t": 0.95,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 84
+       },
+       "R": {
+        "deg": 84
+       }
+      },
+      "mood": "smug",
+      "eye": "lidded",
+      "mouth": "flat",
+      "lift": 0.02,
+      "sy": 1.04,
+      "props": {
+       "spot1": {
+        "state": "on"
+       },
+       "spot2": {
+        "state": "on"
+       },
+       "spot3": {
+        "state": "on"
+       },
+       "spot4": {
+        "state": "on"
+       },
+       "spot5": {
+        "state": "on"
+       },
+       "spot6": {
+        "state": "on"
+       },
+       "spot7": {
+        "state": "on"
+       },
+       "caseA": {
+        "rot": 0.16
+       },
+       "caseB": {
+        "rot": 0.22
+       }
+      }
+     }
+    },
+    {
+     "t": 1.2,
+     "pose": {
+      "arm": {
+       "L": {
+        "deg": 84
+       },
+       "R": {
+        "deg": 84
+       }
+      },
+      "mood": "smug",
+      "eye": "lidded",
+      "mouth": "flat",
+      "lift": 0,
+      "sy": 1,
+      "props": {
+       "spot1": {
+        "state": "on"
+       },
+       "spot2": {
+        "state": "on"
+       },
+       "spot3": {
+        "state": "on"
+       },
+       "spot4": {
+        "state": "on"
+       },
+       "spot5": {
+        "state": "on"
+       },
+       "spot6": {
+        "state": "on"
+       },
+       "spot7": {
+        "state": "on"
+       },
+       "caseA": {
+        "rot": 0
+       },
+       "caseB": {
+        "rot": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  "flutter": {
+   "loop": null,
+   "base": {
+    "mood": "happy",
+    "arm": {
+     "L": {
+      "deg": 84
+     },
+     "R": {
+      "deg": 84
+     }
+    },
+    "foot": {
+     "L": {
+      "pick": "step",
+      "dy": 0.01
+     },
+     "R": {
+      "pick": "step",
+      "dy": 0.01
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "lift": 0,
+      "props": {
+       "caseA": {
+        "rot": 0
+       },
+       "caseB": {
+        "rot": 0
+       },
+       "wings": {
+        "state": "tuck"
+       }
+      }
+     }
+    },
+    {
+     "t": 0.14,
+     "pose": {
+      "lift": 0.05,
+      "sy": 1.05,
+      "props": {
+       "caseA": {
+        "rot": 0.85
+       },
+       "caseB": {
+        "rot": 1.15
+       },
+       "wings": {
+        "state": "open",
+        "rot": 0.3
+       }
+      }
+     }
+    },
+    {
+     "t": 0.28,
+     "pose": {
+      "lift": 0.075,
+      "props": {
+       "caseA": {
+        "rot": 0.5
+       },
+       "caseB": {
+        "rot": 0.7
+       },
+       "wings": {
+        "state": "open",
+        "rot": -0.1
+       }
+      }
+     }
+    },
+    {
+     "t": 0.42,
+     "pose": {
+      "lift": 0.07,
+      "props": {
+       "caseA": {
+        "rot": 0.95
+       },
+       "caseB": {
+        "rot": 1.25
+       },
+       "wings": {
+        "state": "open",
+        "rot": 0.35
+       }
+      }
+     }
+    },
+    {
+     "t": 0.56,
+     "pose": {
+      "lift": 0.05,
+      "props": {
+       "caseA": {
+        "rot": 0.5
+       },
+       "caseB": {
+        "rot": 0.7
+       },
+       "wings": {
+        "state": "open",
+        "rot": -0.1
+       }
+      }
+     }
+    },
+    {
+     "t": 0.7,
+     "pose": {
+      "lift": 0.02,
+      "props": {
+       "caseA": {
+        "rot": 0.2
+       },
+       "caseB": {
+        "rot": 0.25
+       },
+       "wings": {
+        "state": "open",
+        "rot": 0
+       }
+      }
+     }
+    },
+    {
+     "t": 0.8,
+     "pose": {
+      "lift": 0,
+      "sy": 1,
+      "props": {
+       "caseA": {
+        "rot": 0
+       },
+       "caseB": {
+        "rot": 0
+       },
+       "wings": {
+        "state": "tuck"
+       }
+      }
+     }
+    }
+   ]
+  },
+  "shrug-tuck": {
+   "loop": null,
+   "hold": true,
+   "base": {
+    "arm": {
+     "L": {
+      "deg": 84
+     },
+     "R": {
+      "deg": 84
+     }
+    }
+   },
+   "keys": [
+    {
+     "t": 0,
+     "pose": {
+      "mood": "neutral",
+      "sy": 1,
+      "props": {
+       "caseA": {
+        "rot": 0
+       },
+       "caseB": {
+        "rot": 0
+       }
+      }
+     }
+    },
+    {
+     "t": 0.3,
+     "pose": {
+      "mood": "smug",
+      "eye": "lidded",
+      "mouth": "flat",
+      "sy": 1.04,
+      "lift": 0.015,
+      "props": {
+       "caseA": {
+        "rot": 0.24
+       },
+       "caseB": {
+        "rot": 0.32
+       },
+       "wings": {
+        "state": "open",
+        "rot": 0
+       }
+      }
+     }
+    },
+    {
+     "t": 0.55,
+     "pose": {
+      "mood": "shy",
+      "sy": 0.94,
+      "lift": 0,
+      "arm": {
+       "L": {
+        "deg": 14
+       },
+       "R": {
+        "deg": 14
+       }
+      },
+      "props": {
+       "caseA": {
+        "rot": 0.06
+       },
+       "caseB": {
+        "rot": 0.08
+       },
+       "wings": {
+        "state": "tuck"
+       }
+      }
+     }
+    },
+    {
+     "t": 0.8,
+     "pose": {
+      "mood": "sleepy",
+      "sy": 0.88,
+      "sx": 1.06,
+      "bodyPose": "squash",
+      "props": {
+       "caseA": {
+        "rot": 0
+       },
+       "caseB": {
+        "rot": 0
+       },
+       "wings": {
+        "state": "tuck"
+       }
+      }
+     }
+    }
+   ]
+  }
+ }
+}

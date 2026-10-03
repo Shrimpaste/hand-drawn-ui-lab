@@ -1,0 +1,3457 @@
+{
+ "schema": "ballpoint-gambit/world-frames@1",
+ "package": "B",
+ "region": "dock",
+ "ppu": 160,
+ "yStretch": 1.2,
+ "note": "flat frames (batch flat): PNG pixels are drawn as seen on screen and already stretched 1.2 in y; pivot/anchors in PNG px from the top-left; anchorsWu in world units from the pivot (x right, y up). Dab is a puppet in the cast atlas (public/assets/chars/dab.json), see dab.",
+ "stats": {
+  "frames": 54,
+  "mp": 0.375,
+  "gpuMBmips": 2,
+  "pngBytes": 370371
+ },
+ "actors": {
+  "pen-red": {
+   "class": "flat",
+   "pivot": "the middle of the capped pen",
+   "restTiltDeg": 14,
+   "states": {
+    "asleep": {
+     "frames": [
+      "pen-red.asleep.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 3.5,
+     "cap": "on",
+     "note": "capped, eyes closed; put the string world-zzz above it"
+    },
+    "awake": {
+     "frames": [
+      "pen-red.awake.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 7,
+     "cap": "off",
+     "note": "cap off (posted on the back end, anchor capOff), nib out, tip inked; the scribble sprite draws on beside the status line while the AI thinks; select: lift the sprite 2 px"
+    },
+    "swap": {
+     "frames": [
+      "pen-red.swap.0",
+      "pen-red.swap.1"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 7,
+     "note": "awake -> asleep: cap hops on (0.35 s, arc 0.3 u from capOff to capOn, frame asleep once it lands); asleep -> awake: swap.0 (yawn) 0.25 s, swap.1 0.25 s while the cap hops off to capOff, then awake"
+    },
+    "no": {
+     "frames": [
+      "pen-red.no.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 7,
+     "note": "illegal: rotate the sprite +-4 degrees twice in 0.4 s (frame no.0 while shaking)"
+    },
+    "rattle": {
+     "frames": [
+      "pen-red.rattle.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 8,
+     "note": "check: the CAP rattles (jiggle the cap sprite +-0.03 u at 20 Hz for 0.5 s); barrel frame rattle"
+    },
+    "lie-x": {
+     "frames": [
+      "pen-red.lie-x.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 3,
+     "note": "resign: cap on, x eyes; rotate the sprite 20 degrees (on its back)"
+    }
+   },
+   "cap": {
+    "frames": [
+     "pen-red.cap.0"
+    ],
+    "boil": [
+     "b0",
+     "b1"
+    ],
+    "note": "separate sprite; pivot = the middle of the cap; positions: anchors.capOn / anchors.capOff of any barrel frame (world units from the barrel pivot)"
+   },
+   "scribble": {
+    "frames": [
+     "pen-red.scribble.0"
+    ],
+    "boil": [
+     "b0",
+     "b1"
+    ],
+    "timed": true,
+    "drawOnSeconds": 1.1,
+    "note": "draw-on spiral (time map); place at anchors.scribbleAt; wipe after the AI has moved"
+   },
+   "anchorsWu": {
+    "tip": [
+     0.4561,
+     -0.1364
+    ],
+    "muzzle": [
+     0.2814,
+     -0.0842
+    ],
+    "capOn": [
+     0.2814,
+     -0.0842
+    ],
+    "capOff": [
+     -0.2982,
+     -0.2447
+    ],
+    "scribbleAt": [
+     0.6428,
+     -0.2294
+    ],
+    "face": [
+     -0.2295,
+     0.0612
+    ],
+    "middle": [
+     0,
+     0
+    ]
+   }
+  },
+  "pen-blue": {
+   "class": "flat",
+   "pivot": "the middle of the capped pen",
+   "restTiltDeg": -14,
+   "states": {
+    "asleep": {
+     "frames": [
+      "pen-blue.asleep.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 3.5,
+     "cap": "on",
+     "note": "capped, eyes closed; put the string world-zzz above it"
+    },
+    "awake": {
+     "frames": [
+      "pen-blue.awake.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 7,
+     "cap": "off",
+     "note": "cap off (posted on the back end, anchor capOff), nib out, tip inked; the scribble sprite draws on beside the status line while the AI thinks; select: lift the sprite 2 px"
+    },
+    "swap": {
+     "frames": [
+      "pen-blue.swap.0",
+      "pen-blue.swap.1"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 7,
+     "note": "awake -> asleep: cap hops on (0.35 s, arc 0.3 u from capOff to capOn, frame asleep once it lands); asleep -> awake: swap.0 (yawn) 0.25 s, swap.1 0.25 s while the cap hops off to capOff, then awake"
+    },
+    "no": {
+     "frames": [
+      "pen-blue.no.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 7,
+     "note": "illegal: rotate the sprite +-4 degrees twice in 0.4 s (frame no.0 while shaking)"
+    },
+    "rattle": {
+     "frames": [
+      "pen-blue.rattle.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 8,
+     "note": "check: the CAP rattles (jiggle the cap sprite +-0.03 u at 20 Hz for 0.5 s); barrel frame rattle"
+    },
+    "lie-x": {
+     "frames": [
+      "pen-blue.lie-x.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "fps": 3,
+     "note": "resign: cap on, x eyes; rotate the sprite 20 degrees (on its back)"
+    }
+   },
+   "cap": {
+    "frames": [
+     "pen-blue.cap.0"
+    ],
+    "boil": [
+     "b0",
+     "b1"
+    ],
+    "note": "separate sprite; pivot = the middle of the cap; positions: anchors.capOn / anchors.capOff of any barrel frame (world units from the barrel pivot)"
+   },
+   "scribble": {
+    "frames": [
+     "pen-blue.scribble.0"
+    ],
+    "boil": [
+     "b0",
+     "b1"
+    ],
+    "timed": true,
+    "drawOnSeconds": 1.1,
+    "note": "draw-on spiral (time map); place at anchors.scribbleAt; wipe after the AI has moved"
+   },
+   "anchorsWu": {
+    "tip": [
+     -0.4561,
+     -0.1364
+    ],
+    "muzzle": [
+     -0.2814,
+     -0.0842
+    ],
+    "capOn": [
+     -0.2814,
+     -0.0842
+    ],
+    "capOff": [
+     0.2982,
+     -0.2447
+    ],
+    "scribbleAt": [
+     -0.6428,
+     -0.2294
+    ],
+    "face": [
+     0.2295,
+     0.0612
+    ],
+    "middle": [
+     0,
+     0
+    ]
+   }
+  },
+  "btn-undo": {
+   "class": "flat",
+   "states": {
+    "rest": {
+     "frames": [
+      "btn-undo.rest.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ]
+    },
+    "hover": {
+     "frames": [
+      "btn-undo.hover.0",
+      "btn-undo.hover.1"
+     ],
+     "fps": 6,
+     "note": "the tip wiggles left twice"
+    },
+    "pressed": {
+     "frames": [
+      "btn-undo.trail.0"
+     ],
+     "timed": true,
+     "note": "swing the rest sprite once round its centre in 0.35 s leaving this dashed ring (draw-on)"
+    },
+    "disabled": {
+     "frames": [
+      "btn-undo.disabled.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "note": "nothing to undo; a press shakes it +-3 degrees for 1 s"
+    }
+   }
+  },
+  "btn-sound": {
+   "class": "flat",
+   "states": {
+    "on": {
+     "frames": [
+      "btn-sound.on.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ]
+    },
+    "hover": {
+     "frames": [
+      "btn-sound.hover.0",
+      "btn-sound.hover.1"
+     ],
+     "fps": 6
+    },
+    "off": {
+     "frames": [
+      "btn-sound.off.0"
+     ],
+     "timed": true,
+     "note": "the x is scribbled over the arcs (draw-on); draw the on frame WITHOUT the arcs is not needed: the x lies on the right of the cone"
+    },
+    "pop": {
+     "frames": [
+      "btn-sound.pop.0"
+     ],
+     "note": "shown for 0.2 s when the sound comes back on"
+    }
+   }
+  },
+  "btn-level": {
+   "class": "flat",
+   "states": {
+    "outline": {
+     "frames": [
+      "btn-level.outline.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ]
+    },
+    "filled": {
+     "frames": [
+      "btn-level.filled.0"
+     ],
+     "boil": [
+      "b0",
+      "b1"
+     ],
+     "timed": true,
+     "note": "scribbled solid; draw-on 0.3 s when a level is chosen"
+    },
+    "hover": {
+     "frames": [
+      "btn-level.hover.0"
+     ]
+    }
+   },
+   "note": "five sprites, spacing 0.26 u (one row): stars 1..level use filled, the rest outline"
+  }
+ },
+ "dab": {
+  "kind": "puppet",
+  "rig": "public/assets/chars/dab.json",
+  "atlas": "public/assets/chars/cast.atlas.json (entries dab/<frameId>)",
+  "rigSeenAt": "public/assets/chars/dab.json",
+  "ppu": 340,
+  "world": {
+   "height": 1.54,
+   "width": 1.19
+  },
+  "frames": 68,
+  "anchors": {
+   "groundContact": [
+    0,
+    0
+   ],
+   "top": [
+    0,
+    0.9706
+   ],
+   "leafSeat": [
+    0,
+    0.9412
+   ],
+   "shoulderL": [
+    -0.3088,
+    0.5118
+   ],
+   "shoulderR": [
+    0.3088,
+    0.5118
+   ],
+   "hipL": [
+    -0.1765,
+    0.0294
+   ],
+   "hipR": [
+    0.1765,
+    0.0294
+   ],
+   "signC": [
+    0,
+    0.1544
+   ],
+   "flagSeat": [
+    0.4706,
+    0.7941
+   ],
+   "face": [
+    0,
+    0.6225
+   ],
+   "eyeL": [
+    -0.1581,
+    0.675
+   ],
+   "eyeR": [
+    0.1581,
+    0.675
+   ],
+   "browL": [
+    -0.1581,
+    0.8
+   ],
+   "browR": [
+    0.1581,
+    0.8
+   ],
+   "mouth": [
+    0,
+    0.55
+   ],
+   "cheekL": [
+    -0.2721,
+    0.5647
+   ],
+   "cheekR": [
+    0.2721,
+    0.5647
+   ]
+  },
+  "signBoxCard": [
+   -0.515,
+   -0.183,
+   0.515,
+   0.489
+  ],
+  "signNote": "rest position of the sign card in Dab's card space [u0, v0, u1, v1] (the hit box of btn-new = this grown by 0.1; follow the sign prop's dx/dy/rot/sx/sy at run time; layout.json ui[btn-new].box [-0.5,0.05,0.5,0.65] is the placeholder it replaces)",
+  "bodyBoxCard": [
+   -0.42,
+   0.08,
+   0.42,
+   1.34
+  ],
+  "clips": "dab-clips.json",
+  "fx": "shared fx rig: zzz (sleep), alarm (gasp), sweat (worried), star/sparkle (cheer); strings: oops ouch hmm nice zzz world-dab-psst dab-saw-that"
+ },
+ "frames": {
+  "pen-red.asleep.0.b0": {
+   "file": "pen-red.asleep.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    82,
+    42.8
+   ],
+   "anchors": {
+    "tip": [
+     154.97,
+     64.63
+    ],
+    "muzzle": [
+     127.02,
+     56.27
+    ],
+    "capOn": [
+     127.02,
+     56.27
+    ],
+    "capOff": [
+     34.29,
+     81.95
+    ],
+    "scribbleAt": [
+     184.85,
+     79.51
+    ],
+    "face": [
+     45.28,
+     33
+    ],
+    "middle": [
+     82,
+     42.8
+    ]
+   },
+   "meta": {
+    "w": 130,
+    "h": 73,
+    "sizeWu": [
+     0.8125,
+     0.4562
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 4.967,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "asleep"
+   }
+  },
+  "pen-red.asleep.0.b1": {
+   "file": "pen-red.asleep.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    81,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     153.97,
+     61.63
+    ],
+    "muzzle": [
+     126.02,
+     53.27
+    ],
+    "capOn": [
+     126.02,
+     53.27
+    ],
+    "capOff": [
+     33.29,
+     78.95
+    ],
+    "scribbleAt": [
+     183.85,
+     76.51
+    ],
+    "face": [
+     44.28,
+     30
+    ],
+    "middle": [
+     81,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 128,
+    "h": 69,
+    "sizeWu": [
+     0.8,
+     0.4313
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 4.847,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "asleep"
+   }
+  },
+  "pen-red.awake.0.b0": {
+   "file": "pen-red.awake.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    80,
+    42.8
+   ],
+   "anchors": {
+    "tip": [
+     152.97,
+     64.63
+    ],
+    "muzzle": [
+     125.02,
+     56.27
+    ],
+    "capOn": [
+     125.02,
+     56.27
+    ],
+    "capOff": [
+     32.29,
+     81.95
+    ],
+    "scribbleAt": [
+     182.85,
+     79.51
+    ],
+    "face": [
+     43.28,
+     33
+    ],
+    "middle": [
+     80,
+     42.8
+    ]
+   },
+   "meta": {
+    "w": 159,
+    "h": 72,
+    "sizeWu": [
+     0.9938,
+     0.45
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 8.494,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "awake"
+   }
+  },
+  "pen-red.awake.0.b1": {
+   "file": "pen-red.awake.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    81,
+    40.8
+   ],
+   "anchors": {
+    "tip": [
+     153.97,
+     62.63
+    ],
+    "muzzle": [
+     126.02,
+     54.27
+    ],
+    "capOn": [
+     126.02,
+     54.27
+    ],
+    "capOff": [
+     33.29,
+     79.95
+    ],
+    "scribbleAt": [
+     183.85,
+     77.51
+    ],
+    "face": [
+     44.28,
+     31
+    ],
+    "middle": [
+     81,
+     40.8
+    ]
+   },
+   "meta": {
+    "w": 160,
+    "h": 69,
+    "sizeWu": [
+     1,
+     0.4313
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 8.286,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "awake"
+   }
+  },
+  "pen-red.swap.0.b0": {
+   "file": "pen-red.swap.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    80,
+    43.8
+   ],
+   "anchors": {
+    "tip": [
+     152.97,
+     65.63
+    ],
+    "muzzle": [
+     125.02,
+     57.27
+    ],
+    "capOn": [
+     125.02,
+     57.27
+    ],
+    "capOff": [
+     32.29,
+     82.95
+    ],
+    "scribbleAt": [
+     182.85,
+     80.51
+    ],
+    "face": [
+     43.28,
+     34
+    ],
+    "middle": [
+     80,
+     43.8
+    ]
+   },
+   "meta": {
+    "w": 131,
+    "h": 73,
+    "sizeWu": [
+     0.8187,
+     0.4562
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 5.227,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.0"
+   }
+  },
+  "pen-red.swap.0.b1": {
+   "file": "pen-red.swap.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    79,
+    40.8
+   ],
+   "anchors": {
+    "tip": [
+     151.97,
+     62.63
+    ],
+    "muzzle": [
+     124.02,
+     54.27
+    ],
+    "capOn": [
+     124.02,
+     54.27
+    ],
+    "capOff": [
+     31.29,
+     79.95
+    ],
+    "scribbleAt": [
+     181.85,
+     77.51
+    ],
+    "face": [
+     42.28,
+     31
+    ],
+    "middle": [
+     79,
+     40.8
+    ]
+   },
+   "meta": {
+    "w": 130,
+    "h": 69,
+    "sizeWu": [
+     0.8125,
+     0.4313
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 5.212,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.0"
+   }
+  },
+  "pen-red.swap.1.b0": {
+   "file": "pen-red.swap.1.b0.png",
+   "ppu": 160,
+   "pivot": [
+    82,
+    41.8
+   ],
+   "anchors": {
+    "tip": [
+     154.97,
+     63.63
+    ],
+    "muzzle": [
+     127.02,
+     55.27
+    ],
+    "capOn": [
+     127.02,
+     55.27
+    ],
+    "capOff": [
+     34.29,
+     80.95
+    ],
+    "scribbleAt": [
+     184.85,
+     78.51
+    ],
+    "face": [
+     45.28,
+     32
+    ],
+    "middle": [
+     82,
+     41.8
+    ]
+   },
+   "meta": {
+    "w": 131,
+    "h": 71,
+    "sizeWu": [
+     0.8187,
+     0.4437
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.12,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.1"
+   }
+  },
+  "pen-red.swap.1.b1": {
+   "file": "pen-red.swap.1.b1.png",
+   "ppu": 160,
+   "pivot": [
+    81,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     153.97,
+     61.63
+    ],
+    "muzzle": [
+     126.02,
+     53.27
+    ],
+    "capOn": [
+     126.02,
+     53.27
+    ],
+    "capOff": [
+     33.29,
+     78.95
+    ],
+    "scribbleAt": [
+     183.85,
+     76.51
+    ],
+    "face": [
+     44.28,
+     30
+    ],
+    "middle": [
+     81,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 130,
+    "h": 67,
+    "sizeWu": [
+     0.8125,
+     0.4188
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 6.834,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.1"
+   }
+  },
+  "pen-red.no.0.b0": {
+   "file": "pen-red.no.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    81,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     153.97,
+     61.63
+    ],
+    "muzzle": [
+     126.02,
+     53.27
+    ],
+    "capOn": [
+     126.02,
+     53.27
+    ],
+    "capOff": [
+     33.29,
+     78.95
+    ],
+    "scribbleAt": [
+     183.85,
+     76.51
+    ],
+    "face": [
+     44.28,
+     30
+    ],
+    "middle": [
+     81,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 160,
+    "h": 68,
+    "sizeWu": [
+     1,
+     0.425
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.986,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "no"
+   }
+  },
+  "pen-red.no.0.b1": {
+   "file": "pen-red.no.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    80,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     152.97,
+     61.63
+    ],
+    "muzzle": [
+     125.02,
+     53.27
+    ],
+    "capOn": [
+     125.02,
+     53.27
+    ],
+    "capOff": [
+     32.29,
+     78.95
+    ],
+    "scribbleAt": [
+     182.85,
+     76.51
+    ],
+    "face": [
+     43.28,
+     30
+    ],
+    "middle": [
+     80,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 159,
+    "h": 68,
+    "sizeWu": [
+     0.9938,
+     0.425
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.431,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "no"
+   }
+  },
+  "pen-red.rattle.0.b0": {
+   "file": "pen-red.rattle.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    80,
+    41.8
+   ],
+   "anchors": {
+    "tip": [
+     152.97,
+     63.63
+    ],
+    "muzzle": [
+     125.02,
+     55.27
+    ],
+    "capOn": [
+     125.02,
+     55.27
+    ],
+    "capOff": [
+     32.29,
+     80.95
+    ],
+    "scribbleAt": [
+     182.85,
+     78.51
+    ],
+    "face": [
+     43.28,
+     32
+    ],
+    "middle": [
+     80,
+     41.8
+    ]
+   },
+   "meta": {
+    "w": 151,
+    "h": 78,
+    "sizeWu": [
+     0.9437,
+     0.4875
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.412,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "rattle"
+   }
+  },
+  "pen-red.rattle.0.b1": {
+   "file": "pen-red.rattle.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    78,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     150.97,
+     61.63
+    ],
+    "muzzle": [
+     123.02,
+     53.27
+    ],
+    "capOn": [
+     123.02,
+     53.27
+    ],
+    "capOff": [
+     30.29,
+     78.95
+    ],
+    "scribbleAt": [
+     180.85,
+     76.51
+    ],
+    "face": [
+     41.28,
+     30
+    ],
+    "middle": [
+     78,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 149,
+    "h": 76,
+    "sizeWu": [
+     0.9313,
+     0.475
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.403,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "rattle"
+   }
+  },
+  "pen-red.lie-x.0.b0": {
+   "file": "pen-red.lie-x.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    78,
+    40.8
+   ],
+   "anchors": {
+    "tip": [
+     150.97,
+     62.63
+    ],
+    "muzzle": [
+     123.02,
+     54.27
+    ],
+    "capOn": [
+     123.02,
+     54.27
+    ],
+    "capOff": [
+     30.29,
+     79.95
+    ],
+    "scribbleAt": [
+     180.85,
+     77.51
+    ],
+    "face": [
+     41.28,
+     31
+    ],
+    "middle": [
+     78,
+     40.8
+    ]
+   },
+   "meta": {
+    "w": 126,
+    "h": 68,
+    "sizeWu": [
+     0.7875,
+     0.425
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 5.42,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "lie-x"
+   }
+  },
+  "pen-red.lie-x.0.b1": {
+   "file": "pen-red.lie-x.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    78,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     150.97,
+     61.63
+    ],
+    "muzzle": [
+     123.02,
+     53.27
+    ],
+    "capOn": [
+     123.02,
+     53.27
+    ],
+    "capOff": [
+     30.29,
+     78.95
+    ],
+    "scribbleAt": [
+     180.85,
+     76.51
+    ],
+    "face": [
+     41.28,
+     30
+    ],
+    "middle": [
+     78,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 126,
+    "h": 67,
+    "sizeWu": [
+     0.7875,
+     0.4188
+    ],
+    "anchorsWu": {
+     "tip": [
+      0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      -0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      0.6428,
+      -0.2294
+     ],
+     "face": [
+      -0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 5.698,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "lie-x"
+   }
+  },
+  "pen-red.cap.0.b0": {
+   "file": "pen-red.cap.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    43.4,
+    39.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 83,
+    "h": 74,
+    "sizeWu": [
+     0.5188,
+     0.4625
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 3.754,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "cap",
+    "state": "cap"
+   }
+  },
+  "pen-red.cap.0.b1": {
+   "file": "pen-red.cap.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    40.4,
+    40.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 78,
+    "h": 71,
+    "sizeWu": [
+     0.4875,
+     0.4437
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 3.402,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "cap",
+    "state": "cap"
+   }
+  },
+  "pen-red.scribble.0.b0": {
+   "file": "pen-red.scribble.0.b0.png",
+   "timeFile": "pen-red.scribble.0.b0.t.png",
+   "ppu": 160,
+   "pivot": [
+    22.6,
+    21.8
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 43,
+    "h": 56,
+    "sizeWu": [
+     0.2687,
+     0.35
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 0.315,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "scribble",
+    "state": "scribble"
+   }
+  },
+  "pen-red.scribble.0.b1": {
+   "file": "pen-red.scribble.0.b1.png",
+   "timeFile": "pen-red.scribble.0.b1.t.png",
+   "ppu": 160,
+   "pivot": [
+    19.6,
+    25.8
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 45,
+    "h": 48,
+    "sizeWu": [
+     0.2813,
+     0.3
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 0.32,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "scribble",
+    "state": "scribble"
+   }
+  },
+  "pen-blue.asleep.0.b0": {
+   "file": "pen-blue.asleep.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    47.4,
+    42.8
+   ],
+   "anchors": {
+    "tip": [
+     -25.57,
+     64.63
+    ],
+    "muzzle": [
+     2.38,
+     56.27
+    ],
+    "capOn": [
+     2.38,
+     56.27
+    ],
+    "capOff": [
+     95.11,
+     81.95
+    ],
+    "scribbleAt": [
+     -55.45,
+     79.51
+    ],
+    "face": [
+     84.12,
+     33
+    ],
+    "middle": [
+     47.4,
+     42.8
+    ]
+   },
+   "meta": {
+    "w": 131,
+    "h": 73,
+    "sizeWu": [
+     0.8187,
+     0.4562
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 4.977,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "asleep"
+   }
+  },
+  "pen-blue.asleep.0.b1": {
+   "file": "pen-blue.asleep.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    47.4,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     -25.57,
+     61.63
+    ],
+    "muzzle": [
+     2.38,
+     53.27
+    ],
+    "capOn": [
+     2.38,
+     53.27
+    ],
+    "capOff": [
+     95.11,
+     78.95
+    ],
+    "scribbleAt": [
+     -55.45,
+     76.51
+    ],
+    "face": [
+     84.12,
+     30
+    ],
+    "middle": [
+     47.4,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 128,
+    "h": 69,
+    "sizeWu": [
+     0.8,
+     0.4313
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 5.049,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "asleep"
+   }
+  },
+  "pen-blue.awake.0.b0": {
+   "file": "pen-blue.awake.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    79.2,
+    41.8
+   ],
+   "anchors": {
+    "tip": [
+     6.23,
+     63.63
+    ],
+    "muzzle": [
+     34.18,
+     55.27
+    ],
+    "capOn": [
+     34.18,
+     55.27
+    ],
+    "capOff": [
+     126.91,
+     80.95
+    ],
+    "scribbleAt": [
+     -23.65,
+     78.51
+    ],
+    "face": [
+     115.92,
+     32
+    ],
+    "middle": [
+     79.2,
+     41.8
+    ]
+   },
+   "meta": {
+    "w": 161,
+    "h": 70,
+    "sizeWu": [
+     1.0063,
+     0.4375
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.882,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "awake"
+   }
+  },
+  "pen-blue.awake.0.b1": {
+   "file": "pen-blue.awake.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    79.2,
+    41.8
+   ],
+   "anchors": {
+    "tip": [
+     6.23,
+     63.63
+    ],
+    "muzzle": [
+     34.18,
+     55.27
+    ],
+    "capOn": [
+     34.18,
+     55.27
+    ],
+    "capOff": [
+     126.91,
+     80.95
+    ],
+    "scribbleAt": [
+     -23.65,
+     78.51
+    ],
+    "face": [
+     115.92,
+     32
+    ],
+    "middle": [
+     79.2,
+     41.8
+    ]
+   },
+   "meta": {
+    "w": 160,
+    "h": 70,
+    "sizeWu": [
+     1,
+     0.4375
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.704,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "awake"
+   }
+  },
+  "pen-blue.swap.0.b0": {
+   "file": "pen-blue.swap.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    50.4,
+    43.8
+   ],
+   "anchors": {
+    "tip": [
+     -22.57,
+     65.63
+    ],
+    "muzzle": [
+     5.38,
+     57.27
+    ],
+    "capOn": [
+     5.38,
+     57.27
+    ],
+    "capOff": [
+     98.11,
+     82.95
+    ],
+    "scribbleAt": [
+     -52.45,
+     80.51
+    ],
+    "face": [
+     87.12,
+     34
+    ],
+    "middle": [
+     50.4,
+     43.8
+    ]
+   },
+   "meta": {
+    "w": 131,
+    "h": 73,
+    "sizeWu": [
+     0.8187,
+     0.4562
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 4.426,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.0"
+   }
+  },
+  "pen-blue.swap.0.b1": {
+   "file": "pen-blue.swap.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    51.4,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     -21.57,
+     61.63
+    ],
+    "muzzle": [
+     6.38,
+     53.27
+    ],
+    "capOn": [
+     6.38,
+     53.27
+    ],
+    "capOff": [
+     99.11,
+     78.95
+    ],
+    "scribbleAt": [
+     -51.45,
+     76.51
+    ],
+    "face": [
+     88.12,
+     30
+    ],
+    "middle": [
+     51.4,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 130,
+    "h": 67,
+    "sizeWu": [
+     0.8125,
+     0.4188
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 4.549,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.0"
+   }
+  },
+  "pen-blue.swap.1.b0": {
+   "file": "pen-blue.swap.1.b0.png",
+   "ppu": 160,
+   "pivot": [
+    50.4,
+    41.8
+   ],
+   "anchors": {
+    "tip": [
+     -22.57,
+     63.63
+    ],
+    "muzzle": [
+     5.38,
+     55.27
+    ],
+    "capOn": [
+     5.38,
+     55.27
+    ],
+    "capOff": [
+     98.11,
+     80.95
+    ],
+    "scribbleAt": [
+     -52.45,
+     78.51
+    ],
+    "face": [
+     87.12,
+     32
+    ],
+    "middle": [
+     50.4,
+     41.8
+    ]
+   },
+   "meta": {
+    "w": 133,
+    "h": 71,
+    "sizeWu": [
+     0.8313,
+     0.4437
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 6.203,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.1"
+   }
+  },
+  "pen-blue.swap.1.b1": {
+   "file": "pen-blue.swap.1.b1.png",
+   "ppu": 160,
+   "pivot": [
+    51.4,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     -21.57,
+     61.63
+    ],
+    "muzzle": [
+     6.38,
+     53.27
+    ],
+    "capOn": [
+     6.38,
+     53.27
+    ],
+    "capOff": [
+     99.11,
+     78.95
+    ],
+    "scribbleAt": [
+     -51.45,
+     76.51
+    ],
+    "face": [
+     88.12,
+     30
+    ],
+    "middle": [
+     51.4,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 132,
+    "h": 68,
+    "sizeWu": [
+     0.825,
+     0.425
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 6.087,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "swap.1"
+   }
+  },
+  "pen-blue.no.0.b0": {
+   "file": "pen-blue.no.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    79.2,
+    41.8
+   ],
+   "anchors": {
+    "tip": [
+     6.23,
+     63.63
+    ],
+    "muzzle": [
+     34.18,
+     55.27
+    ],
+    "capOn": [
+     34.18,
+     55.27
+    ],
+    "capOff": [
+     126.91,
+     80.95
+    ],
+    "scribbleAt": [
+     -23.65,
+     78.51
+    ],
+    "face": [
+     115.92,
+     32
+    ],
+    "middle": [
+     79.2,
+     41.8
+    ]
+   },
+   "meta": {
+    "w": 159,
+    "h": 70,
+    "sizeWu": [
+     0.9938,
+     0.4375
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 8.01,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "no"
+   }
+  },
+  "pen-blue.no.0.b1": {
+   "file": "pen-blue.no.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    79.2,
+    40.8
+   ],
+   "anchors": {
+    "tip": [
+     6.23,
+     62.63
+    ],
+    "muzzle": [
+     34.18,
+     54.27
+    ],
+    "capOn": [
+     34.18,
+     54.27
+    ],
+    "capOff": [
+     126.91,
+     79.95
+    ],
+    "scribbleAt": [
+     -23.65,
+     77.51
+    ],
+    "face": [
+     115.92,
+     31
+    ],
+    "middle": [
+     79.2,
+     40.8
+    ]
+   },
+   "meta": {
+    "w": 158,
+    "h": 69,
+    "sizeWu": [
+     0.9875,
+     0.4313
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.604,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "no"
+   }
+  },
+  "pen-blue.rattle.0.b0": {
+   "file": "pen-blue.rattle.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    70.4,
+    42.8
+   ],
+   "anchors": {
+    "tip": [
+     -2.57,
+     64.63
+    ],
+    "muzzle": [
+     25.38,
+     56.27
+    ],
+    "capOn": [
+     25.38,
+     56.27
+    ],
+    "capOff": [
+     118.11,
+     81.95
+    ],
+    "scribbleAt": [
+     -32.45,
+     79.51
+    ],
+    "face": [
+     107.12,
+     33
+    ],
+    "middle": [
+     70.4,
+     42.8
+    ]
+   },
+   "meta": {
+    "w": 152,
+    "h": 79,
+    "sizeWu": [
+     0.95,
+     0.4938
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.249,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "rattle"
+   }
+  },
+  "pen-blue.rattle.0.b1": {
+   "file": "pen-blue.rattle.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    70.4,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     -2.57,
+     61.63
+    ],
+    "muzzle": [
+     25.38,
+     53.27
+    ],
+    "capOn": [
+     25.38,
+     53.27
+    ],
+    "capOff": [
+     118.11,
+     78.95
+    ],
+    "scribbleAt": [
+     -32.45,
+     76.51
+    ],
+    "face": [
+     107.12,
+     30
+    ],
+    "middle": [
+     70.4,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 149,
+    "h": 76,
+    "sizeWu": [
+     0.9313,
+     0.475
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 7.177,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "rattle"
+   }
+  },
+  "pen-blue.lie-x.0.b0": {
+   "file": "pen-blue.lie-x.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    50.4,
+    41.8
+   ],
+   "anchors": {
+    "tip": [
+     -22.57,
+     63.63
+    ],
+    "muzzle": [
+     5.38,
+     55.27
+    ],
+    "capOn": [
+     5.38,
+     55.27
+    ],
+    "capOff": [
+     98.11,
+     80.95
+    ],
+    "scribbleAt": [
+     -52.45,
+     78.51
+    ],
+    "face": [
+     87.12,
+     32
+    ],
+    "middle": [
+     50.4,
+     41.8
+    ]
+   },
+   "meta": {
+    "w": 131,
+    "h": 69,
+    "sizeWu": [
+     0.8187,
+     0.4313
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 5.389,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "lie-x"
+   }
+  },
+  "pen-blue.lie-x.0.b1": {
+   "file": "pen-blue.lie-x.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    49.4,
+    39.8
+   ],
+   "anchors": {
+    "tip": [
+     -23.57,
+     61.63
+    ],
+    "muzzle": [
+     4.38,
+     53.27
+    ],
+    "capOn": [
+     4.38,
+     53.27
+    ],
+    "capOff": [
+     97.11,
+     78.95
+    ],
+    "scribbleAt": [
+     -53.45,
+     76.51
+    ],
+    "face": [
+     86.12,
+     30
+    ],
+    "middle": [
+     49.4,
+     39.8
+    ]
+   },
+   "meta": {
+    "w": 129,
+    "h": 68,
+    "sizeWu": [
+     0.8063,
+     0.425
+    ],
+    "anchorsWu": {
+     "tip": [
+      -0.4561,
+      -0.1364
+     ],
+     "muzzle": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOn": [
+      -0.2814,
+      -0.0842
+     ],
+     "capOff": [
+      0.2982,
+      -0.2447
+     ],
+     "scribbleAt": [
+      -0.6428,
+      -0.2294
+     ],
+     "face": [
+      0.2295,
+      0.0612
+     ],
+     "middle": [
+      0,
+      0
+     ]
+    },
+    "timed": false,
+    "duration": 5.45,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "barrel",
+    "state": "lie-x"
+   }
+  },
+  "pen-blue.cap.0.b0": {
+   "file": "pen-blue.cap.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    41.8,
+    39.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 83,
+    "h": 74,
+    "sizeWu": [
+     0.5188,
+     0.4625
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 3.488,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "cap",
+    "state": "cap"
+   }
+  },
+  "pen-blue.cap.0.b1": {
+   "file": "pen-blue.cap.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    37.8,
+    40.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 78,
+    "h": 71,
+    "sizeWu": [
+     0.4875,
+     0.4437
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 3.431,
+    "yStretch": 1.2,
+    "matte": "silhouette",
+    "batch": "flat",
+    "kind": "cap",
+    "state": "cap"
+   }
+  },
+  "pen-blue.scribble.0.b0": {
+   "file": "pen-blue.scribble.0.b0.png",
+   "timeFile": "pen-blue.scribble.0.b0.t.png",
+   "ppu": 160,
+   "pivot": [
+    21.8,
+    27.8
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 40,
+    "h": 51,
+    "sizeWu": [
+     0.25,
+     0.3187
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 0.412,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "scribble",
+    "state": "scribble"
+   }
+  },
+  "pen-blue.scribble.0.b1": {
+   "file": "pen-blue.scribble.0.b1.png",
+   "timeFile": "pen-blue.scribble.0.b1.t.png",
+   "ppu": 160,
+   "pivot": [
+    20.8,
+    24.8
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 50,
+    "h": 46,
+    "sizeWu": [
+     0.3125,
+     0.2875
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 0.449,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "scribble",
+    "state": "scribble"
+   }
+  },
+  "btn-undo.rest.0.b0": {
+   "file": "btn-undo.rest.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    39.8,
+    33.4
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 75,
+    "h": 58,
+    "sizeWu": [
+     0.4688,
+     0.3625
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 0.517,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "undo",
+    "state": "rest"
+   }
+  },
+  "btn-undo.rest.0.b1": {
+   "file": "btn-undo.rest.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    39.8,
+    34.4
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 75,
+    "h": 60,
+    "sizeWu": [
+     0.4688,
+     0.375
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 0.52,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "undo",
+    "state": "rest"
+   }
+  },
+  "btn-undo.hover.0": {
+   "file": "btn-undo.hover.0.png",
+   "ppu": 160,
+   "pivot": [
+    40.8,
+    34.4
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 76,
+    "h": 56,
+    "sizeWu": [
+     0.475,
+     0.35
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 0.563,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "undo",
+    "state": "hover0"
+   }
+  },
+  "btn-undo.hover.1": {
+   "file": "btn-undo.hover.1.png",
+   "ppu": 160,
+   "pivot": [
+    39.8,
+    34.4
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 75,
+    "h": 62,
+    "sizeWu": [
+     0.4688,
+     0.3875
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 0.572,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "undo",
+    "state": "hover1"
+   }
+  },
+  "btn-undo.trail.0": {
+   "file": "btn-undo.trail.0.png",
+   "timeFile": "btn-undo.trail.0.t.png",
+   "ppu": 160,
+   "pivot": [
+    31.8,
+    33.4
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 67,
+    "h": 79,
+    "sizeWu": [
+     0.4188,
+     0.4938
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 1.275,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "undo",
+    "state": "trail"
+   }
+  },
+  "btn-undo.disabled.0.b0": {
+   "file": "btn-undo.disabled.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    39.8,
+    34.4
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 75,
+    "h": 55,
+    "sizeWu": [
+     0.4688,
+     0.3438
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 2.05,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "undo",
+    "state": "disabled"
+   }
+  },
+  "btn-undo.disabled.0.b1": {
+   "file": "btn-undo.disabled.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    38.8,
+    34.4
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 74,
+    "h": 55,
+    "sizeWu": [
+     0.4625,
+     0.3438
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 2.061,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "undo",
+    "state": "disabled"
+   }
+  },
+  "btn-sound.on.0.b0": {
+   "file": "btn-sound.on.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    28,
+    29.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 66,
+    "h": 59,
+    "sizeWu": [
+     0.4125,
+     0.3688
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 1.593,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "speaker",
+    "state": "on"
+   }
+  },
+  "btn-sound.on.0.b1": {
+   "file": "btn-sound.on.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    28,
+    28.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 65,
+    "h": 58,
+    "sizeWu": [
+     0.4063,
+     0.3625
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 1.581,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "speaker",
+    "state": "on"
+   }
+  },
+  "btn-sound.hover.0": {
+   "file": "btn-sound.hover.0.png",
+   "ppu": 160,
+   "pivot": [
+    28,
+    30.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 67,
+    "h": 62,
+    "sizeWu": [
+     0.4188,
+     0.3875
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 1.45,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "speaker",
+    "state": "hover0"
+   }
+  },
+  "btn-sound.hover.1": {
+   "file": "btn-sound.hover.1.png",
+   "ppu": 160,
+   "pivot": [
+    28,
+    29.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 63,
+    "h": 59,
+    "sizeWu": [
+     0.3937,
+     0.3688
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 1.552,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "speaker",
+    "state": "hover1"
+   }
+  },
+  "btn-sound.off.0": {
+   "file": "btn-sound.off.0.png",
+   "timeFile": "btn-sound.off.0.t.png",
+   "ppu": 160,
+   "pivot": [
+    28,
+    29.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 62,
+    "h": 59,
+    "sizeWu": [
+     0.3875,
+     0.3688
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 1.653,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "speaker",
+    "state": "off"
+   }
+  },
+  "btn-sound.pop.0": {
+   "file": "btn-sound.pop.0.png",
+   "ppu": 160,
+   "pivot": [
+    27,
+    27.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 66,
+    "h": 57,
+    "sizeWu": [
+     0.4125,
+     0.3563
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 1.665,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "speaker",
+    "state": "pop"
+   }
+  },
+  "btn-level.outline.0.b0": {
+   "file": "btn-level.outline.0.b0.png",
+   "ppu": 160,
+   "pivot": [
+    18.8,
+    23.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 39,
+    "h": 45,
+    "sizeWu": [
+     0.2437,
+     0.2813
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 0.293,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "star",
+    "state": "outline"
+   }
+  },
+  "btn-level.outline.0.b1": {
+   "file": "btn-level.outline.0.b1.png",
+   "ppu": 160,
+   "pivot": [
+    19.8,
+    24.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 38,
+    "h": 45,
+    "sizeWu": [
+     0.2375,
+     0.2813
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 0.241,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "star",
+    "state": "outline"
+   }
+  },
+  "btn-level.filled.0.b0": {
+   "file": "btn-level.filled.0.b0.png",
+   "timeFile": "btn-level.filled.0.b0.t.png",
+   "ppu": 160,
+   "pivot": [
+    18.8,
+    24.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 38,
+    "h": 45,
+    "sizeWu": [
+     0.2375,
+     0.2813
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 3.528,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "star",
+    "state": "filled"
+   }
+  },
+  "btn-level.filled.0.b1": {
+   "file": "btn-level.filled.0.b1.png",
+   "timeFile": "btn-level.filled.0.b1.t.png",
+   "ppu": 160,
+   "pivot": [
+    19.8,
+    24.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 39,
+    "h": 45,
+    "sizeWu": [
+     0.2437,
+     0.2813
+    ],
+    "anchorsWu": {},
+    "timed": true,
+    "duration": 3.318,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "star",
+    "state": "filled"
+   }
+  },
+  "btn-level.hover.0": {
+   "file": "btn-level.hover.0.png",
+   "ppu": 160,
+   "pivot": [
+    19.8,
+    23.6
+   ],
+   "anchors": {},
+   "meta": {
+    "w": 39,
+    "h": 45,
+    "sizeWu": [
+     0.2437,
+     0.2813
+    ],
+    "anchorsWu": {},
+    "timed": false,
+    "duration": 0.254,
+    "yStretch": 1.2,
+    "matte": "none",
+    "batch": "flat",
+    "kind": "star",
+    "state": "hover"
+   }
+  }
+ }
+}

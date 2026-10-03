@@ -1,0 +1,876 @@
+{
+  "assets": [
+    {
+      "id": "57eda8f864d01ae9",
+      "kind": "script",
+      "name": "index-BF7G8tOs.js",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "script"
+        },
+        {
+          "kind": "attribute",
+          "nodeId": 36,
+          "property": "src"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/index-BF7G8tOs.js"
+    },
+    {
+      "id": "6e6a69aa4e334d67",
+      "kind": "other",
+      "name": "ramps.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/ramps.json"
+    },
+    {
+      "id": "3a2824d2010f1c61",
+      "kind": "other",
+      "name": "manifest.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/manifest.json"
+    },
+    {
+      "id": "ddf036f193cb4bed",
+      "kind": "other",
+      "name": "cast.atlas.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast.atlas.json"
+    },
+    {
+      "id": "2eee6e1e27368bb2",
+      "kind": "image",
+      "name": "cast-t-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-t-0.png"
+    },
+    {
+      "id": "8672d29c8828fb65",
+      "kind": "image",
+      "name": "cast-t-0.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-t-0.t.png"
+    },
+    {
+      "id": "43e4821e8d78ae81",
+      "kind": "image",
+      "name": "cast-t-1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-t-1.png"
+    },
+    {
+      "id": "1f3a7a6e0440b496",
+      "kind": "image",
+      "name": "cast-t-1.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-t-1.t.png"
+    },
+    {
+      "id": "418be4e31691ecfc",
+      "kind": "image",
+      "name": "cast-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-0.png"
+    },
+    {
+      "id": "cd97d392ea16017f",
+      "kind": "image",
+      "name": "cast-1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-1.png"
+    },
+    {
+      "id": "17da5e99a09e5c98",
+      "kind": "image",
+      "name": "cast-2.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-2.png"
+    },
+    {
+      "id": "8c35646a1e470428",
+      "kind": "image",
+      "name": "cast-3.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/cast-3.png"
+    },
+    {
+      "id": "fcadbabdc03d87d0",
+      "kind": "other",
+      "name": "board.atlas.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/board/board.atlas.json"
+    },
+    {
+      "id": "6a70a88b40e560d1",
+      "kind": "image",
+      "name": "board-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/board/board-0.png"
+    },
+    {
+      "id": "982c9437c30940d5",
+      "kind": "image",
+      "name": "board-0.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/board/board-0.t.png"
+    },
+    {
+      "id": "c0efbe4708f20454",
+      "kind": "other",
+      "name": "boardfx.atlas.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/board/boardfx.atlas.json"
+    },
+    {
+      "id": "f43e4d4aac62f237",
+      "kind": "image",
+      "name": "boardfx-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/board/boardfx-0.png"
+    },
+    {
+      "id": "ad36d75dfd92b4bf",
+      "kind": "image",
+      "name": "boardfx-0.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/board/boardfx-0.t.png"
+    },
+    {
+      "id": "4e4d5b33879b22c2",
+      "kind": "other",
+      "name": "tape.atlas.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/tape.atlas.json"
+    },
+    {
+      "id": "cf837e882beee44c",
+      "kind": "image",
+      "name": "tape-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/tape-0.png"
+    },
+    {
+      "id": "f63ecbec83429bb5",
+      "kind": "image",
+      "name": "tape-0.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/tape-0.t.png"
+    },
+    {
+      "id": "295ece9274e607ad",
+      "kind": "other",
+      "name": "atlas.atlas.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/atlas.atlas.json"
+    },
+    {
+      "id": "c8fd63a1b4a42f66",
+      "kind": "image",
+      "name": "atlas-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-0.png"
+    },
+    {
+      "id": "7de68417d1b5c173",
+      "kind": "image",
+      "name": "atlas-0.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-0.t.png"
+    },
+    {
+      "id": "bb43aa60f397f458",
+      "kind": "image",
+      "name": "atlas-1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-1.png"
+    },
+    {
+      "id": "c2d0e61c79e1d995",
+      "kind": "image",
+      "name": "atlas-1.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-1.t.png"
+    },
+    {
+      "id": "20332b9998e3ca79",
+      "kind": "image",
+      "name": "atlas-2.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-2.png"
+    },
+    {
+      "id": "b2cd47491ee2d3f8",
+      "kind": "image",
+      "name": "atlas-2.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-2.t.png"
+    },
+    {
+      "id": "8c1a0dd2e09dc398",
+      "kind": "other",
+      "name": "atlas-margin.atlas.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/atlas-margin.atlas.json"
+    },
+    {
+      "id": "332980ab7912a4a0",
+      "kind": "image",
+      "name": "atlas-margin-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-margin-0.png"
+    },
+    {
+      "id": "d162463b94b21afb",
+      "kind": "image",
+      "name": "atlas-margin-0.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-margin-0.t.png"
+    },
+    {
+      "id": "cadf6cc048371909",
+      "kind": "image",
+      "name": "atlas-margin-1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-margin-1.png"
+    },
+    {
+      "id": "16dc03d57d8e7795",
+      "kind": "image",
+      "name": "atlas-margin-1.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/a8/atlas-margin-1.t.png"
+    },
+    {
+      "id": "19efedd99e5e4f03",
+      "kind": "other",
+      "name": "world.atlas.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/world.atlas.json"
+    },
+    {
+      "id": "9d968691347c63d4",
+      "kind": "image",
+      "name": "world-0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/world-0.png"
+    },
+    {
+      "id": "96d0dd288423e764",
+      "kind": "image",
+      "name": "world-0.t.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/world-0.t.png"
+    },
+    {
+      "id": "d8643793cc1e0a40",
+      "kind": "image",
+      "name": "world-1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/world-1.png"
+    },
+    {
+      "id": "53277e1218ee4093",
+      "kind": "other",
+      "name": "layout.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/layout.json"
+    },
+    {
+      "id": "848d0869e04c3c54",
+      "kind": "other",
+      "name": "manifest.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/manifest.json"
+    },
+    {
+      "id": "034502c628e954c5",
+      "kind": "other",
+      "name": "manifest.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/board/manifest.json"
+    },
+    {
+      "id": "22eaccb7002bd260",
+      "kind": "image",
+      "name": "sheet-r1c1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/sheet-r1c1.png"
+    },
+    {
+      "id": "06bc70a52b355207",
+      "kind": "image",
+      "name": "sheet-r1c0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/sheet-r1c0.png"
+    },
+    {
+      "id": "d31078c099070c40",
+      "kind": "image",
+      "name": "sheet-r0c1.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/sheet-r0c1.png"
+    },
+    {
+      "id": "941df881da4102f2",
+      "kind": "image",
+      "name": "sheet-r0c0.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/sheet-r0c0.png"
+    },
+    {
+      "id": "7f5705d782a9858f",
+      "kind": "image",
+      "name": "grain.png",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/paper/grain.png"
+    },
+    {
+      "id": "bcd8ae071126511c",
+      "kind": "other",
+      "name": "w-pawn.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/w-pawn.json"
+    },
+    {
+      "id": "4daa2d6b5782ef4e",
+      "kind": "other",
+      "name": "w-knight.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/w-knight.json"
+    },
+    {
+      "id": "33dcb653c04505ee",
+      "kind": "other",
+      "name": "w-queen.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/w-queen.json"
+    },
+    {
+      "id": "4029437b3e552d71",
+      "kind": "other",
+      "name": "w-king.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/w-king.json"
+    },
+    {
+      "id": "d92015061d5f6b57",
+      "kind": "other",
+      "name": "w-bishop.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/w-bishop.json"
+    },
+    {
+      "id": "6464689240c2e5f2",
+      "kind": "other",
+      "name": "w-rook.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/w-rook.json"
+    },
+    {
+      "id": "cd2b94651af7f61c",
+      "kind": "other",
+      "name": "b-rook.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/b-rook.json"
+    },
+    {
+      "id": "08acba7229895c01",
+      "kind": "other",
+      "name": "b-knight.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/b-knight.json"
+    },
+    {
+      "id": "abccdc8ccfc366cd",
+      "kind": "other",
+      "name": "b-king.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/b-king.json"
+    },
+    {
+      "id": "d1c6e9f8e07e6c3e",
+      "kind": "other",
+      "name": "fx.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/fx.json"
+    },
+    {
+      "id": "3cb4d27d6a3dd099",
+      "kind": "other",
+      "name": "b-pawn.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/b-pawn.json"
+    },
+    {
+      "id": "03c6ef0b52ebebd0",
+      "kind": "other",
+      "name": "b-queen.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/b-queen.json"
+    },
+    {
+      "id": "e1fb68b9bf8f9e03",
+      "kind": "other",
+      "name": "b-bishop.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        },
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/b-bishop.json"
+    },
+    {
+      "id": "d514476fba38eb88",
+      "kind": "other",
+      "name": "gus.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/gus.json"
+    },
+    {
+      "id": "42101b6ade76045d",
+      "kind": "other",
+      "name": "dot.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/dot.json"
+    },
+    {
+      "id": "02b5fa62ef79110f",
+      "kind": "other",
+      "name": "cast-states.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/garden/cast-states.json"
+    },
+    {
+      "id": "48aad5711c542798",
+      "kind": "other",
+      "name": "world.index.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/world.index.json"
+    },
+    {
+      "id": "33960f3834159ce2",
+      "kind": "other",
+      "name": "pen.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/text/pen.json"
+    },
+    {
+      "id": "fb847071d3135ca1",
+      "kind": "other",
+      "name": "frames.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/dock/frames.json"
+    },
+    {
+      "id": "fa8d8790284f8112",
+      "kind": "other",
+      "name": "dab-clips.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/world/dock/dab-clips.json"
+    },
+    {
+      "id": "085e6e41a3c15134",
+      "kind": "other",
+      "name": "dab.json",
+      "sources": [
+        {
+          "kind": "resource",
+          "property": "fetch"
+        }
+      ],
+      "url": "https://ballpoint-gambit.vercel.app/assets/chars/dab.json"
+    }
+  ],
+  "id": "375cbbfe-9b0c-4cbd-bad3-0df8221e50ff",
+  "inlineSvgs": [],
+  "pageUrl": "https://ballpoint-gambit.vercel.app/",
+  "summary": {
+    "byKind": {
+      "font": 0,
+      "image": 32,
+      "other": 33,
+      "script": 1,
+      "stylesheet": 0,
+      "video": 0
+    },
+    "inlineSvgCount": 0,
+    "totalCount": 66
+  }
+}

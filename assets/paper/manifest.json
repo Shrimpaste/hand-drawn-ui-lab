@@ -1,0 +1,176 @@
+{
+ "version": 1,
+ "name": "paper",
+ "generator": "art/paper/bake-paper.mjs",
+ "sheet": {
+  "rect": [
+   -11,
+   -10,
+   11,
+   10
+  ],
+  "ppu": 128,
+  "px": [
+   2816,
+   2560
+  ],
+  "grid": {
+   "cols": 2,
+   "rows": 2,
+   "tilePx": [
+    1408,
+    1280
+   ],
+   "tileWorld": [
+    11,
+    10
+   ]
+  },
+  "tiles": [
+   {
+    "file": "sheet-r0c0.png",
+    "webp": "sheet-r0c0.webp",
+    "col": 0,
+    "row": 0,
+    "px": [
+     1408,
+     1280
+    ],
+    "rect": [
+     -11,
+     0,
+     0,
+     10
+    ]
+   },
+   {
+    "file": "sheet-r0c1.png",
+    "webp": "sheet-r0c1.webp",
+    "col": 1,
+    "row": 0,
+    "px": [
+     1408,
+     1280
+    ],
+    "rect": [
+     0,
+     0,
+     11,
+     10
+    ]
+   },
+   {
+    "file": "sheet-r1c0.png",
+    "webp": "sheet-r1c0.webp",
+    "col": 0,
+    "row": 1,
+    "px": [
+     1408,
+     1280
+    ],
+    "rect": [
+     -11,
+     -10,
+     0,
+     0
+    ]
+   },
+   {
+    "file": "sheet-r1c1.png",
+    "webp": "sheet-r1c1.webp",
+    "col": 1,
+    "row": 1,
+    "px": [
+     1408,
+     1280
+    ],
+    "rect": [
+     0,
+     -10,
+     11,
+     0
+    ]
+   }
+  ],
+  "colour": [
+   241,
+   235,
+   222
+  ],
+  "note": "row 0 = far (top, y = +10); px = (x + 11) * 128, py = (10 - y) * 128; opaque RGB; no vignette baked",
+  "gpuMBWithMips": 36.7,
+  "creases": [
+   {
+    "kind": "vertical",
+    "worldX": -6.8
+   },
+   {
+    "kind": "horizontal",
+    "worldY": 6.4
+   }
+  ]
+ },
+ "grain": {
+  "file": "grain.png",
+  "size": 1024,
+  "blend": "multiply",
+  "mean": 0.945,
+  "note": "screen-space, repeat, sample at ~1 texel per device pixel"
+ },
+ "atlases": [
+  {
+   "name": "tape",
+   "file": "tape.atlas.json",
+   "ppu": 200,
+   "kind": "flat decals, pivot = centre of the strip",
+   "suggested": [
+    {
+     "name": "tape-0",
+     "x": -10.6,
+     "y": 9.55,
+     "rot": 42
+    },
+    {
+     "name": "tape-1",
+     "x": 10.6,
+     "y": 9.55,
+     "rot": -42
+    },
+    {
+     "name": "tape-2",
+     "x": -10.6,
+     "y": -9.55,
+     "rot": -42
+    }
+   ]
+  }
+ ],
+ "report": {
+  "sheet": {
+   "W": 2816,
+   "H": 2560,
+   "ppu": 128,
+   "tile": [
+    1408,
+    1280
+   ]
+  },
+  "mean": [
+   240.81,
+   234.81,
+   221.73
+  ],
+  "meanInterior": [
+   240.96,
+   234.96,
+   221.95
+  ],
+  "grain": {
+   "size": 1024,
+   "mean": 0.945,
+   "seamRatioX": 1.017,
+   "seamRatioY": 0.997,
+   "autocorrPeak": 0.0385
+  }
+ }
+}
