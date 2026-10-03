@@ -6,19 +6,23 @@
 
 | 当前模块                             | 职责                                                                                         |
 | ------------------------------------ | -------------------------------------------------------------------------------------------- |
-| scenes/art.js                        | 原创角色部件、三幅叙事画、材料道具与家具，专门绘制而非批量图标                               |
+| scenes/guide.js / guide-rig.js       | 新角色绘画、真实部件矩阵适配、新锚点与部件状态 |
+| scenes/guide-motion.js               | 实际 reference Puppet / pawn 反应与闲置；连续 locomotion 为新增；来源保留 |
+| scenes/courtyard.js                  | 有厚度的地面与花坛、屋顶展位、长凳、灯、池塘、浇水壶 |
+| scenes/art.js                        | 三幅叙事画、材料道具与家具；角色入口转导出 guide |
 | scenes/gallery-model.js / gallery.js | 行走、到达、坐下、观察/擦除返回、画内事件、空间构图                                          |
 | scenes/theatre-model.js / theatre.js | 材质动作、事件接触、邻物回应、持续灯光、声像与残留；复用 demos/material-motion.js 的轨迹数学 |
 | scenes/host.js / scene.css           | Canvas/语义按钮/纸面逆变换/前后台生命周期，焦点也由笔线表达                                  |
 | primitives/living-ink.js             | 对象纸底、多层蜡笔、压力轮廓、三版8Hz绘图与2–4×缓存                                          |
+| primitives/stroke-recording.js      | 烘焙绘画时生成真实 Canvas 笔迹时间图；开场阈值推进，不重建纹理 |
 | primitives/handwriting.js            | 专门设计的小写笔顺、曲线、自然字距/倾斜、路径长度 reveal/erase                               |
 | primitives/foley.js                  | 接触与摩擦采样、非谐波铃、有限音源、静音和重复差异                                           |
 
-下方原参考审阅与旧原创层盘点保留为历史。新场景不导入 assets 或 src/vendor。
+下方原参考审阅与旧原创层盘点保留为历史。新场景没有 reference 图集请求，但新角色现在明确导入原站动作求解器；十二角色的深入审计见 CHARACTER_ANIMATION_SOURCE.md，取样见 research/character-motion-audit.json。
 
 审阅基线：`19cf5a1` / `baseline/ballpoint-lab`（2026-10-03）。该提交运行通过 19 个测试。原有文件路径保留，后续目录表达创作关系而非强行搬家。
 
-## 三层与数据流
+## 参考入口的数据流（历史基线）
 
 ```text
 reference specimen                         original creations
@@ -47,7 +51,7 @@ SketchFeedback / SketchAudio → Canvas + sound
 | `src/paper-motion.js`                        | 平滑 pointer awareness、矩阵、逆变换                                                  | 本地仿射近似；默认值受 reference 启发                                       | 可复用，幅度、tau、旋转应由场景设定                   |
 | `src/illustrated-control.js`                 | DOM button 语义、两块 Canvas、tooltip 包络、hover/focus-visible                       | 生命周期和输入关系通用；文字 key 与 draw 强耦合 Atlas                       | 保留原资源适配，原创文字需路径绘制器                  |
 | `src/feedback.js`                            | SketchAudio；原事件 sound/impact/particle → fx rig，三帧 puff                         | 音频本地；粒子种类、ppu、三帧状态名依赖 reference                           | 原 sprite adapter 保留；原创余韵单独用笔点/排线/弧线  |
-| `src/components.js`                          | 原图集太阳组合、星星收集、独立蘑菇；无棋盘                                            | game-independent，但仍 reference-derived                                    | 作为组件 specimen，不计入原创 demo                    |
+| `src/components.js`                          | 原太阳与星星组件；十二角色真实行走、睡眠、紧张、removed 与蚂蚁搬离协调，无棋盘 | game-independent，但仍 reference-derived | 作为源码行为实验，不计入原创绘画 |
 | `src/style.css`, `src/components.css`        | scene/DOM 对齐、工具提示、窄屏、焦点/状态文案                                         | 本地页面层                                                                  | 不抽成所谓手绘 UI framework                           |
 | `index.html`, `components.html`              | 语义按钮、canvas 键盘入口、aria 状态、来源                                            | reference 入口                                                              | 保持旧 URL；新入口独立连接它们                        |
 | `scripts/serve.mjs`                          | loopback 静态服务器，无生产部署职责                                                   | 本地工具                                                                    | 保留；Git 初始化后阻止 dot-file/.git 访问             |

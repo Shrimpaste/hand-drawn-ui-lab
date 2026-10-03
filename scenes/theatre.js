@@ -1,5 +1,6 @@
 import { SceneHost } from "./host.js";
 import { TheatreModel } from "./theatre-model.js";
+import { GuideMotion } from "./guide-motion.js";
 import {
   InkSprite,
   Pencil,
@@ -22,6 +23,7 @@ import {
   pencilProp,
 } from "./art.js";
 const s = new SceneHost("theatre");
+const rig = new GuideMotion(137);
 let coords,
   env,
   rings = [],
@@ -82,6 +84,7 @@ const labels = {
 };
 const controls = Object.keys(m.objects).map((kind) => {
   const b = s.button("theatre-" + kind, labels[kind], () => {
+    rig.wake();
     m.trigger(kind);
     s.announce(labels[kind]);
     if (kind === "lamp")
@@ -114,6 +117,56 @@ s.layout = () => {
     (p, c) => {
       const roof = s.mobile ? { a: 188, b: 401 } : { a: 164, b: 312 },
         bottom = s.mobile ? 882 : 666;
+      // Two visible wall planes and an inset corner, lit from the window side.
+      const corner = s.w * 0.66;
+      p.shape(
+        [
+          [45, roof.b],
+          [s.w * 0.3, roof.a],
+          [corner, roof.a + 5],
+          [corner, bottom - 66],
+          [45, bottom],
+        ],
+        "#e6dcc2",
+        { angular: true, seed: 78001, width: 0.65, base: 0.1, angle: 0.1 },
+      );
+      p.shape(
+        [
+          [corner, roof.a + 5],
+          [s.w - 45, roof.b + 8],
+          [s.w - 45, bottom],
+          [corner, bottom - 66],
+        ],
+        "#c9cbb7",
+        { angular: true, seed: 78002, width: 0.6, base: 0.14, angle: 0.18 },
+      );
+      p.shape(
+        [
+          [45, bottom],
+          [corner, bottom - 66],
+          [s.w - 45, bottom],
+          [s.w - 60, s.mobile ? 1039 : 780],
+          [60, s.mobile ? 1039 : 780],
+        ],
+        "#dfd1b3",
+        { angular: true, seed: 78003, width: 0.6, base: 0.16, angle: 0.05 },
+      );
+      p.line(
+        [
+          [corner, roof.a + 15],
+          [corner, bottom - 66],
+          [s.w - 45, bottom],
+        ],
+        { color: "#b3b8a0", width: 0.9 },
+      );
+      for (let j = 0; j < 5; j++)
+        p.line(
+          [
+            [corner + 25 + j * 32, roof.a + 26 + j * 19],
+            [corner + 25 + j * 32, bottom - 57 + j * 10],
+          ],
+          { color: "#b7bda7", width: 0.5 },
+        );
       p.line(
         [
           [45, roof.b],
@@ -246,6 +299,35 @@ s.onKey = (e) => {
 };
 s.update = (dt) => {
   m.update(dt, s.reduced);
+  const cp = m.objects.creature.pose,
+    cr = coords.creature;
+  rig.gesture = s.reduced
+    ? {}
+    : {
+        lift: -cp.y / 160,
+        sy: 1 - cp.squash * 0.55,
+        sx: 1 + cp.squash * 0.3,
+        lean: cp.angle,
+      };
+  const look = m.lookAt
+    ? Math.sign(coords[m.lookAt].x - cr.x)
+    : s.pointer
+      ? Math.max(-1, Math.min(1, (s.pointer.x - cr.x) / 180))
+      : 0;
+  rig.update(dt, {
+    look,
+    lookY: m.lookAt
+      ? -0.7
+      : s.pointer
+        ? Math.max(-0.8, Math.min(0.6, (s.pointer.y - cr.y + 45) / 180))
+        : 0,
+    active:
+      m.objects.creature.action.active ||
+      (controls.some((o) => o.b.hover || o.b.focus) &&
+        s.time - s.inputTime < 0.35),
+    hover: controls.find((o) => o.kind === "creature").b.hover,
+    reduced: s.reduced || !s.openingDone,
+  });
   rings = rings
     .map((r) => ({ ...r, age: r.age + dt }))
     .filter((r) => r.age < 0.46)
@@ -423,10 +505,11 @@ s.draw = (c) => {
   else if (s.pointer)
     look = Math.max(-1, Math.min(1, (s.pointer.x - cr.x) / 180));
   drawGuide(c, cr.x + cp.x, cr.y, {
+    ...rig.pose,
     time: t,
     scale: cr.scale,
-    hop: -cp.y,
-    squash: cp.squash,
+    hop: 0,
+    squash: 0,
     look,
     lookY: m.lookAt
       ? -0.8
@@ -484,6 +567,10 @@ s.draw = (c) => {
 };
 s.debug = () => ({
   demo: "material-scene",
+  opening: s.openingTime,
+  openingDone: s.openingDone,
+  characterState: rig.state,
+  characterPose: rig.puppet.out,
   activations: m.serial,
   objects: Object.values(m.objects).map((o) => ({
     kind: o.kind,

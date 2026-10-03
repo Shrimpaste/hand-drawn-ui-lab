@@ -1,4 +1,5 @@
 import { SceneHost } from "./host.js";
+import { GuideMotion } from "./guide-motion.js";
 import {
   drawGuide,
   plant,
@@ -14,6 +15,7 @@ import {
 import { handwriting } from "../primitives/handwriting.js";
 import { Pencil, palette as C } from "../primitives/living-ink.js";
 const s = new SceneHost("studio");
+const rig = new GuideMotion(127);
 const cues = [
   "step",
   "paper",
@@ -31,7 +33,16 @@ let repeat = s.button("rewrite", "重写笔迹", () => {
   s.intro.progress = 0;
   s.intro.setVisible(true);
 });
-s.update = () => {
+s.update = (dt) => {
+  rig.update(dt, {
+    look: s.pointer ? Math.max(-1, Math.min(1, (s.pointer.x - 460) / 180)) : 0,
+    lookY: s.pointer
+      ? Math.max(-0.8, Math.min(0.6, (s.pointer.y - 360) / 160))
+      : 0,
+    hover: s.pointer && Math.hypot(s.pointer.x - 460, s.pointer.y - 350) < 100,
+    active: !!s.pointer && s.time - s.inputTime < 0.35,
+    reduced: s.reduced || !s.openingDone,
+  });
   buttons.forEach((b, i) => s.place(b, 75 + i * 135, 747, 110, 52));
   s.place(repeat, 470, 589, 510, 73);
 };
@@ -41,6 +52,7 @@ s.draw = (c) => {
   handwriting(c, "three drawings", 460, 175, { size: 23, align: "center" });
   drawGuide(c, 160, 422, { scale: 1.75, reduced: true });
   drawGuide(c, 460, 422, {
+    ...rig.pose,
     time: s.time,
     scale: 1.75,
     reduced: s.reduced,

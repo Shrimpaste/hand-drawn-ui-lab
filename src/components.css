@@ -26,3 +26,7 @@ code { display:block; font:11px/1.8 Consolas,monospace; opacity:.62; }
 .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
 footer { margin-top:35px; font-size:11px; border-top:1px solid #806d5440; padding-top:15px; opacity:.72; } footer p { max-width:700px; }
 @media(max-width:900px) { .samples { grid-template-columns:1fr; gap:28px; } #gallery-sheet { padding:24px; } article > canvas { max-width:420px; margin:auto; } .sample-options { height:160px; } h1 { font-size:25px; } }
+.character-states { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.character-states button { font-size:12px; border-bottom:1px dashed #aa9982; padding:3px; }
+#character-kind { color:var(--ink); background:#f4eddf; border:1px solid #b9aa95; margin-left:8px; max-width:170px; padding:4px; }
+#character-state { min-height:60px; }

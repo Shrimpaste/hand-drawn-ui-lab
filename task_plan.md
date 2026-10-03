@@ -56,3 +56,11 @@ The previous original demos are a directional failure. Preserve their Git histor
 
 
 - README replacement patch rejected delete/add of the same path; preserved old README under reference and rewrote root file once using a literal here-string.
+
+## Spatial and character refinement — user correction, 2026-10-03
+20. Compare reference character shapes, continuous poses, state clips and stroke reveal — complete (12 rigs, eight source action families, pipeline/idle/spring/ant coordinator audit).
+21. Replace guide art and locomotion; soften material-colored contours and improve object finish — complete (new drawing/anchors, actual Puppet and pawn reactions, continuous distance gait).
+22. Rebuild Gallery as a depth-sorted, traversable exhibition courtyard; improve attic perspective — complete (shared ground projection, roof/plinth/wall planes, furniture and depth sorting).
+23. Add genuine line/fill scene draw-on and sleep/nervous/ant-carry demonstrations — complete (baked Canvas stroke-time maps, automatic idle sleep/wake, original twelve-character states).
+24. Visually review desktop/mobile, uninterrupted interactions, original component states; commit local checkpoint — complete (37 tests, screenshots/refined-validation.json; baseline/spatial-characters).
+- 20 source audit complete: twelve rigs/eight action families sampled; source scheduler, layering, idle, attachments, springs and ant coordinator examined. User steering incorporated into GuideMotion actual engine reuse.

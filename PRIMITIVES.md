@@ -5,12 +5,13 @@
 上一轮插画与页面结构没有达到要求。两个重做场景采用 scenes/art.js 的专门绘制；下面旧工具盘点仍供 Notebook 与历史版本阅读。
 
 - `living-ink.js`：`Pencil.shape/oval/line/dot` 使用对象自己的纸底、方向性短蜡笔、多层覆盖和压力轮廓；`InkSprite` 初始化烘焙三版，动态选择8Hz轮廓，静态环境只缓存一版。
+- `stroke-recording.js`：初次烘焙时同步生成真实 Canvas 笔画时间图。形状先分34%时间给轮廓，再涂色；`InkSprite.draw({progress})` 只更新最多512像素宽的阈值图，重画不重新计算蜡笔纹理。
 - `handwriting.js`：`handwrittenPaths(text, seed)` 返回原创小写笔迹与真实弧长；`handwriting(ctx, text, x, y, { progress })` 按书写轨迹分配墨迹，可以写、擦、接着写。字库不宣称支持任意汉字。
 - `foley.js`：`SceneFoley.play(material, { pan, strength })` 生成接触/摩擦，`setEnabled(false)` 停止当前音源；不对 hover 发 UI 鸣叫。`foleySamples` 可离线检查波形。
 
 这些工具服务具体对象和空间，不决定场景应该是列表、网格或普通页面。两场景说明见 SCENE_PLAN.md，详细笔迹/轮廓/声音记录分别见 HANDWRITING_NOTES.md、MICRO_LIFE_NOTES.md、AUDIO_REWORK_NOTES.md。
 
-这些是组合用的小工具，不规定页面布局或所有对象的动作。三个原创 demo 没有请求 `assets/` 或导入 `src/vendor/`；所有新插画都是 `demos/art.js` 的本地路径。
+新场景的绘画在 `scenes/guide.js`、`courtyard.js`、`art.js`，没有使用参考图集。`GuideMotion` 当前明确依赖原站 Puppet 和 pawn 反应轨道；连续庭院步态为新增。原站动画不是通用预设库，使用时应同时理解角色几何、锚点、pose合成与事件，详见 CHARACTER_ANIMATION_SOURCE.md。下面 demos/art.js 等盘点属于旧原创阶段。
 
 ## 能力与边界
 
@@ -102,7 +103,7 @@ button.onclick = () => action.start();
 - 页面隐藏停 RAF 并停止纸笔声；回来清理前一帧时间，避免巨大 delta。
 - 替换场景或卸载宿主时解除监听器、停 RAF，调用 audio.dispose()。
 - 图形稳定后可以缓存，不要把每帧随机变化当手绘风格；seed 在一次 stroke 内固定。
-- 对真正公开发布的作品，原站图集和提取动作的来源/授权另行处理。原创 demo 的调用图与这些资源分开。
+- 新角色使用提取求解器与反应轨道，保留原始归属；绘画资源独立。当前本地研究不等于获得原作者绘图生成器或开源组件。
 
 ## 仍保留的 reference adapters
 

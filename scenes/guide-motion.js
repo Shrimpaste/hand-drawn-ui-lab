@@ -1,0 +1,161 @@
+import { Puppet, pawnAnimator } from "../src/vendor/reference-motion.js";
+import { guideRig } from "./guide-rig.js";
+import { Spring } from "../primitives/motion.js";
+
+/** New art/anchors, actual reference layered solver. No reference sprite textures. */
+export class GuideMotion {
+  constructor(seed = 127) {
+    this.seed = seed;
+    this.puppet = new Puppet(
+      { rig: guideRig, id: guideRig.id },
+      { seed, poseFps: 0, accMax: 60 },
+    );
+    pawnAnimator.rest(this.puppet, "w", seed);
+    this.gait = new Spring(0, { stiffness: 95, damping: 18 });
+    this.phase = 0;
+    this.idle = 0;
+    this.elapsed = 0;
+    this.state = "awake";
+    this.hovering = false;
+    this.direction = 0;
+    this.reduced = false;
+    // A continuously sampled walk replaces chess travel, retaining the same pose channels.
+    this.puppet.play(
+      {
+        duration: Infinity,
+        idle: { breath: true, blink: true, look: true, ears: true },
+        sample: () => {
+          const a = this.reduced ? 0 : this.gait.value,
+            q = this.phase,
+            s = Math.sin(q),
+            lift = 0.013 * a * (1 - Math.cos(q * 2));
+          const sy = 1 + 0.024 * a * Math.cos(q * 2);
+          const gesture = this.gesture || {};
+          return {
+            lift: lift + (gesture.lift || 0),
+            sx: (1 / sy) * (gesture.sx || 1),
+            sy: sy * (gesture.sy || 1),
+            lean:
+              this.direction * 0.035 * a + 0.018 * a * s + (gesture.lean || 0),
+            arm: { L: { deg: 18 + 9 * a * s }, R: { deg: 18 - 9 * a * s } },
+            foot: {
+              L: {
+                dx: -s * 0.04 * a,
+                dy: Math.max(0, -s) * 0.035 * a,
+                rot: -s * 0.065 * a,
+              },
+              R: {
+                dx: s * 0.04 * a,
+                dy: Math.max(0, s) * 0.035 * a,
+                rot: s * 0.065 * a,
+              },
+            },
+          };
+        },
+        eventsIn: () => [],
+      },
+      { layer: "locomotion", fade: 0.12 },
+    );
+  }
+  options() {
+    return { side: "w", seed: this.seed, reduced: this.reduced };
+  }
+  wake() {
+    this.idle = 0;
+    if (this.state === "asleep") {
+      this.state = "awake";
+      this.puppet.clear("sleep", 0.28);
+      this.puppet.jolt(0.22);
+    }
+  }
+  react(state) {
+    this.wake();
+    this.elapsed = 0;
+    this.state = state;
+    this.puppet.clear("emotion", 0.16);
+    this.puppet.clear("hover", 0.16);
+    this.puppet.clear("sleep", 0.28);
+    this.hovering = false;
+    if (state === "asleep")
+      this.puppet.play(pawnAnimator.sleepy(this.options()), {
+        layer: "sleep",
+        fade: 0.35,
+      });
+    if (state === "nervous")
+      this.puppet.play(pawnAnimator.nervous(this.options()), {
+        layer: "emotion",
+        fade: 0.22,
+      });
+    if (state === "hello")
+      this.puppet.play(pawnAnimator.victory(this.options()), {
+        layer: "emotion",
+        fade: 0.18,
+        onEnd: () => {
+          if (this.state === "hello") this.state = "awake";
+        },
+      });
+    if (state === "carry")
+      this.puppet.play(pawnAnimator.napping(this.options()), {
+        layer: "sleep",
+        fade: 0.28,
+      });
+  }
+  update(
+    dt,
+    {
+      speed = 0,
+      look = 0,
+      lookY = 0,
+      active = false,
+      hover = false,
+      reduced = false,
+    } = {},
+  ) {
+    if (reduced !== this.reduced) {
+      this.reduced = reduced;
+      if (this.state !== "awake") this.react(this.state);
+      this.hovering = false;
+      this.puppet.clear("hover", 0);
+    }
+    this.elapsed += dt;
+    this.direction += (look - this.direction) * (1 - Math.exp(-dt * 14));
+    if (active || speed > 3) this.wake();
+    else this.idle += dt;
+    if (this.idle > 14 && this.state === "awake") this.react("asleep");
+    if (this.state === "nervous" && this.elapsed > 4.2) {
+      this.state = "awake";
+      this.puppet.clear("emotion", 0.3);
+    }
+    if (this.state === "carry" && this.elapsed > 6.2) {
+      this.state = "awake";
+      this.idle = 0;
+      this.puppet.clear("sleep", 0.25);
+    }
+    this.gait.target = this.state === "carry" ? 0 : Math.min(1, speed / 130);
+    this.gait.update(dt, reduced);
+    this.phase += ((speed * dt) / 23) * Math.PI;
+    this.puppet.x += (speed * dt * look) / 160;
+    this.puppet.lookAt(this.puppet.x + look * 2.5, -lookY * 2.5);
+    if (hover !== this.hovering && this.state === "awake") {
+      this.hovering = hover;
+      if (hover)
+        this.puppet.play(pawnAnimator.hover({ ...this.options(), reduced }), {
+          layer: "hover",
+          fade: 0.25,
+        });
+      else this.puppet.clear("hover", 0.25);
+    }
+    this.puppet.idleEnabled = !reduced;
+    // Keep action lifecycles progressing in gentle mode; freeze only idle/boil/gait.
+    this.puppet.update(dt);
+    if (reduced) this.puppet.springs.settle();
+    return this.pose;
+  }
+  get pose() {
+    return {
+      puppet: this.puppet,
+      carry: this.state === "carry" ? this.elapsed : -1,
+      state: this.state,
+    };
+  }
+}

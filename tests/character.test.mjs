@@ -10,7 +10,7 @@ for (const side of ['w', 'b']) for (const kind of kinds) {
     const rig = JSON.parse(fs.readFileSync(new URL(`../assets/chars/${side}-${kind}.json`, import.meta.url)));
     const actor = new Character(rig, { seed: 127 });
     const context = { side, seed: 127, reduced: false, off: [-2, -1], dist: Math.sqrt(5), facing: 1, from: [-1, 0], strength: 1 };
-    for (const reduced of [false, true]) for (const action of ['hover', 'select', 'deselect', 'move', 'victory', 'napping', 'gag', 'refuse']) {
+    for (const reduced of [false, true]) for (const action of ['hover', 'select', 'deselect', 'move', 'victory', 'napping', 'sleepy', 'nervous', 'removed', 'gag', 'refuse']) {
       actor.puppet.cancelAll(0);
       const clip = actor.animator[action]({ ...context, reduced });
       actor.puppet.play(clip, { layer: 'test', fade: 0 });

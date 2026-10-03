@@ -10,6 +10,9 @@ export class GalleryWalk {
     this.look = 0;
     this.pending = -1;
     this.delay = 0;
+    this.speed = 0;
+    this.vx = 0;
+    this.vy = 0;
   }
   walkTo(x, y, { art = -1, sit = false } = {}) {
     this.target = { x, y };
@@ -17,11 +20,13 @@ export class GalleryWalk {
     this.selected = -1;
     this.sit = sit;
     this.mode = "walking";
-    this.delay = 0.09;
-    this.distance = 0;
+    this.delay = this.speed > 5 ? 0 : 0.09;
   }
   update(dt, reduced = false) {
-    if (this.mode !== "walking") return [];
+    if (this.mode !== "walking") {
+      this.speed *= Math.exp(-dt * 14);
+      return [];
+    }
     if (this.delay > 0) {
       this.delay -= dt;
       return [];
@@ -29,15 +34,19 @@ export class GalleryWalk {
     const dx = this.target.x - this.x,
       dy = this.target.y - this.y,
       d = Math.hypot(dx, dy);
-    const step = reduced ? d : Math.min(d, Math.min(205, 45 + d * 2.2) * dt);
+    const desired = Math.min(156, Math.sqrt(d * 550));
+    this.speed += (desired - this.speed) * (1 - Math.exp(-dt * 10));
+    const step = reduced ? d : Math.min(d, this.speed * dt);
     if (d) {
       this.x += (dx / d) * step;
       this.y += (dy / d) * step;
       this.look = dx / d;
+      this.vx = (dx / d) * this.speed;
+      this.vy = (dy / d) * this.speed;
     }
-    const before = Math.floor(this.distance / 25);
+    const before = Math.floor(this.distance / 23);
     this.distance += step;
-    const after = Math.floor(this.distance / 25),
+    const after = Math.floor(this.distance / 23),
       events = [];
     for (let n = before; n < after; n++) {
       this.steps++;
@@ -52,6 +61,9 @@ export class GalleryWalk {
     if (d - step < 0.7) {
       this.x = this.target.x;
       this.y = this.target.y;
+      this.speed = 0;
+      this.vx = 0;
+      this.vy = 0;
       if (this.pending >= 0) {
         this.selected = this.pending;
         this.pending = -1;
@@ -67,5 +79,6 @@ export class GalleryWalk {
     this.mode = "idle";
     this.pending = -1;
     this.sit = false;
+    this.speed = this.vx = this.vy = 0;
   }
 }

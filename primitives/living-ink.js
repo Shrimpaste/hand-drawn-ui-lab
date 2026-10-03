@@ -1,7 +1,12 @@
 import { random, curvePoints, length, partial } from "./sketch.js";
+import {
+  CanvasStrokeRecorder,
+  strokeTimeValue,
+  revealStrokePixels,
+} from "./stroke-recording.js";
 
 export const palette = {
-  ink: "#554335",
+  ink: "#877260",
   soft: "#968775",
   paper: "#f8f1df",
   yellow: "#e4b742",
@@ -14,8 +19,24 @@ export const palette = {
   plum: "#826e9e",
   pale: "#e3d7bd",
   cream: "#f6deb0",
-  dark: "#454057",
+  dark: "#5e5961",
 };
+
+/** Pigment and its outline belong to the same pencil, not a black sticker edge. */
+export function pigmentEdge(color = palette.ink) {
+  if (!/^#[\da-f]{6}$/i.test(color)) return palette.ink;
+  const n = parseInt(color.slice(1), 16);
+  return (
+    "#" +
+    [n >> 16, (n >> 8) & 255, n & 255]
+      .map((v) =>
+        Math.round(v * 0.72 + 116 * 0.28)
+          .toString(16)
+          .padStart(2, "0"),
+      )
+      .join("")
+  );
+}
 
 /** Four-beat, three-drawing cycle. Fixed pivots; shape, texture and time stay separate. */
 export function boilFrame(time, seed = 0, reduced = false) {
@@ -93,9 +114,17 @@ export function wax(
   c,
   contour,
   color,
-  { seed = 1, density = 1, angle = -0.68, base = 0.15, shadow = null } = {},
+  {
+    seed = 1,
+    density = 1,
+    angle = -0.68,
+    base = 0.15,
+    shadow = null,
+    progress = 1,
+  } = {},
 ) {
   const r = random(seed),
+    opacity = c.globalAlpha,
     xs = contour.map((p) => p[0]),
     ys = contour.map((p) => p[1]);
   const minX = Math.min(...xs),
@@ -125,12 +154,13 @@ export function wax(
   const extent = Math.hypot(w, h) / 2 + 5;
   c.strokeStyle = color;
   c.lineCap = "round";
-  for (let row = -extent; row < extent; row += (0.94 + r() * 0.85) / density) {
+  for (let row = -extent; row < extent; row += (0.72 + r() * 0.95) / density) {
     const y = row + (r() - 0.5) * 1.7;
     for (let x = -extent; x < extent;) {
       const span = 4 + r() * 23;
-      c.globalAlpha = 0.25 + r() * 0.32;
-      c.lineWidth = 1.05 + r() * 2.1;
+      c.globalAlpha =
+        opacity * (0.29 + r() * 0.38) * Math.min(1, progress * 1.7);
+      c.lineWidth = 0.7 + r() * 1.8;
       c.beginPath();
       c.moveTo(x, y);
       c.quadraticCurveTo(
@@ -139,7 +169,7 @@ export function wax(
         x + span,
         y + (r() - 0.5) * 1.3,
       );
-      c.stroke();
+      if ((row + extent) / (extent * 2) <= progress) c.stroke();
       x += span + 0.7 + r() * 3.1;
     }
   }
@@ -148,34 +178,37 @@ export function wax(
   for (let i = 0; i < w * h * 0.012 * density; i++) {
     const x = (r() - 0.5) * extent * 2,
       y = (r() - 0.5) * extent * 2;
-    c.globalAlpha = 0.1 + r() * 0.2;
+    c.globalAlpha = opacity * (0.1 + r() * 0.2);
     c.lineWidth = 0.55 + r() * 0.7;
     c.beginPath();
     c.moveTo(x, y);
     c.lineTo(x + 4 + r() * 13, y + (r() - 0.5) * 2);
-    c.stroke();
+    if (i / (w * h * 0.012 * density) <= progress) c.stroke();
   }
   c.restore();
 }
 export class Pencil {
-  constructor(c, variant = 0) {
+  constructor(c, variant = 0, budget = Infinity) {
     this.c = c;
     this.variant = variant;
     this.serial = 0;
+    this.cost = 0;
+    this.budget = budget;
+  }
+  consume(cost) {
+    const progress = Math.max(0, Math.min(1, (this.budget - this.cost) / cost));
+    this.cost += cost;
+    this.c.strokeRecorder?.begin(cost);
+    return progress;
   }
   shape(knots, color, opts = {}) {
     const p = opts.angular
         ? knots
         : curvePoints(knots, { closed: true, steps: 10 }),
       seed = opts.seed || ++this.serial * 47;
-    if (color)
-      wax(this.c, p, color, {
-        seed,
-        density: opts.density || 1,
-        angle: opts.angle ?? -0.68,
-        base: opts.base ?? 0.16,
-        shadow: opts.shadow,
-      });
+    const progress = this.consume(length(p) * (color ? 2.5 : 1));
+    if (!progress) return p;
+    this.c.strokeRecorder?.segment(color ? 0.34 : 1);
     if (opts.paper) {
       this.c.save();
       this.c.globalAlpha = opts.paper;
@@ -187,16 +220,29 @@ export class Pencil {
     penLine(this.c, p, {
       variant: this.variant,
       seed,
-      width: opts.width || 1.6,
-      color: opts.outline || palette.ink,
+      width: (opts.width || 1.6) * 0.72,
+      color: opts.outline || pigmentEdge(color),
+      progress: Math.min(1, progress / 0.34),
       boil: opts.boil ?? 0.4,
     });
-    if (opts.double)
+    if (color && progress > 0.34) {
+      this.c.strokeRecorder?.segment(1);
+      wax(this.c, p, color, {
+        seed,
+        density: opts.density || 1,
+        angle: opts.angle ?? -0.68,
+        base: opts.base ?? 0.25,
+        shadow: opts.shadow,
+        progress: Math.min(1, (progress - 0.34) / 0.66),
+      });
+    }
+    if (opts.double && progress === 1)
       penLine(this.c, p, {
         variant: (this.variant + 1) % 3,
         seed: seed + 12,
-        width: 0.65,
-        alpha: 0.33,
+        width: 0.42,
+        color: pigmentEdge(color),
+        alpha: 0.19,
         boil: 0.7,
       });
     return p;
@@ -204,30 +250,41 @@ export class Pencil {
   oval(x, y, rx, ry, color, opts = {}) {
     const p = ellipsePoints(x, y, rx, ry, opts.seed || this.serial),
       seed = opts.seed || ++this.serial * 37;
-    if (color)
-      wax(this.c, p, color, {
-        seed,
-        base: opts.base ?? 0.16,
-        density: opts.density || 1,
-        angle: opts.angle ?? -0.68,
-      });
+    const progress = this.consume(length(p) * (color ? 2.5 : 1));
+    if (!progress) return p;
+    this.c.strokeRecorder?.segment(color ? 0.34 : 1);
     penLine(this.c, p, {
       variant: this.variant,
       seed,
-      width: opts.width || 1.5,
-      color: opts.outline || palette.ink,
+      width: (opts.width || 1.5) * 0.72,
+      color: opts.outline || pigmentEdge(color),
+      progress: Math.min(1, progress / 0.34),
       boil: opts.boil ?? 0.3,
     });
+    if (color && progress > 0.34) {
+      this.c.strokeRecorder?.segment(1);
+      wax(this.c, p, color, {
+        seed,
+        base: opts.base ?? 0.25,
+        density: opts.density || 1,
+        angle: opts.angle ?? -0.68,
+        progress: Math.min(1, (progress - 0.34) / 0.66),
+      });
+    }
     return p;
   }
   line(points, opts = {}) {
+    const progress = this.consume(length(curvePoints(points, { steps: 9 })));
     curve(this.c, points, {
       variant: this.variant,
       seed: ++this.serial * 59,
       ...opts,
+      width: (opts.width || 1.45) * 0.8,
+      progress: Math.min(progress, opts.progress ?? 1),
     });
   }
   dot(x, y, r, color = palette.ink) {
+    if (this.consume(Math.max(2, r * 5)) < 0.5) return;
     const c = this.c;
     c.fillStyle = color;
     c.beginPath();
@@ -249,38 +306,97 @@ export class InkSprite {
     this.h = h;
     this.pivot = pivot;
     this.seed = seed;
+    this.revealStep = -1;
+    const revealScale = Math.min(2, 512 / Math.max(w, h));
+    const timing = document.createElement("canvas");
+    timing.width = Math.ceil(w * revealScale);
+    timing.height = Math.ceil(h * revealScale);
+    const tc = timing.getContext("2d", { willReadFrequently: true });
+    tc.scale(revealScale, revealScale);
+    tc.translate(...pivot);
     // Observation zoom needs genuine stroke resolution, especially on HiDPI.
     const rasterScale = w <= 280 && h <= 280 ? 4 : 2;
     this.frames = Array.from({ length: variants }, (_, v) => {
       const canvas = document.createElement("canvas");
       canvas.width = w * rasterScale;
       canvas.height = h * rasterScale;
-      const c = canvas.getContext("2d");
-      c.scale(rasterScale, rasterScale);
-      c.translate(...pivot);
-      draw(new Pencil(c, v), c, v);
+      const color = canvas.getContext("2d");
+      const recorder = v === 0 ? new CanvasStrokeRecorder(color, tc) : null;
+      const c = recorder ? recorder.context : color;
+      color.scale(rasterScale, rasterScale);
+      color.translate(...pivot);
+      const p = new Pencil(c, v);
+      c.inkPainter = p;
+      draw(p, c, v);
+      recorder?.flush();
+      this.cost = p.cost;
       return canvas;
     });
+    const times = tc.getImageData(0, 0, timing.width, timing.height).data;
+    this.strokeTimes = new Float32Array(times.length / 4);
+    for (let i = 0; i < times.length; i += 4)
+      this.strokeTimes[i / 4] = times[i + 3]
+        ? strokeTimeValue(times[i], times[i + 1], times[i + 2])
+        : Infinity;
+    this.revealCanvas = document.createElement("canvas");
+    this.revealCanvas.width = timing.width;
+    this.revealCanvas.height = timing.height;
+    this.revealContext = this.revealCanvas.getContext("2d");
+    this.revealContext.drawImage(
+      this.frames[0],
+      0,
+      0,
+      timing.width,
+      timing.height,
+    );
+    this.revealSource = this.revealContext.getImageData(
+      0,
+      0,
+      timing.width,
+      timing.height,
+    );
+    this.revealPixels = this.revealContext.createImageData(
+      timing.width,
+      timing.height,
+    );
+    this.revealPixels.data.set(this.revealSource.data);
   }
   draw(
     c,
     x,
     y,
-    { time = 0, scale = 1, angle = 0, reduced = false, alpha = 1, frame } = {},
+    {
+      time = 0,
+      scale = 1,
+      angle = 0,
+      reduced = false,
+      alpha = 1,
+      frame,
+      progress,
+    } = {},
   ) {
     const v = frame ?? boilFrame(time, this.seed, reduced);
+    progress ??= c.sceneDrawing ? c.sceneDrawing(this.seed) : 1;
+    if (progress <= 0) return;
+    let raster = this.frames[v % this.frames.length];
+    if (progress < 1) {
+      const step = Math.floor(progress * 96);
+      if (step !== this.revealStep) {
+        const limit = this.cost * (step / 96),
+          output = this.revealPixels.data,
+          source = this.revealSource.data;
+        revealStrokePixels(this.strokeTimes, source, output, limit);
+        this.revealContext.putImageData(this.revealPixels, 0, 0);
+        this.revealStep = step;
+      }
+      raster = this.revealCanvas;
+    }
     c.save();
     c.translate(x, y);
     c.rotate(angle);
     c.scale(scale, scale);
     c.globalAlpha *= alpha;
-    c.drawImage(
-      this.frames[v % this.frames.length],
-      -this.pivot[0],
-      -this.pivot[1],
-      this.w,
-      this.h,
-    );
+    c.drawImage(raster, -this.pivot[0], -this.pivot[1], this.w, this.h);
     c.restore();
   }
 }
