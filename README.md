@@ -2,6 +2,8 @@
 
 学习并构建有精细绘制、纸笔媒介感和自然交互的 Web UI。参考作品是 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/)；本仓库保留其客户端研究样本、原创绘图工具和交互实验。
 
+远程仓库：[Shrimpaste/hand-drawn-ui-lab](https://github.com/Shrimpaste/hand-drawn-ui-lab)，当前为私有，默认分支 `main`。完整提交历史与 `baseline/*` 阶段标签同步保留。
+
 目标是把这套语言用于各种场景、编辑器、仪表盘与 SaaS。角色、棋盘和庭院只是研究样本，不是新项目的固定模板。手绘风格靠对象完成度、颜料层次、真实笔迹、连续动作和接触反馈共同成立；米色背景、粗糙边框、手写字体不能代替这些工作。
 
 ## 先读什么
