@@ -1,0 +1,98 @@
+{
+  "sampleRate": 44100,
+  "duration": 7.2,
+  "peak": 0.055812232196331024,
+  "rms": 0.0024756560450662547,
+  "events": [
+    {
+      "at": 0.15,
+      "kind": "step",
+      "strength": 0.46,
+      "pan": -0.25
+    },
+    {
+      "at": 0.4,
+      "kind": "step",
+      "strength": 0.46,
+      "pan": 0.25
+    },
+    {
+      "at": 0.65,
+      "kind": "step",
+      "strength": 0.46,
+      "pan": -0.25
+    },
+    {
+      "at": 0.9,
+      "kind": "step",
+      "strength": 0.46,
+      "pan": 0.25
+    },
+    {
+      "at": 1.35,
+      "kind": "paper",
+      "strength": 0.35,
+      "pan": -0.2
+    },
+    {
+      "at": 1.92,
+      "kind": "leaf",
+      "strength": 0.35,
+      "pan": 0
+    },
+    {
+      "at": 2.48,
+      "kind": "stone",
+      "strength": 0.65,
+      "pan": 0.1
+    },
+    {
+      "at": 2.98,
+      "kind": "bell",
+      "strength": 0.28,
+      "pan": 0.15
+    },
+    {
+      "at": 3.29,
+      "kind": "bell",
+      "strength": 0.13,
+      "pan": 0.15
+    },
+    {
+      "at": 5.1,
+      "kind": "switch",
+      "strength": 0.58,
+      "pan": 0.15
+    },
+    {
+      "at": 5.45,
+      "kind": "write",
+      "strength": 0.16,
+      "pan": 0
+    },
+    {
+      "at": 5.56,
+      "kind": "write",
+      "strength": 0.16,
+      "pan": 0
+    },
+    {
+      "at": 5.68,
+      "kind": "write",
+      "strength": 0.16,
+      "pan": 0
+    },
+    {
+      "at": 6.05,
+      "kind": "erase",
+      "strength": 0.2,
+      "pan": 0
+    },
+    {
+      "at": 6.19,
+      "kind": "erase",
+      "strength": 0.2,
+      "pan": 0
+    }
+  ]
+}

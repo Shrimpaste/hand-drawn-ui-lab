@@ -1,5 +1,15 @@
 # Creator's toolbox
 
+## 当前场景使用的绘制工具
+
+上一轮插画与页面结构没有达到要求。两个重做场景采用 scenes/art.js 的专门绘制；下面旧工具盘点仍供 Notebook 与历史版本阅读。
+
+- `living-ink.js`：`Pencil.shape/oval/line/dot` 使用对象自己的纸底、方向性短蜡笔、多层覆盖和压力轮廓；`InkSprite` 初始化烘焙三版，动态选择8Hz轮廓，静态环境只缓存一版。
+- `handwriting.js`：`handwrittenPaths(text, seed)` 返回原创小写笔迹与真实弧长；`handwriting(ctx, text, x, y, { progress })` 按书写轨迹分配墨迹，可以写、擦、接着写。字库不宣称支持任意汉字。
+- `foley.js`：`SceneFoley.play(material, { pan, strength })` 生成接触/摩擦，`setEnabled(false)` 停止当前音源；不对 hover 发 UI 鸣叫。`foleySamples` 可离线检查波形。
+
+这些工具服务具体对象和空间，不决定场景应该是列表、网格或普通页面。两场景说明见 SCENE_PLAN.md，详细笔迹/轮廓/声音记录分别见 HANDWRITING_NOTES.md、MICRO_LIFE_NOTES.md、AUDIO_REWORK_NOTES.md。
+
 这些是组合用的小工具，不规定页面布局或所有对象的动作。三个原创 demo 没有请求 `assets/` 或导入 `src/vendor/`；所有新插画都是 `demos/art.js` 的本地路径。
 
 ## 能力与边界

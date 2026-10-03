@@ -1,69 +1,64 @@
-# UI-lab — hand-drawn web art / interaction art
+# UI-lab — 可游玩的纸上场景
 
-一个用纸、笔迹、运动、反馈和声音创作网页的本地实验室。Ballpoint Gambit 保留为研究样本；三个原创作品用自己绘制的路径检验这些关系能否离开棋盘继续成立。
+研究 Ballpoint Gambit 的对象绘制、笔迹、轮廓生命感与交互，再用原创画面实现两个可以停留和探索的小世界。原站还原保留在 `/`，新入口直接进入画廊。
 
-## 运行与试玩
+上一轮原创 demo 被判定为方向性失败：它们是淡色页面布局，缺少精细对象、真正的笔迹、场景关系和材料声音。失败版本保存在 `baseline/original-studies`，分析见 [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md)。
 
-需要 Node.js；浏览器运行时没有第三方依赖。
+## 运行
 
 ```powershell
 npm start
 ```
 
-打开 [原创实验入口](http://127.0.0.1:5184/lab.html)。`PORT` 可以更改端口。
+打开 [纸上画廊](http://127.0.0.1:5184/lab.html)。浏览器运行时无第三方依赖。服务器只监听本机 5184，可用 PORT 更改。
 
-| 作品       | 入口                                                          | 操作                                                                    |
-| ---------- | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| 纸上展览   | [Paper Gallery](http://127.0.0.1:5184/demos/gallery.html)     | 悬停写题名，点击拿近；再点击、返回箭头或 Esc 擦说明并归位               |
-| 活页笔记   | [Living Notebook](http://127.0.0.1:5184/demos/notebook.html)  | 新增、改写、打勾/划线、橡皮删除、撤销、拖三点或箭头换序；浏览器本地保存 |
-| 材质小剧场 | [Material Motion](http://127.0.0.1:5184/demos/motion.html)    | 触碰纸/叶/铃/石/灯/小生命，看不同材质回答；灯可以开关                   |
-| 参考还原   | [Ballpoint specimen](http://127.0.0.1:5184/)                  | 原角色与笔迹的自由交互，无棋类规则                                      |
-| 参考组件   | [Reference components](http://127.0.0.1:5184/components.html) | 原图集墨迹、插画按钮、独立角色                                          |
+| 场景                                                                                     | 操作                                                                                                                                  |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| [Paper Gallery Scene](http://127.0.0.1:5184/demos/gallery.html)                          | 点击地面或方向键让围巾参观者走动；点作品，走近、停下、观察；再点画面唤醒园丁/寄信/吹动小船；返回或 Esc 擦掉说明、回到展厅；长凳可以坐 |
+| [Living Material Scene](http://127.0.0.1:5184/demos/motion.html)                         | 触碰阁楼工作台的纸船、叶、悬铃、石头、灯、小动物；石头带动台面和邻物，灯光引起注视，落脚带动纸角                                      |
+| [局部绘制与试听](http://127.0.0.1:5184/scenes/studio.html)                               | 桌面对照固定/活轮廓；看放大的角色、蜡笔覆盖、笔迹重写；逐项试听材料声音                                                               |
+| [原参考还原](http://127.0.0.1:5184/) / [参考组件](http://127.0.0.1:5184/components.html) | 保留原图集、笔顺与角色动作适配，自由交互，无完整棋类规则                                                                              |
 
-原创作品的按钮支持 Tab / Enter；输入框使用正常文字输入。声音默认开，首次点击/按键后解锁，可静音；轻柔动作尊重系统减少动态效果设置。笔记上限八项，undo 历史保留在当前页面会话，内容在 localStorage 保存。
+所有操作都有语义按钮，可用 Tab / Enter。Gallery 也支持 1–3 选作品，Material 支持 1–6 触发物件。声音需首次真实手势解锁；sound on/off 与 alive/still 直接在纸上。still 减少轮廓变化与位移，保留真实状态。旧 Notebook 仅作为历史实验保留，不计入本轮成果。
 
-## 三层结构
+## 代码怎么读
 
 ```text
-reference/       来源关系与旧版说明；原样本仍使用 src/ + assets/ + research/
-primitives/      可组合的笔迹、纸、线条、惯性、动作事件、余韵、音频
-demos/           自画作品与场景定制代码；不加载原图集 / vendor 动作
-lab.html         原创实验入口
-tests/           行为契约与回归
+scenes/art.js                  单独设计的角色部件、三幅场景画、材质道具与家具
+scenes/gallery*.js             行走 → 停留 → 观察 → 擦除返回
+scenes/theatre*.js             动作事件 → 声音 / 邻物回应 / 余韵
+scenes/host.js                 纸面变换、可访问按钮、输入、生命周期
+primitives/living-ink.js       多层蜡笔、压力轮廓、三版绘图缓存
+primitives/handwriting.js      手工小写笔画、自然字距、逐笔写/擦
+primitives/foley.js            摩擦、鞋底、石/木接触、非谐波铃音
+src/ + assets/                 独立保留的 Ballpoint 参考适配
 ```
 
-保留旧路径让 reference 还原可追溯，不为了目录形式搬动原始资源。作品的构图、域模型和材质表演留在各自 demo；工具不要求统一布局或同一种 spring。
+两个新场景不加载原站图集或 vendor 动作。显眼文字使用原创路径，不使用字体伪装成笔迹。字库当前支持拉丁小写、数字、所需标点，中文仍需单独设计笔顺。
 
-## 从哪里开始学习
+## 设计与验证记录
 
-- [REPO_MAP.md](REPO_MAP.md)：模块职责、来源、耦合和两条运行路径。
-- [WEB_ART_NOTES.md](WEB_ART_NOTES.md)：从察觉到安静的叙事、注意力、材质、余韵、声音与连续操作。
-- [PRIMITIVES.md](PRIMITIVES.md)：工具边界与小例子。
-- [ORIGINAL_DEMOS.md](ORIGINAL_DEMOS.md)：三个作品的目的、操作、自评和验证。
-- [reference/README-study.md](reference/README-study.md)：原还原阶段的完整使用说明与组件接入。
-- [research/analysis.md](research/analysis.md)：原站证据；[design-language.md](research/design-language.md)：原图集的适配格式。
-
-原创 Latin 题名使用自己画的字母路径，书写/擦除按路径弧长进行。任意用户文字采用可读字体和真实输入框；没有通用中文手写笔顺生成器。
-
-## 验证与代码基线
+- [SCENE_PLAN.md](SCENE_PLAN.md)：空间草图、角色、探索路径和物体关系。
+- [HANDWRITING_NOTES.md](HANDWRITING_NOTES.md)：笔迹设计、写入/擦除和字库边界。
+- [MICRO_LIFE_NOTES.md](MICRO_LIFE_NOTES.md)：稳定填色、低频轮廓、连续目光/身体/附件。
+- [AUDIO_REWORK_NOTES.md](AUDIO_REWORK_NOTES.md)：删除旧 UI 音色，按材料和接触重做。
+- [ORIGINAL_DEMOS.md](ORIGINAL_DEMOS.md)：两场景实际操作、视觉审查和验证限度。
+- [REPO_MAP.md](REPO_MAP.md) / [PRIMITIVES.md](PRIMITIVES.md)：来源和接口。
 
 ```powershell
 npm test
-git log --oneline --decorate
 ```
 
-25 个测试覆盖原12角色动作、连续位移、自由移动/撤销、笔顺与命中，以及原创的惯性、语义事件、不同材质轨迹、逐点衰退、粒子结束、笔记状态/保存。浏览器验证记录在 `research/original-validation.json`，含重复十次操作、真实拖放、键盘、桌面/窄屏、轻柔模式、资源和音频状态。未进行真实触摸设备验证。
+32 项测试覆盖原样本与新场景的行走/到达、反复触发、邻物回应、轮廓幅度、笔迹与有限音频采样。功能测试不能代替视觉或实际试听。浏览器验证保存在 `research/scene-validation.json`，截图同目录；[7.2秒声音试听](research/scene-foley.wav) 由 `node scripts/render-foley.mjs` 生成。
 
-本地 Git 使用 `main`；没有配置远端。
+## 本地 Git
 
-- `baseline/ballpoint-lab` / `19cf5a1`：原创阶段前的参考还原，19测试通过。
-- `baseline/original-studies`：本阶段完成后的创作实验基线。
-- 忽略 node_modules、日志、环境配置、缓存与原始部署 bundle；运行所需图集、源代码、测试、研究证据均已纳入版本。
+main 分支，无远端。
 
-基线可通过 tag 查看或在另一个 Git worktree 中运行，避免覆盖当前创作。
+- `baseline/ballpoint-lab` / `19cf5a1`：原参考还原。
+- `baseline/original-studies` / `9c519c5`：上一轮失败的原创方向，可用于对照。
+- `baseline/playable-scenes`：本轮场景重做检查点。
 
 ## 来源
 
-Ballpoint 原始美术与提取动画代码属于 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/) 作者，来自2026-10-03（Asia/Hong_Kong）公开部署客户端 `/assets/index-BF7G8tOs.js`。未取得原作者绘图生成器或确认原素材再发布授权。旧样本是本地研究适配。
-
-`demos/` 的插画、字母路径和动作研究为这次独立创作，不使用原棋盘、角色、图集或 vendor 动作。新的合成音效与通用工具是本地实现。原站 shader/time-map 格式只留在 specimen adapter；这里不是完整原站源码或它的开源组件库。
+Ballpoint 原美术与提取动画属于 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/) 作者；公开客户端来自 2026-10-03（Asia/Hong_Kong）。保存的参考素材供本地研究，未取得原绘图生成器。新 scenes 的路径、角色、场景画、物件与 Foley 为本轮独立创作；不是原作绘图源码或其开源组件。

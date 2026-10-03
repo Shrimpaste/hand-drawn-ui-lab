@@ -1,5 +1,12 @@
 # Findings
 
+## Scene correction observation
+
+- Reopened the original on 2026-10-03. Narrow live screenshot shows densely drawn purple/red characters, multiple detailed eyes/props, broken crayon coverage and stronger, curved pen boundaries. Our old icons lack both this density and this contrast.
+- Existing extracted body switch defaults to 8Hz; original source uses stable variant selection and per-character boil offset. The drawing generators are not available. New scenes will author their own detailed art with three bounded contour variants and stable crayon coverage, instead of per-frame random vertex jitter.
+- Original visible letters have distinct sizes, curved loops, leaning stems and uneven baselines. New primary copy must use hand-authored lower-case paths with per-letter variations, not Georgia/Comic Sans or the old block uppercase system.
+- Foreground timing matters: local developer state initially took only a fraction of elapsed wall time because the tab was throttled. Bringing it to front yielded 0.698s simulation in 0.700s wall time. Background observations must not be reported as motion-duration evidence.
+
 - Reference: https://ballpoint-gambit.vercel.app/ (accessed 2026-10-03, Asia/Hong_Kong).
 - Browser accessibility exposes one image/canvas with keyboard controls: arrows/Enter, U undo, N new game, M mute.
 - First screenshot captured the cream paper background before initialized drawing.

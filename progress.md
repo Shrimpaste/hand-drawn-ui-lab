@@ -1,5 +1,21 @@
 # Progress
 
+## 2026-10-03 scene rebuild
+
+- User rejects the original demo direction: under-drawn objects, fake handwriting, page layouts, absent contour life, generic sound and empty slogans. Accepted as a substantive design failure.
+- Read the full correction brief. Added FAILURE_ANALYSIS.md and SCENE_PLAN.md before implementation. Will build two playable scenes with individual artwork and character-led exploration; original reference remains intact.
+- Current browser has no tabs; reference/local observations will use newly created tabs.
+- Developed living-ink.js, individually authored lower-case handwriting paths, noise/contact Foley and an isolated drawing bench. First enlarged screenshot exposed transparent fill causing overlapping body/painting lines; added opaque local paper under wax so unfilled spots reveal the object's own paper. No reference drawing assets used by the new art.
+- Built two scene compositions. Gallery walks before observing, has physical floor/bench/door, three independently authored narrative paintings and actions inside each view. Theatre has an attic/window/workbench and connected table/paper/leaf/character replies.
+- Full desktop review caught weak boot visibility, a skylight overlapping a painting, background title competing with observation, and an off-screen live-region creating page overflow. Fixed each; cached the dense table artwork to keep it out of per-frame drawing work.
+- 32 tests pass, including meaningful new scene/contour/handwriting/Foley contracts. Fixed final-sample NaN in fractional sine envelopes rather than relaxing the test.
+- Foreground browser: each of six materials count1; ten extra creature clicks count1→11; all actions inactive and residue0 after settling, lamp stays lit. Muted bell still fires two contact events while sound count stays5→5. Actual hover label sampled at0.4605 then erased to0.
+- Gallery walked to all three works, opened only after arrival, each interior action incremented its own touch count, and each close returned selected=-1/caption0. Desktop screenshots saved. No script errors.
+- Completed ten Gallery cycles plus keyboard walking, Enter observation, bench seating and Esc return. 390×844 maintains selected1 through resize; returning guide y797 stays on mobile floor. Both scenes have scrollWidth390, reduced-motion keyboard actions and lamp semantics verified.
+- Final enlarged role review moved scarf from muzzle to neck, restoring visible mouth/freckles/whiskers; airborne arms and expression respond. Replaced generic DOM focus rectangles with pen lines. Exported a 7.2-second local Foley audition and timing/level data. Static environment caches one drawing, moving art keeps three.
+- Final scene objects/pictures now bake at4× where small, environment at2×; reviewed observation zoom and ground picking again. Last Gallery sample mean0.967ms / p951.2ms CPU update/submission on this device; no script errors. Source syntax checks pass, original vendor/assets diff empty.
+- Saved all six requested design/failure notes, updated README/tool/repo maps, preserved the correction brief and saved research/scene-validation.json. Current preview remains /lab.html, marked deliverable; temporary viewport reset. Local main checkpoint is baseline/playable-scenes; no remote publishing.
+
 - Started browser inspection and public client-source inventory.
 - Read computer-use and planning-with-files skills.
 - Original scene successfully observed; public client script identified.

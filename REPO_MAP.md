@@ -1,5 +1,21 @@
 # UI-lab repo map
 
+## 当前入口：2026-10-03 场景重做
+
+旧原创 Gallery/Motion 的布局方向已判定失败，详见 FAILURE_ANALYSIS.md。旧原创源码可通过 baseline/original-studies 查看；当前 lab.html 与 demos/gallery.html → scenes/gallery.js，demos/motion.html → scenes/theatre.js。旧 demos/gallery.js / motion.js / home.js 已删除，Notebook 仍为历史实验。
+
+| 当前模块                             | 职责                                                                                         |
+| ------------------------------------ | -------------------------------------------------------------------------------------------- |
+| scenes/art.js                        | 原创角色部件、三幅叙事画、材料道具与家具，专门绘制而非批量图标                               |
+| scenes/gallery-model.js / gallery.js | 行走、到达、坐下、观察/擦除返回、画内事件、空间构图                                          |
+| scenes/theatre-model.js / theatre.js | 材质动作、事件接触、邻物回应、持续灯光、声像与残留；复用 demos/material-motion.js 的轨迹数学 |
+| scenes/host.js / scene.css           | Canvas/语义按钮/纸面逆变换/前后台生命周期，焦点也由笔线表达                                  |
+| primitives/living-ink.js             | 对象纸底、多层蜡笔、压力轮廓、三版8Hz绘图与2–4×缓存                                          |
+| primitives/handwriting.js            | 专门设计的小写笔顺、曲线、自然字距/倾斜、路径长度 reveal/erase                               |
+| primitives/foley.js                  | 接触与摩擦采样、非谐波铃、有限音源、静音和重复差异                                           |
+
+下方原参考审阅与旧原创层盘点保留为历史。新场景不导入 assets 或 src/vendor。
+
 审阅基线：`19cf5a1` / `baseline/ballpoint-lab`（2026-10-03）。该提交运行通过 19 个测试。原有文件路径保留，后续目录表达创作关系而非强行搬家。
 
 ## 三层与数据流

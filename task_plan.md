@@ -25,7 +25,23 @@ The attached brief defines a creator's laboratory, retaining the original specim
 - Prefer a small dependency-free Canvas application where the reference supports it.
 - Record evidence separately from assumptions. Keep reference attribution.
 
+## Scene rebuild — user correction, 2026-10-03
+
+The previous original demos are a directional failure. Preserve their Git history but rebuild Gallery and Material as playable scenes. Visual quality, real lettering, bounded line boil and action-matched sound must be reviewed independently before whole-scene delivery.
+
+14. Document failure and scene/interaction sketches — complete (FAILURE_ANALYSIS.md, SCENE_PLAN.md).
+15. Re-observe reference; develop dense original art, controlled contour boil, authored handwriting and Foley locally — complete (enlarged drawing bench reviewed).
+16. Build Gallery with walking guide, exhibition space and close observation — complete (three interior picture interactions added).
+17. Build Material theatre with spatial composition and connected object responses — complete.
+18. Review enlarged artwork, full scenes, repeated interaction, keyboard/narrow screen and sound — complete (32 tests, foreground 10-cycle Gallery, repeated material input, mute/ink, desktop/narrow and reduced mode).
+19. Deliver handwriting/micro-life/audio notes and commit reviewed scene checkpoint — complete (`baseline/playable-scenes`; six required records, screenshots, scene-validation.json and Foley audition).
+
 ## Errors
+- Documentation patch used an incorrect heading anchor in PRIMITIVES.md; rejected before writes. Read the real headings and applied exact updates.
+- A later formatted table spacing anchor also failed; no writes. Applied source changes separately and literal documentation text replacement.
+- Browser repetition initially failed to settle because the local tab was background-throttled while reference remained open. Closed the completed reference tab and brought the local tab to front; a 700ms sample then advanced scene time by 698ms. Re-run affected browser checks in foreground.
+- New Foley buffer test found NaN at the very last paper/eraser sample because a fractional power saw a tiny negative sine after floating-point rounding. Clamp the envelope to nonnegative and taper the final 4ms.
+- Scene rebuild patch attempted delete/add on the same HTML path; rejected before any write. Reissued additions once and replaced HTML using literal file content.
 - Initial screenshot caught a blank loading canvas; reobserve once initialized.
 - Command-line HTTP request hit Vercel checkpoint; using already loaded browser debugger resources.
 
