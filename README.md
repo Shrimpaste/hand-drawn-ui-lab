@@ -1,79 +1,59 @@
-# UI-lab — 可游玩的纸上场景
+# Hand-drawn UI Lab
 
-研究 Ballpoint Gambit 的对象绘制、笔迹、轮廓生命感与交互，用原创画面实现可以游览和探索的画廊。原站还原保留在 `/`，新入口直接进入画廊。
+学习并构建有精细绘制、纸笔媒介感和自然交互的 Web UI。参考作品是 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/)；本仓库保留其客户端研究样本、原创绘图工具和交互实验。
 
-上一轮原创 demo 被判定为方向性失败：它们是淡色页面布局，缺少精细对象、真正的笔迹、场景关系和材料声音。失败版本保存在 `baseline/original-studies`，分析见 [FAILURE_ANALYSIS.md](FAILURE_ANALYSIS.md)。
+目标是把这套语言用于各种场景、编辑器、仪表盘与 SaaS。角色、棋盘和庭院只是研究样本，不是新项目的固定模板。手绘风格靠对象完成度、颜料层次、真实笔迹、连续动作和接触反馈共同成立；米色背景、粗糙边框、手写字体不能代替这些工作。
 
-## 运行
+## 先读什么
 
-```powershell
+| 文档                                     | 用途                                                                     |
+| ---------------------------------------- | ------------------------------------------------------------------------ |
+| [风格构建指南](docs/STYLE_GUIDE.md)      | 必读。把多轮人工纠正转为美术、动作和 UI 的设计方法，并给出 SaaS 转译示例 |
+| [实现与迁移](docs/IMPLEMENTATION.md)     | 现有工具接口、实现顺序、可中断动画、DOM/SVG/Canvas 的选择                |
+| [人工审核与迭代](docs/REVIEW_HISTORY.md) | 哪些方向曾失败、原因是什么、对应哪个提交；防止重复走弯路                 |
+| [源码研究](docs/REFERENCE_STUDY.md)      | 原站绘制结构、十二套动作、真实颜色数据与本地适配边界                     |
+| [仓库结构](docs/ARCHITECTURE.md)         | 原作样本、自绘工具、场景定制、历史兼容模块的边界                         |
+| [验证](docs/VALIDATION.md)               | 当前验证结果，以及动态、视觉、交互、声音分别怎样检查                     |
+| [来源与使用边界](docs/PROVENANCE.md)     | 哪些文件来自原作，哪些是本地编写，哪些尚无再发布授权                     |
+
+接手的 agent 从 [AGENTS.md](AGENTS.md) 开始。不要只看 Gallery 截图就开始复刻。
+
+## 本地运行
+
+使用 Node.js 22 或更新版本；当前在 Node.js 24.13.0 上验证。
+
+```sh
+npm ci
 npm start
 ```
 
-打开 [纸上画廊](http://127.0.0.1:5184/lab.html)。浏览器运行时无第三方依赖。服务器只监听本机 5184，可用 PORT 更改。
+服务默认只监听 `127.0.0.1:5184`。它是静态服务器，修改文件后需要刷新页面。
 
-| 场景                                                                                     | 操作                                                                                                                                      |
-| ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [Courtyard Gallery](http://127.0.0.1:5184/demos/gallery.html)                            | 左上小头像切换蘑菇/长耳兔/猫头鹰；地面或方向键行走；走近作品再观察；轻点池塘看鱼、路灯看萤火、喷壶浇花、长椅坐下迎来小鸟；返回或 Esc 擦字 |
-| [局部绘制与试听](http://127.0.0.1:5184/scenes/studio.html)                               | 桌面对照固定/活轮廓；看放大的角色、蜡笔覆盖、笔迹重写；逐项试听材料声音                                                                   |
-| [原参考还原](http://127.0.0.1:5184/) / [参考组件](http://127.0.0.1:5184/components.html) | 十二角色可分别行走、打盹、紧张、removed→蚂蚁搬离；保留原图集、笔顺与角色动作，无完整棋类规则                                              |
+| 地址                                                                                        | 当前用途                                                               |
+| ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [Gallery](http://127.0.0.1:5184/demos/gallery.html) / [Lab](http://127.0.0.1:5184/lab.html) | 同一个原创庭院：空间、物件交互、三种步态、逐笔开场、擦除重绘、极简选项 |
+| [绘制小样](http://127.0.0.1:5184/scenes/studio.html)                                        | 局部笔触、固定/活轮廓、手写、Foley 的检查台                            |
+| [Reference](http://127.0.0.1:5184/)                                                         | 原图集和原动作的最小还原，没有完整棋类规则                             |
+| [Characters](http://127.0.0.1:5184/components.html)                                         | 十二个原角色的部件、睡眠、紧张与简化搬运实验                           |
 
-所有操作都有语义按钮，可用 Tab / Enter。Gallery 也支持 1–3 选作品。声音需首次真实手势解锁；sound on/off 与 alive/still 直接在纸上。still 减少轮廓变化与位移，保留真实状态。阁楼已移除，旧链接转到 Gallery；旧 Notebook 仅作为历史实验保留。
+旧 `/demos/motion.html` 只重定向到 Gallery。Notebook 及早期材质代码保留为兼容实验，不能作为当前风格质量标杆。阁楼已移除。
 
-## 代码怎么读
-
-```text
-scenes/guide.js / guide-rig.js  新角色插画与部件锚点
-scenes/visitor-art.js          兔子与猫头鹰独立轮廓、耳朵、翅膀和脚爪
-scenes/guide-motion.js         原站 Puppet + 反应轨道，新增连续步态
-scenes/courtyard.js            透视地面、屋顶展位、庭院家具与植物
-scenes/courtyard-layout.js     同一地面投影、落地锚点与完整占地范围
-scenes/courtyard-life.js       灯光、涟漪、小鱼、浇水与小鸟的状态
-scenes/courtyard-details.js    对应的小插画与反馈绘制
-scenes/art.js                  三幅场景画、材质道具与家具
-scenes/gallery*.js             行走 → 停留 → 观察 → 擦除返回
-scenes/host.js                 纸面变换、可访问按钮、输入、生命周期
-primitives/living-ink.js       多层蜡笔、压力轮廓、三版绘图缓存
-primitives/pigments.js         纸色、主颜料与对象材质配色
-primitives/stroke-recording.js 烘焙时记录真实笔画时间，开场只推进时间图
-primitives/handwriting.js      手工小写笔画、自然字距、逐笔写/擦
-primitives/foley.js            摩擦、鞋底、石/木接触、非谐波铃音
-src/ + assets/                 独立保留的 Ballpoint 参考适配
-```
-
-新场景不加载原站图集；新角色明确复用保留来源的 `src/vendor/reference-motion.js` 求解器与 pawn 反应轨道。插画、锚点、连续步态和场景协调由本地编写。显眼文字使用原创路径；字库支持拉丁小写、数字、所需标点，中文仍需单独设计笔顺。
-
-场景初次加载及 draw again 会逐笔画出。静置14秒打盹，靠近或操作唤醒；Z/T/A 可演示睡眠/紧张/蚂蚁搬运。参考组件的自动睡眠为18秒。
-
-## 设计与验证记录
-
-- [SCENE_PLAN.md](SCENE_PLAN.md)：空间草图、角色、探索路径和物体关系。
-- [HANDWRITING_NOTES.md](HANDWRITING_NOTES.md)：笔迹设计、写入/擦除和字库边界。
-- [MICRO_LIFE_NOTES.md](MICRO_LIFE_NOTES.md)：稳定填色、低频轮廓、连续目光/身体/附件。
-- [CHARACTER_ANIMATION_SOURCE.md](CHARACTER_ANIMATION_SOURCE.md)：十二角色实际源码分析、分层混合、父子附件、不同运动参数及蚂蚁协调；附可重跑的取样审计。
-- [VISITOR_AND_COURTYARD_NOTES.md](VISITOR_AND_COURTYARD_NOTES.md)：三种原创角色的不同解剖/步态、统一落地坐标与物件互动接法。
-- [COLOR_STUDY.md](COLOR_STUDY.md)：原参考真实色阶/图集取样、材质颜料配置与覆盖浓度；阁楼移除和参考文案清理。
-- [AUDIO_REWORK_NOTES.md](AUDIO_REWORK_NOTES.md)：删除旧 UI 音色，按材料和接触重做。
-- [ORIGINAL_DEMOS.md](ORIGINAL_DEMOS.md)：场景迭代的历史审查和验证限度。
-- [REPO_MAP.md](REPO_MAP.md) / [PRIMITIVES.md](PRIMITIVES.md)：来源和接口。
-
-```powershell
+```sh
 npm test
 ```
 
-39 项测试覆盖十二参考角色的动作/图集、三种原创角色的打断与恢复、平台占地与投影、浇水事件、反复触发、轮廓、笔画时间图与有限音频采样。阁楼删除后移除其专用的两项测试。功能测试不能代替视觉或实际试听。当前调色检查见 `research/pigment-validation.json`，庭院完整交互记录见 `courtyard-validation.json`；前轮记录保留在 `refined-validation.json` / `scene-validation.json`。[7.2秒声音试听](research/scene-foley.wav) 为前轮独立 Foley 小样。
+当前 48 项测试通过。自动测试验证连续性、状态和绘制算法；美术完成度与听感需要看实际画面、操作并试听。当前桌面、窄屏证据见 [验证文档](docs/VALIDATION.md)。
 
-## 本地 Git
+![当前庭院](research/species-gallery-final.jpg)
 
-main 分支，无远端。
+## 用于另一个项目
 
-- `baseline/ballpoint-lab` / `19cf5a1`：原参考还原。
-- `baseline/original-studies` / `9c519c5`：上一轮失败的原创方向，可用于对照。
-- `baseline/playable-scenes` / `732a1c4`：上一轮场景重做检查点。
-- `baseline/spatial-characters` / `08f1231`：前轮源码学习、角色和庭院修订检查点。
-- `baseline/courtyard-life`：庭院落地、小物件互动与三种参观者检查点。
-- `baseline/pigment-depth`：材质调色、阁楼移除与参考文案整理检查点。
+先依据目标功能设计一套原创对象与笔迹，再选用 `primitives/` 的能力。为每个交互写清楚“用户想做什么、对象如何回应、状态留下什么痕迹”；沿参考源码理解动作关系，然后实现适合新对象的轨道。不要把蘑菇、蚂蚁、棋盘或庭院直接当成 SaaS 组件需求。
 
-## 来源
+原作动作模块与图集仍包含在研究仓库内；原创 Gallery 也直接使用原作求解器和部分反应轨道。它不是完全独立、可直接商用的开源组件包。迁移到公开或商业项目前，请按 [来源文档](docs/PROVENANCE.md) 区分学习方法、自绘实现与原作者内容。
 
-Ballpoint 原美术与提取动画属于 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/) 作者；公开客户端来自 2026-10-03（Asia/Hong_Kong）。保存的参考素材供本地研究，未取得原绘图生成器。新 scenes 的路径、角色、场景画、物件与 Foley 为本轮独立创作；不是原作绘图源码或其开源组件。
+## 版本维护
+
+代码与文档在本地提交后同步远程；阶段基线使用 `baseline/*` 标签。新工作分支使用 `codex/` 前缀。旧说明、截图和测试快照已从当前树收束，仍能在历史提交中恢复，参见 [审核记录](docs/REVIEW_HISTORY.md)。
+
+新增能力时更新对应实现入口和风格规则；新验证替换当前记录，不累积一组互相冲突的 `final-v2` 文档。仓库不含原作者绘图生成器，也未声明覆盖原作内容的开源许可证。

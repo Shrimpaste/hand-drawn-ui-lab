@@ -12,3 +12,8 @@ research/reference.html
 Thumbs.db
 .cache/
 coverage/
+
+# Temporary working plans and regenerated audition files; history is in Git.
+.planning/
+research/scene-foley.wav
+research/scene-foley.json

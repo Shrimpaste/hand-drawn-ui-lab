@@ -1,11 +1,10 @@
 # Ballpoint Gambit specimen
 
-本层保留完整参考的追溯关系；为保持历史路径和 URL，代码和图集仍在根目录的 `src/` 与 `assets/`。
+原作样本入口是 `/` 和 `/components.html`，代码/图集保留在根目录 `src/` 与 `assets/` 以维持 URL 和来源追溯。原作者内容来自 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/)。
 
-- `/`：无棋类规则的参考还原。
-- `/components.html`：使用原图集和原动作的组件实验台。
-- `src/vendor/reference-motion.js`：原作者公开客户端提取代码，不重构。
-- `research/analysis.md`、`research/design-language.md` 与 validation / screenshots：观察证据。
-- Git tag `baseline/ballpoint-lab`：原创阶段前的可运行版本。
+- 当前结构见 [ARCHITECTURE](../docs/ARCHITECTURE.md)。
+- 源码、色彩、笔迹、十二角色与搬运机制见 [REFERENCE_STUDY](../docs/REFERENCE_STUDY.md)。
+- 具体来源和二次构建边界见 [PROVENANCE](../docs/PROVENANCE.md)。
+- 旧参考基线为 `baseline/ballpoint-lab`；当前验证见 [VALIDATION](../docs/VALIDATION.md)。
 
-原始代码、美术和笔迹来自 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/)。公开客户端不含绘图生成器；尚未确认原素材再发布授权。`demos/` 的自绘场景不加载这些素材。
+公开客户端没有原作者完整绘图生成器，未确认素材再发布授权。原创场景不加载原图集，但 GuideMotion 直接使用原作求解器/部分反应。旧说明与逐轮记录已经归入 Git 历史，不再维护重复的活动说明。
