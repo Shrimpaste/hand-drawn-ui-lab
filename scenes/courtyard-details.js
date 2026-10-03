@@ -1,4 +1,10 @@
-import { InkSprite, Pencil, curve } from "../primitives/living-ink.js";
+import {
+  InkSprite,
+  Pencil,
+  curve,
+  palette as C,
+} from "../primitives/living-ink.js";
+import { courtyardPigments as M } from "../primitives/pigments.js";
 import { smooth } from "../primitives/motion.js";
 import { courtyardProps as L } from "./courtyard-layout.js";
 
@@ -6,8 +12,8 @@ export const pond = new InkSprite(
   186,
   83,
   (p) => {
-    p.oval(0, 3, 81, 28, "#c9bd9e", { seed: 70601, width: 0.8, base: 0.24 });
-    p.oval(0, -3, 74, 24, "#a5bfba", {
+    p.oval(0, 3, 81, 28, M.stone, { seed: 70601, width: 0.8, base: 0.24 });
+    p.oval(0, -3, 74, 24, M.water, {
       seed: 70602,
       width: 0.7,
       angle: 0.05,
@@ -19,7 +25,7 @@ export const pond = new InkSprite(
           [-56 + i * 16, -4 + (i % 2) * 6],
           [-42 + i * 16, -2 + (i % 2) * 6],
         ],
-        { color: "#d8dfcc", width: 0.65 },
+        { color: M.waterLight, width: 0.65 },
       );
     for (let i = 0; i < 12; i++) {
       const a = (i / 12) * Math.PI * 2;
@@ -28,16 +34,16 @@ export const pond = new InkSprite(
         width: 0.4,
       });
     }
-    p.oval(30, -8, 12, 4.4, "#a2b28b", { seed: 70604, width: 0.5 });
+    p.oval(30, -8, 12, 4.4, M.lily, { seed: 70604, width: 0.5 });
     p.line(
       [
         [30, -8],
         [37, -11],
       ],
-      { color: "#b8c3a0", width: 0.45 },
+      { color: M.leafLight, width: 0.45 },
     );
     for (let i = -1; i <= 1; i++)
-      p.oval(30 + i * 4, -13, 3.5, 4.6, "#dcaaa1", {
+      p.oval(30 + i * 4, -13, 3.5, 4.6, M.flower, {
         seed: 70610 + i,
         angle: i * 0.3,
         width: 0.4,
@@ -59,11 +65,11 @@ const fish = new InkSprite(
         [-22, 12],
         [-8, 6],
       ],
-      "#d8a97c",
+      M.fish,
       { seed: 76102, width: 0.4, base: 0.23 },
     );
-    p.oval(3, 0, 13, 7, "#d69b71", { seed: 76103, width: 0.5, base: 0.35 });
-    p.oval(10, 1, 5, 4, "#e2bd94", { seed: 76104, width: 0.35 });
+    p.oval(3, 0, 13, 7, M.fish, { seed: 76103, width: 0.5, base: 0.35 });
+    p.oval(10, 1, 5, 4, M.woodLight, { seed: 76104, width: 0.35 });
     p.dot(11, -2, 1.2, "#9b8875");
     p.line(
       [
@@ -175,7 +181,7 @@ const blossom = new InkSprite(
   (p) => {
     for (let i = 0; i < 5; i++) {
       const a = (i / 5) * Math.PI * 2;
-      p.oval(Math.cos(a) * 6, Math.sin(a) * 6, 4.8, 4, "#dca99d", {
+      p.oval(Math.cos(a) * 6, Math.sin(a) * 6, 4.8, 4, M.flower, {
         seed: 76410 + i,
         angle: a,
         width: 0.35,
@@ -218,7 +224,7 @@ export function drawPondLife(c, life, time, reduced) {
     });
     if (age > 0.26)
       p.oval(a.x - 14, a.y - 1, radius - 7, (radius - 7) * 0.3, null, {
-        outline: "#96b2ac",
+        outline: M.water,
         width: 0.6,
       });
     c.restore();
@@ -243,7 +249,7 @@ export function drawLampLife(c, life, time, reduced) {
     const q = reduced ? i : time * 0.65 + i * 1.9;
     const x = a.ground.x - 14 + Math.sin(q) * (23 + i * 6),
       y = a.ground.y - 44 + Math.cos(q * 0.7) * 15 - i * 9;
-    p.dot(x, y, 1.5, "#d6b975");
+    p.dot(x, y, 1.5, C.yellow);
     p.line(
       [
         [x - 3, y - 2],
@@ -303,7 +309,7 @@ export function drawFlowerLife(c, life, time, reduced) {
           [a.x - 6 + t * 8 + (i % 2), a.y - 23 + t * 31],
           [a.x - 7 + t * 8, a.y - 20 + t * 31],
         ],
-        { color: "#91b0ac", width: 0.7 },
+        { color: M.water, width: 0.7 },
       );
       c.restore();
     }

@@ -1,7 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { GalleryWalk } from "../scenes/gallery-model.js";
-import { TheatreModel } from "../scenes/theatre-model.js";
 import { handwrittenPaths } from "../primitives/handwriting.js";
 import { livingContour, boilFrame } from "../primitives/living-ink.js";
 import { foleySamples } from "../primitives/foley.js";
@@ -35,37 +34,6 @@ test("reduced gallery motion still reaches the selected work without emitting fo
   const events = g.update(0.04, true);
   assert.equal(g.selected, 1);
   assert.equal(events.filter((e) => e.name === "footstep").length, 0);
-});
-test("stone contact drives connected tabletop paper leaf and a finite attention response", () => {
-  const m = new TheatreModel();
-  m.trigger("stone");
-  m.update(0.15);
-  assert.equal(m.events[0].name, "stone-impact");
-  assert.ok(Math.abs(m.table.value) > 0.05);
-  assert.ok(m.paperReply.value < 0);
-  assert.ok(m.leafReply.value > 0);
-  assert.equal(m.lookAt, "stone");
-  for (let i = 0; i < 700; i++) m.update(0.02);
-  assert.ok(Math.abs(m.table.value) < 0.001);
-  assert.ok(Math.abs(m.paperReply.value) < 0.001);
-  assert.equal(m.lookAt, "");
-});
-test("material re-trigger retains the current pose and lamp state persists", () => {
-  const m = new TheatreModel();
-  m.trigger("creature");
-  m.update(0.26);
-  const airborne = { ...m.objects.creature.pose };
-  m.trigger("creature");
-  m.update(0);
-  assert.deepEqual(m.objects.creature.pose, airborne);
-  m.trigger("lamp");
-  for (let i = 0; i < 150; i++) m.update(0.02);
-  assert.equal(m.objects.lamp.lit, true);
-  assert.ok(m.glow.value > 0.99);
-  m.trigger("lamp");
-  for (let i = 0; i < 150; i++) m.update(0.02, true);
-  assert.equal(m.objects.lamp.lit, false);
-  assert.equal(m.glow.value, 0);
 });
 test("three contour drawings stay bounded, deterministic and distinct from frozen ink", () => {
   const points = Array.from({ length: 100 }, (_, i) => [

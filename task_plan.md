@@ -70,3 +70,15 @@ The previous original demos are a directional failure. Preserve their Git histor
 26. Add reversible, repeatable pond/lamp/watering/bench interactions with handwritten hints — complete (live checks found and corrected seated-character target overlap).
 27. Author rabbit and owl visitors with distinct silhouettes, anchors, attachment springs and gait profiles, preserving the source solver — complete (separate ear springs, wing anatomy, idle/gait profiles).
 28. Review actual desktop/narrow interactions and character motion, run relevant checks and commit local baseline — complete (41 tests; desktop/narrow live checks, screenshots and courtyard-validation.json; baseline/courtyard-life).
+
+## Palette depth, remove attic, clean reference copy — 2026-10-04
+29. Compare reference pressure ramps and actual colored atlas pixels with authored pigments/coverage — complete.
+30. Remove attic from active scene routes/navigation; retain recoverable Git history — complete.
+31. Strengthen material pigments and wax coverage while preserving paper gaps and pigment-colored contours; remove reference slogans — complete.
+32. Review desktop/narrow Gallery and reference, verify interactions and local checks, commit baseline — complete (39 tests;30 bounded browser observations with26 passes and4 documented/superseded observer samples; baseline/pigment-depth).
+- Read of nonexistent demos/material.html corrected to the actual demos/motion.html; Windows wildcard supplied directly to rg corrected to directory/glob arguments. No writes affected.
+- Search for nonexistent scenes/pencil.js corrected to primitives/living-ink.js. No writes affected.
+- Cast atlas read used assets/cast instead of assets/chars; corrected from actual inventory. Browser first reload found missing M import in courtyard-details (its existing import was a different form); added explicit imports and repeated live validation. Initial correction patch used props alias rather than actual L alias and was rejected before writing.
+- Live QA expected watering to increment flower-click count; actual count is intentionally independent, with water contact resetting flower age. Corrected observation predicate to check water count/flower age/pose. Navigation review found touching labels; use measured handwritten path lengths to leave real gaps.
+- Documentation batch contained an invalid placeholder heading anchor for SCENE_PLAN.md and was rejected atomically; reissued without that unrelated hunk.
+- Browser-wide viewport setter did not change the target tab. Tab-scoped CDP emulation gives correct390×844 DOM/layout but capture adapter scales/crops native screenshots inconsistently. Inspected/exported raw scene canvas and verified actual narrow input; cleared metrics override and reset browser viewport afterward.

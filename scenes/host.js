@@ -55,10 +55,10 @@ export class SceneHost {
     this.stillButton.el.setAttribute("aria-pressed", String(this.reduced));
     this.other = this.button(
       "scene-other",
-      name === "gallery" ? "进入阁楼工作台" : "进入纸上画廊",
+      name === "gallery" ? "打开绘制小样" : "进入纸上画廊",
       () =>
         (location.href =
-          name === "gallery" ? "/demos/motion.html" : "/demos/gallery.html"),
+          name === "gallery" ? "/scenes/studio.html" : "/demos/gallery.html"),
     );
     this.reference = this.button(
       "scene-reference",
@@ -145,11 +145,23 @@ export class SceneHost {
     this.dpr = Math.min(2, devicePixelRatio || 1);
     this.canvas.width = Math.round(width * this.dpr);
     this.canvas.height = Math.round(height * this.dpr);
-    this.place(this.other, 70, 36, 100, 42);
-    this.place(this.reference, 191, 36, 107, 42);
+    this.place(
+      this.other,
+      this.mobile ? 76 : 99,
+      36,
+      this.mobile ? 111 : 158,
+      42,
+    );
+    this.place(
+      this.reference,
+      this.mobile ? 202 : 251,
+      36,
+      this.mobile ? 120 : 126,
+      42,
+    );
     this.place(
       this.replay,
-      this.mobile ? 311 : 390,
+      this.mobile ? 311 : 420,
       36,
       this.mobile ? 100 : 135,
       42,
@@ -203,12 +215,22 @@ export class SceneHost {
   }
   nav(c) {
     const p = new Pencil(c, this.reduced ? 0 : Math.floor(this.time * 8) % 3);
-    handwriting(c, this.name === "gallery" ? "attic" : "gallery", 29, 19, {
-      size: 21,
-      color: palette.teal,
-    });
-    handwriting(c, "reference", this.mobile ? 133 : 143, 19, {
-      size: this.mobile ? 16 : 20,
+    handwriting(
+      c,
+      this.name === "gallery"
+        ? this.mobile
+          ? "sketches"
+          : "drawing bench"
+        : "gallery",
+      23,
+      19,
+      {
+        size: this.name === "gallery" ? (this.mobile ? 17 : 15) : 21,
+        color: palette.teal,
+      },
+    );
+    handwriting(c, "reference", this.mobile ? 147 : 188, 19, {
+      size: this.mobile ? 16 : 18,
       color: palette.soft,
     });
     handwriting(c, this.mobile ? "redraw" : "draw again", this.replay.x, 20, {

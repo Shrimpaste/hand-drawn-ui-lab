@@ -1,5 +1,14 @@
 # Progress
 
+## 2026-10-04 color depth / attic / reference copy
+- Starting from clean b46b9ff. Reviewed actual Gallery, source palettes/wax, original text ramps and active attic references.
+- Gallery has washed-out material pigments and compounded low fill coverage. Decision: remove attic from active product, tune materials at source, clean reference overlay copy.
+- Logged nonexistent path/wildcard reads in task_plan.md; corrected known filenames.
+- Sampled original pressure ramps and four body sprites to research/reference-pigments.json. Unified paper to reference RGB241/235/222, added material pigment roles, stronger seeded wax strokes, hue-related warm contours. Removed attic controller/model/unused table-window art and two obsolete scene-specific tests; old route redirects to Gallery. First39 tests pass. Live module load caught missing pigment import in courtyard-details; added imports and re-observing.
+- Live desktop: lamp glow/fish rise/water contact/bench bird/character switching and all3 paintings detail→erase→back pass. Corrected observer's incorrect flower-click counter expectation, not application behavior. Measured handwritten label widths and corrected nav spacing. Narrow390×844: no horizontal overflow; lamp, mushroom switch, work1 visit/back pass; inspected raw558px Canvas export because browser capture adapter scales emulated screenshots incorrectly. Emulation and viewport restored.
+- Complete keyboard hint write/erase pass. Reference visible prose is concise English, extra intro/note count0; actual character selection displays English metadata and16 parts, then restored deselection. Drawing bench navigation and retired attic URL lead correctly back to Gallery. Four bounded checks are documented as superseded: one incorrect click-counter expectation, two partial pointer-envelope observations, one shorter-than-opening route sample. Subsequent complete state checks pass; no new application console errors.
+- Final39/39 tests (~886ms),10 changed modules parse, git diff --check passes; original assets/vendor module unchanged. Saved pigment-gallery.jpg, pigment-detail.jpg, pigment-reference.jpg, raw narrow pigment-mobile-canvas.png, reference-pigments.json and pigment-validation.json. Restored normal viewport and user's rabbit selection; Gallery marked deliverable. Local baseline: baseline/pigment-depth.
+
 ## 2026-10-03 scene rebuild
 
 - User rejects the original demo direction: under-drawn objects, fake handwriting, page layouts, absent contour life, generic sound and empty slogans. Accepted as a substantive design failure.

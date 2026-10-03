@@ -1,4 +1,5 @@
 import { InkSprite, palette as C } from "../primitives/living-ink.js";
+import { courtyardPigments as M } from "../primitives/pigments.js";
 import { random } from "../primitives/sketch.js";
 import { handwriting } from "../primitives/handwriting.js";
 
@@ -17,7 +18,7 @@ function foliage(p, x, y, size, seed) {
       rad = Math.sqrt(r()) * size * 0.62;
     const xx = x + Math.cos(a) * rad,
       yy = y - 12 + Math.sin(a) * rad * 0.57;
-    p.oval(xx, yy, 9 + r() * 12, 7 + r() * 9, i % 4 ? "#a9b98c" : "#c2cba1", {
+    p.oval(xx, yy, 9 + r() * 12, 7 + r() * 9, i % 4 ? M.foliage : M.leafLight, {
       seed: seed + i * 3,
       width: 0.4,
       angle: r(),
@@ -29,7 +30,7 @@ function foliage(p, x, y, size, seed) {
           [xx - 3, yy + 3],
           [xx + 2, yy - 4],
         ],
-        { color: "#8d9d7c", width: 0.45 },
+        { color: M.leafShade, width: 0.45 },
       );
   }
 }
@@ -40,10 +41,10 @@ function grass(p, x, y, seed) {
         [x + (j - 1) * 3, y],
         [x + (j - 1) * 5, y - 5 - (j % 2) * 3],
       ],
-      { color: "#96a184", width: 0.65 },
+      { color: M.grass, width: 0.65 },
     );
   if (seed % 3 === 0)
-    p.oval(x + 8, y - 5, 2.2, 1.6, "#d5a39b", { width: 0.3, seed });
+    p.oval(x + 8, y - 5, 2.2, 1.6, M.flower, { width: 0.3, seed });
 }
 
 export const courtyardGround = new InkSprite(
@@ -69,7 +70,7 @@ export const courtyardGround = new InkSprite(
         [515, 765],
         [111, 484],
       ],
-      "#c5ba9f",
+      M.platformSide,
       { angular: true, seed: 70102, width: 0.6, base: 0.25 },
     );
     p.shape(
@@ -79,10 +80,10 @@ export const courtyardGround = new InkSprite(
         [1030, 575],
         [515, 765],
       ],
-      "#bdbaa0",
+      M.platformShade,
       { angular: true, seed: 70103, width: 0.6, base: 0.23 },
     );
-    p.shape(platform, "#e3d9bc", {
+    p.shape(platform, M.paving, {
       angular: true,
       seed: 70104,
       width: 0.8,
@@ -129,7 +130,7 @@ export const courtyardGround = new InkSprite(
         [490, 374],
         [224, 451],
       ],
-      "#bbc3a0",
+      M.bed,
       { angular: true, seed: 70401, width: 0.6, base: 0.2 },
     );
     p.shape(
@@ -151,7 +152,7 @@ export const courtyardGround = new InkSprite(
         [1013, 561],
         [877, 616],
       ],
-      "#b8c2a0",
+      M.bedLight,
       { angular: true, seed: 70501, width: 0.5 },
     );
     for (let i = 0; i < 11; i++) grass(p, 872 + i * 12, 599 - i * 4, 70510 + i);
@@ -173,7 +174,7 @@ export const courtyardGround = new InkSprite(
         [595, 302],
         [106, 427],
       ],
-      "#e5d9bc",
+      M.wall,
       { angular: true, seed: 70702, width: 0.6, base: 0.12 },
     );
     p.shape(
@@ -183,7 +184,7 @@ export const courtyardGround = new InkSprite(
         [660, 337],
         [595, 302],
       ],
-      "#cfc6aa",
+      M.wallShade,
       { angular: true, seed: 70703, width: 0.6 },
     );
     for (let i = 0; i < 21; i++) {
@@ -233,7 +234,7 @@ export const courtyardGround = new InkSprite(
 );
 
 function kioskArt(p, c, index) {
-  const roof = ["#ac7d70", "#bb925f", "#799e96"][index];
+  const roof = [M.roofRed, M.roofGold, M.roofTeal][index];
   // Posts, side face, plinth and roof thickness give each exhibition a small building.
   if (p.consume(290) > 0.6) {
     c.save();
@@ -281,7 +282,7 @@ function kioskArt(p, c, index) {
         [x + 5, 132],
         [x - 6, 132],
       ],
-      "#ceb590",
+      M.woodLight,
       { angular: true, seed: 72150 + index + x, width: 0.65 },
     );
     for (let j = 0; j < 5; j++)
@@ -290,7 +291,7 @@ function kioskArt(p, c, index) {
           [x - 2, -92 + j * 40],
           [x + 2, -83 + j * 40],
         ],
-        { color: "#b29d81", width: 0.5 },
+        { color: M.woodGrain, width: 0.5 },
       );
   }
   p.shape(
@@ -313,7 +314,7 @@ function kioskArt(p, c, index) {
       [122, -102],
       [-118, -107],
     ],
-    "#d3b197",
+    M.roofEdge,
     { angular: true, seed: 72220 + index, width: 0.6 },
   );
   for (let row = 0; row < 3; row++)
@@ -326,7 +327,7 @@ function kioskArt(p, c, index) {
           [x + 20, y + 1],
           [x + 23, y + 10],
         ],
-        { color: index === 2 ? "#7e9a94" : "#a98372", width: 0.5 },
+        { color: index === 2 ? M.iron : M.woodGrain, width: 0.5 },
       );
     }
   p.shape(
@@ -336,7 +337,7 @@ function kioskArt(p, c, index) {
       [98, -76],
       [-100, -79],
     ],
-    "#c3c8a4",
+    M.leafLight,
     { angular: true, seed: 72230 + index, width: 0.5 },
   );
   for (let i = 0; i < 10; i++)
@@ -345,10 +346,10 @@ function kioskArt(p, c, index) {
         [-92 + i * 20, -106],
         [-94 + i * 20, -81],
       ],
-      { color: "#95aa91", width: 0.7 },
+      { color: M.leafShade, width: 0.7 },
     );
   for (let i = 0; i < 10; i++)
-    p.oval(-89 + i * 20, -79, 9, 4, "#c3c8a4", {
+    p.oval(-89 + i * 20, -79, 9, 4, M.leafLight, {
       seed: 72300 + i + index * 20,
       width: 0.4,
     });
@@ -382,7 +383,7 @@ export const courtyardBench = new InkSprite(
           [x + 14, 17],
           [x + 10, 56],
         ],
-        { color: "#8f9c92", width: 3 },
+        { color: M.iron, width: 3 },
       );
       p.line(
         [
@@ -390,7 +391,7 @@ export const courtyardBench = new InkSprite(
           [x + 42, 39],
           [x + 39, 69],
         ],
-        { color: "#8f9c92", width: 3 },
+        { color: M.iron, width: 3 },
       );
     }
     for (let i = 0; i < 3; i++)
@@ -401,7 +402,7 @@ export const courtyardBench = new InkSprite(
           [71, -56 + i * 12],
           [-75, -41 + i * 12],
         ],
-        "#c9a675",
+        M.wood,
         { angular: true, width: 0.55, seed: 73100 + i },
       );
     for (let i = 0; i < 3; i++)
@@ -412,7 +413,7 @@ export const courtyardBench = new InkSprite(
           [104, -10 + i * 8],
           [-40, 5 + i * 8],
         ],
-        "#d1b485",
+        M.woodLight,
         { angular: true, width: 0.5, seed: 73110 + i },
       );
     p.line(
@@ -420,11 +421,11 @@ export const courtyardBench = new InkSprite(
         [-40, 23],
         [102, 7],
       ],
-      { color: "#b79971", width: 0.7 },
+      { color: M.woodGrain, width: 0.7 },
     );
     for (const x of [-64, 60])
       for (let i = 0; i < 3; i++)
-        p.dot(x, -45 + i * 12 - (x > 0 ? 13 : 0), 1, "#ac9980");
+        p.dot(x, -45 + i * 12 - (x > 0 ? 13 : 0), 1, M.woodGrain);
   },
   { pivot: [110, 71], seed: 7300, variants: 1 },
 );
@@ -452,7 +453,7 @@ export const lantern = new InkSprite(
         [19, -103],
         [29, -96],
       ],
-      { color: "#879e96", width: 3.6 },
+      { color: M.iron, width: 3.6 },
     );
     p.shape(
       [
@@ -470,7 +471,7 @@ export const lantern = new InkSprite(
         [27, -114],
         [40, -101],
       ],
-      "#98ada0",
+      M.ironLight,
       { angular: true, width: 0.7, seed: 74013 },
     );
     p.shape(
@@ -480,7 +481,7 @@ export const lantern = new InkSprite(
         [35, -67],
         [24, -66],
       ],
-      "#99aaa0",
+      M.iron,
       { angular: true, width: 0.7, seed: 74014 },
     );
     p.line(
@@ -507,7 +508,7 @@ export const wateringCan = new InkSprite(
         [19, 12],
         [14, -12],
       ],
-      "#98b3aa",
+      M.roofTeal,
       { width: 0.75, seed: 75101 },
     );
     p.oval(-3, -10, 19, 6, "#bad0b8", { width: 0.6, seed: 75102 });
@@ -518,7 +519,7 @@ export const wateringCan = new InkSprite(
         [47, -10],
         [23, 17],
       ],
-      "#a2b8ac",
+      M.ironLight,
       { angular: true, width: 0.5, seed: 75103 },
     );
     p.oval(47, -14, 6, 9, "#bacab3", { width: 0.5, seed: 75104 });
@@ -530,10 +531,10 @@ export const wateringCan = new InkSprite(
         [-30, 17],
         [-24, 13],
       ],
-      { color: "#91aaa1", width: 4 },
+      { color: M.iron, width: 4 },
     );
     for (let i = 0; i < 6; i++)
-      p.dot(46 + (i % 2) * 3, -18 + Math.floor(i / 2) * 4, 0.7, "#8ea59a");
+      p.dot(46 + (i % 2) * 3, -18 + Math.floor(i / 2) * 4, 0.7, M.iron);
     p.line(
       [
         [-16, -3],

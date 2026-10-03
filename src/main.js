@@ -14,12 +14,12 @@ for (const button of document.querySelectorAll('.toolbar button')) button.disabl
 const groundScale = Math.sin(56 * Math.PI / 180);
 const kinds = ['rook', 'knight', 'bishop', 'queen', 'king', 'pawn'];
 const names = {
-  'w-pawn': ['toadstool sprout', '蘑菇小芽 / 帽子弹簧'], 'b-pawn': ['little star bell', '星铃 / 细绳摇摆'],
-  'w-knight': ['sunrise pony', '小马 / 鬃毛与尾巴'], 'b-knight': ['moonlit unicorn', '独角兽 / 耳朵与鬃毛'],
-  'w-bishop': ['leaf little one', '叶子精灵 / 尖帽摇晃'], 'b-bishop': ['sleepy wizard', '小巫师 / 帽子与斗篷'],
-  'w-rook': ['castle stump', '树桩小堡 / 发芽的城墙'], 'b-rook': ['blue little fort', '蓝色小堡 / 弹跳与挥手'],
-  'w-queen': ['royal honeybee', '蜂后 / 翅膀与触角'], 'b-queen': ['moonlit peacock', '孔雀女王 / 羽冠摇晃'],
-  'w-king': ['the owl king', '猫头鹰 / 皇冠与叶子'], 'b-king': ['the tiny whale', '小鲸鱼 / 水波与尾巴'],
+  'w-pawn': ['toadstool sprout', 'cap spring'], 'b-pawn': ['little star bell', 'hanging bell'],
+  'w-knight': ['sunrise pony', 'mane & tail'], 'b-knight': ['moonlit unicorn', 'ears & mane'],
+  'w-bishop': ['leaf little one', 'leaf cap'], 'b-bishop': ['sleepy wizard', 'hat & cloak'],
+  'w-rook': ['castle stump', 'growing leaves'], 'b-rook': ['blue little fort', 'bouncing & waving'],
+  'w-queen': ['royal honeybee', 'wings & antennae'], 'b-queen': ['moonlit peacock', 'feather crown'],
+  'w-king': ['the owl king', 'crown & leaves'], 'b-king': ['the tiny whale', 'waves & tail'],
 };
 let cast, board, markers, world, lettering, paper, layout, worldIndex;
 let model, selected = null, hovered = null, hoverSquare = null, press = null, drag = null;
@@ -42,15 +42,15 @@ function tone(kind = 'tick') {
 }
 function detail(piece, action = 'idle') {
   if (!piece) {
-    $('cast-name').textContent = 'pick a little friend';
-    $('cast-detail').innerHTML = '蘑菇、星铃、猫头鹰、独角兽…<br />每一只都有自己的动作。';
+    $('cast-name').textContent = 'select a character';
+    $('cast-detail').textContent = '';
     $('part-count').textContent = '—'; $('cast-number').textContent = '12';
   } else {
     $('cast-name').textContent = names[piece.id][0]; $('cast-detail').textContent = names[piece.id][1];
-    $('part-count').textContent = `${Object.keys(piece.puppet.rig.parts).length} 个独立部件`;
+    $('part-count').textContent = String(Object.keys(piece.puppet.rig.parts).length);
     $('cast-number').textContent = piece.side === 'w' ? 'SUNRISE' : 'DUSK';
   }
-  const labels = { idle: 'idle / 呼吸 · 眨眼', hover: 'hover / 打招呼', select: 'select / 准备好了', move: 'move / 跳跃 · 落地', victory: 'victory / 开心！', napping: 'napping / zzz…', gag: 'gag / 小把戏', refuse: 'refuse / 这里有人啦' };
+  const labels = { idle: 'idle', hover: 'greeting', select: 'selected', move: 'moving', victory: 'celebrating', napping: 'sleeping', gag: 'playing', refuse: 'occupied' };
   $('motion-name').textContent = labels[action] || action;
 }
 function clearHover() {

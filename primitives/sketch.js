@@ -1,3 +1,4 @@
+import { palette } from "./pigments.js";
 // Original drawing tools. The jitter belongs to a stroke, never to a RAF frame.
 export const colors = {
   ink: "#554e42",
@@ -5,7 +6,7 @@ export const colors = {
   red: "#ae6b55",
   green: "#89977b",
   yellow: "#c8a15b",
-  paper: "#f3eedf",
+  paper: palette.paper,
   faint: "#c8c0ac",
 };
 export function random(seed = 1) {

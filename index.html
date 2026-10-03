@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,21 +12,19 @@
   <div id="paper-ui">
   <header>
     <p class="eyebrow">UI LAB <span>01 / BALLPOINT</span></p>
-    <h1>a little motion study<span class="title-dot">.</span></h1>
-    <p class="intro">一张纸，十二个小生命。碰一碰，让它们动起来。</p>
+    <h1>motion study<span class="title-dot">.</span></h1>
   </header>
-  <div id="loading" role="status">正在把小生命画到纸上…</div>
+  <div id="loading" role="status">drawing…</div>
   <aside class="specimen" aria-label="选中角色信息">
     <p class="eyebrow">THE CAST / <span id="cast-number">12</span></p>
-    <h2 id="cast-name">pick a little friend</h2>
-    <p id="cast-detail">蘑菇、星铃、猫头鹰、独角兽…<br />每一只都有自己的动作。</p>
+    <h2 id="cast-name">select a character</h2>
+    <p id="cast-detail"></p>
     <div class="ink-rule"></div>
     <dl>
-      <div><dt>动作</dt><dd id="motion-name">idle / 呼吸 · 眨眼</dd></div>
-      <div><dt>部件</dt><dd id="part-count">—</dd></div>
-      <div><dt>画面</dt><dd id="fps">— fps</dd></div>
+      <div><dt>motion</dt><dd id="motion-name">idle</dd></div>
+      <div><dt>parts</dt><dd id="part-count">—</dd></div>
+      <div><dt>frame rate</dt><dd id="fps">— fps</dd></div>
     </dl>
-    <p class="study-note">帽子会跟着身体晃动，<br />眼睛会偷偷看你的光标。</p>
   </aside>
   <footer>
     <div class="toolbar" aria-label="角色动作">
@@ -41,8 +39,8 @@
       <button id="sound" type="button" aria-pressed="true" title="合成轻音效 · M"><span>♪</span> 声音开</button>
       <button id="reduced" type="button" aria-pressed="false" title="减少动作幅度"><span>≈</span> 轻柔</button>
     </div>
-    <p class="instructions">悬停打招呼 <i>·</i> 点击选中，再点空格 <i>·</i> 拖动也可以 <i>·</i> <kbd>Esc</kbd> 取消</p>
-    <p class="credit">Local study of <a href="https://ballpoint-gambit.vercel.app/" target="_blank" rel="noreferrer">Ballpoint Gambit ↗</a> <span>art & motion from the original public client</span> <a class="components-link" href="/components.html">组件实验台 ↗</a> <a class="components-link" href="/lab.html">原创实验 ↗</a></p>
+    <p class="instructions">hover <i>·</i> click or drag to move <i>·</i> <kbd>Esc</kbd> to release</p>
+    <p class="credit">Local study of <a href="https://ballpoint-gambit.vercel.app/" target="_blank" rel="noreferrer">Ballpoint Gambit ↗</a> <span>art & motion from the original public client</span> <a class="components-link" href="/components.html">character lab ↗</a> <a class="components-link" href="/lab.html">gallery ↗</a></p>
   </footer>
   </div>
   <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>

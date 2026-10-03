@@ -6,11 +6,11 @@
 </head>
 <body>
   <main id="gallery-sheet">
-    <header><a href="/">← 返回小生命实验场</a><p class="eyebrow">BALLPOINT / COMPONENT STUDY</p><h1>让功能长在纸上。</h1><p>移动鼠标感受纸面缓动。悬停插画看墨迹写入，离开看它擦除。</p></header>
+    <header><a href="/">← 参考还原</a><p class="eyebrow">BALLPOINT / COMPONENT STUDY</p><h1>组件实验台</h1><p>移动鼠标感受纸面缓动。悬停插画看墨迹写入，离开看它擦除。</p></header>
     <div id="gallery-loading" role="status">正在准备纸与笔…</div>
     <section class="samples" aria-label="独立组件示例">
-      <article><p class="eyebrow">01 / INK</p><h2>先有笔画，再有图案</h2><canvas id="ink-sample" width="660" height="420" aria-label="按笔顺绘制的太阳和手写字"></canvas><button id="toggle-ink" disabled>擦掉，再画一次</button><p>同一张笔触时间图，支持插画、标题、提示语的绘制和擦除。</p><code>Atlas.draw({ progress })<br>InkTransition</code></article>
-      <article><p class="eyebrow">02 / OPTIONS</p><h2>一个按钮，一个小道具</h2><div class="sample-options"><button id="sample-star" disabled></button><button id="sample-undo" disabled></button><button id="sample-sound" aria-pressed="true" disabled></button></div><p id="sample-status" aria-live="polite">悬停星星或用 Tab 聚焦。点击它来收集一颗星。</p><p>图标承担操作，旁边的文字像随手写出的注释。键盘也能使用。</p><code>IllustratedControl<br>SketchAudio</code></article>
+      <article><p class="eyebrow">01 / INK</p><h2>绘制与擦除</h2><canvas id="ink-sample" width="660" height="420" aria-label="按笔顺绘制的太阳和手写字"></canvas><button id="toggle-ink" disabled>擦掉，再画一次</button><p>同一张笔触时间图，支持插画、标题、提示语的绘制和擦除。</p><code>Atlas.draw({ progress })<br>InkTransition</code></article>
+      <article><p class="eyebrow">02 / OPTIONS</p><h2>插画控件</h2><div class="sample-options"><button id="sample-star" disabled></button><button id="sample-undo" disabled></button><button id="sample-sound" aria-pressed="true" disabled></button></div><p id="sample-status" aria-live="polite">悬停星星或用 Tab 聚焦。点击它来收集一颗星。</p><p>图标承担操作，旁边的文字像随手写出的注释。键盘也能使用。</p><code>IllustratedControl<br>SketchAudio</code></article>
       <article><p class="eyebrow">03 / CHARACTER</p><h2>逐个观察角色动作</h2><canvas id="character-sample" tabindex="0" role="button" aria-label="参考角色：悬停打招呼，点击或 Enter 庆祝" width="660" height="420"></canvas>
         <label for="character-kind">参考角色</label><select id="character-kind" aria-label="选择参考角色">
           <option value="w-pawn">蘑菇小芽</option><option value="b-pawn">星帽小团子</option><option value="w-knight">小马</option><option value="b-knight">弓箭小马</option><option value="w-bishop">飞蛾</option><option value="b-bishop">灯塔</option><option value="w-rook">树苗石塔</option><option value="b-rook">水晶石怪</option><option value="w-queen">蜂后</option><option value="b-queen">星星</option><option value="w-king">猫头鹰</option><option value="b-king">鲸鱼</option>

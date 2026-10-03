@@ -9,10 +9,10 @@ export { GuideMotion } from "./guide-motion.js";
 import { handwriting } from "../primitives/handwriting.js";
 import { visitorArt } from "./visitor-art.js";
 
-const moss = "#8ba578",
-  mossShade = "#708b73",
-  ochre = "#dca968",
-  coral = "#bf7968";
+const moss = "#6b8c4c",
+  mossShade = "#52705e",
+  ochre = "#d2983b",
+  coral = "#aa5341";
 const body = new InkSprite(
   120,
   124,

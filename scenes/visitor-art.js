@@ -1,12 +1,13 @@
 import { InkSprite, palette as C } from "../primitives/living-ink.js";
+import { courtyardPigments as M } from "../primitives/pigments.js";
 
 // Independent silhouettes and anatomy; none of these drawings uses the reference atlas.
-const wool = "#c8bbac",
-  cream = "#e7dcc6",
-  pink = "#d8aaa2";
-const sage = "#8ea69d",
-  feather = "#71938d",
-  honey = "#d1ac78";
+const wool = M.rabbitFur,
+  cream = M.rabbitCream,
+  pink = M.rabbitEar;
+const sage = M.owlBody,
+  feather = M.owlWing,
+  honey = M.owlBelly;
 const sprite = (w, h, pivot, seed, draw) =>
   new InkSprite(w, h, draw, { pivot, seed });
 function scarf(color, seed) {
@@ -76,8 +77,8 @@ const rabbitBody = sprite(114, 137, [57, 114], 851, (p) => {
     cream,
     { seed: 853, width: 0.55, base: 0.34 },
   );
-  p.oval(-9, -54, 11, 8, "#ebdcc5", { seed: 854, width: 0.3 });
-  p.oval(9, -54, 11, 8, "#ebdcc5", { seed: 855, width: 0.3 });
+  p.oval(-9, -54, 11, 8, M.rabbitCream, { seed: 854, width: 0.3 });
+  p.oval(9, -54, 11, 8, M.rabbitCream, { seed: 855, width: 0.3 });
   p.shape(
     [
       [-3.5, -59],
@@ -125,7 +126,7 @@ const rabbitBody = sprite(114, 137, [57, 114], 851, (p) => {
       [11, -37],
       [24, -42],
     ],
-    { color: "#91aeb4", width: 4 },
+    { color: M.rabbitScarf, width: 4 },
   );
   p.oval(18, -39, 3, 3, "#a5b9b5", { seed: 857, width: 0.4 });
   p.line(
@@ -291,7 +292,7 @@ const owlBody = sprite(124, 129, [62, 110], 881, (p) => {
       [-10, -7],
       [-22, -16],
     ],
-    "#c9c7a3",
+    M.owlBelly,
     { seed: 884, width: 0.4, base: 0.27 },
   );
   for (let row = 0; row < 3; row++)
@@ -332,7 +333,7 @@ const owlBody = sprite(124, 129, [62, 110], 881, (p) => {
       [14, -31],
       [24, -27],
     ],
-    { color: "#bd8872", width: 2.8 },
+    { color: M.owlScarf, width: 2.8 },
   );
   p.oval(17, -28, 3.3, 2.7, "#cca18a", { seed: 885, width: 0.4 });
 });
@@ -438,7 +439,7 @@ export const visitorArt = {
     footR: rabbitFoot,
     earL: rabbitEar(-1),
     earR: rabbitEar(1),
-    scarf: scarf("#94b0b5", 874),
+    scarf: scarf(M.rabbitScarf, 874),
   },
   owl: {
     body: owlBody,
@@ -448,6 +449,6 @@ export const visitorArt = {
     footR: owlFoot,
     earL: owlTuft(-1),
     earR: owlTuft(1),
-    scarf: scarf("#bd8872", 895),
+    scarf: scarf(M.owlScarf, 895),
   },
 };

@@ -1,5 +1,7 @@
 # 原创场景：重做结果与审查
 
+2026-10-04：当前主场景仅保留 Gallery，加入兔子/猫头鹰、小物件互动并增强材质颜色，见 VISITOR_AND_COURTYARD_NOTES.md 与 COLOR_STUDY.md。下方是历史阶段记录；阁楼已移除，可从 baseline/courtyard-life 恢复，不属于当前成果。
+
 上一轮 Gallery 和 Motion 是失败的页面式实验，不再以功能验证证明其美术质量。旧版代码与截图在 baseline/original-studies / 9c519c5 保留。本轮替换两个入口，Notebook 仍属于历史实验。
 
 ## Paper Gallery Scene

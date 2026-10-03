@@ -1,26 +1,11 @@
 import { random, curvePoints, length, partial } from "./sketch.js";
+import { palette } from "./pigments.js";
+export { palette } from "./pigments.js";
 import {
   CanvasStrokeRecorder,
   strokeTimeValue,
   revealStrokePixels,
 } from "./stroke-recording.js";
-
-export const palette = {
-  ink: "#877260",
-  soft: "#968775",
-  paper: "#f8f1df",
-  yellow: "#e4b742",
-  honey: "#c88632",
-  red: "#cd684f",
-  rose: "#df9b82",
-  teal: "#548f87",
-  green: "#91a16b",
-  blue: "#6277ad",
-  plum: "#826e9e",
-  pale: "#e3d7bd",
-  cream: "#f6deb0",
-  dark: "#5e5961",
-};
 
 /** Pigment and its outline belong to the same pencil, not a black sticker edge. */
 export function pigmentEdge(color = palette.ink) {
@@ -29,8 +14,8 @@ export function pigmentEdge(color = palette.ink) {
   return (
     "#" +
     [n >> 16, (n >> 8) & 255, n & 255]
-      .map((v) =>
-        Math.round(v * 0.72 + 116 * 0.28)
+      .map((v, i) =>
+        Math.round(v * 0.81 + [91, 61, 39][i] * 0.19)
           .toString(16)
           .padStart(2, "0"),
       )
@@ -159,7 +144,7 @@ export function wax(
     for (let x = -extent; x < extent;) {
       const span = 4 + r() * 23;
       c.globalAlpha =
-        opacity * (0.29 + r() * 0.38) * Math.min(1, progress * 1.7);
+        opacity * (0.44 + r() * 0.44) * Math.min(1, progress * 1.7);
       c.lineWidth = 0.7 + r() * 1.8;
       c.beginPath();
       c.moveTo(x, y);
@@ -170,15 +155,15 @@ export function wax(
         y + (r() - 0.5) * 1.3,
       );
       if ((row + extent) / (extent * 2) <= progress) c.stroke();
-      x += span + 0.7 + r() * 3.1;
+      x += span + 1 + r() * 3.8;
     }
   }
   c.rotate(0.22);
-  c.strokeStyle = shadow || color;
+  c.strokeStyle = shadow || pigmentEdge(color);
   for (let i = 0; i < w * h * 0.012 * density; i++) {
     const x = (r() - 0.5) * extent * 2,
       y = (r() - 0.5) * extent * 2;
-    c.globalAlpha = opacity * (0.1 + r() * 0.2);
+    c.globalAlpha = opacity * (0.12 + r() * 0.24);
     c.lineWidth = 0.55 + r() * 0.7;
     c.beginPath();
     c.moveTo(x, y);

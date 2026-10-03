@@ -2,7 +2,7 @@
 
 ## 当前入口：2026-10-03 场景重做
 
-旧原创 Gallery/Motion 的布局方向已判定失败，详见 FAILURE_ANALYSIS.md。旧原创源码可通过 baseline/original-studies 查看；当前 lab.html 与 demos/gallery.html → scenes/gallery.js，demos/motion.html → scenes/theatre.js。旧 demos/gallery.js / motion.js / home.js 已删除，Notebook 仍为历史实验。
+旧原创 Gallery/Motion 的布局方向已判定失败，详见 FAILURE_ANALYSIS.md。旧原创源码可通过 baseline/original-studies 查看；当前 lab.html 与 demos/gallery.html → scenes/gallery.js。阁楼 controller/model 已移除，demos/motion.html 只转到 Gallery；原阁楼代码在 baseline/courtyard-life 保留。Notebook 仍为历史实验。
 
 | 当前模块                             | 职责                                                                                         |
 | ------------------------------------ | -------------------------------------------------------------------------------------------- |
@@ -11,7 +11,7 @@
 | scenes/courtyard.js                  | 有厚度的地面与花坛、屋顶展位、长凳、灯、池塘、浇水壶 |
 | scenes/art.js                        | 三幅叙事画、材料道具与家具；角色入口转导出 guide |
 | scenes/gallery-model.js / gallery.js | 行走、到达、坐下、观察/擦除返回、画内事件、空间构图                                          |
-| scenes/theatre-model.js / theatre.js | 材质动作、事件接触、邻物回应、持续灯光、声像与残留；复用 demos/material-motion.js 的轨迹数学 |
+| primitives/pigments.js | 原参考纸色、主颜料、庭院/角色材质色；取样与解释见 COLOR_STUDY.md |
 | scenes/host.js / scene.css           | Canvas/语义按钮/纸面逆变换/前后台生命周期，焦点也由笔线表达                                  |
 | primitives/living-ink.js             | 对象纸底、多层蜡笔、压力轮廓、三版8Hz绘图与2–4×缓存                                          |
 | primitives/stroke-recording.js      | 烘焙绘画时生成真实 Canvas 笔迹时间图；开场阈值推进，不重建纹理 |

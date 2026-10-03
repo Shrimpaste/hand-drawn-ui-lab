@@ -1,5 +1,11 @@
 # Findings
 
+## 2026-10-04 color-depth correction
+- Current screenshot shows foliage, furniture, ground and rabbit all diluted toward the same paper value. Authored palette and many literal pigments are pale; wax defaults use 25% base plus ~29–67% hatching opacity. Read source ramps/actual reference atlas pixels before choosing stronger material tones.
+- User authorizes removing attic if it lacks useful scene design/interactions. Remove the active scene and its navigation, with recovery available in baseline/courtyard-life.
+- Reference page adds Chinese intro/study-note, specimen prose and footer instructions on top of original hand-lettered assets. Remove decorative prose and keep useful concise functional labels consistent.
+- Actual atlas sampling: b-pawn major body cluster [76,81,144], b-king [46,57,131]; w-pawn [230,198,150], w-king [237,214,172]. Eligible chromatic pixels have mean alpha ~.989–.994. Lettering ramps darken markedly with pen pressure (cool at alpha192 composites to [64,58,134] on paper). Artwork softness does not mean uniform low opacity.
+
 ## Courtyard continuation — 2026-10-04
 - Ground surface is a non-parallelogram quadrilateral. A single bilinear surface now drives drawing, inverse ground coordinates, walking clamp, prop contacts and full footprint checks. Furniture placement must subtract the artwork's actual foot offset, not use its centre as a contact.
 - New rabbit and owl use original authored anatomy/anchors with actual source engine/reaction clips. Ears use independent source springs and idle impulses; owl wings and short stride differ from the mushroom.
