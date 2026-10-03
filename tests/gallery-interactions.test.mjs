@@ -5,6 +5,82 @@ import { GalleryWalk } from "../scenes/gallery-model.js";
 import { benchGeometry, onPlatform } from "../scenes/courtyard-layout.js";
 import { insideBench } from "../scenes/bench-path.js";
 
+const visibleFoot = (g) => {
+  const p = g.drawingPose,
+    scale = 0.69 + (g.y - 470) * 0.00045;
+  return { x: p.x, y: p.y - (p.hop + p.seated * 9) * scale };
+};
+
+test("bench approach is reachable and rendered position stays continuous on normal seating", () => {
+  assert.equal(
+    insideBench(benchGeometry.approach, benchGeometry.obstacle),
+    false,
+  );
+  const g = new GalleryWalk(576, 663);
+  g.configureBench(benchGeometry);
+  g.walkTo(benchGeometry.approach.x, benchGeometry.approach.y, { sit: true });
+  for (let i = 0; i < 600; i++) {
+    const p = visibleFoot(g);
+    g.update(1 / 60);
+    const n = visibleFoot(g);
+    assert.ok(Math.hypot(n.x - p.x, n.y - p.y) < 5, `seating jump frame ${i}`);
+  }
+  assert.equal(g.mode, "sitting");
+  assert.equal(g.x, benchGeometry.approach.x);
+  assert.equal(g.y, benchGeometry.approach.y);
+  g.walkTo(740, 590);
+  for (let i = 0; i < 600; i++) {
+    const p = visibleFoot(g);
+    g.update(1 / 60);
+    const n = visibleFoot(g);
+    assert.ok(Math.hypot(n.x - p.x, n.y - p.y) < 5, `dismount jump frame ${i}`);
+  }
+});
+
+test("unreachable bench routes cannot falsely report arrival or move the rendered visitor", () => {
+  const b = structuredClone(benchGeometry);
+  b.approach = {
+    x: (b.obstacle.minX + b.obstacle.maxX) / 2,
+    y: (b.obstacle.minY + b.obstacle.maxY) / 2,
+  };
+  const g = new GalleryWalk(576, 680);
+  g.configureBench(b);
+  const p = g.drawingPose;
+  assert.equal(g.walkTo(b.approach.x, b.approach.y, { sit: true }), false);
+  for (let i = 0; i < 120; i++) g.update(1 / 60);
+  assert.equal(g.mode, "idle");
+  assert.deepEqual(g.drawingPose, p);
+});
+
+test("interrupted mounting preserves the complete visible pose before stepping down", () => {
+  // Isolate the interruption from ground reachability, using a clear approach.
+  const b = structuredClone(benchGeometry);
+  b.approach.y = b.obstacle.maxY + 14;
+  for (const cutoff of [0.12, 0.29, 0.55, 0.88]) {
+    const g = new GalleryWalk(b.approach.x, b.approach.y);
+    g.configureBench(b);
+    g.walkTo(b.approach.x, b.approach.y, { sit: true });
+    while (g.seatAmount < cutoff) g.update(1 / 120);
+    const p = visibleFoot(g),
+      pose = g.drawingPose;
+    g.walkTo(735, 615);
+    assert.deepEqual(g.drawingPose, pose, `lost mounting pose at ${cutoff}`);
+    assert.deepEqual(visibleFoot(g), p);
+    for (let i = 0; i < 720; i++) {
+      const a = visibleFoot(g);
+      g.update(1 / 120);
+      const z = visibleFoot(g);
+      assert.ok(
+        Math.hypot(z.x - a.x, z.y - a.y) < 4,
+        `interrupted step frame ${i}`,
+      );
+    }
+    assert.equal(g.mode, "idle");
+    assert.equal(g.x, 735);
+    assert.equal(g.y, 615);
+  }
+});
+
 test("character redraw never overlaps old/new ink and preserves interrupted partial drawings", () => {
   const v = new VisitorRedraw();
   v.start();

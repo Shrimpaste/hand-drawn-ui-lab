@@ -1,5 +1,9 @@
 # Progress
 
+## 2026-10-04 — bench and visitor continuation
+- User requests seating teleport fix, richer species-specific art/movement, and more title/caption spacing. Existing baseline clean at3ad6045.
+- Reproduced actual bench interruption jump34.15; deterministic model normal seating jumps22.90. Added actual rendered-foot-position regressions before fixing.
+
 ## 2026-10-04 color depth / attic / reference copy
 - Starting from clean b46b9ff. Reviewed actual Gallery, source palettes/wax, original text ramps and active attic references.
 - Gallery has washed-out material pigments and compounded low fill coverage. Decision: remove attic from active product, tune materials at source, clean reference overlay copy.

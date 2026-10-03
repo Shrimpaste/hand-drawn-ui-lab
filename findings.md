@@ -1,5 +1,15 @@
 # Findings
 
+## 2026-10-04 — bench teleport and visitor refinement
+- Live interruption trace: mounting → redirect → dismounting → walking jumps34.15 world units in one frame. Normal model seating also jumps22.90 units at mounting entry.
+- Ranked predictions: blocked approach produces a start/end mismatch; reset jump arc drops a partial pose; renderer scale/depth would disappear when held constant.
+- Actual bench approach(567.20,641.86) is inside conservative footprint y578.54–648.37. Visibility graph returns its start as an unreachable fallback, then the model incorrectly treats that as arrival and draws at the nominal approach.
+- Character comparison: existing three visitors share one alternating sine gait. Species need independent contact/flight timing and anatomical follow-through, while keeping source layered interruption and secondary solver.
+- Two independent causes confirmed. Moving the ground approach outside the entire conservative footprint removes the false arrival; preserving the complete current pose removes the interrupted arc reset. Scale/depth are not necessary to reproduce either failure.
+- Reference source Rk(pawn): timed crouch/air/landing/settle, volume compensation, arms delayed25ms and separate cap motion. White knight yj: bound legs, ear flicks at landing, mane segments lag12ms each. Dark knight rM: alternating trot parity plus head/cap/pom/quiver/mane follow-through. These are motion structures, not a shared sinusoid with changed amplitudes.
+- New authored visitorStride/contact/travel functions share a motor phase: rabbit translation is predominantly airborne and both hind feet land together; owl alternates talons and opens wings for balance; mushroom compresses with short steps and a delayed cap. Source Puppet continues to blend reactions and solve lean/actual-position acceleration with120Hz attachment substeps.
+- Source pawn rest randomly hides its original tuft/plaster. New original sprout/capPatch use their own part names and cap parent, avoiding unintended inherited hidden flags. First enlarged artwork review exposed this; corrected before delivery.
+
 ## 2026-10-04 color-depth correction
 - Current screenshot shows foliage, furniture, ground and rabbit all diluted toward the same paper value. Authored palette and many literal pigments are pale; wax defaults use 25% base plus ~29–67% hatching opacity. Read source ramps/actual reference atlas pixels before choosing stronger material tones.
 - User authorizes removing attic if it lacks useful scene design/interactions. Remove the active scene and its navigation, with recovery available in baseline/courtyard-life.

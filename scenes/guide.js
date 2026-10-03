@@ -7,7 +7,7 @@ import {
 import { smooth } from "../primitives/motion.js";
 export { GuideMotion } from "./guide-motion.js";
 import { handwriting } from "../primitives/handwriting.js";
-import { visitorArt } from "./visitor-art.js";
+import { visitorArt, fieldBag } from "./visitor-art.js";
 import { armArtworkRotation } from "./guide-render-pose.js";
 
 const moss = "#6b8c4c",
@@ -137,27 +137,118 @@ const cap = new InkSprite(
       ],
       { color: "#edc4ab", width: 0.8 },
     );
-    p.shape(
-      [
-        [-2, -35],
-        [3, -48],
-        [12, -53],
-        [14, -44],
-        [5, -35],
-      ],
-      "#a6b590",
-      { seed: 825, width: 0.65 },
-    );
+    // Curved gills belong to the underside; a separate sprout follows the cap.
+    for (let i = 0; i < 14; i++) {
+      const x = -32 + i * 5;
+      p.line(
+        [
+          [x, 4 + Math.abs(x) * 0.015],
+          [x * 0.78, 8],
+          [x * 0.58, 11],
+        ],
+        { color: "#b77456", width: 0.48 },
+      );
+    }
     p.line(
       [
-        [3, -37],
-        [8, -48],
+        [-35, 0],
+        [-19, 1],
+        [0, 5],
+        [18, 3],
+        [33, 1],
       ],
-      { color: mossShade, width: 0.7 },
+      { color: "#eed1b0", width: 0.65 },
     );
   },
   { pivot: [66, 62], seed: 821 },
 );
+const sprout = new InkSprite(
+  42,
+  45,
+  (p) => {
+    p.line(
+      [
+        [0, 4],
+        [2, -6],
+        [6, -16],
+      ],
+      { color: mossShade, width: 0.9 },
+    );
+    p.shape(
+      [
+        [2, -7],
+        [3, -17],
+        [13, -23],
+        [17, -17],
+        [10, -8],
+      ],
+      "#8b9b52",
+      { seed: 826, width: 0.65, base: 0.35 },
+    );
+    p.shape(
+      [
+        [1, -6],
+        [-9, -11],
+        [-12, -19],
+        [-5, -21],
+        [1, -14],
+      ],
+      "#a3af64",
+      { seed: 827, width: 0.6, base: 0.3 },
+    );
+    p.line(
+      [
+        [3, -8],
+        [11, -18],
+      ],
+      { color: "#d2cf91", width: 0.6 },
+    );
+    p.line(
+      [
+        [0, -9],
+        [-8, -17],
+      ],
+      { color: mossShade, width: 0.5 },
+    );
+  },
+  { pivot: [18, 32], seed: 825 },
+);
+const patch = new InkSprite(
+  32,
+  25,
+  (p) => {
+    p.shape(
+      [
+        [-10, -4],
+        [9, -6],
+        [11, 3],
+        [-8, 5],
+      ],
+      "#e1bd82",
+      { seed: 828, width: 0.5, base: 0.44 },
+    );
+    p.line(
+      [
+        [-6, -1],
+        [-3, 1],
+        [2, 0],
+        [7, -2],
+      ],
+      { color: "#b38861", width: 0.45 },
+    );
+    for (const x of [-6, 6])
+      p.line(
+        [
+          [x, -3],
+          [x + 1, 3],
+        ],
+        { color: "#9c704e", width: 0.65 },
+      );
+    for (const x of [-2, 2]) p.dot(x, 0, 0.4, "#b78a61");
+  },
+  { pivot: [16, 12], seed: 828 },
+);
+const guideBag = fieldBag(836, "#b18a47");
 const foot = new InkSprite(
   36,
   22,
@@ -546,7 +637,38 @@ function faceSprite(part, state, character = "mushroom") {
           "#bd9482",
           { width: 0.5, base: 0.65, seed: 915 },
         );
-      else
+      else if (
+        character === "rabbit" &&
+        ["smile", "smirk", "flat"].includes(state)
+      ) {
+        p.line(
+          [
+            [-4, -1],
+            [-1, 1],
+            [0, 0],
+            [2, 1],
+            [5, -1],
+          ],
+          { color: "#9a765c", width: 0.7 },
+        );
+        p.shape(
+          [
+            [-2, 1],
+            [2, 1],
+            [2, 5],
+            [-2, 5],
+          ],
+          "#f0dfb8",
+          { seed: 916, width: 0.4, base: 0.55 },
+        );
+        p.line(
+          [
+            [0, 2],
+            [0, 5],
+          ],
+          { color: "#b79e7f", width: 0.35 },
+        );
+      } else
         p.line(
           [
             [-4, 0],
@@ -575,6 +697,9 @@ function drawRigGuide(
     armR: hand,
     footL: foot,
     footR: foot,
+    sprout,
+    capPatch: patch,
+    pouch: guideBag,
   };
   const transported = carry >= 0,
     lift = transported
@@ -591,7 +716,6 @@ function drawRigGuide(
   c.translate(0, -lift - hop - Number(seated) * 9);
   c.scale(1 + squash * 0.3, 1 - squash * 0.55);
   for (const i of puppet.instances()) {
-    if (["tuft", "plaster"].includes(i.part)) continue;
     c.save();
     c.translate(i.t[0] * 160, -i.t[1] * 160);
     const [a, b, cc, d] = i.m;

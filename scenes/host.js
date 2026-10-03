@@ -129,7 +129,14 @@ export class SceneHost {
   resize() {
     this.mobile = innerWidth < 600;
     this.w = this.mobile ? 650 : 1120;
-    this.h = this.mobile ? 1080 : 820;
+    this.h =
+      this.name === "gallery"
+        ? this.mobile
+          ? 1200
+          : 940
+        : this.mobile
+          ? 1080
+          : 820;
     const available = innerWidth - (this.mobile ? 18 : 24),
       max = this.mobile
         ? available

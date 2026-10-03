@@ -1,5 +1,6 @@
 import { smooth } from "../primitives/motion.js";
 import { benchPath, insideBench } from "./bench-path.js";
+import { visitorTravelRate, visitorContacts } from "./visitor-locomotion.js";
 export class GalleryWalk {
   constructor(x = 560, y = 676) {
     this.x = x;
@@ -16,6 +17,8 @@ export class GalleryWalk {
     this.vx = 0;
     this.vy = 0;
     this.stride = 23;
+    this.character = "mushroom";
+    this.phase = 0;
     this.route = [];
     this.seatAmount = 0;
     this.seatAge = 0;
@@ -30,6 +33,7 @@ export class GalleryWalk {
     ) {
       this.queuedWalk = { x, y, art, sit };
       if (this.mode !== "dismounting") {
+        this.seatStart = this.drawingPose;
         this.seatFrom = this.seatAmount;
         this.seatAge = 0;
         this.mode = "dismounting";
@@ -40,9 +44,11 @@ export class GalleryWalk {
       ({ x, y } = this.bench.approach);
       sit = true;
     }
-    this.route = this.bench
+    const route = this.bench
       ? benchPath({ x: this.x, y: this.y }, { x, y }, this.bench.obstacle)
       : [{ x, y }];
+    if (!route.length) return false;
+    this.route = route;
     this.target = this.route.shift();
     this.pending = art;
     this.selected = -1;
@@ -53,7 +59,8 @@ export class GalleryWalk {
   update(dt, reduced = false) {
     if (this.mode === "mounting" || this.mode === "dismounting") {
       this.seatAge += dt;
-      const u = Math.min(1, this.seatAge / (reduced ? 0.14 : 0.74));
+      this.seatDuration = reduced ? 0.14 : 0.74;
+      const u = Math.min(1, this.seatAge / this.seatDuration);
       this.seatAmount =
         this.mode === "mounting" ? smooth(u) : this.seatFrom * (1 - smooth(u));
       this.speed = 0;
@@ -84,7 +91,13 @@ export class GalleryWalk {
       d = Math.hypot(dx, dy);
     const desired = Math.min(156, Math.sqrt(d * 550));
     this.speed += (desired - this.speed) * (1 - Math.exp(-dt * 10));
-    const step = reduced ? d : Math.min(d, this.speed * dt);
+    const phaseBefore = this.phase;
+    this.phase += ((this.speed * dt) / this.stride) * Math.PI;
+    const travelRate = visitorTravelRate(
+      this.character,
+      (phaseBefore + this.phase) / 2,
+    );
+    const step = reduced ? d : Math.min(d, this.speed * dt * travelRate);
     if (d) {
       this.x += (dx / d) * step;
       this.y += (dy / d) * step;
@@ -92,18 +105,20 @@ export class GalleryWalk {
       this.vx = (dx / d) * this.speed;
       this.vy = (dy / d) * this.speed;
     }
-    const before = Math.floor(this.distance / this.stride);
     this.distance += step;
-    const after = Math.floor(this.distance / this.stride),
-      events = [];
-    for (let n = before; n < after; n++) {
+    const events = [];
+    for (const contact of visitorContacts(
+      this.character,
+      phaseBefore,
+      this.phase,
+    )) {
       this.steps++;
       if (!reduced)
         events.push({
           name: "footstep",
           x: this.x,
           y: this.y,
-          side: n % 2 ? 1 : -1,
+          ...contact,
         });
     }
     if (d - step < 0.7) {
@@ -123,8 +138,10 @@ export class GalleryWalk {
         this.look = 0;
         events.push({ name: "arrive", art: this.selected });
       } else {
+        this.seatStart = { x: this.x, y: this.y, seated: 0, hop: 0, squash: 0 };
         this.mode = this.sit ? (this.bench ? "mounting" : "sitting") : "idle";
         this.seatAge = 0;
+        this.seatDuration = reduced ? 0.14 : 0.74;
         this.seatAmount = this.sit && !this.bench ? 1 : 0;
       }
     }
@@ -147,18 +164,22 @@ export class GalleryWalk {
       !["mounting", "sitting", "dismounting"].includes(this.mode)
     )
       return { x: this.x, y: this.y, seated: 0, hop: 0, squash: 0 };
-    const a = this.bench.approach,
-      b = this.bench.perch;
-    const arc =
-      this.mode === "sitting"
-        ? 0
-        : Math.sin(Math.PI * Math.min(1, this.seatAge / 0.74));
+    if (this.mode === "sitting")
+      return { ...this.bench.perch, seated: 1, hop: 0, squash: 0 };
+    const a = this.seatStart,
+      b = this.mode === "mounting" ? this.bench.perch : this.bench.approach;
+    const u = Math.min(1, this.seatAge / this.seatDuration),
+      t = smooth(u);
+    // Preserve the entire interrupted drawing, including its airborne offset.
+    // The squared arc has zero endpoint velocity, avoiding a second takeoff kick.
+    const arc = Math.sin(Math.PI * u) ** 2;
+    const height = this.mode === "mounting" ? 29 : 18 * this.seatFrom;
     return {
-      x: a.x + (b.x - a.x) * q,
-      y: a.y + (b.y - a.y) * q,
+      x: a.x + (b.x - a.x) * t,
+      y: a.y + (b.y - a.y) * t,
       seated: q,
-      hop: arc * 29,
-      squash: arc * 0.12,
+      hop: a.hop * (1 - t) + arc * height,
+      squash: a.squash * (1 - t) + arc * 0.09,
     };
   }
 }

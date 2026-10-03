@@ -138,7 +138,8 @@ const benchWorld = (x, y, d = 0) => {
     b = courtyardProps.bench;
   return { x: b.x + p[0] * b.scale, y: b.y + p[1] * b.scale };
 };
-export const gardenBench = benchWorld(-24, 69, 36);
+// Clear the entire projected footprint, including the near right-hand leg.
+export const gardenBench = benchWorld(-24, 69, 72);
 const footprint = courtyardProps.bench.footprint.map(([x, y]) => ({
   x: courtyardProps.bench.x + x * courtyardProps.bench.scale,
   y: courtyardProps.bench.y + y * courtyardProps.bench.scale,

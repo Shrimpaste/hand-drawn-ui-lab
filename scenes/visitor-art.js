@@ -10,6 +10,186 @@ const sage = M.owlBody,
   honey = M.owlBelly;
 const sprite = (w, h, pivot, seed, draw) =>
   new InkSprite(w, h, draw, { pivot, seed });
+
+export function fieldBag(seed, color = "#b78643", notebook = false) {
+  return sprite(45, 43, [22, 20], seed, (p) => {
+    p.shape(
+      [
+        [-11, -9],
+        [-9, -15],
+        [11, -14],
+        [14, -8],
+        [12, 12],
+        [3, 16],
+        [-11, 11],
+      ],
+      color,
+      { seed, width: 0.7, base: 0.34 },
+    );
+    p.shape(
+      [
+        [-11, -9],
+        [13, -8],
+        [10, 1],
+        [-2, 4],
+        [-10, 1],
+      ],
+      notebook ? cream : "#d3b17e",
+      { seed: seed + 1, width: 0.5, base: 0.28 },
+    );
+    p.line(
+      [
+        [-8, 7],
+        [-3, 10],
+        [8, 8],
+      ],
+      { color: "#ead1a8", width: 0.55 },
+    );
+    for (const s of [-1, 1])
+      for (let i = 0; i < 4; i++)
+        p.line(
+          [
+            [s * 10, 3 + i * 2],
+            [s * 9, 4 + i * 2],
+          ],
+          { color: "#846947", width: 0.4 },
+        );
+    if (notebook) {
+      p.shape(
+        [
+          [-6, -11],
+          [4, -10],
+          [4, 4],
+          [-5, 5],
+        ],
+        "#eee0b9",
+        { seed: seed + 2, width: 0.35, base: 0.48 },
+      );
+      for (let y = -6; y <= 1; y += 3)
+        p.line(
+          [
+            [-3, y],
+            [2, y - 0.4],
+          ],
+          { color: "#648478", width: 0.45 },
+        );
+      p.line(
+        [
+          [7, -14],
+          [9, -18],
+        ],
+        { color: M.owlScarf, width: 1.6 },
+      );
+    } else {
+      p.oval(1, 3, 2.5, 3.5, "#aa7a42", { seed: seed + 2, width: 0.4 });
+      p.dot(1, 3, 0.75, cream);
+      p.line(
+        [
+          [-6, -5],
+          [0, -7],
+          [7, -5],
+        ],
+        { color: "#8e764f", width: 0.5 },
+      );
+    }
+  });
+}
+
+const rabbitTail = sprite(40, 39, [20, 20], 896, (p) => {
+  p.shape(
+    [
+      [-9, -7],
+      [-4, -12],
+      [2, -11],
+      [6, -14],
+      [11, -9],
+      [10, -3],
+      [14, 1],
+      [10, 8],
+      [4, 9],
+      [0, 12],
+      [-7, 8],
+      [-12, 4],
+      [-11, -2],
+    ],
+    cream,
+    { seed: 896, width: 0.65, base: 0.38 },
+  );
+  p.line(
+    [
+      [-7, -5],
+      [-2, -7],
+      [1, -4],
+      [5, -6],
+    ],
+    { color: "#f0dfb8", width: 0.8 },
+  );
+  p.line(
+    [
+      [-6, 6],
+      [-1, 8],
+      [5, 5],
+    ],
+    { color: "#c2a379", width: 0.55 },
+  );
+});
+const rabbitNose = sprite(23, 19, [11, 9], 897, (p) => {
+  p.shape(
+    [
+      [-4, -3],
+      [4, -3],
+      [2, 0],
+      [0, 2],
+      [-2, 0],
+    ],
+    pink,
+    { seed: 897, width: 0.45, base: 0.58 },
+  );
+  p.line(
+    [
+      [-2, -2],
+      [1, -2],
+    ],
+    { color: "#e5b2a0", width: 0.6 },
+  );
+  p.line(
+    [
+      [0, 2],
+      [0, 5],
+    ],
+    { color: "#a7755e", width: 0.5 },
+  );
+});
+const owlTail = sprite(52, 44, [26, 15], 898, (p) => {
+  for (let i = 0; i < 3; i++) {
+    const x = (i - 1) * 7;
+    p.shape(
+      [
+        [x - 5, -7],
+        [x + 4, -8],
+        [x + 10, 14 - i * 2],
+        [x + 6, 22 - i * 2],
+        [x + 1, 19 - i * 2],
+      ],
+      feather,
+      { seed: 898 + i, width: 0.55, base: 0.34 },
+    );
+    p.line(
+      [
+        [x, 3],
+        [x + 4, 13],
+      ],
+      { color: "#a7b9a6", width: 0.7 },
+    );
+    p.line(
+      [
+        [x, 9],
+        [x + 8, 7],
+      ],
+      { color: M.owlBody, width: 1.3 },
+    );
+  }
+});
 function scarf(color, seed) {
   return sprite(62, 47, [9, 11], seed, (p) => {
     p.shape(
@@ -79,21 +259,44 @@ const rabbitBody = sprite(114, 137, [57, 114], 851, (p) => {
   );
   p.oval(-9, -54, 11, 8, M.rabbitCream, { seed: 854, width: 0.3 });
   p.oval(9, -54, 11, 8, M.rabbitCream, { seed: 855, width: 0.3 });
-  p.shape(
+  // Nose is a separate sniffing part; muzzle and whiskers stay on the face.
+  p.line(
     [
-      [-3.5, -59],
-      [3.5, -59],
-      [0, -55],
+      [-9, -87],
+      [-5, -90],
+      [-1, -88],
+      [4, -91],
+      [10, -87],
     ],
-    pink,
-    { seed: 856, width: 0.45, base: 0.55 },
+    { color: "#f1d9ad", width: 1 },
   );
   p.line(
     [
-      [0, -55],
-      [0, -52],
+      [-25, -71],
+      [-24, -77],
+      [-20, -80],
     ],
-    { color: "#ac8d7d", width: 0.6 },
+    { color: "#e9c898", width: 0.75 },
+  );
+  for (const side of [-1, 1])
+    for (let i = 0; i < 3; i++)
+      p.dot(side * (12 + i * 3), -55 + (i % 2) * 3, 0.5, "#ac8769");
+  p.line(
+    [
+      [-14, -36],
+      [-5, -30],
+      [7, -22],
+      [21, -17],
+    ],
+    { color: "#9f804f", width: 1.3 },
+  );
+  p.line(
+    [
+      [-13, -37],
+      [-3, -30],
+      [20, -18],
+    ],
+    { color: "#d8b786", width: 0.7 },
   );
   for (const s of [-1, 1]) {
     p.line(
@@ -129,6 +332,15 @@ const rabbitBody = sprite(114, 137, [57, 114], 851, (p) => {
     { color: M.rabbitScarf, width: 4 },
   );
   p.oval(18, -39, 3, 3, "#a5b9b5", { seed: 857, width: 0.4 });
+  p.dot(18, -40, 0.8, "#e6d8ab");
+  for (let i = 0; i < 5; i++)
+    p.line(
+      [
+        [-13 + i * 6, -33 + Math.sin(i) * 2],
+        [-12 + i * 6, -31 + Math.sin(i) * 2],
+      ],
+      { color: "#aac0cd", width: 0.5 },
+    );
   p.line(
     [
       [-19, -15],
@@ -225,8 +437,21 @@ const rabbitPaw = sprite(35, 37, [17, 7], 867, (p) => {
     { color: "#b1a08c", width: 0.5 },
   );
 });
-const rabbitFoot = sprite(39, 23, [20, 15], 870, (p) => {
-  p.oval(0, -2, 12, 7, cream, { seed: 871, width: 0.6, base: 0.4 });
+const rabbitFoot = sprite(45, 27, [23, 17], 870, (p) => {
+  p.shape(
+    [
+      [-13, -5],
+      [-7, -10],
+      [3, -9],
+      [14, -5],
+      [17, 1],
+      [12, 5],
+      [-5, 5],
+      [-14, 2],
+    ],
+    cream,
+    { seed: 871, width: 0.65, base: 0.4 },
+  );
   p.oval(6, -1, 4.5, 2.4, pink, { seed: 872, width: 0.3, base: 0.25 });
   p.line(
     [
@@ -309,6 +534,16 @@ const owlBody = sprite(124, 129, [62, 110], 881, (p) => {
       );
     }
   for (const s of [-1, 1]) {
+    for (let i = 0; i < 7; i++) {
+      const y = -69 + i * 4;
+      p.line(
+        [
+          [s * (24 + Math.sin(i * 0.6) * 2), y],
+          [s * (22 + Math.sin(i * 0.6) * 2), y + 2],
+        ],
+        { color: "#bbad87", width: 0.45 },
+      );
+    }
     p.line(
       [
         [s * 24, -68],
@@ -336,6 +571,42 @@ const owlBody = sprite(124, 129, [62, 110], 881, (p) => {
     { color: M.owlScarf, width: 2.8 },
   );
   p.oval(17, -28, 3.3, 2.7, "#cca18a", { seed: 885, width: 0.4 });
+  p.line(
+    [
+      [-15, -26],
+      [-22, -22],
+      [-30, -19],
+    ],
+    { color: "#987948", width: 1.1 },
+  );
+  p.line(
+    [
+      [-14, -24],
+      [-23, -19],
+    ],
+    { color: "#e2c59b", width: 0.5 },
+  );
+  for (let row = 0; row < 2; row++)
+    for (let i = 0; i < 4; i++) {
+      const x = -13 + i * 8 + row * 3,
+        y = -20 + row * 7;
+      p.line(
+        [
+          [x - 2, y],
+          [x, y + 2],
+          [x + 2, y],
+        ],
+        { color: "#8e895e", width: 0.5 },
+      );
+    }
+  p.line(
+    [
+      [-8, -84],
+      [0, -78],
+      [9, -84],
+    ],
+    { color: "#7aa093", width: 0.9 },
+  );
 });
 const owlWing = sprite(48, 49, [24, 7], 886, (p) => {
   p.shape(
@@ -361,6 +632,19 @@ const owlWing = sprite(48, 49, [24, 7], 886, (p) => {
       ],
       { color: "#b5bca8", width: 0.65 },
     );
+  for (let row = 0; row < 2; row++)
+    for (let i = 0; i < 3; i++) {
+      const x = -8 + i * 5 + row,
+        y = 5 + row * 6;
+      p.line(
+        [
+          [x - 2, y],
+          [x, y + 3],
+          [x + 2, y + 1],
+        ],
+        { color: row ? "#8eab9b" : "#47767a", width: 0.8 },
+      );
+    }
   p.line(
     [
       [-10, 8],
@@ -440,6 +724,9 @@ export const visitorArt = {
     earL: rabbitEar(-1),
     earR: rabbitEar(1),
     scarf: scarf(M.rabbitScarf, 874),
+    tail: rabbitTail,
+    nose: rabbitNose,
+    pouch: fieldBag(902),
   },
   owl: {
     body: owlBody,
@@ -450,5 +737,7 @@ export const visitorArt = {
     earL: owlTuft(-1),
     earR: owlTuft(1),
     scarf: scarf(M.owlScarf, 895),
+    tail: owlTail,
+    pouch: fieldBag(907, "#6a8978", true),
   },
 };

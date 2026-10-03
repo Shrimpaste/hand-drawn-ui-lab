@@ -2,6 +2,18 @@
 
 Goal: Inspect Ballpoint Gambit's public client UI and build a locally runnable minimal reproduction of its drawing and fluid interaction, without chess rules.
 
+## Bench continuity and species-specific visitors — 2026-10-04
+39. Reproduce bench teleportation at rendered-position boundaries, test ranked causes and lock down interrupted seating — complete (blocked approach and lost airborne offset; regressions fail before fix).
+40. Study reference pawn/knight travel channels; author differentiated rabbit hops, owl waddles and soft mushroom steps with attachment follow-through — complete (shared ground/pose phase and anatomical gestures).
+41. Enrich original visitor anatomy, small props and expressions; separate gallery header/captions from scenery — complete (independent original anatomy/props; title-to-caption spacing125 desktop/194 narrow world units).
+42. Verify actual desktop/narrow repeated seating, species motion, sleep/interruptions and text layout, then commit a local baseline — complete (48 tests;43 browser checks passed and1 superseded observer expectation;final mount/step-down boundaries below1 scene unit).
+
+## Reusable art direction, documentation and remote — 2026-10-04
+43. Audit historical human feedback, source facts and obsolete documentation — in progress.
+44. Consolidate art direction and implementation methods for arbitrary scenes and SaaS; remove superseded notes/evidence from HEAD — pending.
+45. Verify links, current source/API descriptions, provenance and repository contents; commit documentation — pending.
+46. Create a new private GitHub remote, push history/baselines and verify remote state — pending.
+
 ## Phases
 1. Inspect public page, client assets and motion behavior — complete.
 2. Extract a small drawing/motion API and implement a local playground — complete.

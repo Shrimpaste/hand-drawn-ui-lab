@@ -3,6 +3,68 @@ import assert from "node:assert/strict";
 import { GuideMotion } from "../scenes/guide-motion.js";
 import { visitorRig } from "../scenes/guide-rig.js";
 import { armArtworkRotation } from "../scenes/guide-render-pose.js";
+import { GalleryWalk } from "../scenes/gallery-model.js";
+
+test("rabbit travels during paired airborne steps while owl alternates its talons", () => {
+  const actors = [new GuideMotion(192, "rabbit"), new GuideMotion(193, "owl")];
+  const walking = actors.map((a) => {
+    const g = new GalleryWalk(300, 600);
+    g.character = a.character;
+    g.stride = a.profile.stride;
+    g.walkTo(1800, 600);
+    return g;
+  });
+  const evidence = actors.map(() => ({
+    pairDifference: 0,
+    maxLift: 0,
+    air: [],
+    ground: [],
+  }));
+  for (let i = 0; i < 420; i++)
+    actors.forEach((actor, n) => {
+      const g = walking[n],
+        x = g.x;
+      g.update(1 / 120);
+      actor.update(1 / 120, {
+        speed: g.speed,
+        walkPhase: g.phase,
+        groundX: g.x,
+        active: true,
+        look: 1,
+      });
+      const feet = actor.puppet
+        .instances()
+        .filter((p) => p.part.startsWith("foot"));
+      evidence[n].pairDifference = Math.max(
+        evidence[n].pairDifference,
+        Math.abs(feet[0].t[1] - feet[1].t[1]),
+      );
+      evidence[n].maxLift = Math.max(
+        evidence[n].maxLift,
+        actor.puppet.out.lift,
+      );
+      if (i > 100 && n === 0) {
+        const t = (g.phase / (Math.PI * 2)) % 1;
+        if (t > 0.35 && t < 0.65) evidence[n].air.push((g.x - x) * 120);
+        if (t < 0.16 || t > 0.85) evidence[n].ground.push((g.x - x) * 120);
+      }
+      finiteRig(actor);
+    });
+  const avg = (a) => a.reduce((s, v) => s + v, 0) / a.length;
+  assert.ok(
+    evidence[0].pairDifference < 0.001,
+    "rabbit's hind feet must land as a pair",
+  );
+  assert.ok(
+    evidence[1].pairDifference > 0.018,
+    "owl must transfer weight between talons",
+  );
+  assert.ok(evidence[0].maxLift > evidence[1].maxLift * 3);
+  assert.ok(
+    avg(evidence[0].air) > avg(evidence[0].ground) * 4,
+    "rabbit must translate mainly in flight rather than sliding during crouch",
+  );
+});
 
 test("sleeping visitor arms remain continuous across authored drawing-state switches", () => {
   for (const character of ["mushroom", "rabbit", "owl"]) {

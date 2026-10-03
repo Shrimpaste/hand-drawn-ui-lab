@@ -43,6 +43,7 @@ let rig = new GuideMotion(127, character),
 const visitorRedraw = new VisitorRedraw();
 g.configureBench(benchGeometry);
 g.stride = rig.profile.stride;
+g.character = character;
 const portraits = Object.keys(visitorProfiles).map(
   (id, i) => new GuideMotion(240 + i, id),
 );
@@ -167,6 +168,7 @@ function changeVisitor(id) {
   if (state !== "awake") rig.react(state);
   g.distance = (g.distance / g.stride) * rig.profile.stride;
   g.stride = rig.profile.stride;
+  g.character = id;
   character = id;
   localStorage.setItem("gallery-visitor", id);
   guide.el.setAttribute(
@@ -225,7 +227,8 @@ const right = s.button("gallery-right", "向右走", () => go(g.x + 90, g.y));
 back.el.hidden = inspect.el.hidden = true;
 
 s.layout = () => {
-  projection = s.mobile ? { x: 5, y: 250, k: 0.57 } : { x: 0, y: 0, k: 1 };
+  // Header/caption has its own paper band, above the highest cloud and roof.
+  projection = s.mobile ? { x: 5, y: 370, k: 0.57 } : { x: 0, y: 108, k: 1 };
   places = stations.map((a) => ({
     ...screen(a),
     scale: a.scale * projection.k,
@@ -273,7 +276,7 @@ s.layout = () => {
     s.place(
       entry.button,
       s.mobile ? 208 + i * 86 : 144 + i * 75,
-      s.mobile ? 221 : 187,
+      s.mobile ? 245 : 204,
       64,
       70,
     ),
@@ -286,7 +289,7 @@ s.layout = () => {
     s.mobile ? 440 : 448,
     s.mobile ? 465 : 476,
   );
-  const y = s.mobile ? 920 : 779;
+  const y = s.mobile ? 1040 : 887;
   s.place(left, 65, y, 43, 43);
   s.place(right, 112, y, 43, 43);
   s.place(nap, s.mobile ? 205 : 740, y, 76, 64);
@@ -367,7 +370,8 @@ s.update = (dt) => {
     }
     if (e.name === "footstep") {
       s.audio.play("step", { strength: 0.28, pan: (g.x - 560) / 1120 });
-      footprints.push({ x: e.x + e.side * 7, y: e.y + 2, life: 0.6 });
+      for (const side of e.pair ? [-1, 1] : [e.side])
+        footprints.push({ x: e.x + side * 7, y: e.y + 2, life: 0.6 });
     }
     if (e.name === "arrive") {
       ready = 0.25;
@@ -411,6 +415,8 @@ s.update = (dt) => {
     pointer && Math.hypot(pointer.x - g.x, pointer.y - g.y + 45) < 65;
   rig.update(dt, {
     speed: s.openingDone ? g.speed : 0,
+    walkPhase: g.phase,
+    groundX: g.drawingPose.x,
     look:
       g.mode === "walking"
         ? g.look
@@ -433,6 +439,8 @@ s.update = (dt) => {
   if (oldRig)
     oldRig.update(dt, {
       speed: g.speed,
+      walkPhase: g.phase,
+      groundX: g.drawingPose.x,
       look: g.look,
       active: true,
       reduced: s.reduced,
@@ -647,7 +655,7 @@ s.draw = (c) => {
     v = Math.max(0, Math.min(1, view.value));
   c.save();
   c.globalAlpha = 1 - v * 0.97;
-  handwriting(c, "the courtyard gallery", s.w / 2, s.mobile ? 136 : 99, {
+  handwriting(c, "the courtyard gallery", s.w / 2, s.mobile ? 136 : 104, {
     size: s.mobile ? 34 : 38,
     align: "center",
     color: C.red,
@@ -655,7 +663,7 @@ s.draw = (c) => {
   });
   drawWorld(c, t);
   if (currentHint >= 0)
-    handwriting(c, titles[currentHint], s.w / 2, s.mobile ? 284 : 146, {
+    handwriting(c, titles[currentHint], s.w / 2, s.mobile ? 330 : 229, {
       size: 19,
       align: "center",
       color: C.teal,
@@ -682,7 +690,7 @@ s.draw = (c) => {
       c,
       "be the " + entry.id,
       s.mobile ? 325 : 220,
-      s.mobile ? 174 : 138,
+      s.mobile ? 303 : 260,
       { size: 17, align: "center", color: C.teal, progress: b.ink.progress },
     );
   }
@@ -690,7 +698,7 @@ s.draw = (c) => {
     c,
     "walk over to a picture",
     s.mobile ? s.w / 2 : 362,
-    s.mobile ? 866 : 774,
+    s.mobile ? 986 : 882,
     {
       size: s.mobile ? 23 : 20,
       align: "center",
@@ -724,7 +732,7 @@ s.draw = (c) => {
     });
   }
   if (s.mobile)
-    handwriting(c, "1 - 3 : visit / arrows : walk", s.w / 2, 981, {
+    handwriting(c, "1 - 3 : visit / arrows : walk", s.w / 2, 1101, {
       size: 20,
       align: "center",
       color: C.soft,
@@ -777,6 +785,13 @@ s.draw = (c) => {
 s.debug = () => ({
   demo: "courtyard-gallery",
   character,
+  layout: {
+    projection,
+    titleY: s.mobile ? 136 : 104,
+    exhibitTitleY: s.mobile ? 330 : 229,
+    width: s.w,
+    height: s.h,
+  },
   mode: g.mode,
   guide: {
     x: g.x,
@@ -785,6 +800,7 @@ s.debug = () => ({
     target: { ...g.target },
     steps: g.steps,
     state: rig.state,
+    locomotion: { phase: g.phase, gait: rig.gait.value },
     seat: { amount: g.seatAmount, ...g.drawingPose },
     pose: { ...rig.puppet.out },
     springs: { ...rig.puppet.springs.s },

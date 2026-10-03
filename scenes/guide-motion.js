@@ -1,6 +1,8 @@
 import { Puppet, pawnAnimator } from "../src/vendor/reference-motion.js";
 import { visitorRig, visitorProfiles } from "./guide-rig.js";
 import { Spring } from "../primitives/motion.js";
+import { visitorStride } from "./visitor-locomotion.js";
+import { visitorReaction } from "./visitor-reactions.js";
 
 /** New art/anchors, actual reference layered solver. No reference sprite textures. */
 export class GuideMotion {
@@ -39,35 +41,34 @@ export class GuideMotion {
         duration: Infinity,
         idle: { breath: true, blink: true, look: true, ears: true },
         sample: () => {
-          const a = this.reduced ? 0 : this.gait.value,
-            q = this.phase,
-            s = Math.sin(q),
-            lift = this.profile.lift * a * (1 - Math.cos(q * 2));
-          const sy = 1 + this.profile.squash * a * Math.cos(q * 2);
+          const stride = visitorStride(
+            this.character,
+            this.phase,
+            this.reduced ? 0 : this.gait.value,
+            this.direction,
+            this.seated,
+          );
           const gesture = this.gesture || {};
-          return {
-            lift: lift + (gesture.lift || 0),
-            sx: (1 / sy) * (gesture.sx || 1),
-            sy: sy * (gesture.sy || 1),
-            lean:
-              this.direction * 0.035 * a + 0.018 * a * s + (gesture.lean || 0),
-            arm: {
-              L: { deg: 18 + this.profile.swing * a * s },
-              R: { deg: 18 - this.profile.swing * a * s },
-            },
-            foot: {
-              L: {
-                dx: -s * 0.04 * a,
-                dy: Math.max(0, -s) * 0.035 * a - this.seated * 0.065,
-                rot: -s * 0.065 * a - this.seated * 0.22,
-              },
-              R: {
-                dx: s * 0.04 * a,
-                dy: Math.max(0, s) * 0.035 * a - this.seated * 0.065,
-                rot: s * 0.065 * a + this.seated * 0.22,
-              },
-            },
-          };
+          stride.lift += gesture.lift || 0;
+          stride.lean += gesture.lean || 0;
+          stride.sx *= gesture.sx || 1;
+          stride.sy *= gesture.sy || 1;
+          // A short nose twitch belongs to the rabbit, not a generic idle wobble.
+          if (this.character === "rabbit") {
+            const sniff =
+              this.state === "awake" && !this.reduced
+                ? Math.sin(this.elapsed * (this.hovering ? 24 : 13)) *
+                  (this.hovering
+                    ? 0.05
+                    : Math.max(0, Math.cos(this.elapsed * 0.8)) ** 10 * 0.035)
+                : 0;
+            stride.props.nose = {
+              sx: 1 + sniff,
+              sy: 1 - sniff,
+              dy: sniff * 0.007,
+            };
+          }
+          return stride;
         },
         eventsIn: () => [],
       },
@@ -104,13 +105,20 @@ export class GuideMotion {
         fade: 0.22,
       });
     if (state === "hello")
-      this.puppet.play(pawnAnimator.victory(this.options()), {
-        layer: "emotion",
-        fade: 0.18,
-        onEnd: () => {
-          if (this.state === "hello") this.state = "awake";
+      this.puppet.play(
+        visitorReaction(
+          this.character,
+          "hello",
+          pawnAnimator.victory(this.options()),
+        ),
+        {
+          layer: "emotion",
+          fade: 0.18,
+          onEnd: () => {
+            if (this.state === "hello") this.state = "awake";
+          },
         },
-      });
+      );
     if (state === "carry")
       this.puppet.play(pawnAnimator.napping(this.options()), {
         layer: "sleep",
@@ -121,6 +129,8 @@ export class GuideMotion {
     dt,
     {
       speed = 0,
+      walkPhase,
+      groundX,
       seated = 0,
       look = 0,
       lookY = 0,
@@ -152,16 +162,28 @@ export class GuideMotion {
     }
     this.gait.target = this.state === "carry" ? 0 : Math.min(1, speed / 130);
     this.gait.update(dt, reduced);
-    this.phase += ((speed * dt) / this.profile.stride) * Math.PI;
-    this.puppet.x += (speed * dt * look) / 160;
+    if (walkPhase !== undefined) this.phase = walkPhase;
+    else this.phase += ((speed * dt) / this.profile.stride) * Math.PI;
+    if (groundX !== undefined) {
+      if (!this.hasGround) this.puppet.relocate(groundX / 160, this.puppet.y);
+      else this.puppet.x = groundX / 160;
+      this.hasGround = true;
+    } else this.puppet.x += (speed * dt * look) / 160;
     this.puppet.lookAt(this.puppet.x + look * 2.5, -lookY * 2.5);
     if (hover !== this.hovering && this.state === "awake") {
       this.hovering = hover;
       if (hover)
-        this.puppet.play(pawnAnimator.hover({ ...this.options(), reduced }), {
-          layer: "hover",
-          fade: 0.25,
-        });
+        this.puppet.play(
+          visitorReaction(
+            this.character,
+            "hover",
+            pawnAnimator.hover({ ...this.options(), reduced }),
+          ),
+          {
+            layer: "hover",
+            fade: 0.25,
+          },
+        );
       else this.puppet.clear("hover", 0.25);
     }
     this.puppet.idleEnabled = !reduced;

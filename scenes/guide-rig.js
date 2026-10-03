@@ -4,8 +4,9 @@ const anchors = {
   groundContact: [0, 0],
   top: [0, 0.52],
   cap: [0, 0.47],
-  tuft: [0.03, 0.72],
-  patch: [-0.04, 0.48],
+  tuft: [0.01, 0.68],
+  patch: [-0.1, 0.59],
+  pouch: [0.19, 0.105],
   shoulderL: [-0.185, 0.255],
   shoulderR: [0.185, 0.255],
   hipL: [-0.081, 0.025],
@@ -168,17 +169,29 @@ part(
   },
 );
 part(
-  "tuft",
+  "sprout",
   "prop",
   "tuft",
   71,
   { idle: {} },
   {
-    spring: { k: 60, damp: 3.4, gain: 1.6, from: "lean", wave: 0.4 },
+    parent: "cap",
+    spring: { k: 60, damp: 3.4, gain: 1.6, from: "lean", wave: 1.1 },
     rotRange: [-0.6, 0.6],
   },
 );
-part("plaster", "prop", "patch", 72, { idle: {} });
+part("capPatch", "prop", "patch", 72, { idle: {} }, { parent: "cap" });
+part(
+  "pouch",
+  "prop",
+  "pouch",
+  61,
+  { idle: {} },
+  {
+    spring: { k: 57, damp: 6, gain: 0.55, from: "lean", wave: 0.5 },
+    rotRange: [-0.15, 0.15],
+  },
+);
 export const guideRig = {
   id: "moss-visitor",
   side: "w",
@@ -214,25 +227,16 @@ export const visitorProfiles = {
   mushroom: {
     label: "蘑菇参观者",
     stride: 23,
-    lift: 0.013,
-    squash: 0.024,
-    swing: 9,
     breath: { amp: 0.012, period: 3.7 },
   },
   rabbit: {
     label: "长耳兔参观者",
-    stride: 26,
-    lift: 0.024,
-    squash: 0.038,
-    swing: 6,
+    stride: 32,
     breath: { amp: 0.011, period: 3.15 },
   },
   owl: {
     label: "小猫头鹰参观者",
     stride: 19,
-    lift: 0.009,
-    squash: 0.016,
-    swing: 15,
     breath: { amp: 0.016, period: 4.4 },
   },
 };
@@ -258,11 +262,49 @@ export function visitorRig(character = "mushroom") {
     earL: [-0.103, rabbit ? 0.52 : 0.47],
     earR: [0.103, rabbit ? 0.535 : 0.47],
     scarf: [0.11, 0.22],
+    tail: [rabbit ? -0.2 : 0.14, rabbit ? 0.09 : 0.07],
+    pouch: [rabbit ? 0.19 : -0.18, rabbit ? 0.12 : 0.14],
+    nose: [0, 0.35],
   });
   delete rig.parts.cap;
-  delete rig.parts.tuft;
-  delete rig.parts.plaster;
-  rig.order = rig.order.filter((p) => !["cap", "tuft", "plaster"].includes(p));
+  delete rig.parts.sprout;
+  delete rig.parts.capPatch;
+  rig.order = rig.order.filter(
+    (p) => !["cap", "sprout", "capPatch"].includes(p),
+  );
+  for (const [name, z] of rabbit
+    ? [
+        ["tail", 19],
+        ["nose", 57.5],
+      ]
+    : [["tail", 19]]) {
+    rig.parts[name] = {
+      role: "prop",
+      anchor: name,
+      z,
+      attach: "body",
+      batch: "billboard",
+      offset: [0, 0],
+      side: 0,
+      default: "idle",
+      hands: 3,
+      phase: 0.27,
+      states: { idle: { frames: [0, 1, 2].map((i) => `${name}.idle.${i}`) } },
+      ...(name === "tail"
+        ? {
+            spring: {
+              k: rabbit ? 48 : 68,
+              damp: 5,
+              gain: 0.9,
+              from: "lean",
+              wave: 0.7,
+            },
+            rotRange: [-0.25, 0.25],
+          }
+        : {}),
+    };
+    rig.order.push(name);
+  }
   for (const [side, z] of [
     ["L", 43],
     ["R", 44],

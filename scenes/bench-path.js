@@ -59,5 +59,6 @@ export function benchPath(start, end, b) {
     route.unshift(nodes[at]);
     at = from[at];
   }
-  return at === 0 ? route : [start];
+  // An unreachable destination must never masquerade as an arrived waypoint.
+  return at === 0 ? route : [];
 }
