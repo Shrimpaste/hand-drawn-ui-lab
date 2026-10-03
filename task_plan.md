@@ -13,9 +13,9 @@ Goal: Inspect Ballpoint Gambit's public client UI and build a locally runnable m
 8. Initialize local Git, verify and tag the reference baseline — complete (`19cf5a1`, `baseline/ballpoint-lab`).
 9. Audit every authored module and map reference/general/scene coupling — complete.
 10. Build original Gallery, Living Notebook and material Motion Studies, allowing scene-specific code — complete.
-11. Extract only tools exercised by the demos; improve reference micro-feedback — complete (awaiting live regression review).
-12. Review actual repeated interaction, desktop/narrow layout, audio and reduced motion — in progress.
-13. Deliver creative notes, primitive guide, demo evaluations and a verified Git checkpoint — pending.
+11. Extract only tools exercised by the demos; improve reference micro-feedback — complete (original move/undo and component collect/undo regression verified).
+12. Review actual repeated interaction, desktop/narrow layout, audio and reduced motion — complete.
+13. Deliver creative notes, primitive guide, demo evaluations and a verified Git checkpoint — complete (`baseline/original-studies`, 25 tests; desktop/narrow screenshots and browser evidence saved).
 
 ## Original web art phase
 The attached brief defines a creator's laboratory, retaining the original specimen and its provenance. New artwork must use locally authored drawing code and no reference sprites. Keep existing reference paths stable; organize new work under `primitives/` and `demos/`, with `/lab.html` as the new entry. Prefer adaptable relationships (anticipation/action/residue/quiet) over universal motion presets. Stage commits must remain reviewable and local.
@@ -38,3 +38,5 @@ The attached brief defines a creator's laboratory, retaining the original specim
 - Accessibility exposed aria-pressed as a checkbox while the DOM role stayed button; used the known #sound selector after checking the latest tree.
 - Turning reduced motion off after a reduced-mode reset restarted the opening unintentionally; added DrawingSequence.setReduced and a regression assertion to preserve completed openings.
 
+
+- README replacement patch rejected delete/add of the same path; preserved old README under reference and rewrote root file once using a literal here-string.

@@ -1,104 +1,69 @@
-# Ballpoint Motion Study
+# UI-lab — hand-drawn web art / interaction art
 
-对 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/) 的本地 UI / 动画拆解实验。保留原站公开客户端里的角色、笔触、纸张、手写字与动作时间线，替换为不带棋类规则的自由交互。
+一个用纸、笔迹、运动、反馈和声音创作网页的本地实验室。Ballpoint Gambit 保留为研究样本；三个原创作品用自己绘制的路径检验这些关系能否离开棋盘继续成立。
 
-## 运行
+## 运行与试玩
 
-需要 Node.js。运行时没有第三方依赖。
+需要 Node.js；浏览器运行时没有第三方依赖。
 
 ```powershell
 npm start
 ```
 
-打开 http://127.0.0.1:5184 。端口可以通过 `PORT` 环境变量更改。当前工作区已启动这个地址。
+打开 [原创实验入口](http://127.0.0.1:5184/lab.html)。`PORT` 可以更改端口。
 
-独立组件实验台：http://127.0.0.1:5184/components.html 。展示墨迹绘制 / 擦除、可操作的插画按钮与角色反馈，不依赖棋盘。
+| 作品       | 入口                                                          | 操作                                                                    |
+| ---------- | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 纸上展览   | [Paper Gallery](http://127.0.0.1:5184/demos/gallery.html)     | 悬停写题名，点击拿近；再点击、返回箭头或 Esc 擦说明并归位               |
+| 活页笔记   | [Living Notebook](http://127.0.0.1:5184/demos/notebook.html)  | 新增、改写、打勾/划线、橡皮删除、撤销、拖三点或箭头换序；浏览器本地保存 |
+| 材质小剧场 | [Material Motion](http://127.0.0.1:5184/demos/motion.html)    | 触碰纸/叶/铃/石/灯/小生命，看不同材质回答；灯可以开关                   |
+| 参考还原   | [Ballpoint specimen](http://127.0.0.1:5184/)                  | 原角色与笔迹的自由交互，无棋类规则                                      |
+| 参考组件   | [Reference components](http://127.0.0.1:5184/components.html) | 原图集墨迹、插画按钮、独立角色                                          |
 
-## 交互
+原创作品的按钮支持 Tab / Enter；输入框使用正常文字输入。声音默认开，首次点击/按键后解锁，可静音；轻柔动作尊重系统减少动态效果设置。笔记上限八项，undo 历史保留在当前页面会话，内容在 localStorage 保存。
 
-- 悬停：打招呼、目光跟随。
-- 纸面随鼠标轻微晃动，输入命中随纸面一起变换。
-- 首次加载：边框 → 格线 / 排线 → 坐标与小生命 → 周边涂鸦 / 状态字；点画笔插画可以重播。
-- 选项按钮：插画承载功能，悬停或键盘聚焦时写出提示，移开后按笔顺反向擦除。
-- 点击角色，再点击任意空格：移动、预备、跳跃、落地、帽子等部件的后续摇晃。
-- 拖放：直接移动到空格；放到棋盘外或被占用的格子会回到原位。
-- 庆祝 / 打个盹 / 小把戏：选中时操作单个角色；没有选中时操作全体。
-- 撤销 / 重画：恢复位置或重置场景。
-- 声音：默认开启，首次点击或按键后解锁；可以关闭，开关保存在本地。包含悬停、选择、脚步、落地与轻微纸笔声，是本地合成音效。
-- 轻柔：减小动作幅度；初始值尊重系统减少动态效果设置。
-- 键盘：方向键移动光标，Enter / 空格选中或移动，Esc 取消；C 庆祝，Z 睡觉，G 把戏，U 撤销，N 重画，M 声音。
+## 三层结构
 
-## 已拆出的组件
-
-| 文件 | 用途 |
-| --- | --- |
-| `src/character.js` | 可独立使用的 `Character`、动作适配、连续位移、角色绘制 |
-| `src/atlas.js` | 图集裁剪、部件矩阵绘制、手写字的透明度 / 颜色压力曲线 |
-| `src/ink.js` | 可中断的写入 / 擦除包络、开场分段时间线 |
-| `src/paper-motion.js` | 鼠标跟随缓动与可逆纸面变换 |
-| `src/illustrated-control.js` | 可复用的插画按钮、原图集提示文字、键盘聚焦与禁用状态 |
-| `src/feedback.js` | 原动画事件到多帧尘点 / 特效，以及本地合成音效 |
-| `src/components.js` | 不依赖游戏的三种组件使用示例 |
-| `src/vendor/reference-motion.js` | 从公开部署脚本提取的原作者骨架、弹簧、动作时间线与六类动画器 |
-| `src/model.js` | 自由格子移动与撤销，独立于棋类规则 |
-| `src/main.js` | 实验场输入、动画循环、场景与控制按钮 |
-| `research/analysis.md` | 原站证据、渲染结构与本地适配说明 |
-| `research/design-language.md` | 用于其他项目的美术与交互设计规则、资产格式与接入方式 |
-| `scripts/extract-motion.mjs` | 用 AST 和真实模块绑定做依赖闭包提取，避免误抓同名局部变量 |
-
-十二个角色均使用原图集部件和动作参数。没有内嵌原站游戏、AI、规则、存储或联网对弈；页面启动后所有图片与 JSON 都从本地读取。
-
-### 单独使用角色
-
-```js
-import { Character, drawCharacter } from './src/character.js';
-import { Atlas, readJSON } from './src/atlas.js';
-
-const atlas = await Atlas.load('/assets/chars', 'cast');
-const rig = await readJSON('/assets/chars/w-pawn.json');
-const sprout = new Character(rig, { seed: 127, x: 0, y: 0 });
-sprout.play('victory');
-
-// 在你的 requestAnimationFrame 中：ctx 已按你的世界坐标缩放。
-sprout.update(dt);
-sprout.lookAt(pointerX, pointerY);
-drawCharacter(ctx, atlas, sprout, { groundScale: 0.829 });
+```text
+reference/       来源关系与旧版说明；原样本仍使用 src/ + assets/ + research/
+primitives/      可组合的笔迹、纸、线条、惯性、动作事件、余韵、音频
+demos/           自画作品与场景定制代码；不加载原图集 / vendor 动作
+lab.html         原创实验入口
+tests/           行为契约与回归
 ```
 
-角色 API 包含 `hover`、`select`、`deselect`、`move`、`victory`、`napping`、`gag`、`refuse` 等。移动 clip 的 `off` 是起点相对终点的偏移；详细适配见 `src/main.js` 的 `movePiece()`。
+保留旧路径让 reference 还原可追溯，不为了目录形式搬动原始资源。作品的构图、域模型和材质表演留在各自 demo；工具不要求统一布局或同一种 spring。
 
-### 单独使用插画按钮
+## 从哪里开始学习
 
-```js
-import { IllustratedControl } from './src/illustrated-control.js';
+- [REPO_MAP.md](REPO_MAP.md)：模块职责、来源、耦合和两条运行路径。
+- [WEB_ART_NOTES.md](WEB_ART_NOTES.md)：从察觉到安静的叙事、注意力、材质、余韵、声音与连续操作。
+- [PRIMITIVES.md](PRIMITIVES.md)：工具边界与小例子。
+- [ORIGINAL_DEMOS.md](ORIGINAL_DEMOS.md)：三个作品的目的、操作、自评和验证。
+- [reference/README-study.md](reference/README-study.md)：原还原阶段的完整使用说明与组件接入。
+- [research/analysis.md](research/analysis.md)：原站证据；[design-language.md](research/design-language.md)：原图集的适配格式。
 
-// world / lettering 是已经加载的 Atlas；button 是普通 <button>。
-const control = new IllustratedControl(button, {
-  atlas: world,
-  icon: 'btn-undo.rest.0.b0',
-  hoverIcon: 'btn-undo.hover.0',
-  lettering,
-  textKey: 'undo.warm.a',
-  label: '撤销', // 语义文本供屏幕阅读器使用。
-});
-button.onclick = () => yourHistory.undo();
-// 每帧：
-control.update(dt);
-// 销毁时：control.dispose();
-```
+原创 Latin 题名使用自己画的字母路径，书写/擦除按路径弧长进行。任意用户文字采用可读字体和真实输入框；没有通用中文手写笔顺生成器。
 
-组件样式见 `src/components.css` 的 `.illustrated-control / .control-art / .ink-tooltip`。图标可由 `icon(state, active)` 按状态选择，也可传 `drawIcon(ctx, options)` 绘制自己的组合插画。提示文字来自已烘焙的笔迹资源；新文案需提供自己的图集 / 时间图，当前没有通用手写中文字体生成器。
-
-## 验证
+## 验证与代码基线
 
 ```powershell
 npm test
+git log --oneline --decorate
 ```
 
-19 个测试覆盖十二种角色动作、连续位移、移动 / 撤销，以及中断墨迹恢复、纸面输入逆变换、笔顺开场与尘点事件生命周期。实测开场四阶段记录见 `research/detail-opening-validation.json`。
+25 个测试覆盖原12角色动作、连续位移、自由移动/撤销、笔顺与命中，以及原创的惯性、语义事件、不同材质轨迹、逐点衰退、粒子结束、笔记状态/保存。浏览器验证记录在 `research/original-validation.json`，含重复十次操作、真实拖放、键盘、桌面/窄屏、轻柔模式、资源和音频状态。未进行真实触摸设备验证。
 
-## 来源与范围
+本地 Git 使用 `main`；没有配置远端。
 
-原始美术和提取的动画代码属于 Ballpoint Gambit 作者；本项目是本地研究用的适配，不是从零绘制的复刻。提取时间：2026-10-03（Asia/Hong_Kong）。源部署脚本：`/assets/index-BF7G8tOs.js`。未发现公开源映射，也没有取得原作者的绘图生成器源码。未确认这些原始素材的再发布授权。
+- `baseline/ballpoint-lab` / `19cf5a1`：原创阶段前的参考还原，19测试通过。
+- `baseline/original-studies`：本阶段完成后的创作实验基线。
+- 忽略 node_modules、日志、环境配置、缓存与原始部署 bundle；运行所需图集、源代码、测试、研究证据均已纳入版本。
 
-本地采用 Canvas 2D 和静态层缓存；原站采用 Three.js / WebGL2。现已适配真实时间图逐笔绘制和反向擦除，保留开场主要时序。完整透视相机、周边角色导演系统和原音频引擎仍采用简化实现。移动与肢体表演来自原动画，音效是本地合成。危险 / 流汗与击杀动作没有接入当前交互。
+基线可通过 tag 查看或在另一个 Git worktree 中运行，避免覆盖当前创作。
+
+## 来源
+
+Ballpoint 原始美术与提取动画代码属于 [Ballpoint Gambit](https://ballpoint-gambit.vercel.app/) 作者，来自2026-10-03（Asia/Hong_Kong）公开部署客户端 `/assets/index-BF7G8tOs.js`。未取得原作者绘图生成器或确认原素材再发布授权。旧样本是本地研究适配。
+
+`demos/` 的插画、字母路径和动作研究为这次独立创作，不使用原棋盘、角色、图集或 vendor 动作。新的合成音效与通用工具是本地实现。原站 shader/time-map 格式只留在 specimen adapter；这里不是完整原站源码或它的开源组件库。

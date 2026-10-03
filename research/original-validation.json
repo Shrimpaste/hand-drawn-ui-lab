@@ -1,0 +1,1390 @@
+{
+  "date": "2026-10-03",
+  "timezone": "Asia/Hong_Kong",
+  "baseline": "19cf5a1",
+  "completedTag": "baseline/original-studies",
+  "testCount": 25,
+  "viewports": [
+    "1280x800",
+    "390x844"
+  ],
+  "scope": "Original Gallery/Notebook/Material Motion plus preserved reference regression. Mouse/keyboard, no physical touch or audio blind comparison. Draw metrics are update/Canvas submission CPU times on this device.",
+  "checks": {
+    "notebookAdd": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Save a small idea",
+          "done": false
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        }
+      ],
+      "note": "留一小块空白，\n给明天的自己。",
+      "history": 1,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 1,
+      "audio": "running",
+      "reduced": false
+    },
+    "notebookEdited": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Keep a quiet moment",
+          "done": false
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        }
+      ],
+      "note": "留一小块空白，\n给明天的自己。",
+      "history": 3,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 3,
+      "audio": "running",
+      "reduced": false
+    },
+    "notebookDeleted": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        }
+      ],
+      "note": "留一小块空白，\n给明天的自己。",
+      "history": 5,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 5,
+      "audio": "running",
+      "reduced": false
+    },
+    "notebookUndo": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Keep a quiet moment",
+          "done": true
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        }
+      ],
+      "note": "留一小块空白，\n给明天的自己。",
+      "history": 4,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 6,
+      "audio": "running",
+      "reduced": false
+    },
+    "notebookDrag": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Keep a quiet moment",
+          "done": true
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        }
+      ],
+      "note": "留一小块空白，\n给明天的自己。",
+      "history": 5,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 7,
+      "audio": "running",
+      "reduced": false
+    },
+    "notebookTen": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Keep a quiet moment",
+          "done": true
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        }
+      ],
+      "note": "留一小块空白，\n给明天的自己。",
+      "history": 15,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 17,
+      "audio": "running",
+      "reduced": false
+    },
+    "notebookPersisted": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Keep a quiet moment",
+          "done": true
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        }
+      ],
+      "note": "留一点空白，\n给下一次灵感。q",
+      "history": 0,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 0,
+      "audio": "locked",
+      "reduced": false
+    },
+    "notebookNote": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Keep a quiet moment",
+          "done": true
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": false
+        }
+      ],
+      "note": "留一点空白，\n给下一次灵感。",
+      "history": 0,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 1,
+      "audio": "running",
+      "reduced": false
+    },
+    "motionAll": {
+      "demo": "motion",
+      "activations": 6,
+      "objects": [
+        {
+          "kind": "paper",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": -0.0023769019260353793,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0.002443571683471346,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "leaf",
+          "count": 1,
+          "active": true,
+          "pose": {
+            "x": -4.653657836759942e-15,
+            "y": -3.429011037612589e-15,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": -0.03962669356311075,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "bell",
+          "count": 1,
+          "active": true,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": -0.005913353119867146,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": -0.24491088903113659,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "stone",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0.006953635578402984,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0.0006148114046035821,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "lamp",
+          "count": 1,
+          "active": true,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0.013704917621808015,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0.004404448387135692,
+          "lit": true,
+          "glow": 0.6753728727840393
+        },
+        {
+          "kind": "creature",
+          "count": 1,
+          "active": true,
+          "pose": {
+            "x": 9.831672324285105,
+            "y": -36.86877121606914,
+            "angle": 0.028675710945831556,
+            "squash": -0.05263020658224387,
+            "fold": 0
+          },
+          "follow": -0.004071350308926497,
+          "lit": false,
+          "glow": 0
+        }
+      ],
+      "events": [
+        {
+          "kind": "paper",
+          "name": "paper-lift",
+          "at": 0.2832666666666666
+        },
+        {
+          "kind": "leaf",
+          "name": "leaf-wind",
+          "at": 0.5833666666666669
+        },
+        {
+          "kind": "paper",
+          "name": "paper-settle",
+          "at": 0.8624666666666678
+        },
+        {
+          "kind": "bell",
+          "name": "bell",
+          "at": 0.8874666666666678
+        },
+        {
+          "kind": "stone",
+          "name": "stone-impact",
+          "at": 1.1708666666666678
+        },
+        {
+          "kind": "bell",
+          "name": "bell-echo",
+          "at": 1.2582666666666682
+        },
+        {
+          "kind": "lamp",
+          "name": "lamp-switch",
+          "at": 1.5291666666666677
+        },
+        {
+          "kind": "leaf",
+          "name": "leaf-settle",
+          "at": 1.6457666666666675
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 1.866566666666667
+        },
+        {
+          "kind": "lamp",
+          "name": "lamp-settle",
+          "at": 1.887466666666667
+        }
+      ],
+      "particles": 5,
+      "totalResidue": 11,
+      "audio": "running",
+      "reduced": false
+    },
+    "motionTen": {
+      "demo": "motion",
+      "activations": 16,
+      "objects": [
+        {
+          "kind": "paper",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": -0.0023769019260353793,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0.0023769019260353793,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "leaf",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": -4.653657836759942e-15,
+            "y": -3.429011037612589e-15,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "bell",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0.0006476678318810453,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": -0.0008552837434142034,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "stone",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0.006953635578402984,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "lamp",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0.0002619308895485379,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": -0.0002619308895485379,
+          "lit": true,
+          "glow": 0.85
+        },
+        {
+          "kind": "creature",
+          "count": 11,
+          "active": true,
+          "pose": {
+            "x": 10.269375267617367,
+            "y": -38.510157253565126,
+            "angle": 0.029952344530550654,
+            "squash": -0.054628652799528936,
+            "fold": 0
+          },
+          "follow": -0.011116322106743442,
+          "lit": false,
+          "glow": 0
+        }
+      ],
+      "events": [
+        {
+          "kind": "paper",
+          "name": "paper-lift",
+          "at": 0.2832666666666666
+        },
+        {
+          "kind": "leaf",
+          "name": "leaf-wind",
+          "at": 0.5833666666666669
+        },
+        {
+          "kind": "paper",
+          "name": "paper-settle",
+          "at": 0.8624666666666678
+        },
+        {
+          "kind": "bell",
+          "name": "bell",
+          "at": 0.8874666666666678
+        },
+        {
+          "kind": "stone",
+          "name": "stone-impact",
+          "at": 1.1708666666666678
+        },
+        {
+          "kind": "bell",
+          "name": "bell-echo",
+          "at": 1.2582666666666682
+        },
+        {
+          "kind": "lamp",
+          "name": "lamp-switch",
+          "at": 1.5291666666666677
+        },
+        {
+          "kind": "leaf",
+          "name": "leaf-settle",
+          "at": 1.6457666666666675
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 1.866566666666667
+        },
+        {
+          "kind": "lamp",
+          "name": "lamp-settle",
+          "at": 1.887466666666667
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 2.204166666666668
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 2.5082666666666698
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 2.8249666666666737
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 3.133266666666676
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 3.4499666666666795
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 3.749966666666682
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.062466666666686
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.333366666666688
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.608266666666688
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.874866666666685
+        }
+      ],
+      "particles": 11,
+      "totalResidue": 61,
+      "audio": "running",
+      "reduced": false
+    },
+    "motionRest": {
+      "demo": "motion",
+      "activations": 16,
+      "objects": [
+        {
+          "kind": "paper",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": -0.0023769019260353793,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0.0023769019260353793,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "leaf",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": -4.653657836759942e-15,
+            "y": -3.429011037612589e-15,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "bell",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0.0006476678318810453,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": -0.001101035314197777,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "stone",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0.006953635578402984,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "lamp",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0.0002619308895485379,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": -0.0002619308895485379,
+          "lit": true,
+          "glow": 0.85
+        },
+        {
+          "kind": "creature",
+          "count": 11,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0.00004748005815711912,
+          "lit": false,
+          "glow": 0
+        }
+      ],
+      "events": [
+        {
+          "kind": "paper",
+          "name": "paper-lift",
+          "at": 0.2832666666666666
+        },
+        {
+          "kind": "leaf",
+          "name": "leaf-wind",
+          "at": 0.5833666666666669
+        },
+        {
+          "kind": "paper",
+          "name": "paper-settle",
+          "at": 0.8624666666666678
+        },
+        {
+          "kind": "bell",
+          "name": "bell",
+          "at": 0.8874666666666678
+        },
+        {
+          "kind": "stone",
+          "name": "stone-impact",
+          "at": 1.1708666666666678
+        },
+        {
+          "kind": "bell",
+          "name": "bell-echo",
+          "at": 1.2582666666666682
+        },
+        {
+          "kind": "lamp",
+          "name": "lamp-switch",
+          "at": 1.5291666666666677
+        },
+        {
+          "kind": "leaf",
+          "name": "leaf-settle",
+          "at": 1.6457666666666675
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 1.866566666666667
+        },
+        {
+          "kind": "lamp",
+          "name": "lamp-settle",
+          "at": 1.887466666666667
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 2.204166666666668
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 2.5082666666666698
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 2.8249666666666737
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 3.133266666666676
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 3.4499666666666795
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 3.749966666666682
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.062466666666686
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.333366666666688
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.608266666666688
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 4.874866666666685
+        },
+        {
+          "kind": "creature",
+          "name": "landing",
+          "at": 5.262466666666686
+        }
+      ],
+      "particles": 0,
+      "totalResidue": 62,
+      "audio": "running",
+      "reduced": false
+    },
+    "galleryCycles": [
+      {
+        "i": 0,
+        "opened": 0,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 1,
+        "opened": 1,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 2,
+        "opened": 2,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 0,
+        "opened": 0,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 1,
+        "opened": 1,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 2,
+        "opened": 2,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 0,
+        "opened": 0,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 1,
+        "opened": 1,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 2,
+        "opened": 2,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      },
+      {
+        "i": 0,
+        "opened": 0,
+        "returned": -1,
+        "captionEnd": 0,
+        "pending": false
+      }
+    ],
+    "galleryMetrics": {
+      "frames": 180,
+      "mean": 1.8255555558535788,
+      "p95": 2.4000000059604645
+    },
+    "galleryMobile": {
+      "demo": "gallery",
+      "selected": 2,
+      "closePending": false,
+      "captions": [
+        0,
+        0,
+        0.8290526315789489
+      ],
+      "cards": [
+        {
+          "x": 220,
+          "y": 345,
+          "scale": 1
+        },
+        {
+          "x": 208,
+          "y": 683,
+          "scale": 1
+        },
+        {
+          "x": 219.99370046607075,
+          "y": 419.7559980524761,
+          "scale": 1.2400616545680043
+        }
+      ],
+      "particles": 0,
+      "audio": "running",
+      "reduced": false
+    },
+    "galleryResizePreserved": {
+      "before": 2,
+      "after": 2
+    },
+    "galleryMobileReturned": {
+      "demo": "gallery",
+      "selected": -1,
+      "closePending": false,
+      "captions": [
+        0,
+        0,
+        0
+      ],
+      "cards": [
+        {
+          "x": 220,
+          "y": 345,
+          "scale": 1
+        },
+        {
+          "x": 208,
+          "y": 683,
+          "scale": 1
+        },
+        {
+          "x": 235.05707174107815,
+          "y": 1003.210578771093,
+          "scale": 1.0010391724736791
+        }
+      ],
+      "particles": 5,
+      "audio": "running",
+      "reduced": false
+    },
+    "notebookMobile": {
+      "demo": "notebook",
+      "tasks": [
+        {
+          "id": "t1",
+          "text": "Keep a quiet moment",
+          "done": true
+        },
+        {
+          "id": "t2",
+          "text": "Make room for a walk",
+          "done": true
+        },
+        {
+          "id": "t1791022951513",
+          "text": "放慢一点，画一条线",
+          "done": false
+        },
+        {
+          "id": "t3",
+          "text": "Draw something slowly",
+          "done": true
+        }
+      ],
+      "note": "留一点空白，\n给下一次灵感。",
+      "history": 1,
+      "drag": null,
+      "pendingDelete": null,
+      "editing": null,
+      "changes": 1,
+      "audio": "running",
+      "reduced": false
+    },
+    "motionMobileReduced": {
+      "demo": "motion",
+      "activations": 2,
+      "objects": [
+        {
+          "kind": "paper",
+          "count": 0,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "leaf",
+          "count": 0,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "bell",
+          "count": 0,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "stone",
+          "count": 0,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        },
+        {
+          "kind": "lamp",
+          "count": 1,
+          "active": true,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": -0.0004236440699166189,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0.0004236440699166189,
+          "lit": true,
+          "glow": 0.85
+        },
+        {
+          "kind": "creature",
+          "count": 1,
+          "active": false,
+          "pose": {
+            "x": 0,
+            "y": 0,
+            "angle": 0,
+            "squash": 0,
+            "fold": 0
+          },
+          "follow": 0,
+          "lit": false,
+          "glow": 0
+        }
+      ],
+      "events": [
+        {
+          "kind": "lamp",
+          "name": "lamp-switch",
+          "at": 0.5582666666666671
+        },
+        {
+          "kind": "creature",
+          "name": "takeoff",
+          "at": 0.5916666666666675
+        },
+        {
+          "kind": "lamp",
+          "name": "lamp-settle",
+          "at": 0.9207666666666682
+        },
+        {
+          "kind": "creature",
+          "name": "landing",
+          "at": 0.9795666666666686
+        }
+      ],
+      "particles": 0,
+      "totalResidue": 2,
+      "audio": "running",
+      "reduced": true
+    },
+    "originalResources": {
+      "width": 390,
+      "scrollWidth": 375,
+      "external": [],
+      "reference": [],
+      "metrics": {
+        "frames": 180,
+        "mean": 0.8500000003311369,
+        "p95": 1
+      }
+    },
+    "muted": {
+      "before": {
+        "enabled": false,
+        "count": 12
+      },
+      "after": {
+        "enabled": false,
+        "count": 12
+      }
+    },
+    "motionDesktopMetrics": {
+      "frames": 180,
+      "mean": 0.7966666660375066,
+      "p95": 0.9000000059604645
+    },
+    "referenceTravel": {
+      "selected": "w-pawn",
+      "moving": [
+        "w-pawn"
+      ],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 28,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 1,
+      "reduced": false,
+      "soundEnabled": false,
+      "opening": {
+        "elapsed": 69.89556666667349,
+        "interactive": true,
+        "done": true
+      },
+      "paper": {
+        "matrix": [
+          0.9999999973101732,
+          0.0000733461219022892,
+          -0.0000733461219022892,
+          0.9999999973101732,
+          -0.12801442660176038,
+          -0.1598182210098571
+        ]
+      },
+      "audioState": "locked",
+      "feedback": {
+        "dust": 3,
+        "impact": 4,
+        "sound": 24,
+        "particles": 2
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    },
+    "referenceUndo": {
+      "selected": "w-pawn",
+      "moving": [
+        "w-pawn"
+      ],
+      "sleeping": [],
+      "positions": {
+        "w-rook": 9,
+        "w-knight": 10,
+        "w-bishop": 11,
+        "w-queen": 12,
+        "w-king": 13,
+        "w-pawn": 14,
+        "b-rook": 49,
+        "b-knight": 50,
+        "b-bishop": 51,
+        "b-queen": 52,
+        "b-king": 53,
+        "b-pawn": 54
+      },
+      "history": 0,
+      "reduced": false,
+      "soundEnabled": false,
+      "opening": {
+        "elapsed": 252.88246666663483,
+        "interactive": true,
+        "done": true
+      },
+      "paper": {
+        "matrix": [
+          0.9999999996108347,
+          -0.000027898575407783737,
+          0.000027898575407783737,
+          0.9999999996108347,
+          0.04869359596584899,
+          -1.170077982490227
+        ]
+      },
+      "audioState": "locked",
+      "feedback": {
+        "dust": 3,
+        "impact": 6,
+        "sound": 27,
+        "particles": 1
+      },
+      "controls": [
+        {
+          "id": "celebrate",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "nap",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "gag",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "undo",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reset",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "replay",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "sound",
+          "progress": 0,
+          "target": 0
+        },
+        {
+          "id": "reduced",
+          "progress": 0,
+          "target": 0
+        }
+      ]
+    },
+    "referenceComponents": {
+      "stars": 1,
+      "ink": 0.22062745098039221,
+      "controls": [
+        {
+          "id": "sample-star",
+          "progress": 1
+        },
+        {
+          "id": "sample-undo",
+          "progress": 0
+        },
+        {
+          "id": "sample-sound",
+          "progress": 0
+        }
+      ],
+      "reduced": false
+    },
+    "referenceComponentsUndo": {
+      "stars": 0,
+      "ink": 1,
+      "controls": [
+        {
+          "id": "sample-star",
+          "progress": 0
+        },
+        {
+          "id": "sample-undo",
+          "progress": 0
+        },
+        {
+          "id": "sample-sound",
+          "progress": 0
+        }
+      ],
+      "reduced": false
+    },
+    "serverProtection": [
+      {
+        "url": "/.git/config",
+        "status": 403
+      },
+      {
+        "url": "/.env",
+        "status": 403
+      },
+      {
+        "url": "/node_modules/acorn/package.json",
+        "status": 403
+      }
+    ],
+    "logs": [],
+    "home": {
+      "demo": "home",
+      "reduced": false
+    },
+    "finalLogs": []
+  }
+}

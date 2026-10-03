@@ -20,26 +20,26 @@ SketchFeedback / SketchAudio → Canvas + sound
 
 ## 已有实现的逐模块判定
 
-| 路径 | 实际职责 / 依赖 | 来源和耦合 | 创作处理 |
-| --- | --- | --- | --- |
-| `src/main.js` | 加载图集；12 个演员；pointer/keyboard；自由走格；开场、纸面、工具、RAF；静态缓存 | 本地适配，显著绑定棋盘坐标、棋子名称、原站资源 key、56° 地面 | 保留为完整 specimen；仅针对反馈改进，不当作通用 Scene |
-| `src/model.js` | 8×8 square hit、占用、撤销 | 本地，但格子模型明确耦合棋盘 | 不抽成业务通用 primitive |
-| `src/character.js` | `Character` 包装 Puppet、按 rig.type 选六类 animator；continuousTravel；drawCharacter | 包装为本地；动作、角色类别和图集格式均依赖 reference | 可以独立演示原角色，不能称为原创角色引擎 |
-| `src/vendor/reference-motion.js` | 684 绑定依赖闭包，六类 / 十二种角色动作及底层骨架 | 作者公开客户端提取，约 18k 格式化行 | 原貌留存；原始美术/代码归属不变 |
-| `src/atlas.js` | JSON/PNG 加载、trim/pivot/ppu、R 通道笔顺、文字 ramp、有限 reveal cache | 本地 renderer，资源格式参考原站 | 是烘焙资产 adapter；新自绘场景无需加载原站图集 |
-| `src/ink.js` | 可中断 InkTransition + shader threshold + DrawingSequence | 包络可复用；threshold 属 reference 格式；4.8s/3.6s opening 是 specimen 时序 | 抽包络，保留格式和开场适配，不能把开场参数当普适规范 |
-| `src/paper-motion.js` | 平滑 pointer awareness、矩阵、逆变换 | 本地仿射近似；默认值受 reference 启发 | 可复用，幅度、tau、旋转应由场景设定 |
-| `src/illustrated-control.js` | DOM button 语义、两块 Canvas、tooltip 包络、hover/focus-visible | 生命周期和输入关系通用；文字 key 与 draw 强耦合 Atlas | 保留原资源适配，原创文字需路径绘制器 |
-| `src/feedback.js` | SketchAudio；原事件 sound/impact/particle → fx rig，三帧 puff | 音频本地；粒子种类、ppu、三帧状态名依赖 reference | 原 sprite adapter 保留；原创余韵单独用笔点/排线/弧线 |
-| `src/components.js` | 原图集太阳组合、星星收集、独立蘑菇；无棋盘 | game-independent，但仍 reference-derived | 作为组件 specimen，不计入原创 demo |
-| `src/style.css`, `src/components.css` | scene/DOM 对齐、工具提示、窄屏、焦点/状态文案 | 本地页面层 | 不抽成所谓手绘 UI framework |
-| `index.html`, `components.html` | 语义按钮、canvas 键盘入口、aria 状态、来源 | reference 入口 | 保持旧 URL；新入口独立连接它们 |
-| `scripts/serve.mjs` | loopback 静态服务器，无生产部署职责 | 本地工具 | 保留；Git 初始化后阻止 dot-file/.git 访问 |
-| `scripts/extract-motion.mjs` | Acorn + eslint-scope 的真实模块绑定闭包 | 本地研究工具，依赖已下载公开源脚本 | 不纳入运行时；输入源脚本不进 Git |
-| `tests/*.test.mjs` | 所有12角色动作/资源有限值；continuous travel；占用撤销；逆变换；笔顺；dust寿命 | 实际契约回归测试 | 保留；原创场景增加状态与事件边界测试 |
-| `assets/**` | 33 JSON +32 PNG；角色、纸、文字、世界、board | 全是 reference-derived；不存在原站绘图生成器 | 仅研究样本，不混入原创 artwork |
-| `research/**` | 来源、资源清单、提取映射、开场/交互证据、桌面/窄屏截图与性能快照 | 有观察与推断，性能限该设备/窗口 | 原记录留存；新阶段记录独立命名 |
-| `task_plan.md`, `findings.md`, `progress.md` | 工作进度与发现 | 本地记录 | 延续历史，不覆盖旧观察 |
+| 路径                                         | 实际职责 / 依赖                                                                       | 来源和耦合                                                                  | 创作处理                                              |
+| -------------------------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------- |
+| `src/main.js`                                | 加载图集；12 个演员；pointer/keyboard；自由走格；开场、纸面、工具、RAF；静态缓存      | 本地适配，显著绑定棋盘坐标、棋子名称、原站资源 key、56° 地面                | 保留为完整 specimen；仅针对反馈改进，不当作通用 Scene |
+| `src/model.js`                               | 8×8 square hit、占用、撤销                                                            | 本地，但格子模型明确耦合棋盘                                                | 不抽成业务通用 primitive                              |
+| `src/character.js`                           | `Character` 包装 Puppet、按 rig.type 选六类 animator；continuousTravel；drawCharacter | 包装为本地；动作、角色类别和图集格式均依赖 reference                        | 可以独立演示原角色，不能称为原创角色引擎              |
+| `src/vendor/reference-motion.js`             | 684 绑定依赖闭包，六类 / 十二种角色动作及底层骨架                                     | 作者公开客户端提取，约 18k 格式化行                                         | 原貌留存；原始美术/代码归属不变                       |
+| `src/atlas.js`                               | JSON/PNG 加载、trim/pivot/ppu、R 通道笔顺、文字 ramp、有限 reveal cache               | 本地 renderer，资源格式参考原站                                             | 是烘焙资产 adapter；新自绘场景无需加载原站图集        |
+| `src/ink.js`                                 | 可中断 InkTransition + shader threshold + DrawingSequence                             | 包络可复用；threshold 属 reference 格式；4.8s/3.6s opening 是 specimen 时序 | 抽包络，保留格式和开场适配，不能把开场参数当普适规范  |
+| `src/paper-motion.js`                        | 平滑 pointer awareness、矩阵、逆变换                                                  | 本地仿射近似；默认值受 reference 启发                                       | 可复用，幅度、tau、旋转应由场景设定                   |
+| `src/illustrated-control.js`                 | DOM button 语义、两块 Canvas、tooltip 包络、hover/focus-visible                       | 生命周期和输入关系通用；文字 key 与 draw 强耦合 Atlas                       | 保留原资源适配，原创文字需路径绘制器                  |
+| `src/feedback.js`                            | SketchAudio；原事件 sound/impact/particle → fx rig，三帧 puff                         | 音频本地；粒子种类、ppu、三帧状态名依赖 reference                           | 原 sprite adapter 保留；原创余韵单独用笔点/排线/弧线  |
+| `src/components.js`                          | 原图集太阳组合、星星收集、独立蘑菇；无棋盘                                            | game-independent，但仍 reference-derived                                    | 作为组件 specimen，不计入原创 demo                    |
+| `src/style.css`, `src/components.css`        | scene/DOM 对齐、工具提示、窄屏、焦点/状态文案                                         | 本地页面层                                                                  | 不抽成所谓手绘 UI framework                           |
+| `index.html`, `components.html`              | 语义按钮、canvas 键盘入口、aria 状态、来源                                            | reference 入口                                                              | 保持旧 URL；新入口独立连接它们                        |
+| `scripts/serve.mjs`                          | loopback 静态服务器，无生产部署职责                                                   | 本地工具                                                                    | 保留；Git 初始化后阻止 dot-file/.git 访问             |
+| `scripts/extract-motion.mjs`                 | Acorn + eslint-scope 的真实模块绑定闭包                                               | 本地研究工具，依赖已下载公开源脚本                                          | 不纳入运行时；输入源脚本不进 Git                      |
+| `tests/*.test.mjs`                           | 所有12角色动作/资源有限值；continuous travel；占用撤销；逆变换；笔顺；dust寿命        | 实际契约回归测试                                                            | 保留；原创场景增加状态与事件边界测试                  |
+| `assets/**`                                  | 33 JSON +32 PNG；角色、纸、文字、世界、board                                          | 全是 reference-derived；不存在原站绘图生成器                                | 仅研究样本，不混入原创 artwork                        |
+| `research/**`                                | 来源、资源清单、提取映射、开场/交互证据、桌面/窄屏截图与性能快照                      | 有观察与推断，性能限该设备/窗口                                             | 原记录留存；新阶段记录独立命名                        |
+| `task_plan.md`, `findings.md`, `progress.md` | 工作进度与发现                                                                        | 本地记录                                                                    | 延续历史，不覆盖旧观察                                |
 
 ## 原始动画模块内部边界
 
@@ -62,4 +62,20 @@ SketchFeedback / SketchAudio → Canvas + sound
 5. 纸面 transform 同时应用于画面和输入逆变换。
 6. 安静的背景可缓存；可中断动作应从当前画面继续，不能每次退回 rest。
 
-新阶段的实物模块与验证结果将在交付时补充到本文件。
+## 原创阶段的实物层
+
+| 层             | 文件                                                        | 数据流 / 判断                                                                                |
+| -------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| entry          | `lab.html` → `demos/home.js`                                | 三个原创作品的入口；自绘纸片与物件                                                           |
+| gallery        | `demos/gallery.html` → `gallery.js` → `art.js`              | spring 聚焦/归位、InkTransition 题名、弱化其他作品；无棋盘/Atlas                             |
+| notebook       | `demos/notebook.html` → `notebook.js` → `notebook-model.js` | 真实输入、localStorage、事项历史；自绘勾/划/擦/拖；域模型留在 demo                           |
+| motion         | `demos/motion.html` → `motion.js` → `material-motion.js`    | 六种不同场景 pose、Action beats、二次运动、音频/地面余韵；不抽成固定材质库                   |
+| artwork        | `demos/art.js`                                              | 自画植物、蛾、窗、纸、铃、石、灯、小生命；作者路径可直接研究修改                             |
+| host           | `demos/runtime.js`、`studies.css`                           | canvas/DOM 共用纸变换，真实按钮/焦点，resize、隐藏暂停、音频解锁；宿主示例，不强制 framework |
+| tools          | `primitives/ink.js`、`paper-motion.js`                      | 本地已验证通用能力从 src 移入；原 src 导出兼容 API                                           |
+| tools          | `primitives/sketch.js`、`lettering.js`                      | seeded 笔画、排线、柔和曲线、纸/胶带；自画字母真实路径写/擦，无原图集                        |
+| tools          | `primitives/motion.js`                                      | scene-tuned Spring、每次 crossing 发一次事件的 Action                                        |
+| tools          | `primitives/residue.js`、`audio.js`                         | 有界短余韵、每点 birth 轨迹、轻柔语义 Foley；sound adapter 兼容原 API                        |
+| tests/evidence | `tests/creative-tools.test.mjs`、`research/original-*`      | 6个原创契约测试 + 三作品实际交互、重复/窄屏记录；总25测试                                    |
+
+本阶段原样保留 `src/vendor/reference-motion.js` 与全部 reference assets。微反馈改进只在本地 adapter：轨迹每点衰减、角色下方地面短痕、柔和的语义音频；没有更改原作者骨架/animator 参数。
