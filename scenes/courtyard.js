@@ -2,12 +2,8 @@ import { InkSprite, palette as C } from "../primitives/living-ink.js";
 import { random } from "../primitives/sketch.js";
 import { handwriting } from "../primitives/handwriting.js";
 
-export const stations = [
-  { x: 270, y: 337, scale: 0.66, ground: 501, visit: { x: 305, y: 553 } },
-  { x: 578, y: 298, scale: 0.64, ground: 468, visit: { x: 583, y: 537 } },
-  { x: 844, y: 408, scale: 0.7, ground: 584, visit: { x: 801, y: 659 } },
-];
-export const gardenBench = { x: 484, y: 662 };
+import { groundPoint, platform, stations } from "./courtyard-layout.js";
+export { stations, gardenBench, courtyardProps } from "./courtyard-layout.js";
 
 function foliage(p, x, y, size, seed) {
   const r = random(seed);
@@ -86,33 +82,31 @@ export const courtyardGround = new InkSprite(
       "#bdbaa0",
       { angular: true, seed: 70103, width: 0.6, base: 0.23 },
     );
-    p.shape(
-      [
-        [110, 456],
-        [616, 324],
-        [1030, 544],
-        [514, 725],
-      ],
-      "#e3d9bc",
-      { angular: true, seed: 70104, width: 0.8, base: 0.2, angle: 0.35 },
-    );
+    p.shape(platform, "#e3d9bc", {
+      angular: true,
+      seed: 70104,
+      width: 0.8,
+      base: 0.2,
+      angle: 0.35,
+    });
     const r = random(70201);
     // Unequal paving blocks in two ground directions establish a shared projection.
     for (let row = 0; row < 10; row++)
       for (let col = 0; col < 15; col++) {
-        const u = (col + 0.15 * (row % 2)) / 15,
-          v = row / 10;
-        const x = 118 + u * 506 + v * 402,
-          y = 456 - u * 132 + v * 270;
-        const a = 24 + r() * 6,
-          b = 14 + r() * 3;
+        const u = 0.012 + ((col + 0.1 * (row % 2)) / 15) * 0.96,
+          v = 0.018 + (row / 10) * 0.95;
+        const a = 0.047 + r() * 0.01,
+          b = 0.04 + r() * 0.01;
+        const corners = [
+          [u, v],
+          [u + a, v],
+          [u + a, v + b],
+          [u, v + b],
+        ]
+          .map(([uu, vv]) => groundPoint(uu, vv))
+          .map((p) => [p.x, p.y]);
         p.shape(
-          [
-            [x, y],
-            [x + a, y - a * 0.27],
-            [x + a + b, y + 11 - a * 0.27],
-            [x + b, y + 11],
-          ],
+          corners,
           (row + col) % 7 === 0
             ? "#c6c9ac"
             : (row + col) % 4 === 0
@@ -161,49 +155,6 @@ export const courtyardGround = new InkSprite(
       { angular: true, seed: 70501, width: 0.5 },
     );
     for (let i = 0; i < 11; i++) grass(p, 872 + i * 12, 599 - i * 4, 70510 + i);
-    // Shallow oval pond: rim, water plane, stone lip and a reflected lily.
-    p.oval(717, 700, 79, 27, "#c9bd9e", {
-      seed: 70601,
-      width: 0.8,
-      base: 0.24,
-    });
-    p.oval(717, 692, 74, 24, "#a5bfba", {
-      seed: 70602,
-      width: 0.7,
-      angle: 0.05,
-      base: 0.2,
-    });
-    for (let i = 0; i < 7; i++)
-      p.line(
-        [
-          [661 + i * 16, 691 + (i % 2) * 6],
-          [675 + i * 16, 693 + (i % 2) * 6],
-        ],
-        { color: "#d8dfcc", width: 0.65 },
-      );
-    p.oval(735, 688, 12, 4.4, "#a2b28b", { seed: 70604, width: 0.5 });
-    p.shape(
-      [
-        [731, 685],
-        [729, 680],
-        [735, 677],
-        [742, 680],
-        [739, 686],
-      ],
-      "#dcaaa1",
-      { seed: 70605, width: 0.4 },
-    );
-    for (let i = 0; i < 9; i++) {
-      const a = (i / 9) * Math.PI * 2;
-      p.oval(
-        717 + Math.cos(a) * 78,
-        695 + Math.sin(a) * 26,
-        6.5,
-        3,
-        "#dfd3b8",
-        { seed: 70620 + i, width: 0.4 },
-      );
-    }
     // Weathered low garden wall at the rear and a few plants beyond it.
     p.shape(
       [

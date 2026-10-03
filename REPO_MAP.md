@@ -99,3 +99,10 @@ SketchFeedback / SketchAudio → Canvas + sound
 | tests/evidence | `tests/creative-tools.test.mjs`、`research/original-*`      | 6个原创契约测试 + 三作品实际交互、重复/窄屏记录；总25测试                                    |
 
 本阶段原样保留 `src/vendor/reference-motion.js` 与全部 reference assets。微反馈改进只在本地 adapter：轨迹每点衰减、角色下方地面短痕、柔和的语义音频；没有更改原作者骨架/animator 参数。
+
+## 庭院继续阶段（2026-10-04）
+
+- `scenes/courtyard-layout.js`：绘制表面、地面投影、道具底座和完整占地；`courtyard.js`/`gallery.js` 共用。
+- `scenes/courtyard-life.js`：物件状态及弹簧、浇水事件；`courtyard-details.js`：原创小鸟/鱼/蜂/花和相应反馈。
+- `scenes/visitor-art.js`：兔子/猫头鹰独立画稿；`guide-rig.js` 的 `visitorRig`/`visitorProfiles` 提供结构与调校；`guide-motion.js` 继续复用实际源求解器。
+- Gallery 控制器保留地面位置/步伐相位切换角色，转交两套画稿；深度排序使用真实 ground。参考资产与 vendor 没有变更。

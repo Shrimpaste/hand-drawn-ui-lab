@@ -7,6 +7,7 @@ import {
 import { smooth } from "../primitives/motion.js";
 export { GuideMotion } from "./guide-motion.js";
 import { handwriting } from "../primitives/handwriting.js";
+import { visitorArt } from "./visitor-art.js";
 
 const moss = "#8ba578",
   mossShade = "#708b73",
@@ -313,6 +314,7 @@ export function drawGuide(
     nervous = 0,
     carry = -1,
     puppet,
+    character = "mushroom",
   } = {},
 ) {
   if (puppet) {
@@ -325,6 +327,7 @@ export function drawGuide(
       seated,
       hop,
       squash,
+      character,
     });
     return;
   }
@@ -478,8 +481,8 @@ export function drawGuide(
 }
 
 const facial = new Map();
-function faceSprite(part, state) {
-  const key = part + ":" + state;
+function faceSprite(part, state, character = "mushroom") {
+  const key = character + ":" + part + ":" + state;
   if (facial.has(key)) return facial.get(key);
   const sprite = new InkSprite(
     34,
@@ -522,6 +525,17 @@ function faceSprite(part, state) {
           ],
           { color: "#95927a", width: 0.85 },
         );
+      else if (character === "owl")
+        p.shape(
+          [
+            [-4, -3],
+            [4, -3],
+            [2, 1],
+            [0, state === "open" ? 6 : 4],
+          ],
+          "#c9a570",
+          { seed: 915, width: 0.4, base: 0.45 },
+        );
       else if (["o", "open", "grin"].includes(state))
         p.oval(
           0,
@@ -550,8 +564,17 @@ function drawRigGuide(
   c,
   x,
   y,
-  { time, scale, reduced, carry, puppet, seated, hop, squash },
+  { time, scale, reduced, carry, puppet, seated, hop, squash, character },
 ) {
+  const art = visitorArt[character] || {
+    body,
+    cap,
+    scarf: scarfTail,
+    armL: hand,
+    armR: hand,
+    footL: foot,
+    footR: foot,
+  };
   const transported = carry >= 0,
     lift = transported
       ? smooth((carry - 1.3) / 0.5) * 8 * (1 - smooth((carry - 4.8) / 0.5))
@@ -586,19 +609,17 @@ function drawRigGuide(
         c.ellipse(0, 2, 29, 4, 0, 0, Math.PI * 2);
         c.fill();
       }
-    } else if (i.part === "body") body.draw(c, 0, 0, opts);
-    else if (i.part === "cap") cap.draw(c, 0, 0, opts);
-    else if (i.part === "scarf") scarfTail.draw(c, 0, 0, opts);
-    else if (i.part.startsWith("foot")) foot.draw(c, 0, 0, opts);
-    else if (i.part.startsWith("arm")) {
+    } else if (i.part.startsWith("arm")) {
       c.rotate(
         (((i.state === "up" ? 132 : i.state === "out" ? 60 : 0) * Math.PI) /
           180) *
           (i.part.endsWith("L") ? -1 : 1),
       );
-      hand.draw(c, 0, 0, opts);
-    } else if (opts.progress > 0.68)
-      faceSprite(i.part, i.state).draw(c, 0, 0, {
+      if (character === "owl" && i.part.endsWith("R")) c.scale(-1, 1);
+      art[i.part]?.draw(c, 0, 0, opts);
+    } else if (art[i.part]) art[i.part].draw(c, 0, 0, opts);
+    else if (opts.progress > 0.68)
+      faceSprite(i.part, i.state, character).draw(c, 0, 0, {
         ...opts,
         progress: Math.max(0, (opts.progress - 0.68) / 0.32),
       });

@@ -1,16 +1,29 @@
 import { Puppet, pawnAnimator } from "../src/vendor/reference-motion.js";
-import { guideRig } from "./guide-rig.js";
+import { visitorRig, visitorProfiles } from "./guide-rig.js";
 import { Spring } from "../primitives/motion.js";
 
 /** New art/anchors, actual reference layered solver. No reference sprite textures. */
 export class GuideMotion {
-  constructor(seed = 127) {
+  constructor(seed = 127, character = "mushroom") {
     this.seed = seed;
+    this.character = character;
+    this.profile = visitorProfiles[character];
+    const guideRig = visitorRig(character);
     this.puppet = new Puppet(
       { rig: guideRig, id: guideRig.id },
       { seed, poseFps: 0, accMax: 60 },
     );
     pawnAnimator.rest(this.puppet, "w", seed);
+    // The source rest preset shares nested config objects; a visitor owns its tuning.
+    this.puppet.idle.cfg = structuredClone(this.puppet.idle.cfg);
+    Object.assign(this.puppet.idle.cfg.breath, this.profile.breath);
+    if (character === "rabbit")
+      Object.assign(this.puppet.idle.cfg.ears, {
+        gap: [1.8, 4.8],
+        angle: [0.08, 0.18],
+      });
+    if (character === "owl")
+      Object.assign(this.puppet.idle.cfg.look, { smooth: 0.16, wander: 0.28 });
     this.gait = new Spring(0, { stiffness: 95, damping: 18 });
     this.phase = 0;
     this.idle = 0;
@@ -28,8 +41,8 @@ export class GuideMotion {
           const a = this.reduced ? 0 : this.gait.value,
             q = this.phase,
             s = Math.sin(q),
-            lift = 0.013 * a * (1 - Math.cos(q * 2));
-          const sy = 1 + 0.024 * a * Math.cos(q * 2);
+            lift = this.profile.lift * a * (1 - Math.cos(q * 2));
+          const sy = 1 + this.profile.squash * a * Math.cos(q * 2);
           const gesture = this.gesture || {};
           return {
             lift: lift + (gesture.lift || 0),
@@ -37,7 +50,10 @@ export class GuideMotion {
             sy: sy * (gesture.sy || 1),
             lean:
               this.direction * 0.035 * a + 0.018 * a * s + (gesture.lean || 0),
-            arm: { L: { deg: 18 + 9 * a * s }, R: { deg: 18 - 9 * a * s } },
+            arm: {
+              L: { deg: 18 + this.profile.swing * a * s },
+              R: { deg: 18 - this.profile.swing * a * s },
+            },
             foot: {
               L: {
                 dx: -s * 0.04 * a,
@@ -133,7 +149,7 @@ export class GuideMotion {
     }
     this.gait.target = this.state === "carry" ? 0 : Math.min(1, speed / 130);
     this.gait.update(dt, reduced);
-    this.phase += ((speed * dt) / 23) * Math.PI;
+    this.phase += ((speed * dt) / this.profile.stride) * Math.PI;
     this.puppet.x += (speed * dt * look) / 160;
     this.puppet.lookAt(this.puppet.x + look * 2.5, -lookY * 2.5);
     if (hover !== this.hovering && this.state === "awake") {
@@ -156,6 +172,7 @@ export class GuideMotion {
       puppet: this.puppet,
       carry: this.state === "carry" ? this.elapsed : -1,
       state: this.state,
+      character: this.character,
     };
   }
 }

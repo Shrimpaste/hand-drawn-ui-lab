@@ -13,6 +13,7 @@ export class GalleryWalk {
     this.speed = 0;
     this.vx = 0;
     this.vy = 0;
+    this.stride = 23;
   }
   walkTo(x, y, { art = -1, sit = false } = {}) {
     this.target = { x, y };
@@ -44,9 +45,9 @@ export class GalleryWalk {
       this.vx = (dx / d) * this.speed;
       this.vy = (dy / d) * this.speed;
     }
-    const before = Math.floor(this.distance / 23);
+    const before = Math.floor(this.distance / this.stride);
     this.distance += step;
-    const after = Math.floor(this.distance / 23),
+    const after = Math.floor(this.distance / this.stride),
       events = [];
     for (let n = before; n < after; n++) {
       this.steps++;

@@ -209,3 +209,93 @@ export const guideRig = {
   order,
   frames: {},
 };
+
+export const visitorProfiles = {
+  mushroom: {
+    label: "蘑菇参观者",
+    stride: 23,
+    lift: 0.013,
+    squash: 0.024,
+    swing: 9,
+    breath: { amp: 0.012, period: 3.7 },
+  },
+  rabbit: {
+    label: "长耳兔参观者",
+    stride: 26,
+    lift: 0.024,
+    squash: 0.038,
+    swing: 6,
+    breath: { amp: 0.011, period: 3.15 },
+  },
+  owl: {
+    label: "小猫头鹰参观者",
+    stride: 19,
+    lift: 0.009,
+    squash: 0.016,
+    swing: 15,
+    breath: { amp: 0.016, period: 4.4 },
+  },
+};
+export function visitorRig(character = "mushroom") {
+  if (character === "mushroom") return guideRig;
+  if (!(character in visitorProfiles))
+    throw new Error("Unknown visitor: " + character);
+  const rig = structuredClone(guideRig),
+    rabbit = character === "rabbit";
+  rig.id = character + "-visitor";
+  rig.world = { height: rabbit ? 0.94 : 0.69, width: rabbit ? 0.48 : 0.58 };
+  Object.assign(rig.anchors, {
+    top: [0, rabbit ? 0.57 : 0.54],
+    eyeL: [rabbit ? -0.075 : -0.102, rabbit ? 0.401 : 0.345],
+    eyeR: [rabbit ? 0.075 : 0.102, rabbit ? 0.401 : 0.345],
+    browL: [rabbit ? -0.074 : -0.102, rabbit ? 0.449 : 0.4],
+    browR: [rabbit ? 0.074 : 0.102, rabbit ? 0.449 : 0.4],
+    cheekL: [-0.145, rabbit ? 0.326 : 0.271],
+    cheekR: [0.145, rabbit ? 0.326 : 0.271],
+    mouth: [0, rabbit ? 0.324 : 0.277],
+    shoulderL: [-0.18, rabbit ? 0.25 : 0.31],
+    shoulderR: [0.18, rabbit ? 0.25 : 0.31],
+    earL: [-0.103, rabbit ? 0.52 : 0.47],
+    earR: [0.103, rabbit ? 0.535 : 0.47],
+    scarf: [0.11, 0.22],
+  });
+  delete rig.parts.cap;
+  delete rig.parts.tuft;
+  delete rig.parts.plaster;
+  rig.order = rig.order.filter((p) => !["cap", "tuft", "plaster"].includes(p));
+  for (const [side, z] of [
+    ["L", 43],
+    ["R", 44],
+  ]) {
+    const name = "ear" + side;
+    rig.parts[name] = {
+      role: "prop",
+      anchor: name,
+      z,
+      attach: "body",
+      batch: "billboard",
+      offset: [0, 0],
+      side: side === "L" ? -1 : 1,
+      default: "idle",
+      hands: 3,
+      phase: side === "L" ? 0.13 : 0.37,
+      states: { idle: { frames: [0, 1, 2].map((i) => name + ".idle." + i) } },
+      spring: {
+        k: rabbit ? (side === "L" ? 32 : 40) : 75,
+        damp: rabbit ? 4.2 : 6,
+        gain: rabbit ? 1.7 : 0.8,
+        from: "lean",
+        wave: side === "L" ? 0.2 : 0.8,
+      },
+      rotRange: rabbit ? [-0.4, 0.4] : [-0.22, 0.22],
+    };
+    rig.order.push(name);
+  }
+  // Wings remain in front of the body; paws tuck behind it. Both use the source arm blend.
+  if (!rabbit) {
+    rig.parts.armL.z = 51;
+    rig.parts.armR.z = 51.1;
+  }
+  for (const pose of Object.values(rig.bodyPoses)) pose.anchors = rig.anchors;
+  return rig;
+}

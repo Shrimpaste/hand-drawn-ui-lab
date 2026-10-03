@@ -1,6 +1,38 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { GuideMotion } from "../scenes/guide-motion.js";
+import { visitorRig } from "../scenes/guide-rig.js";
+
+test("rabbit and owl rigs use separate anatomy, attachment motion and finite reaction blends", () => {
+  const rabbit = new GuideMotion(192, "rabbit"),
+    owl = new GuideMotion(193, "owl");
+  assert.notEqual(rabbit.profile.stride, owl.profile.stride);
+  assert.notEqual(
+    rabbit.puppet.idle.cfg.breath.period,
+    owl.puppet.idle.cfg.breath.period,
+  );
+  const r = visitorRig("rabbit"),
+    o = visitorRig("owl");
+  assert.ok(r.parts.earL && r.parts.earR);
+  assert.equal(r.parts.cap, undefined);
+  assert.notEqual(r.parts.earL.spring.k, r.parts.earR.spring.k);
+  assert.ok(o.parts.armL.z > o.parts.body.z);
+  for (const actor of [rabbit, owl]) {
+    advance(actor, 1.5, { speed: 145, look: 1, active: true });
+    const phase = actor.phase;
+    advance(actor, 0.7, { speed: 130, look: -1, active: true });
+    assert.ok(actor.phase > phase);
+    finiteRig(actor);
+    for (const state of ["hello", "asleep", "nervous", "carry"]) {
+      actor.react(state);
+      advance(actor, 0.6);
+      finiteRig(actor);
+    }
+    advance(actor, 6.5, { reduced: true });
+    assert.equal(actor.state, "awake");
+    finiteRig(actor);
+  }
+});
 
 const advance = (actor, seconds, input = {}) => {
   for (let t = 0; t < seconds; t += 1 / 60) actor.update(1 / 60, input);

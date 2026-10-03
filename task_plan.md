@@ -64,3 +64,9 @@ The previous original demos are a directional failure. Preserve their Git histor
 23. Add genuine line/fill scene draw-on and sleep/nervous/ant-carry demonstrations — complete (baked Canvas stroke-time maps, automatic idle sleep/wake, original twelve-character states).
 24. Visually review desktop/mobile, uninterrupted interactions, original component states; commit local checkpoint — complete (37 tests, screenshots/refined-validation.json; baseline/spatial-characters).
 - 20 source audit complete: twelve rigs/eight action families sampled; source scheduler, layering, idle, attachments, springs and ant coordinator examined. User steering incorporated into GuideMotion actual engine reuse.
+
+## Courtyard placement, micro-interactions and character variety — 2026-10-04
+25. Unify platform projection and prop ground footprints; move furniture, pond, lamp and pots inside the paving — complete.
+26. Add reversible, repeatable pond/lamp/watering/bench interactions with handwritten hints — complete (live checks found and corrected seated-character target overlap).
+27. Author rabbit and owl visitors with distinct silhouettes, anchors, attachment springs and gait profiles, preserving the source solver — complete (separate ear springs, wing anatomy, idle/gait profiles).
+28. Review actual desktop/narrow interactions and character motion, run relevant checks and commit local baseline — complete (41 tests; desktop/narrow live checks, screenshots and courtyard-validation.json; baseline/courtyard-life).

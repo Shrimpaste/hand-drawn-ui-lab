@@ -1,5 +1,11 @@
 # Findings
 
+## Courtyard continuation — 2026-10-04
+- Ground surface is a non-parallelogram quadrilateral. A single bilinear surface now drives drawing, inverse ground coordinates, walking clamp, prop contacts and full footprint checks. Furniture placement must subtract the artwork's actual foot offset, not use its centre as a contact.
+- New rabbit and owl use original authored anatomy/anchors with actual source engine/reaction clips. Ears use independent source springs and idle impulses; owl wings and short stride differ from the mushroom.
+- Source pawn rest shares nested idle preset objects. Per-instance tuning requires cloning the config to prevent cross-character contamination.
+- Canvas semantic input targets must follow moving props and avoid overlapping neighbours/foreground actors. Adaptive empty bench seat and moving watering-can target were verified with actual pointer input; pure state tests alone missed these cases.
+
 ## Scene correction observation
 
 - Reopened the original on 2026-10-03. Narrow live screenshot shows densely drawn purple/red characters, multiple detailed eyes/props, broken crayon coverage and stronger, curved pen boundaries. Our old icons lack both this density and this contrast.
