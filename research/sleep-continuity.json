@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-04",
+  "thresholdRadians": 0.8,
+  "rows": [
+    {
+      "character": "mushroom",
+      "probe": "old-renderer",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.2482909253626,
+      "jumps": 40
+    },
+    {
+      "character": "mushroom",
+      "probe": "corrected-renderer",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 13.248290925362548,
+      "jumps": 0
+    },
+    {
+      "character": "mushroom",
+      "probe": "no-locomotion",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.2482909253626,
+      "jumps": 40
+    },
+    {
+      "character": "mushroom",
+      "probe": "no-idle",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 156.16572207714603,
+      "jumps": 40
+    },
+    {
+      "character": "mushroom",
+      "probe": "no-attachments",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.2482909253626,
+      "jumps": 40
+    },
+    {
+      "character": "rabbit",
+      "probe": "old-renderer",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.19122208645246,
+      "jumps": 40
+    },
+    {
+      "character": "rabbit",
+      "probe": "corrected-renderer",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 13.191222086452441,
+      "jumps": 0
+    },
+    {
+      "character": "rabbit",
+      "probe": "no-locomotion",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.19122208645246,
+      "jumps": 40
+    },
+    {
+      "character": "rabbit",
+      "probe": "no-idle",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 156.16572207714603,
+      "jumps": 40
+    },
+    {
+      "character": "rabbit",
+      "probe": "no-attachments",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.19122208645246,
+      "jumps": 40
+    },
+    {
+      "character": "owl",
+      "probe": "old-renderer",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.895058305319,
+      "jumps": 40
+    },
+    {
+      "character": "owl",
+      "probe": "corrected-renderer",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 13.895058305318976,
+      "jumps": 0
+    },
+    {
+      "character": "owl",
+      "probe": "no-locomotion",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.895058305319,
+      "jumps": 40
+    },
+    {
+      "character": "owl",
+      "probe": "no-idle",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 156.16572207714603,
+      "jumps": 40
+    },
+    {
+      "character": "owl",
+      "probe": "no-attachments",
+      "seconds": 30,
+      "frames": 1800,
+      "maxDegrees": 157.895058305319,
+      "jumps": 40
+    }
+  ]
+}

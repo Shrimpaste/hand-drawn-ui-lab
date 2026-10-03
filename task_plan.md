@@ -76,6 +76,14 @@ The previous original demos are a directional failure. Preserve their Git histor
 30. Remove attic from active scene routes/navigation; retain recoverable Git history — complete.
 31. Strengthen material pigments and wax coverage while preserving paper gaps and pigment-colored contours; remove reference slogans — complete.
 32. Review desktop/narrow Gallery and reference, verify interactions and local checks, commit baseline — complete (39 tests;30 bounded browser observations with26 passes and4 documented/superseded observer samples; baseline/pigment-depth).
+
+## Sleep continuity, illustrated controls and shared perspective — 2026-10-04
+33. Reproduce sleeping limb jumps using deterministic final-render pose traces, isolate the cause and add regression coverage — complete (three visitors,1800 frames; metadata-derived Canvas arm compensation).
+34. Replace action/navigation text buttons with original illustrated controls, animated hover states and written/erased labels — complete (minimal colored pen marks after user steering).
+35. Align all exhibition fronts/roofs/plinths with the courtyard projection; add sky and ground decorations — complete (shared U/V derivatives, original sun/cloud/moon/stars/snail/flowers).
+36. Review real desktop/narrow interactions, opening and detail transitions, run relevant checks and commit a local baseline — complete (44 tests;48 bounded browser observations,46 passes and2 superseded observer checks; baseline/pen-interactions).
+37. User steering: replace rich option illustrations with minimal pen marks; erase/redraw character changes and unify reference navigation — complete (single visible stroke drawing, interruptible replacement; shared mark renderer and ink hover labels).
+38. Open up lamp spacing, align bench planes and animate mounting/dismounting; draw exhibit labels above world occlusion — complete (actual projected empty-seat hit target, ground-footprint path routing and clear foreground caption).
 - Read of nonexistent demos/material.html corrected to the actual demos/motion.html; Windows wildcard supplied directly to rg corrected to directory/glob arguments. No writes affected.
 - Search for nonexistent scenes/pencil.js corrected to primitives/living-ink.js. No writes affected.
 - Cast atlas read used assets/cast instead of assets/chars; corrected from actual inventory. Browser first reload found missing M import in courtyard-details (its existing import was a different form); added explicit imports and repeated live validation. Initial correction patch used props alias rather than actual L alias and was rejected before writing.

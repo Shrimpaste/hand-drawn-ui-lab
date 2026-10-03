@@ -32,6 +32,7 @@ export class GuideMotion {
     this.hovering = false;
     this.direction = 0;
     this.reduced = false;
+    this.seated = 0;
     // A continuously sampled walk replaces chess travel, retaining the same pose channels.
     this.puppet.play(
       {
@@ -57,13 +58,13 @@ export class GuideMotion {
             foot: {
               L: {
                 dx: -s * 0.04 * a,
-                dy: Math.max(0, -s) * 0.035 * a,
-                rot: -s * 0.065 * a,
+                dy: Math.max(0, -s) * 0.035 * a - this.seated * 0.065,
+                rot: -s * 0.065 * a - this.seated * 0.22,
               },
               R: {
                 dx: s * 0.04 * a,
-                dy: Math.max(0, s) * 0.035 * a,
-                rot: s * 0.065 * a,
+                dy: Math.max(0, s) * 0.035 * a - this.seated * 0.065,
+                rot: s * 0.065 * a + this.seated * 0.22,
               },
             },
           };
@@ -120,6 +121,7 @@ export class GuideMotion {
     dt,
     {
       speed = 0,
+      seated = 0,
       look = 0,
       lookY = 0,
       active = false,
@@ -127,6 +129,7 @@ export class GuideMotion {
       reduced = false,
     } = {},
   ) {
+    this.seated = Math.max(0, Math.min(1, seated));
     if (reduced !== this.reduced) {
       this.reduced = reduced;
       if (this.state !== "awake") this.react(this.state);

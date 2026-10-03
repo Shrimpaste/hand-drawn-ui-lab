@@ -40,6 +40,22 @@ export function groundUV(x, y) {
   }
   return { u, v };
 }
+export function groundBasis(u, v) {
+  const p = groundPoint(u, v),
+    a = groundPoint(u + 0.001, v),
+    b = groundPoint(u, v + 0.001);
+  const d = Math.hypot(b.x - p.x, b.y - p.y);
+  return {
+    slope: (a.y - p.y) / (a.x - p.x),
+    depth: [(b.x - p.x) / d, (b.y - p.y) / d],
+  };
+}
+export function kioskPoint(station, x, y, depth = 0) {
+  return [
+    x + depth * station.basis.depth[0],
+    y + x * station.basis.slope + depth * station.basis.depth[1],
+  ];
+}
 export function onPlatform(x, y, margin = 0) {
   const { u, v } = groundUV(x, y);
   return u >= margin && v >= margin && u <= 1 - margin && v <= 1 - margin;
@@ -68,7 +84,7 @@ export const courtyardProps = {
     [101, 69],
     [-23, 69],
   ]),
-  lantern: grounded(0.91, 0.87, 2, 104, 0.71, [
+  lantern: grounded(0.94, 0.94, 2, 104, 0.71, [
     [-27, 100],
     [27, 100],
     [27, 108],
@@ -101,10 +117,39 @@ export const courtyardProps = {
 };
 export const stations = [
   { x: 270, y: 337, scale: 0.66, ground: 451, visit: groundPoint(0.16, 0.41) },
-  { x: 578, y: 298, scale: 0.64, ground: 409, visit: groundPoint(0.64, 0.41) },
-  { x: 844, y: 408, scale: 0.7, ground: 529, visit: groundPoint(0.78, 0.86) },
-];
-export const gardenBench = {
-  x: courtyardProps.bench.x + 4,
-  y: courtyardProps.bench.y + 16,
+  { x: 578, y: 316, scale: 0.64, ground: 427, visit: groundPoint(0.64, 0.41) },
+  { x: 815, y: 385, scale: 0.68, ground: 510, visit: groundPoint(0.78, 0.86) },
+].map((a) => {
+  const uv = groundUV(a.x, a.y + 156 * a.scale);
+  return { ...a, basis: groundBasis(uv.u, uv.v) };
+});
+courtyardProps.bench.basis = groundBasis(0.28, 0.79);
+export function benchPoint(x, y, depth = 0) {
+  return kioskPoint(courtyardProps.bench, x, y, depth);
+}
+courtyardProps.bench.footprint = [
+  [-72, 69, 0],
+  [72, 69, 0],
+  [72, 69, -35],
+  [-72, 69, -35],
+].map((p) => benchPoint(...p));
+const benchWorld = (x, y, d = 0) => {
+  const p = benchPoint(x, y, d),
+    b = courtyardProps.bench;
+  return { x: b.x + p[0] * b.scale, y: b.y + p[1] * b.scale };
+};
+export const gardenBench = benchWorld(-24, 69, 36);
+const footprint = courtyardProps.bench.footprint.map(([x, y]) => ({
+  x: courtyardProps.bench.x + x * courtyardProps.bench.scale,
+  y: courtyardProps.bench.y + y * courtyardProps.bench.scale,
+}));
+export const benchGeometry = {
+  approach: gardenBench,
+  perch: benchWorld(-24, 7, -8),
+  obstacle: {
+    minX: Math.min(...footprint.map((p) => p.x)) - 9,
+    maxX: Math.max(...footprint.map((p) => p.x)) + 9,
+    minY: Math.min(...footprint.map((p) => p.y)) - 9,
+    maxY: Math.max(...footprint.map((p) => p.y)) + 9,
+  },
 };

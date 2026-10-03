@@ -8,6 +8,7 @@ import { smooth } from "../primitives/motion.js";
 export { GuideMotion } from "./guide-motion.js";
 import { handwriting } from "../primitives/handwriting.js";
 import { visitorArt } from "./visitor-art.js";
+import { armArtworkRotation } from "./guide-render-pose.js";
 
 const moss = "#6b8c4c",
   mossShade = "#52705e",
@@ -587,7 +588,7 @@ function drawRigGuide(
   if (transported)
     antParade(c, -60 * (1 - smooth(carry / 1.4)), 2, { time, scale: 0.83 });
   c.translate((puppet.out.x || 0) * 160, -(puppet.out.y || 0) * 160);
-  c.translate(0, -lift - hop - (seated ? 9 : 0));
+  c.translate(0, -lift - hop - Number(seated) * 9);
   c.scale(1 + squash * 0.3, 1 - squash * 0.55);
   for (const i of puppet.instances()) {
     if (["tuft", "plaster"].includes(i.part)) continue;
@@ -610,11 +611,7 @@ function drawRigGuide(
         c.fill();
       }
     } else if (i.part.startsWith("arm")) {
-      c.rotate(
-        (((i.state === "up" ? 132 : i.state === "out" ? 60 : 0) * Math.PI) /
-          180) *
-          (i.part.endsWith("L") ? -1 : 1),
-      );
+      c.rotate(armArtworkRotation(i, puppet.rig));
       if (character === "owl" && i.part.endsWith("R")) c.scale(-1, 1);
       art[i.part]?.draw(c, 0, 0, opts);
     } else if (art[i.part]) art[i.part].draw(c, 0, 0, opts);

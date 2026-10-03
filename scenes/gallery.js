@@ -2,13 +2,21 @@ import { SceneHost } from "./host.js";
 import { GalleryWalk } from "./gallery-model.js";
 import { Spring } from "../primitives/motion.js";
 import { InkTransition } from "../primitives/ink.js";
-import { Pencil, palette as C, curve } from "../primitives/living-ink.js";
+import { Pencil, palette as C } from "../primitives/living-ink.js";
 import { handwriting } from "../primitives/handwriting.js";
 import { drawGuide, drawPainting, plant } from "./art.js";
 import { GuideMotion } from "./guide-motion.js";
 import { visitorProfiles } from "./guide-rig.js";
-import { clampGround, courtyardProps as props } from "./courtyard-layout.js";
+import {
+  clampGround,
+  courtyardProps as props,
+  benchGeometry,
+  benchPoint,
+} from "./courtyard-layout.js";
 import { CourtyardLife } from "./courtyard-life.js";
+import { drawIllustratedControl } from "../primitives/illustrated-control.js";
+import { drawCourtyardOrnaments } from "./courtyard-ornaments.js";
+import { VisitorRedraw } from "./visitor-redraw.js";
 import {
   drawPondLife,
   drawLampLife,
@@ -31,14 +39,21 @@ const s = new SceneHost("gallery"),
 const savedVisitor = localStorage.getItem("gallery-visitor");
 let character = visitorProfiles[savedVisitor] ? savedVisitor : "rabbit";
 let rig = new GuideMotion(127, character),
-  oldRig = null,
-  switchAge = 1;
+  oldRig = null;
+const visitorRedraw = new VisitorRedraw();
+g.configureBench(benchGeometry);
 g.stride = rig.profile.stride;
 const portraits = Object.keys(visitorProfiles).map(
   (id, i) => new GuideMotion(240 + i, id),
 );
 const view = new Spring(0, { stiffness: 53, damping: 15 });
 const captions = new InkTransition({ writeSeconds: 1.05, eraseSeconds: 0.42 });
+const exhibitHint = new InkTransition({
+  writeSeconds: 0.38,
+  eraseSeconds: 0.24,
+});
+let currentHint = -1,
+  afterDismount = null;
 const titles = ["night greenhouse", "the post office", "the harbour"];
 const notes = [
   ["the gardener fell asleep.", "tap the glass to wake him."],
@@ -77,6 +92,11 @@ function go(x, y) {
   rig.wake();
   g.walkTo(p.x, p.y);
 }
+function seatPoint(x) {
+  const p = benchPoint(x, -8, -10),
+    b = props.bench;
+  return { x: b.x + p[0] * b.scale, y: b.y + p[1] * b.scale };
+}
 function choose(i) {
   if (closing || rig.state === "carry") return;
   if (g.selected >= 0) {
@@ -111,8 +131,7 @@ const seat = s.button("gallery-bench", "走到长凳坐下", () => {
   if (g.selected < 0) {
     rig.wake();
     if (g.mode === "sitting") {
-      life.touch("bench");
-      rig.react("hello");
+      g.walkTo(gardenBench.x + 24, gardenBench.y + 24);
     } else g.walkTo(gardenBench.x, gardenBench.y, { sit: true });
   }
 });
@@ -133,7 +152,7 @@ const objects = [
 }));
 function changeVisitor(id) {
   if (id === character || rig.state === "carry" || g.selected >= 0) return;
-  oldRig = rig;
+  if (visitorRedraw.start(s.reduced)) oldRig = rig;
   const state = rig.state,
     phase = rig.phase,
     gait = rig.gait.value,
@@ -149,7 +168,6 @@ function changeVisitor(id) {
   g.distance = (g.distance / g.stride) * rig.profile.stride;
   g.stride = rig.profile.stride;
   character = id;
-  switchAge = 0;
   localStorage.setItem("gallery-visitor", id);
   guide.el.setAttribute(
     "aria-label",
@@ -183,6 +201,11 @@ const nervous = s.button("gallery-nervous", "演示紧张状态", () =>
   rig.react("nervous"),
 );
 const ants = s.button("gallery-ants", "演示小蚂蚁抬起并搬运角色", () => {
+  if (g.mode === "sitting") {
+    afterDismount = "carry";
+    g.walkTo(gardenBench.x, gardenBench.y);
+    return;
+  }
   g.close();
   rig.react("carry");
 });
@@ -218,15 +241,9 @@ s.layout = () => {
       287 * p.scale,
     ),
   );
-  const b = screen(props.bench);
+  const b = screen(seatPoint(60));
   // The free right-hand seat remains tappable while the visitor occupies the left.
-  s.place(
-    seat,
-    b.x + 65 * projection.k,
-    b.y + 8 * projection.k,
-    80 * projection.k,
-    75 * projection.k,
-  );
+  s.place(seat, b.x, b.y, 70 * projection.k, 58 * projection.k);
   for (const entry of objects) {
     const a =
       props[
@@ -272,9 +289,9 @@ s.layout = () => {
   const y = s.mobile ? 920 : 779;
   s.place(left, 65, y, 43, 43);
   s.place(right, 112, y, 43, 43);
-  s.place(nap, s.mobile ? 205 : 740, y, 80, 43);
-  s.place(nervous, s.mobile ? 350 : 863, y, 130, 43);
-  s.place(ants, s.mobile ? 518 : 1000, y, 106, 43);
+  s.place(nap, s.mobile ? 205 : 740, y, 76, 64);
+  s.place(nervous, s.mobile ? 350 : 863, y, 76, 64);
+  s.place(ants, s.mobile ? 518 : 1000, y, 88, 64);
 };
 s.layout();
 s.onKey = (e) => {
@@ -294,9 +311,9 @@ s.onKey = (e) => {
     go(g.x + d[0], g.y + d[1]);
   }
   if (["1", "2", "3"].includes(e.key)) choose(+e.key - 1);
-  if (e.key.toLowerCase() === "z") rig.react("asleep");
-  if (e.key.toLowerCase() === "t") rig.react("nervous");
-  if (e.key.toLowerCase() === "a") rig.react("carry");
+  if (e.key.toLowerCase() === "z") nap.el.click();
+  if (e.key.toLowerCase() === "t") nervous.el.click();
+  if (e.key.toLowerCase() === "a") ants.el.click();
 };
 s.onReplay = () => {
   closing = false;
@@ -306,6 +323,10 @@ s.onReplay = () => {
   rig.react("awake");
   life.reset();
   oldRig = null;
+  visitorRedraw.reset();
+  exhibitHint.setVisible(false, true);
+  currentHint = -1;
+  afterDismount = null;
 };
 s.onReduced = () => {
   if (s.reduced) captions.setVisible(g.selected >= 0 && !closing, true);
@@ -329,9 +350,21 @@ s.update = (dt) => {
   );
   if (life.events.includes("water-lands"))
     s.audio.play("leaf", { strength: 0.1 });
-  switchAge += dt;
-  if (switchAge > 0.28) oldRig = null;
+  visitorRedraw.update(dt);
+  for (const entry of visitors)
+    entry.portrait.update(dt, {
+      hover: entry.button.hover || entry.button.focus,
+      active: true,
+      reduced: s.reduced,
+      look: entry.button.hover || entry.button.focus ? 0.6 : 0,
+    });
+  if (visitorRedraw.phase !== "erasing") oldRig = null;
   for (const e of events) {
+    if (e.name === "stand" && afterDismount) {
+      g.close();
+      rig.react(afterDismount);
+      afterDismount = null;
+    }
     if (e.name === "footstep") {
       s.audio.play("step", { strength: 0.28, pan: (g.x - 560) / 1120 });
       footprints.push({ x: e.x + e.side * 7, y: e.y + 2, life: 0.6 });
@@ -364,6 +397,15 @@ s.update = (dt) => {
     .slice(-25);
   const pointer = s.pointer ? world(s.pointer) : null;
   const attention = works.findIndex((b) => b.hover || b.focus);
+  exhibitHint.setVisible(
+    currentHint === attention && attention >= 0 && !closing,
+    s.reduced,
+  );
+  exhibitHint.update(dt);
+  if (exhibitHint.progress === 0 && currentHint !== attention) {
+    currentHint = attention;
+    exhibitHint.setVisible(attention >= 0, s.reduced);
+  }
   const target = attention >= 0 ? stations[attention] : pointer;
   const near =
     pointer && Math.hypot(pointer.x - g.x, pointer.y - g.y + 45) < 65;
@@ -381,8 +423,11 @@ s.update = (dt) => {
         : target
           ? Math.max(-0.8, Math.min(0.6, (target.y - g.y + 45) / 180))
           : 0,
-    active: g.mode === "walking" || (near && s.time - s.inputTime < 0.35),
+    active:
+      ["walking", "mounting", "dismounting"].includes(g.mode) ||
+      (near && s.time - s.inputTime < 0.35),
     hover: guide.hover || guide.focus,
+    seated: g.seatAmount,
     reduced: s.reduced || !s.openingDone,
   });
   if (oldRig)
@@ -391,8 +436,13 @@ s.update = (dt) => {
       look: g.look,
       active: true,
       reduced: s.reduced,
+      seated: g.seatAmount,
     });
-  const gp = screen({ x: g.x, y: g.y - 55 });
+  const drawingPose = g.drawingPose;
+  const gp = screen({
+    x: drawingPose.x,
+    y: drawingPose.y - drawingPose.hop - 55,
+  });
   s.place(
     guide,
     gp.x,
@@ -401,14 +451,21 @@ s.update = (dt) => {
     (character === "rabbit" ? 137 : 112) * projection.k,
   );
   // Native pointer input must hit the exposed seat, not a foreground character.
-  const benchLeft = props.bench.x - 30,
-    benchRight = props.bench.x + 65;
+  const benchLeft = seatPoint(-44),
+    benchRight = seatPoint(60);
   const freeSeat =
-    Math.abs(g.x - benchRight) > Math.abs(g.x - benchLeft)
+    Math.abs(drawingPose.x - benchRight.x) >
+    Math.abs(drawingPose.x - benchLeft.x)
       ? benchRight
       : benchLeft;
-  const seatPoint = screen({ x: freeSeat, y: props.bench.y + 8 });
-  s.place(seat, seatPoint.x, seatPoint.y, 80 * projection.k, 75 * projection.k);
+  const exposedSeat = screen(freeSeat);
+  s.place(
+    seat,
+    exposedSeat.x,
+    exposedSeat.y,
+    70 * projection.k,
+    58 * projection.k,
+  );
   const detail = g.mode === "detail";
   back.el.hidden = inspect.el.hidden = !detail;
   inspect.el.disabled = closing;
@@ -427,6 +484,12 @@ s.update = (dt) => {
   ])
     b.el.disabled =
       detail || closing || !s.openingDone || rig.state === "carry";
+  if (["mounting", "dismounting"].includes(g.mode))
+    for (const b of [nap, nervous, ants]) b.el.disabled = true;
+  seat.el.setAttribute(
+    "aria-label",
+    g.mode === "sitting" ? "从长凳下来" : "走到长凳坐下",
+  );
 };
 s.isWriting = () => captions.progress > 0 && captions.progress < 1;
 s.isErasing = () => closing;
@@ -435,23 +498,22 @@ function drawWorld(c, t) {
   c.save();
   c.translate(projection.x, projection.y);
   c.scale(projection.k, projection.k);
+  drawCourtyardOrnaments(c, { time: t, reduced: s.reduced });
   courtyardGround.draw(c, 0, 0, { time: 0, reduced: true });
   const layers = stations.map((a, i) => ({
     depth: a.ground,
     draw: () => {
       kiosks[i].draw(c, a.x, a.y, { time: 0, scale: a.scale, reduced: true });
-      drawPainting(c, i, a.x, a.y + 6, {
+      c.save();
+      c.translate(a.x, a.y + 6);
+      c.transform(1, a.basis.slope, 0, 1, 0, 0);
+      drawPainting(c, i, 0, 0, {
         time: t,
         scale: a.scale * 0.83,
         reduced: s.reduced,
         effect: effects[i],
       });
-      handwriting(c, titles[i], a.x, a.ground + 29, {
-        size: 17,
-        align: "center",
-        color: C.teal,
-        progress: works[i].ink.progress,
-      });
+      c.restore();
     },
   }));
   for (const id of ["plant", "flowers"]) {
@@ -516,31 +578,27 @@ function drawWorld(c, t) {
     },
   });
   layers.push({
-    depth: g.mode === "sitting" ? props.bench.ground.y + 1 : g.y,
+    depth: ["mounting", "sitting", "dismounting"].includes(g.mode)
+      ? props.bench.ground.y + 1
+      : g.y,
     draw: () => {
-      const blend = Math.max(0, Math.min(1, switchAge / 0.28));
-      if (oldRig) {
-        c.save();
-        c.globalAlpha *= 1 - blend;
-        drawGuide(c, g.x, g.y, {
-          ...oldRig.pose,
-          time: t,
-          scale: 0.69 + (g.y - 470) * 0.00045,
-          seated: g.mode === "sitting",
-          reduced: s.reduced,
-        });
-        c.restore();
-      }
-      c.save();
-      c.globalAlpha *= oldRig ? blend : 1;
-      drawGuide(c, g.x, g.y, {
-        ...rig.pose,
+      const actor = oldRig ?? rig,
+        progress = oldRig
+          ? visitorRedraw.oldProgress
+          : visitorRedraw.newProgress;
+      const openingDrawing = c.sceneDrawing;
+      c.sceneDrawing = (seed) =>
+        Math.min(openingDrawing?.(seed) ?? 1, progress);
+      drawGuide(c, g.drawingPose.x, g.drawingPose.y, {
+        ...actor.pose,
         time: t,
         scale: 0.69 + (g.y - 470) * 0.00045,
-        seated: g.mode === "sitting",
+        seated: g.drawingPose.seated,
+        hop: g.drawingPose.hop,
+        squash: g.drawingPose.squash,
         reduced: s.reduced,
       });
-      c.restore();
+      c.sceneDrawing = openingDrawing;
     },
   });
   for (const f of footprints) {
@@ -576,7 +634,7 @@ function drawWorld(c, t) {
     }
     handwriting(
       c,
-      "sit with a little friend",
+      g.mode === "sitting" ? "step down" : "sit with a little friend",
       props.bench.ground.x,
       props.bench.ground.y + 27,
       { size: 16, align: "center", color: C.teal, progress: seat.ink.progress },
@@ -596,13 +654,20 @@ s.draw = (c) => {
     progress: s.intro.progress,
   });
   drawWorld(c, t);
+  if (currentHint >= 0)
+    handwriting(c, titles[currentHint], s.w / 2, s.mobile ? 284 : 146, {
+      size: 19,
+      align: "center",
+      color: C.teal,
+      progress: exhibitHint.progress,
+    });
   for (const entry of visitors) {
     const b = entry.button;
     drawGuide(c, b.x, b.y + 21, {
       ...entry.portrait.pose,
-      time: 0,
+      time: t,
       scale: entry.id === "rabbit" ? 0.33 : 0.37,
-      reduced: true,
+      reduced: s.reduced,
     });
     if (entry.id === character && s.openingDone)
       new Pencil(c).line(
@@ -633,44 +698,29 @@ s.draw = (c) => {
       progress: s.openingDone ? 1 : 0,
     },
   );
-  const p = new Pencil(c);
-  p.line(
-    [
-      [left.x + 6, left.y - 5],
-      [left.x - 5, left.y],
-      [left.x + 6, left.y + 5],
-    ],
-    { color: C.red, width: 1.3 },
-  );
-  p.line(
-    [
-      [right.x - 6, right.y - 5],
-      [right.x + 5, right.y],
-      [right.x - 6, right.y + 5],
-    ],
-    { color: C.red, width: 1.3 },
-  );
-  for (const [b, text] of [
-    [nap, "doze"],
-    [nervous, "nervous"],
-    [ants, "ants"],
-  ]) {
-    handwriting(c, text, b.x, b.y - 13, {
-      size: 19,
-      align: "center",
-      color: C.teal,
+  for (const [b, type, label] of [
+    [left, "left", "walk left"],
+    [right, "right", "walk right"],
+  ])
+    drawIllustratedControl(c, b, type, {
+      time: t,
+      reduced: s.reduced,
+      scale: 0.37,
+      label,
+      labelY: b.y - 35,
     });
-    const hint =
-      b === nap
-        ? "z / wake by a touch"
-        : b === nervous
-          ? "t / a worried moment"
-          : "a / a tiny rescue";
-    handwriting(c, hint, b.x, b.y - 45, {
-      size: 16,
-      align: "center",
-      color: C.red,
-      progress: b.ink.progress,
+  for (const [b, type, state] of [
+    [nap, "doze", "asleep"],
+    [nervous, "nervous", "nervous"],
+    [ants, "ants", "carry"],
+  ]) {
+    drawIllustratedControl(c, b, type, {
+      time: t,
+      reduced: s.reduced,
+      label: type,
+      labelY: b.y - 50,
+      scale: 0.68,
+      active: rig.state === state,
     });
   }
   if (s.mobile)
@@ -684,13 +734,20 @@ s.draw = (c) => {
     const i = g.selected,
       a = places[i],
       center = { x: s.w / 2, y: s.mobile ? 438 : 395 };
-    drawPainting(c, i, a.x + (center.x - a.x) * v, a.y + (center.y - a.y) * v, {
+    c.save();
+    c.translate(
+      a.x + (center.x - a.x) * v,
+      a.y + 6 * projection.k + (center.y - a.y - 6 * projection.k) * v,
+    );
+    c.transform(1, stations[i].basis.slope * (1 - v), 0, 1, 0, 0);
+    drawPainting(c, i, 0, 0, {
       time: t,
-      scale: a.scale + ((s.mobile ? 1.82 : 1.92) - a.scale) * v,
+      scale: a.scale * 0.83 + ((s.mobile ? 1.82 : 1.92) - a.scale * 0.83) * v,
       reduced: s.reduced,
       alpha: Math.min(1, v * 3),
       effect: effects[i],
     });
+    c.restore();
     c.save();
     c.globalAlpha = v;
     handwriting(c, titles[i], s.w / 2, s.mobile ? 154 : 107, {
@@ -707,21 +764,13 @@ s.draw = (c) => {
         seed: 512 + i * 5 + j,
       }),
     );
-    handwriting(c, "back", s.w / 2, back.y - 16, {
-      size: 25,
-      align: "center",
-      color: C.teal,
-      progress: Math.min(1, captions.progress * 2),
+    drawIllustratedControl(c, back, "back", {
+      time: t,
+      reduced: s.reduced,
+      label: "back to courtyard",
+      scale: 0.7,
+      labelY: back.y + 30,
     });
-    curve(
-      c,
-      [
-        [s.w / 2 - 64, back.y],
-        [s.w / 2 - 81, back.y - 2],
-        [s.w / 2 - 70, back.y - 12],
-      ],
-      { color: C.teal, width: 1.1 },
-    );
     c.restore();
   }
 };
@@ -736,6 +785,7 @@ s.debug = () => ({
     target: { ...g.target },
     steps: g.steps,
     state: rig.state,
+    seat: { amount: g.seatAmount, ...g.drawingPose },
     pose: { ...rig.puppet.out },
     springs: { ...rig.puppet.springs.s },
   },
@@ -750,6 +800,12 @@ s.debug = () => ({
   opening: s.openingTime,
   openingDone: s.openingDone,
   reduced: s.reduced,
+  visitorDrawing: {
+    phase: visitorRedraw.phase,
+    old: visitorRedraw.oldProgress,
+    next: visitorRedraw.newProgress,
+  },
+  exhibitCaption: { index: currentHint, progress: exhibitHint.progress },
   sounds: s.audio.count,
   objects: {
     counts: { ...life.count },
@@ -766,6 +822,19 @@ s.debug = () => ({
   ),
   hints: Object.fromEntries(
     objects.map((entry) => [entry.kind, entry.button.ink.progress]),
+  ),
+  controls: Object.fromEntries(
+    s.buttons
+      .filter((b) => b.artType)
+      .map((b) => [
+        b.el.id,
+        {
+          icon: b.artType,
+          hover: b.response.value,
+          ink: b.ink.progress,
+          enabled: !b.el.disabled,
+        },
+      ]),
   ),
 });
 s.start();

@@ -8,8 +8,32 @@ import {
   onPlatform,
   stations,
   gardenBench,
+  kioskPoint,
 } from "../scenes/courtyard-layout.js";
 import { CourtyardLife } from "../scenes/courtyard-life.js";
+
+test("exhibition picture, roof and plinth directions share the paving projection", () => {
+  for (const s of stations) {
+    const uv = groundUV(s.x, s.y + 156 * s.scale),
+      p = groundPoint(uv.u, uv.v);
+    const u = groundPoint(uv.u + 0.01, uv.v),
+      v = groundPoint(uv.u, uv.v + 0.01);
+    const l = kioskPoint(s, -100, 150),
+      r = kioskPoint(s, 100, 150),
+      rear = kioskPoint(s, -100, 150, -30);
+    assert.ok(
+      Math.abs((r[1] - l[1]) / (r[0] - l[0]) - (u.y - p.y) / (u.x - p.x)) <
+        1e-9,
+    );
+    assert.ok(
+      Math.abs(
+        (l[1] - rear[1]) / (l[0] - rear[0]) - (v.y - p.y) / (v.x - p.x),
+      ) < 1e-9,
+    );
+    const top = kioskPoint(s, -100, -120);
+    assert.equal(top[0], l[0]);
+  }
+});
 
 test("all prop ground footprints and visit points fit the actual four-corner platform", () => {
   for (const [name, p] of Object.entries(courtyardProps)) {

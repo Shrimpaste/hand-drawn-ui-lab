@@ -2,8 +2,9 @@ import { PaperMotion } from "../primitives/paper-motion.js";
 import { InkTransition } from "../primitives/ink.js";
 import { paperTexture } from "../primitives/sketch.js";
 import { SceneFoley } from "../primitives/foley.js";
-import { Pencil, palette, curve } from "../primitives/living-ink.js";
-import { handwriting } from "../primitives/handwriting.js";
+import { Pencil, palette } from "../primitives/living-ink.js";
+import { Spring } from "../primitives/motion.js";
+import { drawIllustratedControl } from "../primitives/illustrated-control.js";
 
 export class SceneHost {
   constructor(name) {
@@ -145,29 +146,11 @@ export class SceneHost {
     this.dpr = Math.min(2, devicePixelRatio || 1);
     this.canvas.width = Math.round(width * this.dpr);
     this.canvas.height = Math.round(height * this.dpr);
-    this.place(
-      this.other,
-      this.mobile ? 76 : 99,
-      36,
-      this.mobile ? 111 : 158,
-      42,
-    );
-    this.place(
-      this.reference,
-      this.mobile ? 202 : 251,
-      36,
-      this.mobile ? 120 : 126,
-      42,
-    );
-    this.place(
-      this.replay,
-      this.mobile ? 311 : 420,
-      36,
-      this.mobile ? 100 : 135,
-      42,
-    );
-    this.place(this.soundButton, this.w - 155, 35, 113, 42);
-    this.place(this.stillButton, this.w - 46, 35, 70, 42);
+    this.place(this.other, this.mobile ? 58 : 65, 35, 68, 56);
+    this.place(this.reference, this.mobile ? 157 : 182, 35, 68, 56);
+    this.place(this.replay, this.mobile ? 257 : 299, 35, 68, 56);
+    this.place(this.soundButton, this.w - 164, 35, 72, 56);
+    this.place(this.stillButton, this.w - 62, 35, 72, 56);
     this.layout?.();
   }
   point(e) {
@@ -188,6 +171,7 @@ export class SceneHost {
       hover: false,
       focus: false,
       ink: new InkTransition({ writeSeconds: 0.38, eraseSeconds: 0.24 }),
+      response: new Spring(0, { stiffness: 110, damping: 17 }),
     };
     el.onpointerenter = () => (b.hover = true);
     el.onpointerleave = () => (b.hover = false);
@@ -214,48 +198,35 @@ export class SceneHost {
     document.querySelector("#announcement").textContent = text;
   }
   nav(c) {
-    const p = new Pencil(c, this.reduced ? 0 : Math.floor(this.time * 8) % 3);
-    handwriting(
-      c,
-      this.name === "gallery"
-        ? this.mobile
-          ? "sketches"
-          : "drawing bench"
-        : "gallery",
-      23,
-      19,
-      {
-        size: this.name === "gallery" ? (this.mobile ? 17 : 15) : 21,
-        color: palette.teal,
-      },
-    );
-    handwriting(c, "reference", this.mobile ? 147 : 188, 19, {
-      size: this.mobile ? 16 : 18,
-      color: palette.soft,
-    });
-    handwriting(c, this.mobile ? "redraw" : "draw again", this.replay.x, 20, {
-      size: this.mobile ? 17 : 19,
-      align: "center",
-      color: palette.teal,
-    });
-    handwriting(
-      c,
-      this.audio.enabled ? "sound on" : "sound off",
-      this.w - 213,
-      19,
-      { size: 18, color: palette.ink },
-    );
-    handwriting(c, this.reduced ? "still" : "alive", this.w - 70, 19, {
-      size: 18,
-      color: palette.ink,
-    });
-    p.line(
+    const common = { time: this.time, reduced: this.reduced, scale: 0.56 };
+    for (const [button, type, label, on] of [
       [
-        [23, 63],
-        [this.w - 25, 61],
+        this.other,
+        this.name === "gallery" ? "sketch" : "gallery",
+        this.name === "gallery" ? "drawing bench" : "gallery",
+        true,
       ],
-      { width: 0.9, color: palette.pale },
-    );
+      [this.reference, "reference", "reference", true],
+      [this.replay, "replay", "draw again", true],
+      [
+        this.soundButton,
+        "sound",
+        this.audio.enabled ? "sound on" : "sound off",
+        this.audio.enabled,
+      ],
+      [
+        this.stillButton,
+        "alive",
+        this.reduced ? "still" : "alive",
+        !this.reduced,
+      ],
+    ])
+      drawIllustratedControl(c, button, type, {
+        ...common,
+        label,
+        on,
+        labelY: 65,
+      });
   }
   start() {
     this.raf = requestAnimationFrame((t) => this.frame(t));
@@ -298,6 +269,9 @@ export class SceneHost {
         this.reduced,
       );
       b.ink.update(dt);
+      b.response.target =
+        !b.el.disabled && !b.el.hidden && (b.hover || b.focus) ? 1 : 0;
+      b.response.update(dt, this.reduced);
       if (b.ink.progress > 0 && b.ink.progress < 1) {
         writing = true;
         erasing ||= !b.ink.target;

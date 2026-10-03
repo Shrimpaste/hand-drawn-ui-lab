@@ -3,7 +3,13 @@ import { courtyardPigments as M } from "../primitives/pigments.js";
 import { random } from "../primitives/sketch.js";
 import { handwriting } from "../primitives/handwriting.js";
 
-import { groundPoint, platform, stations } from "./courtyard-layout.js";
+import {
+  groundPoint,
+  platform,
+  stations,
+  kioskPoint,
+  benchPoint,
+} from "./courtyard-layout.js";
 export { stations, gardenBench, courtyardProps } from "./courtyard-layout.js";
 
 function foliage(p, x, y, size, seed) {
@@ -234,202 +240,195 @@ export const courtyardGround = new InkSprite(
 );
 
 function kioskArt(p, c, index) {
-  const roof = [M.roofRed, M.roofGold, M.roofTeal][index];
-  // Posts, side face, plinth and roof thickness give each exhibition a small building.
-  if (p.consume(290) > 0.6) {
-    c.save();
-    c.fillStyle = "#a99b7526";
-    c.beginPath();
-    c.ellipse(10, 171, 127, 17, 0, 0, Math.PI * 2);
-    c.fill();
-    c.restore();
-  }
-  p.shape(
-    [
-      [-107, 127],
-      [106, 119],
-      [137, 140],
-      [-77, 157],
-    ],
-    "#d1c4a1",
-    { angular: true, seed: 72110 + index, width: 0.7 },
-  );
-  p.shape(
-    [
-      [-77, 157],
-      [137, 140],
-      [137, 156],
-      [-78, 173],
-    ],
-    "#bcae91",
-    { angular: true, seed: 72120 + index, width: 0.6 },
-  );
-  p.shape(
-    [
-      [106, 119],
-      [137, 140],
-      [137, 156],
-      [106, 134],
-    ],
-    "#b4b398",
-    { angular: true, seed: 72130 + index, width: 0.6 },
-  );
-  for (const x of [-102, 102]) {
+  const roof = [M.roofRed, M.roofGold, M.roofTeal][index],
+    station = stations[index];
+  const q = (x, y, d = 0) => kioskPoint(station, x, y, d);
+  const plane = (points, color, seed, options = {}) =>
     p.shape(
+      points.map((a) => q(...a)),
+      color,
+      { angular: true, seed, width: 0.75, ...options },
+    );
+  // Width follows the paving's U tangent; depth follows V; height stays vertical.
+  // Back edge is upstream (negative depth), front edge is the same picture plane.
+  plane(
+    [
+      [-111, 151, -24],
+      [111, 151, -24],
+      [111, 151, 25],
+      [-111, 151, 25],
+    ],
+    M.woodLight,
+    72110 + index,
+  );
+  plane(
+    [
+      [-111, 151, 25],
+      [111, 151, 25],
+      [111, 168, 25],
+      [-111, 168, 25],
+    ],
+    M.wood,
+    72120 + index,
+  );
+  plane(
+    [
+      [111, 151, -24],
+      [111, 151, 25],
+      [111, 168, 25],
+      [111, 168, -24],
+    ],
+    M.woodGrain,
+    72130 + index,
+  );
+  plane(
+    [
+      [101, -106, 0],
+      [101, -106, -25],
+      [101, 151, -25],
+      [101, 151, 0],
+    ],
+    M.wood,
+    72140 + index,
+  );
+  for (const x of [-103, 103]) {
+    plane(
       [
-        [x - 5, -118],
-        [x + 6, -117],
-        [x + 5, 132],
-        [x - 6, 132],
+        [x - 5, -112],
+        [x + 5, -112],
+        [x + 5, 151],
+        [x - 5, 151],
       ],
       M.woodLight,
-      { angular: true, seed: 72150 + index + x, width: 0.65 },
+      72150 + index + x,
     );
-    for (let j = 0; j < 5; j++)
-      p.line(
-        [
-          [x - 2, -92 + j * 40],
-          [x + 2, -83 + j * 40],
-        ],
-        { color: M.woodGrain, width: 0.5 },
-      );
+    for (let j = 0; j < 6; j++)
+      p.line([q(x - 2, -100 + j * 38), q(x + 1, -88 + j * 38)], {
+        color: M.woodGrain,
+        width: 0.6,
+      });
+    p.dot(...q(x, 125), 1.2, M.woodGrain);
   }
-  p.shape(
+  // Sloping shed roof: a real front/back quadrilateral, with a visible eave.
+  plane(
     [
-      [-117, -118],
-      [-77, -165],
-      [119, -173],
-      [152, -130],
-      [122, -113],
+      [-123, -113, 8],
+      [123, -113, 8],
+      [123, -159, -54],
+      [-123, -159, -54],
     ],
     roof,
-    { angular: true, seed: 72210 + index, width: 1, base: 0.25, angle: 0.13 },
+    72210 + index,
+    { base: 0.3 },
   );
-  p.shape(
+  plane(
     [
-      [-117, -118],
-      [122, -113],
-      [152, -130],
-      [137, -120],
-      [122, -102],
-      [-118, -107],
+      [-123, -113, 8],
+      [123, -113, 8],
+      [123, -103, 8],
+      [-123, -103, 8],
     ],
     M.roofEdge,
-    { angular: true, seed: 72220 + index, width: 0.6 },
+    72220 + index,
+  );
+  plane(
+    [
+      [123, -113, 8],
+      [123, -159, -54],
+      [123, -149, -54],
+      [123, -103, 8],
+    ],
+    M.roofEdge,
+    72221 + index,
   );
   for (let row = 0; row < 3; row++)
-    for (let j = 0; j < 8; j++) {
-      const x = -79 + j * 27 + row * 2,
-        y = -159 + row * 13;
-      p.line(
-        [
-          [x, y],
-          [x + 20, y + 1],
-          [x + 23, y + 10],
-        ],
-        { color: index === 2 ? M.iron : M.woodGrain, width: 0.5 },
-      );
+    for (let j = 0; j < 9; j++) {
+      const d = -47 + row * 18,
+        y = -154 + row * 13,
+        x = -117 + j * 27;
+      p.line([q(x, y, d), q(x + 22, y, d), q(x + 22, y + 10, d + 13)], {
+        color: index === 2 ? M.iron : M.woodGrain,
+        width: 0.55,
+      });
     }
-  p.shape(
+  plane(
     [
-      [-101, -108],
-      [101, -104],
-      [98, -76],
-      [-100, -79],
+      [-99, -105],
+      [99, -105],
+      [99, -79],
+      [-99, -79],
     ],
     M.leafLight,
-    { angular: true, seed: 72230 + index, width: 0.5 },
+    72230 + index,
   );
-  for (let i = 0; i < 10; i++)
-    p.line(
-      [
-        [-92 + i * 20, -106],
-        [-94 + i * 20, -81],
-      ],
-      { color: M.leafShade, width: 0.7 },
-    );
-  for (let i = 0; i < 10; i++)
-    p.oval(-89 + i * 20, -79, 9, 4, M.leafLight, {
+  for (let i = 0; i < 10; i++) {
+    const x = -89 + i * 20;
+    p.line([q(x, -104), q(x, -80)], { color: M.leafShade, width: 0.75 });
+    const [cx, cy] = q(x, -79);
+    p.oval(cx, cy, 9, 3.3, M.leafLight, {
       seed: 72300 + i + index * 20,
-      width: 0.4,
+      width: 0.5,
     });
-  p.line(
-    [
-      [-84, 137],
-      [102, 130],
-    ],
-    { color: "#f0e2c4", width: 1 },
-  );
-  handwriting(c, "0" + (index + 1), -86, 140, { size: 12, color: "#9a8d77" });
+  }
+  p.line([q(-96, 157, 25), q(102, 157, 25)], { color: C.cream, width: 1 });
+  const [nx, ny] = q(-90, 153, 25);
+  handwriting(c, "0" + (index + 1), nx, ny, { size: 12, color: M.woodGrain });
 }
 export const kiosks = stations.map(
   (_, i) =>
-    new InkSprite(336, 386, (p, c) => kioskArt(p, c, i), {
-      pivot: [150, 193],
+    new InkSprite(382, 430, (p, c) => kioskArt(p, c, i), {
+      pivot: [190, 217],
       seed: 7200 + i,
       variants: 1,
     }),
 );
-
 export const courtyardBench = new InkSprite(
-  230,
-  143,
+  246,
+  194,
   (p) => {
-    // Three-quarter seat, visible slats, front and back feet, curved iron supports.
-    for (const x of [-63, 62]) {
-      p.line(
-        [
-          [x, -14],
-          [x + 14, 17],
-          [x + 10, 56],
-        ],
-        { color: M.iron, width: 3 },
-      );
-      p.line(
-        [
-          [x + 14, 17],
-          [x + 42, 39],
-          [x + 39, 69],
-        ],
-        { color: M.iron, width: 3 },
-      );
+    const q = benchPoint;
+    // Rear legs and backrest stand behind the seat; all slats follow U / V.
+    for (const x of [-72, 72]) {
+      p.line([q(x, 69, -35), q(x, -62, -35)], { color: M.iron, width: 3 });
+      p.line([q(x, 69, 0), q(x, -8, 0), q(x, -19, -11), q(x, -17, -25)], {
+        color: M.iron,
+        width: 3,
+      });
     }
-    for (let i = 0; i < 3; i++)
+    for (let row = 0; row < 3; row++) {
+      const y = -62 + row * 13;
       p.shape(
-        [
-          [-77, -50 + i * 12],
-          [68, -65 + i * 12],
-          [71, -56 + i * 12],
-          [-75, -41 + i * 12],
-        ],
+        [q(-82, y, -35), q(82, y, -35), q(82, y + 9, -35), q(-82, y + 9, -35)],
         M.wood,
-        { angular: true, width: 0.55, seed: 73100 + i },
+        { angular: true, seed: 73100 + row, width: 0.65 },
       );
-    for (let i = 0; i < 3; i++)
+      p.line([q(-77, y + 3, -35), q(76, y + 3, -35)], {
+        color: M.woodLight,
+        width: 0.8,
+      });
+      for (const x of [-73, 73]) p.dot(...q(x, y + 4, -35), 0.9, M.woodGrain);
+    }
+    for (let row = 0; row < 4; row++) {
+      const d = -35 + row * 9;
       p.shape(
-        [
-          [-71, -15 + i * 8],
-          [73, -30 + i * 8],
-          [104, -10 + i * 8],
-          [-40, 5 + i * 8],
-        ],
+        [q(-80, -8, d), q(80, -8, d), q(80, -8, d + 7), q(-80, -8, d + 7)],
         M.woodLight,
-        { angular: true, width: 0.5, seed: 73110 + i },
+        { angular: true, seed: 73110 + row, width: 0.6 },
       );
-    p.line(
-      [
-        [-40, 23],
-        [102, 7],
-      ],
-      { color: M.woodGrain, width: 0.7 },
-    );
-    for (const x of [-64, 60])
-      for (let i = 0; i < 3; i++)
-        p.dot(x, -45 + i * 12 - (x > 0 ? 13 : 0), 1, M.woodGrain);
+      p.line([q(-62, -8, d + 2), q(-20, -8, d + 3), q(48, -8, d + 2)], {
+        color: M.woodGrain,
+        width: 0.5,
+      });
+    }
+    p.shape([q(-80, -8, 0), q(80, -8, 0), q(80, 1, 0), q(-80, 1, 0)], M.wood, {
+      angular: true,
+      seed: 73120,
+      width: 0.6,
+    });
+    p.line([q(-72, 42, 0), q(72, 42, 0)], { color: M.iron, width: 1.3 });
   },
-  { pivot: [110, 71], seed: 7300, variants: 1 },
+  { pivot: [130, 99], seed: 7300, variants: 1 },
 );
-
 export const lantern = new InkSprite(
   120,
   252,

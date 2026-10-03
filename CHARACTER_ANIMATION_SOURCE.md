@@ -60,3 +60,5 @@
 这仍是学习原作者机制的本地作品。绘画生成器未被恢复；完整游戏的危险预测与捕获系统没有加入。
 
 后续已加入两种独立画稿：长耳兔和小猫头鹰。它们共用同一实际求解器和 pawn 情绪轨道，但有不同锚点、耳/翼结构、附件弹簧、呼吸和连续步态，详见 [VISITOR_AND_COURTYARD_NOTES.md](VISITOR_AND_COURTYARD_NOTES.md)。
+
+睡眠适配修正：参考求解器的 arm rotation 是 `(requestedDeg - selectedDrawingDeg) * rotSign`，不是绝对转角。原创三个离散状态共用同一画稿时，Canvas 翻转 Y 轴后的补偿应为 `-(selectedDrawingDeg - neutralDrawingDeg) * rotSign`。旧补偿同向，down/out/up 切换产生120°–155°单帧跳变；修正渲染适配后连续，不需要更改睡眠曲线或关闭呼吸/弹簧。回归测试变换真实画稿端点，避免只检查连续的 clip 数字而漏掉离散画稿切换。

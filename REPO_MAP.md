@@ -12,6 +12,9 @@
 | scenes/art.js                        | 三幅叙事画、材料道具与家具；角色入口转导出 guide |
 | scenes/gallery-model.js / gallery.js | 行走、到达、坐下、观察/擦除返回、画内事件、空间构图                                          |
 | primitives/pigments.js | 原参考纸色、主颜料、庭院/角色材质色；取样与解释见 COLOR_STUDY.md |
+| primitives/illustrated-control.js / src/sketch-link.js | 少量彩色笔画的选项和跳转；Gallery/reference 共用绘图与悬停语言 |
+| scenes/visitor-redraw.js / guide-render-pose.js | 角色先擦再画的可打断流程；骨架离散画稿角度到原创中性画稿的连续适配 |
+| scenes/bench-path.js / courtyard-ornaments.js | 长椅占地绕行；独立太阳/月亮/云/星/野花/蜗牛画稿 |
 | scenes/host.js / scene.css           | Canvas/语义按钮/纸面逆变换/前后台生命周期，焦点也由笔线表达                                  |
 | primitives/living-ink.js             | 对象纸底、多层蜡笔、压力轮廓、三版8Hz绘图与2–4×缓存                                          |
 | primitives/stroke-recording.js      | 烘焙绘画时生成真实 Canvas 笔迹时间图；开场阈值推进，不重建纹理 |

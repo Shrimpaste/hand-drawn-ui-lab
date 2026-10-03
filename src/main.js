@@ -4,6 +4,7 @@ import { Character, continuousTravel, drawCharacter } from './character.js';
 import { DrawingSequence } from './ink.js';
 import { PaperMotion } from './paper-motion.js';
 import { IllustratedControl } from './illustrated-control.js';
+import { SketchLink } from './sketch-link.js';
 import { SketchAudio, SketchFeedback } from './feedback.js';
 import { TravelTrail } from '../primitives/residue.js';
 
@@ -433,6 +434,9 @@ async function init() {
     } : undefined,
     state: () => id === 'sound' ? soundEnabled : reduced, onHover: () => audio.play('hover'),
   }));
+  controls.push(...[
+    ['nav-gallery','gallery','gallery'],['nav-characters','components','character lab'],
+  ].map(([id,type,label])=>new SketchLink($(id),{type,label,reduced:()=>reduced})));
   makeCast(); resize(); $('loading').remove();
   for (const button of document.querySelectorAll('.toolbar button')) button.disabled = false;
   $('undo').disabled = true;
