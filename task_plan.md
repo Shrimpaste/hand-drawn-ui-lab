@@ -11,10 +11,10 @@ Goal: Inspect Ballpoint Gambit's public client UI and build a locally runnable m
 6. Implement reusable paper, draw/erase, illustrated controls and feedback modules — complete.
 7. Verify revised interaction and document reuse for other projects — complete.
 8. Initialize local Git, verify and tag the reference baseline — complete (`19cf5a1`, `baseline/ballpoint-lab`).
-9. Audit every authored module and map reference/general/scene coupling — in progress.
-10. Build original Gallery, Living Notebook and material Motion Studies, allowing scene-specific code — pending.
-11. Extract only tools exercised by the demos; improve reference micro-feedback — pending.
-12. Review actual repeated interaction, desktop/narrow layout, audio and reduced motion — pending.
+9. Audit every authored module and map reference/general/scene coupling — complete.
+10. Build original Gallery, Living Notebook and material Motion Studies, allowing scene-specific code — complete.
+11. Extract only tools exercised by the demos; improve reference micro-feedback — complete (awaiting live regression review).
+12. Review actual repeated interaction, desktop/narrow layout, audio and reduced motion — in progress.
 13. Deliver creative notes, primitive guide, demo evaluations and a verified Git checkpoint — pending.
 
 ## Original web art phase

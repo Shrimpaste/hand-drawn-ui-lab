@@ -10,7 +10,8 @@ http.createServer(async (req, res) => {
   try {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     const file = path.resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);
-    if (!file.startsWith(root) || pathname.startsWith('/node_modules') || pathname.startsWith('/research')) {
+    const relative = path.relative(root, file);
+    if (relative.startsWith('..') || path.isAbsolute(relative) || pathname.split('/').some(p => p.startsWith('.')) || pathname.startsWith('/node_modules') || pathname.startsWith('/research')) {
       res.writeHead(403).end('Forbidden'); return;
     }
     const body = await fs.readFile(file);

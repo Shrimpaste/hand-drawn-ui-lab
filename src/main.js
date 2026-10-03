@@ -5,6 +5,7 @@ import { DrawingSequence } from './ink.js';
 import { PaperMotion } from './paper-motion.js';
 import { IllustratedControl } from './illustrated-control.js';
 import { SketchAudio, SketchFeedback } from './feedback.js';
+import { TravelTrail } from '../primitives/residue.js';
 
 const canvas = document.querySelector('#scene');
 const ctx = canvas.getContext('2d');
@@ -131,7 +132,7 @@ function movePiece(piece, target, undo = false) {
     if (selected === piece) { piece.puppet.play(piece.animator.select(options(piece)), { layer: 'select', fade: .14 }); detail(piece, 'select'); }
   } });
   piece.puppet.refresh();
-  trails.push({ from, to, birth: time, side: piece.side, pieceId: piece.id });
+  trails.push({ from, to, birth: time, side: piece.side, pieceId: piece.id, line: new TravelTrail(from, to, { spacing: .34, life: 1.15 }), arrived: null });
   detail(piece, 'move'); say(`${names[piece.id][0]} 移动到了 ${String.fromCharCode(97 + target % 8)}${Math.floor(target / 8) + 1}`);
   $('undo').disabled = model.history.length === 0;
   return true;
@@ -330,14 +331,21 @@ function frame(now) {
   const matrix = paperMotion.update(dt, { ...view, reduced });
   $('paper-ui').style.transform = paperMotion.cssTransform;
   for (const control of controls) control.update(dt);
-  audio.writing(controls.some(control => control.writing) || !opening.done && !reduced);
+  audio.writing(controls.some(control => control.writing) || !opening.done && !reduced, controls.some(control => control.writing && !control.ink.target));
   for (const piece of model.pieces) {
     if (pointer && !piece.sleeping) piece.puppet.lookAt(pointer.x, pointer.y);
     else piece.puppet.lookAt(null);
     piece.puppet.update(dt);
   }
   feedback.update(dt);
-  trails = trails.filter(e => time - e.birth < 2.5);
+  for (const trail of trails) {
+    const [x0, y0] = trail.from, [x1, y1] = trail.to, dx = x1 - x0, dy = y1 - y0;
+    const actor = model.pieces.find(p => p.id === trail.pieceId), [gx, gy] = actor.puppet.ground();
+    const travel = actor.moving ? Math.max(0, Math.min(1, ((gx - x0) * dx + (gy - y0) * dy) / (dx * dx + dy * dy))) : 1;
+    trail.line.update(dt, travel);
+    if (trail.line.reached >= .96 && trail.arrived == null) trail.arrived = time;
+  }
+  trails = trails.filter(e => !e.line.done || e.arrived != null && time - e.arrived < .85);
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
   ctx.fillStyle = '#f1ebde'; ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.setTransform(matrix[0], matrix[1], matrix[2], matrix[3], matrix[4] * view.dpr, matrix[5] * view.dpr);
@@ -352,16 +360,11 @@ function frame(now) {
   if (selected) { const [x, y] = squarePosition(selected.square); marker(`sel-${selected.side === 'w' ? 'warm' : 'cool'}-${hand}`, x, y); }
   for (const trail of trails) {
     const [x0, y0] = trail.from, [x1, y1] = trail.to;
-    const steps = Math.max(2, Math.ceil(Math.hypot(x1 - x0, y1 - y0) * 3));
-    const alpha = Math.min(1, (2.5 - time + trail.birth) * .8);
-    const actor = model.pieces.find(p => p.id === trail.pieceId);
-    const [gx, gy] = actor.puppet.ground(), dx = x1 - x0, dy = y1 - y0;
-    const travel = actor.moving ? Math.max(0, Math.min(1, ((gx - x0) * dx + (gy - y0) * dy) / (dx * dx + dy * dy))) : 1;
-    trail.reached = Math.max(trail.reached || 0, travel);
-    for (let i = 0; i < steps * trail.reached; i++) marker(`trail-dot-${trail.side === 'w' ? 'warm' : 'cool'}-${hand}`, x0 + dx * i / steps, y0 + dy * i / steps, alpha);
-    if (trail.reached > .9) marker(`dest-${trail.side === 'w' ? 'warm' : 'cool'}-${hand}`, x1, y1, alpha);
+    const dx = x1 - x0, dy = y1 - y0;
+    for (const dot of trail.line.visible) marker(`trail-dot-${trail.side === 'w' ? 'warm' : 'cool'}-${hand}`, x0 + dx * dot.t, y0 + dy * dot.t, dot.alpha * .8);
+    if (trail.arrived != null) marker(`dest-${trail.side === 'w' ? 'warm' : 'cool'}-${hand}`, x1, y1, Math.max(0, 1 - (time - trail.arrived) / .85) * .75);
   }
-  drawPieces(); feedback.draw(ctx); drawStatus();
+  feedback.drawGround(ctx); drawPieces(); feedback.draw(ctx, { ground: false }); drawStatus();
   drawSamples.push(performance.now() - start); frameSamples.push(rawDt * 1000);
   if (frameSamples.length > 180) { frameSamples.shift(); drawSamples.shift(); }
   if (time - lastMeter > .6) { lastMeter = time; $('fps').textContent = `${Math.round(1000 / (frameSamples.reduce((a, b) => a + b, 0) / frameSamples.length))} fps`; }

@@ -25,3 +25,10 @@
 - Opened separate component examples with no board/game state. Original sun disc is part of static-sky while its face is an independent sprite; the example composes both.
 - Tooltip mouse click/leave and keyboard focus use distinct visibility rules. Desktop click/undo/drag remain aligned during paper sway; new audio context runs after gesture.
 - Browser viewport capability affected the currently active component tab; direct metrics override on inactive main changed layout but distorted the capture, and was cleared. Responsive main testing will use the isolated main tab and normal viewport capability.
+
+## Original phase
+- New Git baseline `19cf5a1` records original specimen. Map distinguishes the generic display envelope from the specimen-specific 4.8s opening, and generic input transform from the chess-square model.
+- New original artwork uses authored Canvas vector paths; reference sprites and motion source remain available only through old specimen routes.
+- Original re-observation shows legal destination outlines appear before travel; the first attempted destination missed the target square. Retarget using visible c4 center before drawing conclusions about motion.
+- Confirmed original movement after sending mouseMoved: sparse reddish dots appear behind the subject, target outline stays secondary, surroundings remain quieter than the move. Used that relationship for per-point trail decay and a short ground impact mark.
+- Original Gallery and Notebook initial views render with no console errors. Live add/rename/keyboard reorder and subsequent check changed true model state, not just appearance. A batched check before rename did not change the model; inspect input targets and continue verification with explicit before/after snapshots.

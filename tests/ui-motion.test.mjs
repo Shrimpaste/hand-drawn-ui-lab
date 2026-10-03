@@ -41,5 +41,6 @@ test('dust and landing cues use event ground positions, create finite particles 
   assert.equal(feedback.particles.length,3); assert.equal(feedback.counts.dust,1);
   for(const p of feedback.particles) { assert.equal(p.x,2.1); assert.equal(p.y,-1); assert.ok(Number.isFinite(p.vx+p.vy)); }
   feedback.cue({kind:'impact',x:2,y:-1}); assert.equal(sounds[0][0],'land');
-  feedback.update(.6); assert.equal(feedback.particles.length,0);
+  assert.equal(feedback.impacts.length,1);
+  feedback.update(.6); assert.equal(feedback.particles.length,0); assert.equal(feedback.impacts.length,0);
 });
