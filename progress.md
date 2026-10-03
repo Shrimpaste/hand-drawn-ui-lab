@@ -25,3 +25,9 @@
 - Final 19 tests and syntax checks pass. Verified desktop and 390×844 main UI, gallery narrow layout without horizontal overflow, keyboard focus writing, reduced reset/full-display behavior, and reduced-off preserving a completed opening.
 - Final browser logs: zero new errors; all runtime resources localhost. Default DPR 1.5 final snapshot: mean update/submission 1.94ms, p95 2.6ms at backing store 1920×1200.
 - Saved research/detail-validation.json, detail-opening-validation.json, detail-final.png, detail-mobile.png and components.png. Cleared temporary device metrics and viewport override; closed temporary research/gallery tabs, kept main local preview visible and marked deliverable.
+
+## 2026-10-03 original web art phase
+- Initialized main; baseline 19cf5a1, tag baseline/ballpoint-lab, 19 tests pass. Dependencies/logs/raw public bundle ignored. Uses existing Git author configuration.
+- Audited authored modules, extraction tool, tests, styles, asset/research inventory and vendor core pipeline. REPO_MAP.md records provenance, coupling and usable creative relationships.
+- Chose original Gallery, Living Notebook and six-material Motion Studies as required three creations; new artwork will be authored Canvas paths, without reference sprites. Retain old routes and vendor module.
+- Reference browser is newly loading; previous browser tabs/server process no longer exist. Restart loopback server after adding dot-file protection.
