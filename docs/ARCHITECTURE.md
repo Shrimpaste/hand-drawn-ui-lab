@@ -32,6 +32,9 @@ flowchart LR
 | `primitives/`                                                | 自绘、笔迹、时间图、动作事件、纸面、残留、Foley             | 可组合工具；适配宿主而不是强制框架              |
 | `scenes/`                                                    | 庭院、自绘画稿、空间、对象状态、原求解器 adapter            | 原创演示与定制模型；不要全部迁移到 SaaS         |
 | `demos/gallery.html` / `lab.html`                            | 都加载 `scenes/gallery.js`                                  | 当前同一画廊入口                                |
+| `demos/chinese-{type,ink,notes}.html`                         | 字体对照、笔画试验、便笺组合；共享 `chinese-type.js/css`       | 独立中文测试页，不改变 Gallery                  |
+| `primitives/chinese-handwriting.js` / `generated-chinese-medians.js` | 本地绘制和可逆游标 / Hanzi Writer Data 生成的笔画中线 | 数据受 Arphic PL 约束，见来源文档               |
+| `fonts/`                                                     | 三款完整网页字体、OFL 文件、笔画数据许可与来源清单             | 静态字形和动态中线分开使用                       |
 | `scenes/studio.html` / `scenes/studio.js`                    | 原创局部绘制、轮廓、书写和声音小样                          | 局部艺术/算法检查，不是产品布局模板             |
 | `demos/notebook* / runtime.js / art.js / material-motion.js` | 早期工具与兼容实验，部分仍被 tests 读取                     | 历史质量不足，不能作为当前风格标杆              |
 | `demos/motion.html`                                          | 已移除阁楼的旧 URL 重定向                                   | 仅兼容；没有活动 attic 场景                     |
@@ -59,6 +62,7 @@ Gallery 的美术自绘不等于动画运行时完全原创。[来源清单](PRO
 ## 工具与数据
 
 - `scripts/serve.mjs`：只监听本地；屏蔽点目录、node_modules、research 和向上路径；无热更新。
+- `scripts/build-chinese-medians.mjs`：从固定版本 `hanzi-writer-data` 提取测试页和样文的有序中线；`npm run hanzi` 重建生成文件与 Arphic PL 全文。
 - `scripts/audit-characters.mjs`：读取本地 vendor 与十二 rig，重建 `research/character-motion-audit.json`。它是来源机制记录，不是视觉验收。
 - `scripts/extract-motion.mjs`：历史提取工具，需要未入 Git 的 `research/reference.pretty.js`，会重写 vendor；普通开发不要运行，干净 clone 也不能直接重新提取完整原客户端。
 - `scripts/render-foley.mjs`：生成离线声音试听到 research。产物忽略，不覆盖当前 Gallery 验证结论。

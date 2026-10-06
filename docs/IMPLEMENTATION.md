@@ -74,6 +74,8 @@ note.draw(ctx, x, y, { time: elapsed, progress: drawProgress, reduced });
 
 [handwriting.js](../primitives/handwriting.js) 的 `handwrittenPaths(text, seed)` 返回 `paths/width/total`；`handwriting(ctx, text, x, y, opts)` 按弧长预算绘制。路径是自绘小写字母、数字和部分标点，大写转小写，未知字符退成问号。它不是中文书法引擎。
 
+中文测试使用 [chinese-handwriting.js](../primitives/chinese-handwriting.js) 的 `ChineseInk/chinesePaths/drawChinese/unsupportedChinese`；有序笔画中线由固定版本 `hanzi-writer-data` 生成，来源、接口和字表范围见 [中文测试](CHINESE_TYPE.md)。它与下面的自绘拉丁 API 独立。
+
 ```js
 import { InkTransition } from "/primitives/ink.js";
 import { handwriting, handwrittenPaths } from "/primitives/handwriting.js";

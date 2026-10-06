@@ -1,0 +1,52 @@
+{
+  "retrieved": "2026-10-04",
+  "modification": "Full repertoire WOFF2 conversion, neutral internal family names; glyph outlines unchanged. Original TTF hashes retained.",
+  "license": "SIL Open Font License 1.1; individual notices accompany each file",
+  "sources": [
+    {
+      "id": "wenkai",
+      "name": "霞鹜文楷 轻便版",
+      "repo": "lxgw/LxgwWenKai-Lite",
+      "tag": "v1.522",
+      "file": "LXGWWenKaiLite-Regular.ttf",
+      "url": "https://github.com/lxgw/LxgwWenKai-Lite/releases/download/v1.522/LXGWWenKaiLite-Regular.ttf",
+      "licenseUrl": "https://raw.githubusercontent.com/lxgw/LxgwWenKai-Lite/v1.522/OFL.txt",
+      "sha256": "140c99ba4e28e817cec49bf82a0c5fcdc4fe633fb9dfda16d0ee8d59a8545f15",
+      "bytes": 13872424,
+      "webFile": "wenkai.woff2",
+      "webFamily": "UI Lab Sample 1",
+      "webBytes": 5269464,
+      "webSha256": "e9d2f5a6dd7013c800cdc45c5fb5ad4d37ff66f7519a6ded03968f1f8cff3ca4"
+    },
+    {
+      "id": "xiaolai",
+      "name": "小赖",
+      "repo": "lxgw/kose-font",
+      "tag": "v3.126",
+      "file": "Xiaolai-Regular.ttf",
+      "url": "https://github.com/lxgw/kose-font/releases/download/v3.126/Xiaolai-Regular.ttf",
+      "licenseUrl": "https://raw.githubusercontent.com/lxgw/kose-font/v3.126/OFL.txt",
+      "sha256": "e2f68daf0e72777a8cf58bc83de1b98634b251e537ddbfca24b0ae50d1802da2",
+      "bytes": 22220806,
+      "webFile": "xiaolai.woff2",
+      "webFamily": "UI Lab Sample 2",
+      "webBytes": 11832176,
+      "webSha256": "9696ab25ab11aaa543de7f9015121980d8952100ea306af9a52123bef24114ea"
+    },
+    {
+      "id": "yozai",
+      "name": "悠哉",
+      "repo": "lxgw/yozai-font",
+      "tag": "v0.868",
+      "file": "Yozai-Regular.ttf",
+      "url": "https://github.com/lxgw/yozai-font/releases/download/v0.868/Yozai-Regular.ttf",
+      "licenseUrl": "https://raw.githubusercontent.com/lxgw/yozai-font/v0.868/OFL.txt",
+      "sha256": "25071998a0fe6a72f54c235e714986d259633e5ff670b1a2b5e264387f3316ac",
+      "bytes": 15605374,
+      "webFile": "yozai.woff2",
+      "webFamily": "UI Lab Sample 3",
+      "webBytes": 7347008,
+      "webSha256": "e5c22feba6986e1c61ea4a8df33dbcd4dbc0c697d29f77e49d94dbbb8b41b7ae"
+    }
+  ]
+}

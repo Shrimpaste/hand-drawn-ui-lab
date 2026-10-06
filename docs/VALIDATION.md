@@ -1,17 +1,19 @@
 # 当前验证与审核方法
 
-代码基线：`a9f781e` / `baseline/species-motion`，2026-10-04。后续文档收束不改变运行时代码。原作 vendor 与 assets 在此轮未修改。
+当前验证日期 2026-10-06。Gallery 动作证据来自 `a9f781e` / `baseline/species-motion` 的 2026-10-04 浏览器记录；中文页面是本轮新增验证。原作 vendor 与 assets 未修改。
 
 ## 当前结果
 
-- `npm test`：**48 项通过，0 失败**。包含原图集/动作 adapter、模型、筆迹/时间图、boil、材料音、睡眠连续性、species 步态、不可达路线与坐凳中断回归。
+- `npm test`：**53 项通过，0 失败**。原有回归之外，新增生成中文笔画的数据笔序、写擦反向、目标替换、减少动作和交叉笔画前缀检查。
 - 浏览器：**44 次有时限的观察，43 达到条件，1 条错误观察预期标为 superseded**。兔子“停止后应 idle”的观察实际走到凳子目标并进入坐定，属于正确模型行为；后续坐定/下凳验证通过。没有把这条记成成功。
 - 最终源文件正常上凳/下凳检查的采样衔接分别约 **0.868 / 0.725 场景单位**。修复前复现约 **34.151 单位**的瞬移。中途转向另有浏览器观察与四阶段完整 pose 回归。
 - 实际移动取样：兔子双脚同落，猫头鹰交替；模型回归进一步检查兔子空中位移速率明显大于站立阶段。不是仅对共享 sin 参数做检查。
 - 桌面/390×844 窄屏检查：作品靠近/打开/内部操作/返回、角色重绘、选项、静音、标题空间与凳子进出。窄屏 documentWidth390 无横向溢出，实际输入为鼠标/键盘模拟尺寸；**没有声称物理触屏验证**。
 - 最终浏览器捕获的 error logs 为空。音频解锁/事件/静音成立，听感仍需真人在扬声器或耳机中与动作一起评价。
 
-精简数据在 [current-validation.json](../research/current-validation.json)。正常桌面图为 [species-gallery-final.jpg](../research/species-gallery-final.jpg)，窄屏真实 Canvas 导出为 [species-gallery-narrow.png](../research/species-gallery-narrow.png)。窄屏截图适配器曾缩放不一致，故没有用失真截图证明页面布局。
+中文页：三款字体均在浏览器加载；桌面样张、组合便笺和正常笔迹已目视检查。笔迹页输入「你好今天写字」可完整书写；慢速擦除在 94% 看到末字部分消去，前字保持。早一轮界面检查覆盖键盘焦点、便笺本机保存、静音、减少动作及 390px 无横溢；笔画数据切换后又检查实际字形和擦除。听感与物理触屏尚未验证。
+
+当前数据在 [current-validation.json](../research/current-validation.json)。Gallery 图为 [桌面](../research/species-gallery-final.jpg)、[窄屏](../research/species-gallery-narrow.png)；中文页样张为 [字样](../research/chinese-type.png)、[笔迹](../research/chinese-ink.png)、[便笺](../research/chinese-notes.png)。Gallery 窄屏截图适配器曾缩放不一致，故没有用失真截图证明页面布局。
 
 这些是有范围的当前结果，不是完整每设备兼容性保证，也不是原作同等听感或艺术完成度的客观证书。
 

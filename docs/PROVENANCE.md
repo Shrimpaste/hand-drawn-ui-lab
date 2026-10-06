@@ -15,6 +15,8 @@
 | `scenes/guide.js/visitor-art.js/art.js/courtyard*` 等画稿      | 本地编写的 Canvas paths、纹理与场景                                               | 自绘美术，但 guide-motion 仍借用原作 runtime/反应      |
 | `scenes/visitor-locomotion.js/redraw.js` 等模型                | 本地编写的连续步态、位移/接触相位、替换和空间协调                                 | 从参考机制学习的定制实现，不是原站完整游戏移植         |
 | `primitives/foley.js`                                          | 本地程序化合成的材料声音                                                          | 不是原站录音；是否舒服仍需实际试听                     |
+| `primitives/generated-chinese-medians.js` / `fonts/ARPHICPL.TXT` | `hanzi-writer-data@2.0.1` 的有序笔画中线，源自 Make Me a Hanzi；脚本筛字、四舍五入并打包 | 生成文件含修改说明；依 Arphic PL 保留许可，不能归为原创笔画 |
+| `fonts/{wenkai,xiaolai,yozai}.woff2`                           | 霞鹜文楷 Lite、小赖、悠哉的固定版本，全字库转换与内部重命名                       | 各自随 SIL OFL 1.1 全文和校验清单；与动态笔画无字形对应 |
 | 文档与截图                                                     | 本地研究、人工审核归纳和验证                                                      | 明确区分观察事实、创作推断与当前测试范围               |
 
 ## 已获得与未获得

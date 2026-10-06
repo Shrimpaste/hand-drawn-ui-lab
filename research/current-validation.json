@@ -1,9 +1,9 @@
 {
-  "date": "2026-10-04",
-  "scope": "species motion, bench continuity and gallery spacing; documentation-only work follows",
+  "date": "2026-10-06",
+  "scope": "Gallery species-motion baseline plus current Chinese font, generated stroke and note tests; Gallery browser measurements were recorded 2026-10-04",
   "tests": {
     "command": "npm test",
-    "passed": 48,
+    "passed": 53,
     "failed": 0
   },
   "browser": {
@@ -1241,6 +1241,22 @@
       }
     ]
   },
+  "chineseType": {
+    "source": "hanzi-writer-data@2.0.1 medians; approach adapted from local demo-4-claude/scripts/build-hanzi.mjs, src/engine/writing.js and ink.js",
+    "license": "Arphic PL data; generated file has modification notice, fonts/ARPHICPL.TXT retained",
+    "generatedCharacters": 285,
+    "pages": ["demos/chinese-type.html", "demos/chinese-ink.html", "demos/chinese-notes.html"],
+    "checks": [
+      "All three WOFF2 faces loaded and visibly differ at shared title/body/control sizes",
+      "Ordered source medians wrote 今日待办 and custom 你好今天写字 in browser",
+      "Slow reverse erased part of final 字 at 94% while previous characters remained",
+      "390px note and ink pages fit without horizontal overflow; DOM scrollWidth 375 at viewport 390",
+      "Keyboard focus and local note save returned from navigation with drawn title intact",
+      "Mute, reduced motion, repeated reversal and latest-target replacement covered by controls and model tests",
+      "No browser error logs on the three pages"
+    ],
+    "limits": ["No physical touch device test", "Audio events checked, subjective listening not verified", "Generated stroke subset is not a complete Chinese font"]
+  },
   "benchBefore": {
     "maxJump": 34.1512946423421,
     "units": "scene units",
@@ -1291,6 +1307,9 @@
   },
   "screenshots": [
     "species-gallery-final.jpg",
-    "species-gallery-narrow.png"
+    "species-gallery-narrow.png",
+    "chinese-type.png",
+    "chinese-ink.png",
+    "chinese-notes.png"
   ]
 }

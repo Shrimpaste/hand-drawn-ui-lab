@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
+    "hanzi": "node scripts/build-chinese-medians.mjs",
     "test": "node --test tests/*.test.mjs"
   },
   "devDependencies": {
     "acorn": "^8.15.0",
     "acorn-walk": "^8.3.5",
     "eslint-scope": "^9.1.2",
+    "hanzi-writer-data": "^2.0.1",
     "prettier": "^3.6.2"
   }
 }
