@@ -9,6 +9,10 @@ export { GuideMotion } from "./guide-motion.js";
 import { handwriting } from "../primitives/handwriting.js";
 import { visitorArt, fieldBag } from "./visitor-art.js";
 import { armArtworkRotation } from "./guide-render-pose.js";
+import {
+  redrawProfiles as R,
+  drawingBeat,
+} from "../primitives/drawing-variants.js";
 
 const moss = "#6b8c4c",
   mossShade = "#52705e",
@@ -79,7 +83,7 @@ const body = new InkSprite(
     );
     p.oval(20, -21, 4.5, 3.1, "#d4a16e", { width: 0.55, seed: 919 });
   },
-  { pivot: [60, 100], seed: 811 },
+  { pivot: [60, 100], seed: 811, redraw: R.mushroomBody },
 );
 const cap = new InkSprite(
   132,
@@ -123,7 +127,7 @@ const cap = new InkSprite(
       [26, -8, 3],
       [-4, -7, 3],
     ]) {
-      p.oval(x, y, r, r * 0.67, C.cream, {
+      p.oval(x, y, r + drawingBeat(p.variant) * 0.18, r * 0.67, C.cream, {
         seed: 840 + x,
         width: 0.45,
         base: 0.45,
@@ -143,7 +147,7 @@ const cap = new InkSprite(
       p.line(
         [
           [x, 4 + Math.abs(x) * 0.015],
-          [x * 0.78, 8],
+          [x * 0.78 + drawingBeat(p.variant) * Math.sin(i) * 0.6, 8],
           [x * 0.58, 11],
         ],
         { color: "#b77456", width: 0.48 },
@@ -160,7 +164,7 @@ const cap = new InkSprite(
       { color: "#eed1b0", width: 0.65 },
     );
   },
-  { pivot: [66, 62], seed: 821 },
+  { pivot: [66, 62], seed: 821, redraw: R.cap },
 );
 const sprout = new InkSprite(
   42,
@@ -211,7 +215,7 @@ const sprout = new InkSprite(
       { color: mossShade, width: 0.5 },
     );
   },
-  { pivot: [18, 32], seed: 825 },
+  { pivot: [18, 32], seed: 825, redraw: R.feather },
 );
 const patch = new InkSprite(
   32,
@@ -246,7 +250,7 @@ const patch = new InkSprite(
       );
     for (const x of [-2, 2]) p.dot(x, 0, 0.4, "#b78a61");
   },
-  { pivot: [16, 12], seed: 828 },
+  { pivot: [16, 12], seed: 828, redraw: R.cloth },
 );
 const guideBag = fieldBag(836, "#b18a47");
 const foot = new InkSprite(
@@ -275,7 +279,7 @@ const foot = new InkSprite(
       { color: "#bc8b62", width: 0.55 },
     );
   },
-  { pivot: [18, 14], seed: 831 },
+  { pivot: [18, 14], seed: 831, redraw: R.foot },
 );
 const hand = new InkSprite(
   32,
@@ -303,7 +307,7 @@ const hand = new InkSprite(
       { color: mossShade, width: 0.55 },
     );
   },
-  { pivot: [16, 7], seed: 832 },
+  { pivot: [16, 7], seed: 832, redraw: R.wing },
 );
 const scarfTail = new InkSprite(
   68,
@@ -339,7 +343,7 @@ const scarfTail = new InkSprite(
       { color: C.cream, width: 0.7 },
     );
   },
-  { pivot: [10, 12], seed: 835 },
+  { pivot: [10, 12], seed: 835, redraw: R.cloth },
 );
 
 export function antParade(c, x, y, { time = 0, scale = 1, progress = 1 } = {}) {
@@ -407,6 +411,7 @@ export function drawGuide(
     carry = -1,
     puppet,
     character = "mushroom",
+    drawingFrame,
   } = {},
 ) {
   if (puppet) {
@@ -420,6 +425,7 @@ export function drawGuide(
       hop,
       squash,
       character,
+      drawingFrame,
     });
     return;
   }
@@ -678,7 +684,7 @@ function faceSprite(part, state, character = "mushroom") {
           { color: "#9a826c", width: 0.95 },
         );
     },
-    { seed: 839, pivot: [17, 15] },
+    { seed: 839, pivot: [17, 15], redraw: R.face },
   );
   facial.set(key, sprite);
   return sprite;
@@ -687,7 +693,18 @@ function drawRigGuide(
   c,
   x,
   y,
-  { time, scale, reduced, carry, puppet, seated, hop, squash, character },
+  {
+    time,
+    scale,
+    reduced,
+    carry,
+    puppet,
+    seated,
+    hop,
+    squash,
+    character,
+    drawingFrame,
+  },
 ) {
   const art = visitorArt[character] || {
     body,
@@ -724,7 +741,7 @@ function drawRigGuide(
     const opts = {
       time,
       reduced,
-      frame: i.hand,
+      frame: drawingFrame ?? i.hand,
       progress: Math.min(i.progress, c.sceneDrawing?.(811) ?? 1),
     };
     if (i.part === "shadow") {

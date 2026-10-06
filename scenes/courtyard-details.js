@@ -7,6 +7,10 @@ import {
 import { courtyardPigments as M } from "../primitives/pigments.js";
 import { smooth } from "../primitives/motion.js";
 import { courtyardProps as L } from "./courtyard-layout.js";
+import {
+  redrawProfiles as R,
+  drawingBeat,
+} from "../primitives/drawing-variants.js";
 
 export const pond = new InkSprite(
   186,
@@ -57,12 +61,13 @@ const fish = new InkSprite(
   53,
   36,
   (p) => {
+    const tail = drawingBeat(p.variant);
     p.shape(
       [
         [-8, 1],
-        [-21, -8],
-        [-17, 4],
-        [-22, 12],
+        [-21 + tail * 1.2, -8 + tail * 1.4],
+        [-17 + tail * 1.8, 4],
+        [-22 + tail * 1.2, 12 - tail * 1.4],
         [-8, 6],
       ],
       M.fish,
@@ -82,7 +87,7 @@ const fish = new InkSprite(
     p.line(
       [
         [-3, 3],
-        [0, 7],
+        [tail * 0.8, 7 - tail * 0.7],
         [3, 5],
       ],
       { color: "#c4a87e", width: 0.65 },
@@ -154,14 +159,23 @@ const sparrow = new InkSprite(
       { color: "#c6b59b", width: 0.7 },
     );
   },
-  { pivot: [30, 31], seed: 76200 },
+  { pivot: [30, 31], seed: 76200, redraw: R.bird },
 );
 const bee = new InkSprite(
   31,
   26,
   (p) => {
-    p.oval(-1, -5, 5, 3.2, "#d7ddd0", { seed: 76301, angle: -0.6, width: 0.4 });
-    p.oval(4, -5, 4.8, 3, "#d7ddd0", { seed: 76302, angle: 0.5, width: 0.4 });
+    const wing = drawingBeat(p.variant);
+    p.oval(-1 - wing * 0.6, -5 - wing * 0.8, 5, 3.2 + wing * 0.9, "#d7ddd0", {
+      seed: 76301,
+      angle: -0.6,
+      width: 0.4,
+    });
+    p.oval(4 + wing * 0.4, -5 - wing * 0.8, 4.8, 3 + wing * 0.8, "#d7ddd0", {
+      seed: 76302,
+      angle: 0.5,
+      width: 0.4,
+    });
     p.oval(0, 0, 6, 3.8, "#d8be81", { seed: 76303, width: 0.4 });
     for (let i = -1; i < 2; i++)
       p.line(
@@ -189,7 +203,7 @@ const blossom = new InkSprite(
     }
     p.oval(0, 0, 3.8, 3.3, "#d6bc7d", { seed: 76416, width: 0.35 });
   },
-  { pivot: [18, 18], seed: 76400 },
+  { pivot: [18, 18], seed: 76400, redraw: R.flower },
 );
 
 export function drawPondLife(c, life, time, reduced) {

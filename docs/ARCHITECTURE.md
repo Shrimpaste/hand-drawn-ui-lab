@@ -12,7 +12,7 @@ flowchart LR
   P --> F[接触残留与声音]
   M --> D[真实语义控件与状态]
   A[固定种子画稿与时间图] --> R
-  B[低频轮廓稿选择] --> R
+  B[低频完整画稿选择] --> R
   T[纸面变换与 inverse] --> R
   T --> D
 ```
@@ -36,6 +36,7 @@ flowchart LR
 | `primitives/chinese-handwriting.js` / `generated-chinese-medians.js` | 本地绘制和可逆游标 / Hanzi Writer Data 生成的笔画中线 | 数据受 Arphic PL 约束，见来源文档               |
 | `fonts/`                                                     | 三款完整网页字体、OFL 文件、笔画数据许可与来源清单             | 静态字形和动态中线分开使用                       |
 | `scenes/studio.html` / `scenes/studio.js`                    | 原创局部绘制、轮廓、书写和声音小样                          | 局部艺术/算法检查，不是产品布局模板             |
+| `primitives/drawing-variants.js` | 人工配置的完整三稿形变场、保护局部支点，供 Pencil 烘焙 | 可选局部重画；不负责运行时位移或业务状态 |
 | `demos/notebook* / runtime.js / art.js / material-motion.js` | 早期工具与兼容实验，部分仍被 tests 读取                     | 历史质量不足，不能作为当前风格标杆              |
 | `demos/motion.html`                                          | 已移除阁楼的旧 URL 重定向                                   | 仅兼容；没有活动 attic 场景                     |
 | `research/`                                                  | 精简后的来源事实与一份当前验证                              | 不由本地服务器公开服务，旧记录在 Git 历史       |

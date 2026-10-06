@@ -1,5 +1,9 @@
 import { InkSprite, palette as C } from "../primitives/living-ink.js";
 import { courtyardPigments as M } from "../primitives/pigments.js";
+import {
+  redrawProfiles as R,
+  drawingBeat,
+} from "../primitives/drawing-variants.js";
 
 // Independent silhouettes and anatomy; none of these drawings uses the reference atlas.
 const wool = M.rabbitFur,
@@ -9,7 +13,26 @@ const sage = M.owlBody,
   feather = M.owlWing,
   honey = M.owlBelly;
 const sprite = (w, h, pivot, seed, draw) =>
-  new InkSprite(w, h, draw, { pivot, seed });
+  new InkSprite(w, h, draw, {
+    pivot,
+    seed,
+    redraw:
+      seed === 851
+        ? R.rabbitBody
+        : seed === 881
+          ? R.owlBody
+          : [858, 859].includes(seed)
+            ? R.ear
+            : seed === 886
+              ? R.wing
+              : [870, 889].includes(seed)
+                ? R.foot
+                : [891, 892, 898].includes(seed)
+                  ? R.feather
+                  : seed === 897
+                    ? R.face
+                    : R.cloth,
+  });
 
 export function fieldBag(seed, color = "#b78643", notebook = false) {
   return sprite(45, 43, [22, 20], seed, (p) => {
@@ -609,14 +632,15 @@ const owlBody = sprite(124, 129, [62, 110], 881, (p) => {
   );
 });
 const owlWing = sprite(48, 49, [24, 7], 886, (p) => {
+  const featherFan = drawingBeat(p.variant);
   p.shape(
     [
       [-1, -2],
       [-12, 3],
       [-13, 16],
-      [-8, 30],
-      [0, 37],
-      [5, 25],
+      [-8 - featherFan * 0.6, 30],
+      [featherFan * 0.7, 37],
+      [5 + featherFan * 0.5, 25],
       [9, 10],
       [5, 0],
     ],
@@ -628,7 +652,7 @@ const owlWing = sprite(48, 49, [24, 7], 886, (p) => {
       [
         [-8 + i * 4, 9],
         [-7 + i * 3, 22],
-        [-2 + i, 30],
+        [-2 + i + featherFan * (i - 1.5) * 0.3, 30],
       ],
       { color: "#b5bca8", width: 0.65 },
     );

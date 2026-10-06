@@ -7,6 +7,7 @@ import {
   curve,
   penLine,
 } from "../primitives/living-ink.js";
+import { redrawProfiles as R } from "../primitives/drawing-variants.js";
 
 function solid(c, x, y, rx, ry, color) {
   if (c.inkPainter) {
@@ -186,6 +187,12 @@ export function plantArt(p, x = 0, y = 0, scale = 1) {
 export const plant = new InkSprite(150, 220, (p) => plantArt(p), {
   pivot: [75, 150],
   seed: 51,
+  redraw: [
+    [-130, 0.018, 0.7, -0.6],
+    [-55, -0.014, -0.5, 0.3],
+    [-12, 0, 0, 0],
+    [70, 0, 0, 0],
+  ],
 });
 
 function greenhouse(p, c) {
@@ -1157,7 +1164,7 @@ export const leafSprite = new InkSprite(
       { width: 0.75, seed: 1102 },
     );
   },
-  { pivot: [87, 82], seed: 91 },
+  { pivot: [87, 82], seed: 91, redraw: R.feather },
 );
 export const jar = new InkSprite(
   135,

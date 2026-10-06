@@ -1,9 +1,9 @@
 {
   "date": "2026-10-06",
-  "scope": "Gallery species-motion baseline plus current Chinese font, generated stroke and note tests; Gallery browser measurements were recorded 2026-10-04",
+  "scope": "Current full drawing variants (2026-10-06), Chinese studies (855dfa0), and retained Gallery species-motion browser baseline (2026-10-04)",
   "tests": {
     "command": "npm test",
-    "passed": 53,
+    "passed": 55,
     "failed": 0
   },
   "browser": {
@@ -1245,7 +1245,11 @@
     "source": "hanzi-writer-data@2.0.1 medians; approach adapted from local demo-4-claude/scripts/build-hanzi.mjs, src/engine/writing.js and ink.js",
     "license": "Arphic PL data; generated file has modification notice, fonts/ARPHICPL.TXT retained",
     "generatedCharacters": 285,
-    "pages": ["demos/chinese-type.html", "demos/chinese-ink.html", "demos/chinese-notes.html"],
+    "pages": [
+      "demos/chinese-type.html",
+      "demos/chinese-ink.html",
+      "demos/chinese-notes.html"
+    ],
     "checks": [
       "All three WOFF2 faces loaded and visibly differ at shared title/body/control sizes",
       "Ordered source medians wrote 今日待办 and custom 你好今天写字 in browser",
@@ -1255,7 +1259,11 @@
       "Mute, reduced motion, repeated reversal and latest-target replacement covered by controls and model tests",
       "No browser error logs on the three pages"
     ],
-    "limits": ["No physical touch device test", "Audio events checked, subjective listening not verified", "Generated stroke subset is not a complete Chinese font"]
+    "limits": [
+      "No physical touch device test",
+      "Audio events checked, subjective listening not verified",
+      "Generated stroke subset is not a complete Chinese font"
+    ]
   },
   "benchBefore": {
     "maxJump": 34.1512946423421,
@@ -1311,5 +1319,58 @@
     "chinese-type.png",
     "chinese-ink.png",
     "chinese-notes.png"
-  ]
+  ],
+  "livingDrawings": {
+    "date": "2026-10-06",
+    "baseline": "baseline/living-drawings",
+    "codeScope": "Opt-in full redraw; original solver, atlas, gait and gallery model unchanged",
+    "interiorSamples": {
+      "rabbitBody": {
+        "changed": 1505,
+        "total": 4658
+      },
+      "owlBody": {
+        "changed": 2884,
+        "total": 5341
+      },
+      "owlWing": {
+        "changed": 436,
+        "total": 484
+      }
+    },
+    "sampleDefinition": "RGB sum difference >12 between frames 0/1; interior mask at least 2 local pixels from visible boundary, alpha thresholds 120/100",
+    "rasterChecks": {
+      "costFromDrawingZero": true,
+      "frameTwoExplicit": true,
+      "reducedOverridesExplicitFrame": true,
+      "reverseHalfMatchesEarlierHalf": true
+    },
+    "actualInteraction": [
+      "Components sleep and knight move",
+      "Studio cast selection by keyboard; frozen pose three drawings",
+      "Gallery owl/rabbit redraw replacement",
+      "Gallery sleep and wake",
+      "Gallery pond and flower response",
+      "390px Gallery document width",
+      "390px Studio controls within viewport"
+    ],
+    "screenshots": {
+      "desktop": "living-drawings-studio.png",
+      "narrowCanvas": "living-drawings-narrow.png"
+    },
+    "errors": [],
+    "failedObservations": [
+      {
+        "probe": "Awaited RAF in hidden preview",
+        "result": "timeout",
+        "followup": "Visible preview and bounded subsequent samples"
+      }
+    ],
+    "limits": [
+      "Existing 44-observation matrix retained as prior evidence, not re-run",
+      "Narrow screenshot adapter inconsistent; Canvas export and DOM dimensions used",
+      "No physical touch or new listening QA",
+      "Not all reference action pose atlases reconstructed"
+    ]
+  }
 }

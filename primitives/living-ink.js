@@ -1,5 +1,6 @@
 import { random, curvePoints, length, partial } from "./sketch.js";
 import { palette } from "./pigments.js";
+import { redrawPoint } from "./drawing-variants.js";
 export { palette } from "./pigments.js";
 import {
   CanvasStrokeRecorder,
@@ -186,7 +187,13 @@ export class Pencil {
     this.c.strokeRecorder?.begin(cost);
     return progress;
   }
+  points(points) {
+    return this.redraw
+      ? points.map((p) => redrawPoint(p, this.variant, this.redraw))
+      : points;
+  }
   shape(knots, color, opts = {}) {
+    knots = this.points(knots);
     const p = opts.angular
         ? knots
         : curvePoints(knots, { closed: true, steps: 10 }),
@@ -233,7 +240,9 @@ export class Pencil {
     return p;
   }
   oval(x, y, rx, ry, color, opts = {}) {
-    const p = ellipsePoints(x, y, rx, ry, opts.seed || this.serial),
+    const p = this.points(
+        ellipsePoints(x, y, rx, ry, opts.seed || this.serial),
+      ),
       seed = opts.seed || ++this.serial * 37;
     const progress = this.consume(length(p) * (color ? 2.5 : 1));
     if (!progress) return p;
@@ -259,6 +268,7 @@ export class Pencil {
     return p;
   }
   line(points, opts = {}) {
+    points = this.points(points);
     const progress = this.consume(length(curvePoints(points, { steps: 9 })));
     curve(this.c, points, {
       variant: this.variant,
@@ -269,6 +279,7 @@ export class Pencil {
     });
   }
   dot(x, y, r, color = palette.ink) {
+    [x, y] = this.points([[x, y]])[0];
     if (this.consume(Math.max(2, r * 5)) < 0.5) return;
     const c = this.c;
     c.fillStyle = color;
@@ -278,14 +289,14 @@ export class Pencil {
   }
 }
 
-/** Artwork is rasterized once per contour drawing, at 2–4× resolution.
+/** Artwork is rasterized once per complete drawing, at 2–4× resolution.
  * Animation selects a drawing and moves parts; it does not regenerate texture. */
 export class InkSprite {
   constructor(
     w,
     h,
     draw,
-    { pivot = [w / 2, h / 2], seed = 1, variants = 3 } = {},
+    { pivot = [w / 2, h / 2], seed = 1, variants = 3, redraw } = {},
   ) {
     this.w = w;
     this.h = h;
@@ -311,10 +322,11 @@ export class InkSprite {
       color.scale(rasterScale, rasterScale);
       color.translate(...pivot);
       const p = new Pencil(c, v);
+      p.redraw = redraw;
       c.inkPainter = p;
       draw(p, c, v);
       recorder?.flush();
-      this.cost = p.cost;
+      if (v === 0) this.cost = p.cost;
       return canvas;
     });
     const times = tc.getImageData(0, 0, timing.width, timing.height).data;
@@ -360,7 +372,7 @@ export class InkSprite {
       progress,
     } = {},
   ) {
-    const v = frame ?? boilFrame(time, this.seed, reduced);
+    const v = reduced ? 0 : (frame ?? boilFrame(time, this.seed));
     progress ??= c.sceneDrawing ? c.sceneDrawing(this.seed) : 1;
     if (progress <= 0) return;
     let raster = this.frames[v % this.frames.length];

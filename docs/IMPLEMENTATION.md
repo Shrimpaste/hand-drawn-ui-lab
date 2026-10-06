@@ -68,6 +68,10 @@ note.draw(ctx, x, y, { time: elapsed, progress: drawProgress, reduced });
 
 当前小部件烘焙为 4×、大背景为 2× raster；时间图最高约 512 边长，绘制过程分 96 档缓存。它是性能/分辨率取舍，不能声称任意大小无限精细。不要把调 alpha 当成 `progress`；后者沿实际笔画时间显现。
 
+需要完整重画时给 `InkSprite` 配置 `redraw`：数组每行是 `[局部 y, 横向比例变化, 横向偏移, 纵向偏移]`，高度递增，关节/接触位置用零值。例如自有纸片可以用 `[[-40,.008,.3,-.2],[0,0,0,0],[40,-.006,-.2,.2]]`，同时将业务文字放在不变形的独立层。形体和结构共用这个场；蜡笔种子不变。更具体的翻角/开合画法在 draw 回调里读 `p.variant`，重新安排控制点，而不是每帧随机生成。
+
+`redraw` 是可选项；默认画稿仍只变化笔线。三稿只在构造时生成。笔顺时间图和 cost 必须来自第 0 稿；否则各稿不同路径长度会污染首次绘制时序。减少动作模式优先使用第 0 稿，即使传了 `frame`。不要在 RAF 中创建 sprite。Studio 的 `drawingFrame` 只用于同姿态对照，Gallery 仍读取原 solver 的 `i.hand`。
+
 `CanvasStrokeRecorder` 在 [stroke-recording.js](../primitives/stroke-recording.js) 记录 Canvas 绘制顺序与 cost；`Pencil.consume/segment` 给轮廓、填色、细节分配顺序。自绘代码需保持绘画调用有序，不能先画完整对象再假装用遮罩描笔。大图先看局部时间图是否忠实，再决定缓存尺寸。
 
 ## 3. 笔迹和可中断的写擦

@@ -4,6 +4,7 @@ import { GuideMotion } from "../scenes/guide-motion.js";
 import { visitorRig } from "../scenes/guide-rig.js";
 import { armArtworkRotation } from "../scenes/guide-render-pose.js";
 import { GalleryWalk } from "../scenes/gallery-model.js";
+import { redrawPoint, redrawProfiles } from "../primitives/drawing-variants.js";
 
 test("rabbit travels during paired airborne steps while owl alternates its talons", () => {
   const actors = [new GuideMotion(192, "rabbit"), new GuideMotion(193, "owl")];
@@ -80,9 +81,15 @@ test("sleeping visitor arms remain continuous across authored drawing-state swit
         .filter((p) => p.part.startsWith("arm"))) {
         // Transform a real artwork tip through the same matrix and artwork
         // rotation used by drawRigGuide, rather than testing only clip degrees.
-        const r = armArtworkRotation(part, rig),
-          x = -24 * Math.sin(r),
-          y = 24 * Math.cos(r);
+        const r = armArtworkRotation(part, rig);
+        let [tx, ty] = redrawPoint(
+          [0, character === "owl" ? 37 : 24],
+          part.hand,
+          character === "rabbit" ? redrawProfiles.cloth : redrawProfiles.wing,
+        );
+        if (character === "owl" && part.part.endsWith("R")) tx = -tx;
+        const x = tx * Math.cos(r) - ty * Math.sin(r),
+          y = tx * Math.sin(r) + ty * Math.cos(r);
         const [a, b, c, d] = part.m;
         const tip = [
           part.t[0] * 160 + a * x - b * y,
