@@ -1,6 +1,6 @@
 {
   "date": "2026-10-06",
-  "scope": "Current full drawing variants (2026-10-06), Chinese studies (855dfa0), and retained Gallery species-motion browser baseline (2026-10-04)",
+  "scope": "Current full drawing variants (2026-10-06), Chinese font pair and stroke studies (57a2cbe), retained Gallery species-motion browser baseline (2026-10-04)",
   "tests": {
     "command": "npm test",
     "passed": 55,
@@ -1244,9 +1244,10 @@
   "chineseType": {
     "source": "hanzi-writer-data@2.0.1 medians; approach adapted from local demo-4-claude/scripts/build-hanzi.mjs, src/engine/writing.js and ink.js",
     "license": "Arphic PL data; generated file has modification notice, fonts/ARPHICPL.TXT retained",
-    "generatedCharacters": 285,
+    "generatedCharacters": 299,
     "pages": [
       "demos/chinese-type.html",
+      "demos/chinese-pair.html",
       "demos/chinese-ink.html",
       "demos/chinese-notes.html"
     ],
@@ -1256,8 +1257,12 @@
       "Slow reverse erased part of final 字 at 94% while previous characters remained",
       "390px note and ink pages fit without horizontal overflow; DOM scrollWidth 375 at viewport 390",
       "Keyboard focus and local note save returned from navigation with drawn title intact",
+      "Pair page compared Xiaolai and Yozai at identical task and record content, shared checks and saved state",
+      "Pair page keyboard Enter switched examples; size and pigment controls worked",
+      "Pair page 390px viewport showed both stacked sheets and scale samples; scrollWidth 375 at innerWidth 390",
+      "Pair page reduced mode reached 0 and 1 immediately; mute disabled audio with zero active sources",
       "Mute, reduced motion, repeated reversal and latest-target replacement covered by controls and model tests",
-      "No browser error logs on the three pages"
+      "No browser error logs on the four pages"
     ],
     "limits": [
       "No physical touch device test",
@@ -1317,6 +1322,8 @@
     "species-gallery-final.jpg",
     "species-gallery-narrow.png",
     "chinese-type.png",
+    "chinese-pair-tasks.png",
+    "chinese-pair-record.png",
     "chinese-ink.png",
     "chinese-notes.png"
   ],

@@ -32,7 +32,7 @@ flowchart LR
 | `primitives/`                                                | 自绘、笔迹、时间图、动作事件、纸面、残留、Foley             | 可组合工具；适配宿主而不是强制框架              |
 | `scenes/`                                                    | 庭院、自绘画稿、空间、对象状态、原求解器 adapter            | 原创演示与定制模型；不要全部迁移到 SaaS         |
 | `demos/gallery.html` / `lab.html`                            | 都加载 `scenes/gallery.js`                                  | 当前同一画廊入口                                |
-| `demos/chinese-{type,ink,notes}.html`                         | 字体对照、笔画试验、便笺组合；共享 `chinese-type.js/css`       | 独立中文测试页，不改变 Gallery                  |
+| `demos/chinese-{type,pair,ink,notes}.html`                    | 字体对照、双字体实页、笔画试验、便笺组合；共享 `chinese-type.js/css` | 独立中文测试页，不改变 Gallery               |
 | `primitives/chinese-handwriting.js` / `generated-chinese-medians.js` | 本地绘制和可逆游标 / Hanzi Writer Data 生成的笔画中线 | 数据受 Arphic PL 约束，见来源文档               |
 | `fonts/`                                                     | 三款完整网页字体、OFL 文件、笔画数据许可与来源清单             | 静态字形和动态中线分开使用                       |
 | `scenes/studio.html` / `scenes/studio.js`                    | 原创局部绘制、轮廓、书写和声音小样                          | 局部艺术/算法检查，不是产品布局模板             |

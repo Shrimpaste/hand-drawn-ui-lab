@@ -37,7 +37,7 @@ npm start
 | [绘制小样](http://127.0.0.1:5184/scenes/studio.html)                                        | 局部笔触、固定/活轮廓、手写、Foley 的检查台                            |
 | [Reference](http://127.0.0.1:5184/)                                                         | 原图集和原动作的最小还原，没有完整棋类规则                             |
 | [Characters](http://127.0.0.1:5184/components.html)                                         | 十二个原角色的部件、睡眠、紧张与简化搬运实验                           |
-| [中文字样](http://127.0.0.1:5184/demos/chinese-type.html) / [笔迹](http://127.0.0.1:5184/demos/chinese-ink.html) / [便笺](http://127.0.0.1:5184/demos/chinese-notes.html) | 三款中文手写风格字体对照、有序笔画写擦、便笺组合试验；[说明](docs/CHINESE_TYPE.md) |
+| [中文字样](http://127.0.0.1:5184/demos/chinese-type.html) / [双字体](http://127.0.0.1:5184/demos/chinese-pair.html) / [笔迹](http://127.0.0.1:5184/demos/chinese-ink.html) / [便笺](http://127.0.0.1:5184/demos/chinese-notes.html) | 小赖与悠哉实页对照、三字体字样、有序笔画写擦和便笺组合；[说明](docs/CHINESE_TYPE.md) |
 
 旧 `/demos/motion.html` 只重定向到 Gallery。Notebook 及早期材质代码保留为兼容实验，不能作为当前风格质量标杆。阁楼已移除。
 
