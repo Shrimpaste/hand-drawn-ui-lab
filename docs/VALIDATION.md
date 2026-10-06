@@ -11,9 +11,9 @@
 - 桌面/390×844 窄屏检查：作品靠近/打开/内部操作/返回、角色重绘、选项、静音、标题空间与凳子进出。窄屏 documentWidth390 无横向溢出，实际输入为鼠标/键盘模拟尺寸；**没有声称物理触屏验证**。
 - 最终浏览器捕获的 error logs 为空。音频解锁/事件/静音成立，听感仍需真人在扬声器或耳机中与动作一起评价。
 
-中文页：三款字体均在浏览器加载；桌面样张、组合便笺和正常笔迹已目视检查。笔迹页输入「你好今天写字」可完整书写；慢速擦除在 94% 看到末字部分消去，前字保持。早一轮界面检查覆盖键盘焦点、便笺本机保存、静音、减少动作及 390px 无横溢；笔画数据切换后又检查实际字形和擦除。听感与物理触屏尚未验证。
+中文页：三款字体均在浏览器加载；桌面样张、组合便笺和正常笔迹已目视检查。双字体页仅加载小赖与悠哉，使用同一待办清单/会议记录和字级样文；两面勾选同步，本机保存后路径标签从「草稿」写成「已存」。键盘 Enter 可切换示例，字号与颜料控件生效。390px 双字体页 `scrollWidth=375`、`innerWidth=390`，分段截图检查两个纸页与字级样张。笔迹页输入「你好今天写字」可完整书写；慢速擦除在 94% 看到末字部分消去，前字保持。静音关闭时声源数为零；减少动作下路径写擦即时到端点。听感与物理触屏尚未验证。
 
-当前数据在 [current-validation.json](../research/current-validation.json)。Gallery 图为 [桌面](../research/species-gallery-final.jpg)、[窄屏](../research/species-gallery-narrow.png)；中文页样张为 [字样](../research/chinese-type.png)、[笔迹](../research/chinese-ink.png)、[便笺](../research/chinese-notes.png)。Gallery 窄屏截图适配器曾缩放不一致，故没有用失真截图证明页面布局。
+当前数据在 [current-validation.json](../research/current-validation.json)。Gallery 图为 [桌面](../research/species-gallery-final.jpg)、[窄屏](../research/species-gallery-narrow.png)；中文页样张为 [字样](../research/chinese-type.png)、[双字体清单](../research/chinese-pair-tasks.png)、[双字体记录](../research/chinese-pair-record.png)、[笔迹](../research/chinese-ink.png)、[便笺](../research/chinese-notes.png)。Gallery 窄屏截图适配器曾缩放不一致，故没有用失真截图证明页面布局。
 
 这些是有范围的当前结果，不是完整每设备兼容性保证，也不是原作同等听感或艺术完成度的客观证书。
 

@@ -16,6 +16,7 @@ const faces = {
 const icons = {
   home: "M5 20 5 8 24 6 26 23 8 25 5 20 M10 12 15 10 21 12 M10 17 21 16",
   type: "M5 7 25 6 M15 7 14 25 M9 25 21 24",
+  pair: "M5 7 14 6 15 25 5 25 5 7 M18 7 27 6 27 25 18 25 18 7 M8 12 12 11 M21 12 25 11",
   ink: "M7 23 10 16 23 4 27 8 14 22 7 23 M11 16 15 20 M6 27 24 26",
   notes: "M6 4 23 5 25 26 7 26 6 4 M11 11 20 11 M11 17 21 17 M11 22 17 22",
   write: "M8 24 11 16 23 5 27 9 15 22 8 24 M11 16 15 20",
@@ -40,21 +41,29 @@ const pigmentButtons = `<div class="colors" role="group" aria-label="笔迹颜�
   )
   .join("")}</div>`;
 const options = `<div class="checks"><label><input type="checkbox" id="sound">笔触声</label><label><input type="checkbox" id="still">减少动作</label></div>`;
-const sourceDetails = `<details><summary>字体与笔迹来源</summary><p>字体为完整字库的本地网页版本：<a href="https://github.com/lxgw/LxgwWenKai-Lite">文楷</a><a href="https://github.com/lxgw/kose-font">小赖</a><a href="https://github.com/lxgw/yozai-font">悠哉</a>。授权与转换记录见 <a href="/fonts/sources.json">来源清单</a>。</p><p>动画的 ${Object.keys(chineseGlyphs).length} 字笔迹取自 <a href="https://github.com/chanind/hanzi-writer-data">Hanzi Writer Data</a> 的有序笔画中线，经缩放、平滑和固定手感处理；<a href="/fonts/ARPHICPL.TXT">Arphic PL 授权</a>。它与以上三款字体的轮廓分开测试。</p></details>`;
-const titles = { type: "中文字样", ink: "书写与擦除", notes: "今日便笺" };
+const fontSourceLinks = `${page === "pair" ? "" : '<a href="https://github.com/lxgw/LxgwWenKai-Lite">文楷</a>'}<a href="https://github.com/lxgw/kose-font">小赖</a><a href="https://github.com/lxgw/yozai-font">悠哉</a>`;
+const sourceDetails = `<details><summary>字体与笔迹来源</summary><p>字体为完整字库的本地网页版本：${fontSourceLinks}。授权与转换记录见 <a href="/fonts/sources.json">来源清单</a>。</p><p>动画的 ${Object.keys(chineseGlyphs).length} 字笔迹取自 <a href="https://github.com/chanind/hanzi-writer-data">Hanzi Writer Data</a> 的有序笔画中线，经缩放、平滑和固定手感处理；<a href="/fonts/ARPHICPL.TXT">Arphic PL 授权</a>。路径笔画与静态字体轮廓分开测试。</p></details>`;
+const pages = [
+  ["type", "字样"],
+  ["pair", "双字体"],
+  ["ink", "笔迹"],
+  ["notes", "便笺"],
+];
+const titles = {
+  type: "中文字样",
+  pair: "小赖与悠哉",
+  ink: "书写与擦除",
+  notes: "今日便笺",
+};
 document.querySelector("#app").innerHTML =
-  `<div class="sheet"><header class="topline"><a class="home" href="/scenes/studio.html" aria-label="返回绘制小样">${svg("home")}UI LAB</a><nav aria-label="中文测试页">${[
-    ["type", "字样"],
-    ["ink", "笔迹"],
-    ["notes", "便笺"],
-  ]
+  `<div class="sheet"><header class="topline"><a class="home" href="/scenes/studio.html" aria-label="返回绘制小样">${svg("home")}UI LAB</a><nav aria-label="中文测试页">${pages
     .map(
       ([key, label]) =>
         `<a href="./chinese-${key}.html" ${key === page ? 'aria-current="page"' : ""}>${svg(key)}${label}</a>`,
     )
     .join(
       "",
-    )}</nav></header><main><div class="page-heading"><h1>${titles[page]}</h1><span class="folio">0${["type", "ink", "notes"].indexOf(page) + 1} / 03</span></div><div id="content"></div></main><footer class="foot">${sourceDetails}<span id="font-status" role="status">字体载入中</span></footer></div>`;
+    )}</nav></header><main><div class="page-heading"><h1>${titles[page]}</h1><span class="folio">0${pages.findIndex(([key]) => key === page) + 1} / 04</span></div><div id="content"></div></main><footer class="foot">${sourceDetails}<span id="font-status" role="status">字体载入中</span></footer></div>`;
 const $ = (selector) => document.querySelector(selector);
 const content = $("#content");
 const media = matchMedia("(prefers-reduced-motion: reduce)");
@@ -142,6 +151,113 @@ if (page === "type") {
     );
     $("#size-value").value = $("#size").value;
   });
+} else if (page === "pair") {
+  const now = new Date();
+  const date = `${String(now.getMonth() + 1).padStart(2, "0")} 月 ${String(now.getDate()).padStart(2, "0")} 日`;
+  const pairFaces = [
+    ["xiaolai", "小赖", "XIAOLAI"],
+    ["yozai", "悠哉", "YOZAI"],
+  ];
+  const card = ([key, name, latin], index) =>
+    `<section class="pair-card" data-face="${key}" aria-label="${name}示例"><div class="pair-card-head"><div><span class="pair-card-name">${name}</span><span class="pair-latin">${latin}</span></div><span class="pair-index">0${index + 1} / 02</span></div><div class="pair-paper"><div class="pair-meta"><span class="pair-view-name">待办清单</span><time>${date}</time></div><h2 class="pair-title">今日待办</h2><div class="pair-tasks" data-scene="tasks">${["整理会议记录", "补上两张草图", "把文件寄给小林"].map((task, i) => `<label class="pair-task"><input type="checkbox" data-task="${i}"><span>${task}</span></label>`).join("")}<p class="pair-body">会议记录放在蓝色文件夹里。<br>草图需要标上尺寸，再核对一次。</p></div><div class="pair-record" data-scene="record" hidden><div class="pair-section"><h3>讨论摘要</h3><p>整理上周的会议记录，补上两张草图。</p></div><div class="pair-section"><h3>下次核对</h3><p>把文件寄给小林前，确认草图尺寸。</p></div><div class="pair-section"><h3>附件</h3><p>会议记录 / 草图两张</p></div></div><div class="pair-bottom"><div class="pair-ink-label"><canvas id="pair-ink-${key}" aria-hidden="true"></canvas><span class="pair-state-text" role="status">尚未保存</span></div><button type="button" data-pair-save>${svg("save")}保存</button></div></div></section>`;
+  content.innerHTML = `<div class="pair-controls"><div class="pair-views" role="group" aria-label="示例内容"><span>示例</span><button type="button" data-view="tasks" aria-pressed="true">待办清单</button><button type="button" data-view="record" aria-pressed="false">会议记录</button></div><label>正文<input type="range" id="pair-size" min="16" max="23" value="18"><output id="pair-size-value">18px</output></label>${pigmentButtons}${options}</div><div class="pair-grid">${pairFaces.map(card).join("")}</div><div class="pair-motion"><span>路径标签</span><button id="pair-write" type="button">写入</button><button id="pair-erase" type="button">擦除</button><button id="pair-replay" type="button">重写</button></div><section class="pair-scale" aria-label="字级对照"><h2>字级对照</h2><div class="pair-scale-grid">${pairFaces.map(([key, name]) => `<div data-face="${key}"><span class="pair-scale-name">${name}</span><p class="pair-scale-large">文件记录</p><p class="pair-scale-medium">完成校对后保存草稿</p><p class="pair-scale-small">${date}　14:30 / 共 3 项</p></div>`).join("")}</div></section>`;
+  const pairInk = new ChineseInk("草稿", { speed: 650 });
+  for (const [key] of pairFaces)
+    addDrawing(`pair-ink-${key}`, "草稿", 28, "fine", null, pairInk);
+  const taskInputs = [...document.querySelectorAll(".pair-task input")];
+  let view = "tasks";
+  const setView = (next) => {
+    view = next;
+    document
+      .querySelectorAll("[data-view]")
+      .forEach((button) =>
+        button.setAttribute(
+          "aria-pressed",
+          String(button.dataset.view === view),
+        ),
+      );
+    document
+      .querySelectorAll("[data-scene]")
+      .forEach((scene) => (scene.hidden = scene.dataset.scene !== view));
+    document
+      .querySelectorAll(".pair-view-name")
+      .forEach(
+        (label) =>
+          (label.textContent = view === "tasks" ? "待办清单" : "会议记录"),
+      );
+    document
+      .querySelectorAll(".pair-title")
+      .forEach(
+        (title) =>
+          (title.textContent = view === "tasks" ? "今日待办" : "会议记录"),
+      );
+  };
+  const setSaved = (saved) => {
+    document
+      .querySelectorAll(".pair-state-text")
+      .forEach(
+        (label) => (label.textContent = saved ? "已保存到本机" : "尚未保存"),
+      );
+    pairInk.replace(saved ? "已存" : "草稿", reduced);
+    dirty = true;
+  };
+  document
+    .querySelectorAll("[data-view]")
+    .forEach((button) =>
+      listen(button, "click", () => setView(button.dataset.view)),
+    );
+  taskInputs.forEach((input) =>
+    listen(input, "change", () => {
+      taskInputs
+        .filter((peer) => peer.dataset.task === input.dataset.task)
+        .forEach((peer) => (peer.checked = input.checked));
+      setSaved(false);
+    }),
+  );
+  document.querySelectorAll("[data-pair-save]").forEach((button) =>
+    listen(button, "click", () => {
+      try {
+        localStorage.setItem(
+          "ui-lab-pair-demo",
+          JSON.stringify({
+            view,
+            tasks: [0, 1, 2].map(
+              (i) =>
+                taskInputs.find((t) => t.dataset.task === String(i)).checked,
+            ),
+          }),
+        );
+        setSaved(true);
+      } catch {
+        document
+          .querySelectorAll(".pair-state-text")
+          .forEach((label) => (label.textContent = "未能保存"));
+      }
+    }),
+  );
+  try {
+    const saved = JSON.parse(localStorage.getItem("ui-lab-pair-demo"));
+    if (saved && Array.isArray(saved.tasks)) {
+      taskInputs.forEach(
+        (input) =>
+          (input.checked = saved.tasks[Number(input.dataset.task)] === true),
+      );
+      setView(saved.view === "record" ? "record" : "tasks");
+      setSaved(true);
+    }
+  } catch {
+    /* This comparison page remains usable without local storage. */
+  }
+  listen($("#pair-size"), "input", () => {
+    document.documentElement.style.setProperty(
+      "--pair-body-size",
+      `${$("#pair-size").value}px`,
+    );
+    $("#pair-size-value").value = `${$("#pair-size").value}px`;
+  });
+  listen($("#pair-write"), "click", () => pairInk.setVisible(true, reduced));
+  listen($("#pair-erase"), "click", () => pairInk.setVisible(false, reduced));
+  listen($("#pair-replay"), "click", () => pairInk.replay(reduced));
 } else if (page === "ink") {
   content.innerHTML = `<div class="toolbar"><label>文字<select id="phrase">${chinesePhrases.map((t) => `<option>${t}</option>`).join("")}</select></label><label>笔触<select id="material"><option value="fine">细笔</option><option value="pencil">铅笔</option><option value="color">色铅</option></select></label><label>速度<select id="speed"><option value="0.35">慢速</option><option value="1" selected>正常</option><option value="1.8">快速</option></select></label>${pigmentButtons}</div><section class="ink-stage" aria-label="中文笔迹播放"><canvas id="hero" aria-hidden="true"></canvas><p class="status" id="stroke-status" aria-live="off"></p><div class="ink-actions"><button id="write">${svg("write")}写入</button><button id="erase">${svg("erase")}擦除</button><button id="replay">${svg("replay")}重写</button><button id="pause" aria-pressed="false">${svg("pause")}暂停</button></div><label class="scrubber">进度<input id="progress" type="range" min="0" max="1000" value="0"><output id="progress-value">0%</output></label></section><div class="materials">${[
     ["fine", "细笔"],
@@ -388,11 +504,11 @@ listen(window, "pageshow", (event) => {
 });
 if (drawings.length) raf = requestAnimationFrame(frame);
 
-Promise.all(
-  Object.values(faces).map(([, face]) => document.fonts.load(`20px ${face}`)),
-)
+const neededFaces =
+  page === "pair" ? [faces.xiaolai, faces.yozai] : Object.values(faces);
+Promise.all(neededFaces.map(([, face]) => document.fonts.load(`20px ${face}`)))
   .then(() => {
-    $("#font-status").textContent = "3 款字体已载入";
+    $("#font-status").textContent = `${neededFaces.length} 款字体已载入`;
   })
   .catch(() => {
     $("#font-status").textContent = "部分字体未载入，请刷新重试";

@@ -18,6 +18,7 @@ const output = join(root, "primitives", "generated-chinese-medians.js");
 const inputs = [
   "demos/chinese-type.js",
   "demos/chinese-type.html",
+  "demos/chinese-pair.html",
   "demos/chinese-ink.html",
   "demos/chinese-notes.html",
 ];
