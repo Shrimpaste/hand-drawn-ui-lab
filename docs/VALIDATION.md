@@ -1,6 +1,6 @@
 # 当前验证与审核方法
 
-当前验证日期 2026-10-06。完整三稿证据对应 `baseline/living-drawings`；Gallery 的既有空间/坐凳矩阵来自 `a9f781e` / `baseline/species-motion` 的 2026-10-04 记录，中文页来自 `855dfa0`。下面区分本轮与此前范围。原作 vendor 与 assets 未修改。
+当前验证日期 2026-10-06。完整三稿证据对应 `baseline/living-drawings`；Gallery 的既有空间/坐凳矩阵来自 `a9f781e` / `baseline/species-motion` 的 2026-10-04 记录，中文页及双字体比较来自 `855dfa0 / 57a2cbe`。下面区分本轮与此前范围。原作 vendor 与 assets 未修改。
 
 ## 当前结果
 
