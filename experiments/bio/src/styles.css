@@ -1,0 +1,319 @@
+@font-face {
+  font-family: "小赖";
+  src: url("../public/fonts/xiaolai-sub.woff2") format("woff2");
+  font-display: block;
+}
+:root {
+  --paper: #f1ebde;
+  --ink: #4e3a2a;
+  --ink-soft: #7a644c;
+  --teal: #397e78;
+  --red: #aa493b;
+  --hand: "小赖", "LXGW WenKai", "KaiTi", "STKaiti", "Kaiti SC", "楷体", serif;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background: #e8e0cf;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: var(--hand);
+}
+#app {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 50% 40%, #efe8d9 0%, #e3d9c4 70%, #d9ceb6 100%);
+}
+.viewport {
+  display: grid;
+  place-items: center;
+}
+.stage {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 10px 40px rgba(80, 60, 30, 0.18), 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+#app.ready .stage {
+  opacity: 1;
+}
+.stage canvas.art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* DOM layers are authored in the 1280x800 design space and scaled with the stage. */
+.layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1280px;
+  height: 800px;
+  transform-origin: 0 0;
+  scale: var(--k);
+  pointer-events: none;
+}
+.layer > * {
+  pointer-events: auto;
+}
+.hits-layer,
+.notes-layer {
+  transform-origin: 0 0;
+}
+button.hit {
+  position: absolute;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: transparent;
+  font-size: 0;
+  cursor: pointer;
+  border-radius: 14px;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+button.hit:disabled {
+  cursor: default;
+}
+button.hit[hidden] {
+  display: none;
+}
+.note {
+  position: absolute;
+  pointer-events: none;
+}
+.note-body {
+  pointer-events: auto;
+  overflow-y: auto;
+  padding: 0 8px 0 0;
+  font-size: 16.5px;
+  line-height: 1.72;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  scrollbar-width: thin;
+  scrollbar-color: #c8b48d transparent;
+}
+.note-body p {
+  margin: 0 0 0.62em;
+  text-indent: 0;
+}
+.note-body ul {
+  margin: 0 0 0.6em;
+  padding-left: 1.1em;
+}
+.note-body li {
+  margin: 0 0 0.25em;
+}
+.note-body li::marker {
+  color: var(--red);
+}
+.note-body b {
+  color: #2f2219;
+  font-weight: 700;
+}
+.note-body em {
+  font-style: normal;
+  background: linear-gradient(transparent 58%, rgba(218, 165, 35, 0.34) 58%, rgba(218, 165, 35, 0.3) 92%, transparent 92%);
+}
+/* highlighter marks belong to written words: none while the page is folded or still being erased */
+.note-body:not(.on) em,
+.note-body.off em {
+  background: none;
+}
+.note-body .warn {
+  color: var(--red);
+}
+.note-body .muted {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+}
+.note-body .formula {
+  display: block;
+  margin: 0.4em 0 0.7em;
+  padding: 0.2em 0.5em;
+  color: #23465f;
+  font-family: "Cambria Math", "Times New Roman", var(--hand);
+  border-left: 2px solid rgba(57, 126, 120, 0.45);
+}
+.note-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.2em 0 0.8em;
+  font-size: 15px;
+}
+.note-body td,
+.note-body th {
+  padding: 0.18em 0.3em;
+  border-bottom: 1px dashed rgba(122, 100, 76, 0.35);
+  text-align: left;
+  vertical-align: top;
+}
+.note-body th {
+  color: var(--teal);
+  font-weight: 400;
+}
+/* Lined paper that belongs to the text: the lines are the scrolling element's own background, so they move with it. */
+.note-body.ruled {
+  line-height: 29px;
+  background: repeating-linear-gradient(to bottom, transparent 0 28px, rgba(120, 140, 130, 0.3) 28px 29px);
+  background-attachment: local;
+}
+.note-body.ruled p {
+  margin: 0 0 29px;
+}
+.note-body.ruled .muted {
+  font-size: 14.5px;
+}
+.note-body.folded {
+  pointer-events: none;
+  overflow: hidden;
+}
+/* Ink-in: each character arrives in reading order; erasing runs backwards, faster. */
+.note-body .ch {
+  opacity: 0;
+  color: #a68e70;
+  transition: opacity 0.22s ease, color 0.5s ease;
+  transition-delay: calc(var(--i) * var(--step, 6ms));
+}
+.note-body.on .ch {
+  opacity: 1;
+  color: inherit;
+}
+.note-body.off .ch {
+  opacity: 0;
+  transition-duration: 0.12s;
+  transition-delay: calc((var(--n, 0) - var(--i)) * var(--estep, 1ms));
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.rotate-hint {
+  display: none;
+  position: fixed;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+#app.portrait .rotate-hint {
+  display: block;
+}
+@media (prefers-reduced-motion: reduce) {
+  .note-body .ch {
+    transition-duration: 0.01s;
+  }
+}
+
+/* loading page: sits above everything until the room has pre-drawn its steps */
+#boot {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 50% 42%, #f3ecdc 0%, #e6dcc6 70%, #dccfb4 100%);
+  /* a hair under opaque, so the browser still paints the scene being warmed up behind it */
+  opacity: 0.992;
+  transition: opacity 0.6s ease;
+  font-family: var(--hand);
+}
+#boot.done {
+  opacity: 0;
+  pointer-events: none;
+}
+.boot-card {
+  width: min(520px, 86vw);
+  text-align: center;
+  color: var(--ink);
+}
+.boot-card h1 {
+  margin: 0 0 6px;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.boot-sub {
+  margin: 0 0 34px;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.boot-line {
+  position: relative;
+  height: 26px;
+}
+.boot-line svg:first-child {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.boot-track,
+.boot-fill {
+  fill: none;
+  stroke-linecap: round;
+}
+.boot-track {
+  stroke: rgba(122, 100, 76, 0.28);
+  stroke-width: 2;
+  stroke-dasharray: 0.012 0.016;
+}
+.boot-fill {
+  stroke: #b5742a;
+  stroke-width: 3;
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: 1;
+}
+.boot-pencil {
+  position: absolute;
+  top: 3px;
+  left: var(--x, 0%);
+  width: 40px;
+  height: 16px;
+  transform: translate(-6px, -12px) rotate(-28deg);
+  transform-origin: 0 50%;
+  filter: drop-shadow(0 2px 1px rgba(80, 60, 30, 0.25));
+}
+.boot-text {
+  margin: 22px 0 0;
+  font-size: 18px;
+}
+.boot-pct {
+  margin-left: 10px;
+  color: var(--ink-soft);
+}
+.boot-note {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* the loading card appears only once the hand font is ready; small lines get a hair of weight so they match the heading */
+#boot .boot-card {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.font-ready #boot .boot-card {
+  opacity: 1;
+}
+.boot-sub,
+.boot-text,
+.boot-note {
+  -webkit-text-stroke: 0.3px currentColor;
+}

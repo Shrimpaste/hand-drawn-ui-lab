@@ -7,13 +7,19 @@
     "dev": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
     "hanzi": "node scripts/build-chinese-medians.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs && npm run test:bio",
+    "test:bio": "vitest run experiments/bio/tests",
+    "check:bio": "node scripts/check-bio-import.mjs",
+    "bio:structure": "node experiments/bio/scripts/build-structure.mjs",
+    "bio:font": "node experiments/bio/scripts/build-font.mjs"
   },
   "devDependencies": {
     "acorn": "^8.15.0",
     "acorn-walk": "^8.3.5",
     "eslint-scope": "^9.1.2",
     "hanzi-writer-data": "^2.0.1",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "subset-font": "^2.9.0",
+    "vitest": "^5.0.3"
   }
 }

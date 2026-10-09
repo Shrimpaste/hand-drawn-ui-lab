@@ -10,3 +10,8 @@
 *.png binary
 *.jpg binary
 *.wav binary
+
+# Imported Bio snapshots retain original bytes, including mixed line endings.
+experiments/bio/** -text -eol whitespace=-blank-at-eof,cr-at-eol
+experiments/bio/references/pdb/*.pdb -diff whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol
+experiments/bio/public/licenses/* whitespace=-blank-at-eof,-blank-at-eol,cr-at-eol

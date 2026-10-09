@@ -1,0 +1,557 @@
+{
+  "sourceProject": "demo-4-claude",
+  "sourcePath": "C:/Users/Lenovo/Desktop/all-bio-showcase/demo-4-claude",
+  "sourceCommit": "52141ce11b3dc66e65dfe8c85a296b1e2d3c9486",
+  "importedOn": "2026-10-09",
+  "scope": "block.html and room.html dependency closure, related tests and reproducible font/structure inputs",
+  "excluded": [
+    "hall/index and other gallery rooms",
+    "node_modules",
+    "dist",
+    "output",
+    ".ppt-build-fbp1",
+    "root PDF/DOCX",
+    "unused Hanzi generation/data"
+  ],
+  "files": [
+    {
+      "path": "block.html",
+      "sourceSha256": "1dc6a5e9ae54348b13db7b931748d44664919adc780f3827886525c36d79f81b",
+      "importedSha256": "4306cd760795e09979b7e343dac4a7a4c8f097c9bcc6fe56bcec0e5fad762cb6",
+      "changes": [
+        "Use experiment-relative stylesheet, entry and font URLs."
+      ]
+    },
+    {
+      "path": "public/fonts/xiaolai-sub.woff2",
+      "sourceSha256": "c233c536796a5749c7392a64623d013e1c5b16c5be4c36192c99cf7b74c54882",
+      "importedSha256": "c233c536796a5749c7392a64623d013e1c5b16c5be4c36192c99cf7b74c54882",
+      "changes": []
+    },
+    {
+      "path": "public/licenses/xiaolai-OFL.txt",
+      "sourceSha256": "e69147d85df54f8ee5822cb0250155963cc4251595ecc31a4d815ad2e8a7e4d0",
+      "importedSha256": "e69147d85df54f8ee5822cb0250155963cc4251595ecc31a4d815ad2e8a7e4d0",
+      "changes": []
+    },
+    {
+      "path": "references/pdb/7C9Q.pdb",
+      "sourceSha256": "a27453099b5f474fae52c5a28dfe760d29d22add0b95e2a8570a8dc5ff982e41",
+      "importedSha256": "a27453099b5f474fae52c5a28dfe760d29d22add0b95e2a8570a8dc5ff982e41",
+      "changes": []
+    },
+    {
+      "path": "references/pdb/7CVH.pdb",
+      "sourceSha256": "977d7f60634cf7337fe514d63801d08ccf48dcc60038f09b6d87b3de176417fe",
+      "importedSha256": "977d7f60634cf7337fe514d63801d08ccf48dcc60038f09b6d87b3de176417fe",
+      "changes": []
+    },
+    {
+      "path": "references/pdb/7CWE.pdb",
+      "sourceSha256": "6cb704c0951d6cf26bbc39045ee9638cea8a5949deae345b1387fd6a4292d619",
+      "importedSha256": "6cb704c0951d6cf26bbc39045ee9638cea8a5949deae345b1387fd6a4292d619",
+      "changes": []
+    },
+    {
+      "path": "references/xiaolai.woff2",
+      "sourceSha256": "9696ab25ab11aaa543de7f9015121980d8952100ea306af9a52123bef24114ea",
+      "importedSha256": "9696ab25ab11aaa543de7f9015121980d8952100ea306af9a52123bef24114ea",
+      "changes": []
+    },
+    {
+      "path": "room.html",
+      "sourceSha256": "9762e6ca37c40cc26178f36070e15fcbecc79cd290df38419c9ca9e2ef32a321",
+      "importedSha256": "0f1cc74bd4134661c1a0a804864d048e16c73838aefa7864c9c3a809f0288513",
+      "changes": [
+        "Use experiment-relative stylesheet, entry and font URLs."
+      ]
+    },
+    {
+      "path": "scripts/build-font.mjs",
+      "sourceSha256": "b8a900d6cd111bb4151d625c1dcf559d76ee7e3813a52fe89c7a4dd207f827d3",
+      "importedSha256": "b8a900d6cd111bb4151d625c1dcf559d76ee7e3813a52fe89c7a4dd207f827d3",
+      "changes": []
+    },
+    {
+      "path": "scripts/build-structure.mjs",
+      "sourceSha256": "df1e9ad2a2fa486a0a0c4e6f4571f2bd9531a770e0bd887c993d618d36839661",
+      "importedSha256": "df1e9ad2a2fa486a0a0c4e6f4571f2bd9531a770e0bd887c993d618d36839661",
+      "changes": []
+    },
+    {
+      "path": "src/block-main.js",
+      "sourceSha256": "7e580bcb4b60f03efbc53e46ac1e8bd2fc92835412415ac88fe6a792dbe963ff",
+      "importedSha256": "a157b112e6abb2f8df4fe6860d2daad63bcd9137bbf7e4a4c860e5e0c2857d88",
+      "changes": [
+        "Load CSS from HTML, use native JSON import attributes, remove Vite-only development global."
+      ]
+    },
+    {
+      "path": "src/content/block-room.js",
+      "sourceSha256": "69b88693d98cbe15568ff0f203329f7cb46231f1c2e8213abae7d9e39b42c193",
+      "importedSha256": "69b88693d98cbe15568ff0f203329f7cb46231f1c2e8213abae7d9e39b42c193",
+      "changes": []
+    },
+    {
+      "path": "src/content/fbp1-room.js",
+      "sourceSha256": "36288bcb16ed9ebb1d8c4c33c47aee2bda1af9fb6fd7d7b3b883e39ecad51362",
+      "importedSha256": "36288bcb16ed9ebb1d8c4c33c47aee2bda1af9fb6fd7d7b3b883e39ecad51362",
+      "changes": []
+    },
+    {
+      "path": "src/content/rooms.js",
+      "sourceSha256": "d886932d36cc7c0844f786fa28be17f3da9fdbbdde6ce4cb80fb578ce5c2c6d3",
+      "importedSha256": "d886932d36cc7c0844f786fa28be17f3da9fdbbdde6ce4cb80fb578ce5c2c6d3",
+      "changes": []
+    },
+    {
+      "path": "src/engine/app.js",
+      "sourceSha256": "2cbabc4b23c69603ac75c9841b3b504564654d1b0c28cd7dace802984c190697",
+      "importedSha256": "13d20810f5392b259a4330a6e7e45d4129f4408bd2138e52ac1f7be922ecbe89",
+      "changes": [
+        "UI-lab review fix: reduced-motion aria-pressed reflects reduced mode; retain the original animated/static icon state."
+      ]
+    },
+    {
+      "path": "src/engine/boot.js",
+      "sourceSha256": "a8114dce97cabb57e970bd77a5dc2f2ceec8289e75808f95e795dc2440d856a6",
+      "importedSha256": "a8114dce97cabb57e970bd77a5dc2f2ceec8289e75808f95e795dc2440d856a6",
+      "changes": []
+    },
+    {
+      "path": "src/engine/camera.js",
+      "sourceSha256": "175ab2baabf877f49faf2c4cd7451e4bd80db91aa32825e0ba041244b9587d92",
+      "importedSha256": "175ab2baabf877f49faf2c4cd7451e4bd80db91aa32825e0ba041244b9587d92",
+      "changes": []
+    },
+    {
+      "path": "src/engine/controls.js",
+      "sourceSha256": "46f20ca7c235e26fca2d6a0a1e3b787e1ccb381a7dc0c88680aede056d82a636",
+      "importedSha256": "e957d5ae89bcb3859f2c7761fbb5591310a9cda20f98d87ac54ebfcf614da1c5",
+      "changes": [
+        "UI-lab review fix: synchronize aria-pressed after story/keyboard changes; support a separate semantic state getter without changing drawn state."
+      ]
+    },
+    {
+      "path": "src/engine/flicker.js",
+      "sourceSha256": "8987509e293bf9f7c97514da06ff2b09100fccdfa28edc1e06f8a8172231b8f3",
+      "importedSha256": "8987509e293bf9f7c97514da06ff2b09100fccdfa28edc1e06f8a8172231b8f3",
+      "changes": []
+    },
+    {
+      "path": "src/engine/foley.js",
+      "sourceSha256": "4cad9db9c7b8a70fb6359c5361816e1926e92eea6921e49adfcbd1961a66643b",
+      "importedSha256": "4cad9db9c7b8a70fb6359c5361816e1926e92eea6921e49adfcbd1961a66643b",
+      "changes": []
+    },
+    {
+      "path": "src/engine/fontlayout.js",
+      "sourceSha256": "97216718ce57856a1df617ebc0bb1a70c33f17d32b961c029324799365ad894a",
+      "importedSha256": "97216718ce57856a1df617ebc0bb1a70c33f17d32b961c029324799365ad894a",
+      "changes": []
+    },
+    {
+      "path": "src/engine/geom.js",
+      "sourceSha256": "fc858e7824d6fea2fcd7e44caded18b252bd221d1928cf7451c379ae23ff9f67",
+      "importedSha256": "fc858e7824d6fea2fcd7e44caded18b252bd221d1928cf7451c379ae23ff9f67",
+      "changes": []
+    },
+    {
+      "path": "src/engine/glyphs.js",
+      "sourceSha256": "4427e6c1392ef3f48a6574e0dd64f628297644a59c59392f6ffd4e6b2c69fa91",
+      "importedSha256": "4427e6c1392ef3f48a6574e0dd64f628297644a59c59392f6ffd4e6b2c69fa91",
+      "changes": []
+    },
+    {
+      "path": "src/engine/ink.js",
+      "sourceSha256": "95a92fdccfbba28da3c1b203e0bb60d99dbbfcf16166f37c9585d010c86779ed",
+      "importedSha256": "95a92fdccfbba28da3c1b203e0bb60d99dbbfcf16166f37c9585d010c86779ed",
+      "changes": []
+    },
+    {
+      "path": "src/engine/label.js",
+      "sourceSha256": "910b0d96e30bc4beff67a75b194e37d953aa28937dc4db52d92e088b07e34b2d",
+      "importedSha256": "910b0d96e30bc4beff67a75b194e37d953aa28937dc4db52d92e088b07e34b2d",
+      "changes": []
+    },
+    {
+      "path": "src/engine/motion.js",
+      "sourceSha256": "5ebdae91b4d5398e8556cdb666f045e6a7c31d8979839d77c436432362044b4e",
+      "importedSha256": "5ebdae91b4d5398e8556cdb666f045e6a7c31d8979839d77c436432362044b4e",
+      "changes": []
+    },
+    {
+      "path": "src/engine/notes.js",
+      "sourceSha256": "eac9f3943599c624f21cf0a95b23ab953e505d873fd4cdd872afa1c30d50ee0d",
+      "importedSha256": "eac9f3943599c624f21cf0a95b23ab953e505d873fd4cdd872afa1c30d50ee0d",
+      "changes": []
+    },
+    {
+      "path": "src/engine/palette.js",
+      "sourceSha256": "e52360fc92013d0c07c5d0dccac33e7d4803580a32de588dc6eb5d06f365aa94",
+      "importedSha256": "e52360fc92013d0c07c5d0dccac33e7d4803580a32de588dc6eb5d06f365aa94",
+      "changes": []
+    },
+    {
+      "path": "src/engine/paper.js",
+      "sourceSha256": "03ea46a57f1c70c5235334ed6ae485318d9c123e7e6eeb96fefee9a6d6e54ed5",
+      "importedSha256": "03ea46a57f1c70c5235334ed6ae485318d9c123e7e6eeb96fefee9a6d6e54ed5",
+      "changes": []
+    },
+    {
+      "path": "src/engine/pencil.js",
+      "sourceSha256": "eefc1fa901c04d98586a06f4d9f75b5a382e713d9336956a9396443c1fec9885",
+      "importedSha256": "eefc1fa901c04d98586a06f4d9f75b5a382e713d9336956a9396443c1fec9885",
+      "changes": []
+    },
+    {
+      "path": "src/engine/perf.js",
+      "sourceSha256": "e70d78352f38d9b0745d4944db12b142fb30f391edb47842c263707d9f86448d",
+      "importedSha256": "e70d78352f38d9b0745d4944db12b142fb30f391edb47842c263707d9f86448d",
+      "changes": []
+    },
+    {
+      "path": "src/engine/recorder.js",
+      "sourceSha256": "7a42456082f0b981f4c758434f4211ecda6fa53d4a7d65b8de7e0915d91d4d41",
+      "importedSha256": "7a42456082f0b981f4c758434f4211ecda6fa53d4a7d65b8de7e0915d91d4d41",
+      "changes": []
+    },
+    {
+      "path": "src/engine/reveal.js",
+      "sourceSha256": "84426ce666dbea76c1f634daa0ef511bf2b4849d58a92901d7ec6d4e08cfd066",
+      "importedSha256": "84426ce666dbea76c1f634daa0ef511bf2b4849d58a92901d7ec6d4e08cfd066",
+      "changes": []
+    },
+    {
+      "path": "src/engine/rng.js",
+      "sourceSha256": "aa3c7cbcf235838aa0a2f7e2f307ea3e1b51880171e8386e6102a4f90cad5372",
+      "importedSha256": "aa3c7cbcf235838aa0a2f7e2f307ea3e1b51880171e8386e6102a4f90cad5372",
+      "changes": []
+    },
+    {
+      "path": "src/engine/scene.js",
+      "sourceSha256": "c5e9eba713696199b73aac6b9bc852ae25c030b3a1ea3875e890e75d03765bb7",
+      "importedSha256": "c5e9eba713696199b73aac6b9bc852ae25c030b3a1ea3875e890e75d03765bb7",
+      "changes": []
+    },
+    {
+      "path": "src/engine/sprite.js",
+      "sourceSha256": "76df5061b0331a54e98c80d9be5d517ace5bef3832190e11dc3c163b27a25e69",
+      "importedSha256": "76df5061b0331a54e98c80d9be5d517ace5bef3832190e11dc3c163b27a25e69",
+      "changes": []
+    },
+    {
+      "path": "src/engine/steps.js",
+      "sourceSha256": "496a73f6985136bb87d826c07f4162bdfeb581fb56b0e2f4d8a9be323ee25156",
+      "importedSha256": "496a73f6985136bb87d826c07f4162bdfeb581fb56b0e2f4d8a9be323ee25156",
+      "changes": []
+    },
+    {
+      "path": "src/engine/writing.js",
+      "sourceSha256": "099ea60ec246dccf266eb991c365336d47d4edd5cd1f66ca8e351da35fa64f6e",
+      "importedSha256": "099ea60ec246dccf266eb991c365336d47d4edd5cd1f66ca8e351da35fa64f6e",
+      "changes": []
+    },
+    {
+      "path": "src/engine3d/conformers.js",
+      "sourceSha256": "8278c8279368da01a8845f001343a01dc74bc42dfa54241dbf027d8d09c5161f",
+      "importedSha256": "8278c8279368da01a8845f001343a01dc74bc42dfa54241dbf027d8d09c5161f",
+      "changes": []
+    },
+    {
+      "path": "src/engine3d/linalg.js",
+      "sourceSha256": "7dc660f9ca0fb99ba5fa934e8208de1adff037bbe3fe128fb225ea9971448035",
+      "importedSha256": "7dc660f9ca0fb99ba5fa934e8208de1adff037bbe3fe128fb225ea9971448035",
+      "changes": []
+    },
+    {
+      "path": "src/engine3d/pdb.js",
+      "sourceSha256": "57885efca2cc91015ce81326f15dbfa62c3ff273b18c16be592e056bd5657898",
+      "importedSha256": "57885efca2cc91015ce81326f15dbfa62c3ff273b18c16be592e056bd5657898",
+      "changes": []
+    },
+    {
+      "path": "src/engine3d/reaction.js",
+      "sourceSha256": "d07338f32ea2709f2c9cf75bc2020401f561610f2e86075e64e9831ca3814248",
+      "importedSha256": "d07338f32ea2709f2c9cf75bc2020401f561610f2e86075e64e9831ca3814248",
+      "changes": []
+    },
+    {
+      "path": "src/engine3d/ribbon.js",
+      "sourceSha256": "aae3c2253662e210e6fbcbb1734986abef185d62738571a5ae457704d6985491",
+      "importedSha256": "aae3c2253662e210e6fbcbb1734986abef185d62738571a5ae457704d6985491",
+      "changes": []
+    },
+    {
+      "path": "src/generated/fbp1-structure.json",
+      "sourceSha256": "d7dd3be668dae0b4256e58c675ef3c361dd545d1d35b81a2aabe49ed4e8e91bd",
+      "importedSha256": "d7dd3be668dae0b4256e58c675ef3c361dd545d1d35b81a2aabe49ed4e8e91bd",
+      "changes": []
+    },
+    {
+      "path": "src/room-main.js",
+      "sourceSha256": "00237d3701ecdbda75bfcdf6c5d1335501e2c47413126f96504c18f670d3dbc6",
+      "importedSha256": "b5aa8964570dd16b3badb817be97051b149a4f26aec90e589c9df04602927544",
+      "changes": [
+        "Load CSS from HTML, use native JSON import attributes, remove Vite-only development global."
+      ]
+    },
+    {
+      "path": "src/scenes/block/cell.js",
+      "sourceSha256": "618386d627f57c3402fac59166c43716d68eaf7e1e4c075ffd0a144bba55c361",
+      "importedSha256": "618386d627f57c3402fac59166c43716d68eaf7e1e4c075ffd0a144bba55c361",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/closeup.js",
+      "sourceSha256": "e68cfaacda3c8d0abd9bc04e34efc03501e4b2d0534ed7e6c43ac05ee9aa2c3d",
+      "importedSha256": "e68cfaacda3c8d0abd9bc04e34efc03501e4b2d0534ed7e6c43ac05ee9aa2c3d",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/closeupArt.js",
+      "sourceSha256": "a5fe383d2b360a70901a0350d26b1fe82313922120066b1a499efe69c9dd2677",
+      "importedSha256": "a5fe383d2b360a70901a0350d26b1fe82313922120066b1a499efe69c9dd2677",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/enzyme.js",
+      "sourceSha256": "ea2ba7c0b000820ea35c56b857a08391d32879da456e89d22a8e38dd0ad9406a",
+      "importedSha256": "ea2ba7c0b000820ea35c56b857a08391d32879da456e89d22a8e38dd0ad9406a",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/flow.js",
+      "sourceSha256": "72078a8342475ef6d087e106fb2aba8c84ae9fcabbdf95a868f2c4e3677b4849",
+      "importedSha256": "72078a8342475ef6d087e106fb2aba8c84ae9fcabbdf95a868f2c4e3677b4849",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/layout.js",
+      "sourceSha256": "27b2119605b6b3188c4d4755f7ce981a436dbd2fb8c1c626ce82a83db858896c",
+      "importedSha256": "27b2119605b6b3188c4d4755f7ce981a436dbd2fb8c1c626ce82a83db858896c",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/model.js",
+      "sourceSha256": "a04ec52dbbb2939d313462af77d1389cac5687cb9d46318c7fb38d9789fe4e16",
+      "importedSha256": "a04ec52dbbb2939d313462af77d1389cac5687cb9d46318c7fb38d9789fe4e16",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/molecules.js",
+      "sourceSha256": "ad37ca61f612ac5f06e935c2e759c93ea4ef137dc09e306f50a1246d59e0bbe7",
+      "importedSha256": "ad37ca61f612ac5f06e935c2e759c93ea4ef137dc09e306f50a1246d59e0bbe7",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/block/room.js",
+      "sourceSha256": "c92e8fc9aa7bde73bc5be00b0feadce5dc4db45a6e3c71c5fd24c89509e99a49",
+      "importedSha256": "c92e8fc9aa7bde73bc5be00b0feadce5dc4db45a6e3c71c5fd24c89509e99a49",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/kit.js",
+      "sourceSha256": "bbdbc4941d830629a2787b58b5b18cedc4e119724fe0beddcb81396a1012a0be",
+      "importedSha256": "bbdbc4941d830629a2787b58b5b18cedc4e119724fe0beddcb81396a1012a0be",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/beats.js",
+      "sourceSha256": "5fd4bd6b577d4ab92047d03d46f31be81565832ef9dd893392b8e4fc09da014b",
+      "importedSha256": "5fd4bd6b577d4ab92047d03d46f31be81565832ef9dd893392b8e4fc09da014b",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/caption.js",
+      "sourceSha256": "a406c33b0624d836f560cb23290274e317a2aa8fe7783da90c08cff74dbf2aab",
+      "importedSha256": "a406c33b0624d836f560cb23290274e317a2aa8fe7783da90c08cff74dbf2aab",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/contacts.js",
+      "sourceSha256": "f54ee3253ebc321ad4179fc3470f31bbe2dbb3f59805a46c966b108f36a76e5c",
+      "importedSha256": "f54ee3253ebc321ad4179fc3470f31bbe2dbb3f59805a46c966b108f36a76e5c",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/cytosol.js",
+      "sourceSha256": "3af498c6b928dd38d433d3ccf3ca497a90a9bce067cc3f6ee53e60cb3f72c42d",
+      "importedSha256": "3af498c6b928dd38d433d3ccf3ca497a90a9bce067cc3f6ee53e60cb3f72c42d",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/ligands.js",
+      "sourceSha256": "9e304a8e3932454716282419f66566b8320fe0bec45e9a39436a194424aed58d",
+      "importedSha256": "9e304a8e3932454716282419f66566b8320fe0bec45e9a39436a194424aed58d",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/measure.js",
+      "sourceSha256": "35a95cc00d78736c9cc795a9ee0fd7014d91e4d303c4d7a00d10bf65aea64d0b",
+      "importedSha256": "35a95cc00d78736c9cc795a9ee0fd7014d91e4d303c4d7a00d10bf65aea64d0b",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/paint.js",
+      "sourceSha256": "4cd1a114361397b92b15b2c18006689b7b2e65a4fb57409636b671307971f7e3",
+      "importedSha256": "4cd1a114361397b92b15b2c18006689b7b2e65a4fb57409636b671307971f7e3",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/picking.js",
+      "sourceSha256": "78fb817b37d78b5cc301c93aeb68f3f8a4641ccd21355ff68e3d4f66471d29e8",
+      "importedSha256": "78fb817b37d78b5cc301c93aeb68f3f8a4641ccd21355ff68e3d4f66471d29e8",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/room.js",
+      "sourceSha256": "3ae9def8ff32ffe18a21d9f063b6abb62de41029c79a8a920aea82cd387879b5",
+      "importedSha256": "3ae9def8ff32ffe18a21d9f063b6abb62de41029c79a8a920aea82cd387879b5",
+      "changes": []
+    },
+    {
+      "path": "src/scenes/structure/view.js",
+      "sourceSha256": "af53bf5703609f2510c73f9fdc65e6e636dd7ca0a7c2603758571d69f84a2276",
+      "importedSha256": "af53bf5703609f2510c73f9fdc65e6e636dd7ca0a7c2603758571d69f84a2276",
+      "changes": []
+    },
+    {
+      "path": "src/styles.css",
+      "sourceSha256": "503775b9cb4add6b6e185ec124c1c7b3fdcb2ae8b95ea1bb4eea8374086eaca3",
+      "importedSha256": "d9d6dfbf8c821c0679ae74cd72a2993ba50cff7b99d22c3f13612c8287ca71bd",
+      "changes": [
+        "Resolve font inside experiment."
+      ]
+    },
+    {
+      "path": "tests/beats.test.js",
+      "sourceSha256": "208bd63d207720b13a70ffe738e0bd0623eed1b808b6ad23403daf1c2f0c77ef",
+      "importedSha256": "208bd63d207720b13a70ffe738e0bd0623eed1b808b6ad23403daf1c2f0c77ef",
+      "changes": []
+    },
+    {
+      "path": "tests/block-closeup.test.js",
+      "sourceSha256": "58aa345eca9338212fd4b96bb4ea634431b20e59e1f1c7615e2bfa3d1cb90a8f",
+      "importedSha256": "58aa345eca9338212fd4b96bb4ea634431b20e59e1f1c7615e2bfa3d1cb90a8f",
+      "changes": []
+    },
+    {
+      "path": "tests/block-flow.test.js",
+      "sourceSha256": "a5c7839db424df7a5142c7203e6ceed837fde3cce5ef8b7713ba850c415146a0",
+      "importedSha256": "a5c7839db424df7a5142c7203e6ceed837fde3cce5ef8b7713ba850c415146a0",
+      "changes": []
+    },
+    {
+      "path": "tests/block-model.test.js",
+      "sourceSha256": "0749df5345539b2697098dadaf090d12b51a8e916b6d11ac6bfa00642f110500",
+      "importedSha256": "0749df5345539b2697098dadaf090d12b51a8e916b6d11ac6bfa00642f110500",
+      "changes": []
+    },
+    {
+      "path": "tests/block-molecules.test.js",
+      "sourceSha256": "9dd004e395502fa9723503725c4a907593810cc7b5a7ad10133d014c8d179259",
+      "importedSha256": "9dd004e395502fa9723503725c4a907593810cc7b5a7ad10133d014c8d179259",
+      "changes": []
+    },
+    {
+      "path": "tests/boot.test.js",
+      "sourceSha256": "ba4b324d3998d350f54a6a4781fb1cda3039e87c10bafc3f5cbf1a39bbced668",
+      "importedSha256": "ba4b324d3998d350f54a6a4781fb1cda3039e87c10bafc3f5cbf1a39bbced668",
+      "changes": []
+    },
+    {
+      "path": "tests/contacts.test.js",
+      "sourceSha256": "ac5fceae333d1f492680dcf13fdcb9d5c27a9460551683dc31585b040617f0fd",
+      "importedSha256": "ac5fceae333d1f492680dcf13fdcb9d5c27a9460551683dc31585b040617f0fd",
+      "changes": []
+    },
+    {
+      "path": "tests/engine-core.test.js",
+      "sourceSha256": "f94e9e29e43476e2d6c42f708b8423c392b201f84e8b4208f2f634e16a018939",
+      "importedSha256": "f94e9e29e43476e2d6c42f708b8423c392b201f84e8b4208f2f634e16a018939",
+      "changes": []
+    },
+    {
+      "path": "tests/fontlayout.test.js",
+      "sourceSha256": "319b427ac3709a2483cb8eef887cb8376786a6ac8308255d514b4a176ffe7b10",
+      "importedSha256": "319b427ac3709a2483cb8eef887cb8376786a6ac8308255d514b4a176ffe7b10",
+      "changes": []
+    },
+    {
+      "path": "tests/label-swap.test.js",
+      "sourceSha256": "068f150370931e080b5a52fcb5c7c46f46220dc26665e8b2a206de0d4b3b59cd",
+      "importedSha256": "068f150370931e080b5a52fcb5c7c46f46220dc26665e8b2a206de0d4b3b59cd",
+      "changes": []
+    },
+    {
+      "path": "tests/linalg.test.js",
+      "sourceSha256": "9cec121fd2ffedb6aabcb50f7f310d6a4c318a8d0992f42f83d484c8f41487a9",
+      "importedSha256": "9cec121fd2ffedb6aabcb50f7f310d6a4c318a8d0992f42f83d484c8f41487a9",
+      "changes": []
+    },
+    {
+      "path": "tests/measure.test.js",
+      "sourceSha256": "02185eaf95b29b55a50aeb1193f1db9146b6ff6c2f41b1725f6d824da0ad598b",
+      "importedSha256": "02185eaf95b29b55a50aeb1193f1db9146b6ff6c2f41b1725f6d824da0ad598b",
+      "changes": []
+    },
+    {
+      "path": "tests/pdb.test.js",
+      "sourceSha256": "ce3e5eff9225e672d48162af435216ebabeab0584d48cb6c3b9376faa9e59acc",
+      "importedSha256": "ce3e5eff9225e672d48162af435216ebabeab0584d48cb6c3b9376faa9e59acc",
+      "changes": []
+    },
+    {
+      "path": "tests/perf.test.js",
+      "sourceSha256": "0d7088bf5fdb9c28b86f676e770ae71ad1665092846b21727b2b1b65e41aabfd",
+      "importedSha256": "0d7088bf5fdb9c28b86f676e770ae71ad1665092846b21727b2b1b65e41aabfd",
+      "changes": []
+    },
+    {
+      "path": "tests/picking.test.js",
+      "sourceSha256": "f3a400f0cb736cc7f9db22869fd487ff9200a5f52667959afddae28aa750af8a",
+      "importedSha256": "f3a400f0cb736cc7f9db22869fd487ff9200a5f52667959afddae28aa750af8a",
+      "changes": []
+    },
+    {
+      "path": "tests/reaction.test.js",
+      "sourceSha256": "8bb21d21a36d0dfb8fabb5f8f7a99145f20a66f831dcceef73548e5e004de7fe",
+      "importedSha256": "8bb21d21a36d0dfb8fabb5f8f7a99145f20a66f831dcceef73548e5e004de7fe",
+      "changes": []
+    },
+    {
+      "path": "tests/stage-logic.test.js",
+      "sourceSha256": "4dd4c88b0856522b6698e64e4eda7d33fca66f15e3eedd86c904b984f1261c33",
+      "importedSha256": "4dd4c88b0856522b6698e64e4eda7d33fca66f15e3eedd86c904b984f1261c33",
+      "changes": []
+    },
+    {
+      "path": "tests/structure-motion.test.js",
+      "sourceSha256": "79aa67898bef03318cd1111e140bc0d7d2552a892959a2bd684d98cb3e9651e3",
+      "importedSha256": "79aa67898bef03318cd1111e140bc0d7d2552a892959a2bd684d98cb3e9651e3",
+      "changes": []
+    },
+    {
+      "path": "tests/structure.test.js",
+      "sourceSha256": "fad4e74ec518db5685c2109ef3cfcc05ccfe60e3c786f89d17cd3111ccf53e91",
+      "importedSha256": "fad4e74ec518db5685c2109ef3cfcc05ccfe60e3c786f89d17cd3111ccf53e91",
+      "changes": []
+    },
+    {
+      "path": "tests/writing.test.js",
+      "sourceSha256": "15abbf90af65bfa4e6d564e896dda01479c6204489c9c291e077d8863297f491",
+      "importedSha256": "15abbf90af65bfa4e6d564e896dda01479c6204489c9c291e077d8863297f491",
+      "changes": []
+    },
+    {
+      "path": "tests/control-state.test.js",
+      "origin": "UI-lab",
+      "sourceSha256": null,
+      "importedSha256": "8c9e067c00f48ce60d74a0aa342a66c65c0077e7365ce8c3e24fc1d032405299",
+      "changes": [
+        "Locally authored regression for story/keyboard state synchronization and independent semantic state."
+      ]
+    }
+  ]
+}

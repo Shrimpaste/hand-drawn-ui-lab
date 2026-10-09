@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FBP1 · 糖异生的关口 · 手绘结构室</title>
+    <link rel="preload" href="./public/fonts/xiaolai-sub.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script>
+      // the loading page waits for the hand font, so it never flashes in a system font first
+      (function () {
+        var ok = function () { document.documentElement.classList.add("font-ready"); };
+        setTimeout(ok, 2500);
+        if (document.fonts && document.fonts.load) document.fonts.load('20px "小赖"', "糖异生的关口").then(ok, ok);
+        else ok();
+      })();
+    </script>
+  </head>
+  <body>
+    <main id="app" aria-label="FBP1 结构室"></main>
+    <div id="boot" role="status" aria-live="polite">
+      <div class="boot-card">
+        <h1>FBP1 · 糖异生的关口</h1>
+        <p class="boot-sub">人肝果糖-1,6-二磷酸酶 · 手绘结构室</p>
+        <div class="boot-line">
+          <svg viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true">
+            <path class="boot-track" d="M4 13 C 40 7, 70 18, 110 12 S 180 8, 220 13 S 300 18, 340 11 S 380 12, 396 12" pathLength="1" />
+            <path class="boot-fill" data-bar d="M4 13 C 40 7, 70 18, 110 12 S 180 8, 220 13 S 300 18, 340 11 S 380 12, 396 12" pathLength="1" />
+          </svg>
+          <svg class="boot-pencil" data-pencil viewBox="0 0 40 16" aria-hidden="true">
+            <path d="M1 8 L9 2 L37 2 Q39 2 39 4 L39 12 Q39 14 37 14 L9 14 Z" fill="#e5b04a" stroke="#6b4a2a" stroke-width="1.4" stroke-linejoin="round" />
+            <path d="M1 8 L9 2 L9 14 Z" fill="#f2dfbd" stroke="#6b4a2a" stroke-width="1.4" stroke-linejoin="round" />
+            <path d="M1 8 L4 6.2 L4 9.8 Z" fill="#4e3a2a" />
+          </svg>
+        </div>
+        <p class="boot-text"><span data-text>正在备纸</span> <span class="boot-pct" data-pct>0%</span></p>
+        <p class="boot-note">首次进入会先把每一步的画面预演一遍，之后切换和旋转不再卡顿。</p>
+      </div>
+    </div>
+    <noscript>此页面需要启用 JavaScript。</noscript>
+    <script type="module" src="./src/room-main.js"></script>
+  </body>
+</html>

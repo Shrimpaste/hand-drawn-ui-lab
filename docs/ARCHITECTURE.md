@@ -2,6 +2,8 @@
 
 三层是来源/复用边界，不是强制目录迁移：原作研究样本、可组合的自绘工具、验证方法的原创场景。代码保留历史 URL；当前产品入口见 [README](../README.md)。
 
+2026-10-09 起，原创层新增 `experiments/bio/` 的 Block/Room 源码副本，作为用户指定的较高完成度参考。它使用独立引擎与领域数据，不强行改造成 `primitives/` / `SceneHost` 的消费者；旧 Gallery 不再代表当前最高原创质量。机制与运行范围见 [Bio 实验](BIO_EXPERIMENTS.md)。
+
 ## 数据流
 
 ```mermaid
@@ -31,6 +33,9 @@ flowchart LR
 | `src/sketch-link.js`                                         | 参考页共享自绘导航与标签                                    | 与原创页共用简笔语言                            |
 | `primitives/`                                                | 自绘、笔迹、时间图、动作事件、纸面、残留、Foley             | 可组合工具；适配宿主而不是强制框架              |
 | `scenes/`                                                    | 庭院、自绘画稿、空间、对象状态、原求解器 adapter            | 原创演示与定制模型；不要全部迁移到 SaaS         |
+| `experiments/bio/{block,room}.html` / `src/` | 两个源项目页面及其独立 engine/engine3d、场景、内容、结构 JSON 的依赖闭包 | 当前原创完成度参考；与旧场景并存，源码单独维护 |
+| `experiments/bio/{public,references,scripts,tests}/` | 字体/许可、完整源字体、三份 PDB、字体/结构生成器与 20 份源测试 | 可在干净 clone 中运行、重建；无原大厅和报告文件 |
+| `experiments/bio/source-manifest.json` / `scripts/check-bio-import.mjs` | 来源提交、逐文件哈希、适配记录 / 导入与资源闭包检查 | 追溯复制边界；后续变化需同步记录 |
 | `demos/gallery.html` / `lab.html`                            | 都加载 `scenes/gallery.js`                                  | 当前同一画廊入口                                |
 | `demos/chinese-{type,pair,ink,notes}.html`                    | 字体对照、双字体实页、笔画试验、便笺组合；共享 `chinese-type.js/css` | 独立中文测试页，不改变 Gallery               |
 | `primitives/chinese-handwriting.js` / `generated-chinese-medians.js` | 本地绘制和可逆游标 / Hanzi Writer Data 生成的笔画中线 | 数据受 Arphic PL 约束，见来源文档               |
@@ -63,11 +68,12 @@ Gallery 的美术自绘不等于动画运行时完全原创。[来源清单](PRO
 ## 工具与数据
 
 - `scripts/serve.mjs`：只监听本地；屏蔽点目录、node_modules、research 和向上路径；无热更新。
+- Bio 页面由同一服务器直接加载原生模块（含 JSON import attributes），HTML 单独加载 CSS；根依赖增加 Vitest 与 subset-font，分别负责原测试和字体重建，运行时不依赖 Vite。
 - `scripts/build-chinese-medians.mjs`：从固定版本 `hanzi-writer-data` 提取测试页和样文的有序中线；`npm run hanzi` 重建生成文件与 Arphic PL 全文。
 - `scripts/audit-characters.mjs`：读取本地 vendor 与十二 rig，重建 `research/character-motion-audit.json`。它是来源机制记录，不是视觉验收。
 - `scripts/extract-motion.mjs`：历史提取工具，需要未入 Git 的 `research/reference.pretty.js`，会重写 vendor；普通开发不要运行，干净 clone 也不能直接重新提取完整原客户端。
 - `scripts/render-foley.mjs`：生成离线声音试听到 research。产物忽略，不覆盖当前 Gallery 验证结论。
 - `research/reference-pigments.json`：局部颜色测量；`asset-inventory.json`：当时浏览器观察的原资源；`motion-extraction.json`：依赖闭包映射。
-- `research/current-validation.json` 和当前两张 Gallery 图片：当前代码验证；记录范围/限制见 [验证](VALIDATION.md)。
+- `research/current-validation.json`：当前 Bio 验证与明确标日期的既有 Gallery/中文字样基线；本轮图为 `bio-block.jpg` / `bio-room.jpg`，范围/限制见 [验证](VALIDATION.md)。
 
 需要旧说明、失败原型或删除阁楼时从 [审核记录](REVIEW_HISTORY.md) 对应标签读取；不要恢复成与当前指南并列的活动指令。

@@ -6,8 +6,10 @@
 
 1. 读 [风格构建指南](docs/STYLE_GUIDE.md) 和 [人工审核记录](docs/REVIEW_HISTORY.md)。先理解历史失败，避免只复刻暖纸、淡色与粗糙边框。
 2. 读 [仓库结构](docs/ARCHITECTURE.md)，明确目标功能涉及的原作代码、自绘工具与场景定制代码。
+   当前原创完成度参考为 `experiments/bio/block.html` 与 `room.html`；先读 [Bio 实验源码说明](docs/BIO_EXPERIMENTS.md)。旧 Gallery/Studio 作为机制与局部实验，不以历史测试通过宣称与 bio 最终成果同等质量。
 3. 动画任务必须读 [源码研究](docs/REFERENCE_STUDY.md) 并沿实际函数/rig/事件追踪。给出“源码机制 → 新对象设计 → 实际验证”的关系，不能只说视觉相似。
 4. 看 `/scenes/studio.html` 的局部完成度、`/components.html` 的原动作，再操作目标页面；截图不能回答动作是否自然。
+   Bio 副本独立于 Ballpoint vendor，沿自己的结构/碳流/叙述状态追踪。保留 `source-manifest.json` 的来源哈希与适配记录；文案修改后重建字体。两页字体标签裁切、正文逐字过渡不是中文笔顺，窄屏缩放不是移动端重排。
 
 ## 不应再次出现的退化
 

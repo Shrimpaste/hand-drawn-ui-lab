@@ -111,3 +111,9 @@ Idle 也按对象调：呼吸近似 `sx=1/sy` 保体积；blink/look/ears 各有
 - 自绘开场在初始化录实际 Canvas 笔迹时间，播放推进时间图；原图集时间图与自绘 recorder 是两条不同来源的实现。
 
 出处追溯与迁移边界见 [PROVENANCE](PROVENANCE.md)。测试和浏览器事实见 [VALIDATION](VALIDATION.md)，不把来源研究的取样成功当成完整美术验收。
+
+## 7. Bio 最终成果源码迁入（2026-10-09）
+
+此前比较的 `bio-showcase-handdrawn` 与这次用户指定的 `demo-4-claude` 是不同的源码范围。此次真实复制后者 Block/Room 的依赖闭包到 `experiments/bio/`，不再只作外部比较。逐项“源码机制 → 功能设计 → 验证”的关系见 [Bio 研究](BIO_EXPERIMENTS.md)。
+
+核心管线是 `PDB → 对齐结构/位点 → conformerFrames → Flicker → StructureView.buildRuns → 深度分桶绘制`；叙述输入沿 `BeatTrack → 状态/反应标记 → 镜头/配体/说明`，Block 的 `FlowSim` 则用路线与瓶颈事件驱动分子。没有导入原 Puppet；不能把领域结构和事件模型写成换了蛋白画稿的同一角色 spring。相关构象是固定种子的美术示意，连续旋转/聚焦和离散稿各自求解。

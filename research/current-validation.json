@@ -1,1383 +1,1489 @@
 {
-  "date": "2026-10-06",
-  "scope": "Current full drawing variants (2026-10-06), Chinese font pair and stroke studies (57a2cbe), retained Gallery species-motion browser baseline (2026-10-04)",
+  "date": "2026-10-09",
+  "scope": "Bio Block/Room import, static module/resource adaptation, docs and semantic control state fix",
+  "source": {
+    "project": "demo-4-claude",
+    "commit": "52141ce11b3dc66e65dfe8c85a296b1e2d3c9486",
+    "copiedFiles": 86,
+    "unchangedCopies": 79,
+    "adaptedFiles": 7,
+    "localRegressionFiles": 1,
+    "originalDirectoryModified": false
+  },
   "tests": {
-    "command": "npm test",
-    "passed": 55,
-    "failed": 0
+    "commands": [
+      "npm test (55 + initial 132)",
+      "npm run test:bio (final 133)"
+    ],
+    "passed": 188,
+    "failed": 0,
+    "bioFiles": 21,
+    "bioPassed": 133,
+    "existingPassed": 55
+  },
+  "checks": {
+    "snapshotFiles": 87,
+    "dependencyEdges": 193,
+    "httpResources": 59,
+    "httpFailures": [],
+    "fontMime": "font/woff2",
+    "structureRebuild": "byte-identical",
+    "fontRebuild": {
+      "bytes": 178116,
+      "format": "WOFF2",
+      "restoredImportedSubset": true
+    },
+    "sourceHashesUnchanged": true,
+    "vendorAndAssetsUnchanged": true,
+    "gitIndexBlobs": 87,
+    "cleanCheckoutHashes": 87
   },
   "browser": {
-    "observations": 44,
-    "passed": 43,
-    "superseded": 1,
-    "errors": [],
+    "desktop": [
+      1280,
+      800
+    ],
+    "narrow": [
+      390,
+      844
+    ],
     "checks": [
+      "Studio rabbit full drawings and original Components foal move/sleep",
+      "Block patient/fasting/IV, reset, lecture/T, keyboard forward/back",
+      "Block FBP1 closeup enter, phase forward/back, replay, Escape interruption",
+      "Room pointer drag rotation, substrate focus, keyboard beat, hydrolysis",
+      "Room rapid AMP/mutation switching, Home reset, redraw",
+      "Block/Room navigation both ways and static native module load",
+      "Mute/reduced-motion toggle and persisted state across page loads",
+      "Semantic pressed state follows story/keyboard and reduced mode",
+      "390px stage bounds and no document horizontal overflow on both pages"
+    ],
+    "errors": [],
+    "warnings": [],
+    "screenshots": [
+      "research/bio-block.jpg",
+      "research/bio-room.jpg"
+    ],
+    "limitations": [
+      "Narrow layout is whole-stage shrinking (approximately 390x244), not mobile reflow; text and targets are too small",
+      "Narrow screenshot adapter scaling is inconsistent; layout evidence uses DOM bounds and actual controls",
+      "No physical touch, independent medical review or human audio comfort evaluation",
+      "Font labels use glyph clipping, notes use character opacity; not actual Chinese stroke-order writing",
+      "Reduced mode does not imply all educational simulation motion stops",
+      "One body keyboard locator timeout was resolved via the focused button; timeout is not counted as success"
+    ]
+  },
+  "selfReview": {
+    "method": "Import graph, risk/flow review, source hashes and diff; graph MCP tools unavailable",
+    "fixed": [
       {
-        "name": "opening complete",
-        "result": "pass",
-        "mode": "idle",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
+        "risk": "medium",
+        "issue": "aria-pressed stale after non-click story/keyboard changes",
+        "files": [
+          "src/engine/controls.js",
+          "tests/control-state.test.js"
+        ]
       },
       {
-        "name": "normal mount reaches sitting",
-        "result": "pass",
-        "mode": "sitting",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
+        "risk": "medium",
+        "issue": "Reduced-motion pressed state was opposite to its accessible label",
+        "files": [
+          "src/engine/app.js",
+          "src/engine/controls.js"
+        ]
       },
       {
-        "name": "normal dismounting after geometry fix",
-        "result": "pass",
-        "boundary": {
-          "after": {
-            "amount": 0,
-            "at": 72197.5,
-            "mode": "idle",
-            "x": 614.9813740410457,
-            "y": 680.7810102535591
-          },
-          "before": {
-            "amount": 0,
-            "at": 72191.5,
-            "mode": "walking",
-            "x": 614.3366756108321,
-            "y": 680.1363118233455
-          },
-          "distance": 0.9117412636486696,
-          "dt": 6
-        },
-        "final": {
-          "amount": 0,
-          "at": 73547.09999996424,
+        "risk": "medium",
+        "issue": "Git line-ending normalization invalidated imported byte snapshots on checkout",
+        "files": [
+          ".gitattributes"
+        ]
+      }
+    ],
+    "blockingFindings": [],
+    "recommendation": "Accept source import with documented inherited quality and browser constraints"
+  },
+  "previousBaselines": {
+    "date": "2026-10-06",
+    "scope": "Current full drawing variants (2026-10-06), Chinese font pair and stroke studies (57a2cbe), retained Gallery species-motion browser baseline (2026-10-04)",
+    "tests": {
+      "command": "npm test",
+      "passed": 55,
+      "failed": 0
+    },
+    "browser": {
+      "observations": 44,
+      "passed": 43,
+      "superseded": 1,
+      "errors": [],
+      "checks": [
+        {
+          "name": "opening complete",
+          "result": "pass",
           "mode": "idle",
-          "x": 614.9813740410457,
-          "y": 680.7810102535591
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
         },
-        "modes": [
-          "sitting",
-          "dismounting",
-          "walking",
-          "idle"
-        ],
-        "redirected": false,
-        "worst": {
-          "after": {
-            "amount": 0.10193275944170288,
-            "at": 71538.80000001192,
-            "mode": "dismounting",
-            "x": 585.593732306692,
-            "y": 643.0366139922929
-          },
-          "before": {
-            "amount": 0.11716062010642214,
-            "at": 71533.89999997616,
-            "mode": "dismounting",
-            "x": 584.7888658624643,
-            "y": 641.0353459099425
-          },
-          "distance": 2.1570544570034116,
-          "dt": 4.900000035762787
-        }
-      },
-      {
-        "name": "normal approach and mounting",
-        "result": "pass",
-        "boundary": {
-          "after": {
-            "amount": 0,
-            "at": 82250.5,
-            "mode": "mounting",
-            "x": 590.9813740410457,
-            "y": 656.7810102535591
-          },
-          "before": {
-            "amount": 0,
-            "at": 82245.89999997616,
-            "mode": "walking",
-            "x": 591.6721534142843,
-            "y": 657.4717896267977
-          },
-          "distance": 0.9769095582415718,
-          "dt": 4.600000023841858
-        },
-        "final": {
-          "amount": 1,
-          "at": 84340.59999996424,
+        {
+          "name": "normal mount reaches sitting",
+          "result": "pass",
           "mode": "sitting",
-          "x": 538.1265139954394,
-          "y": 568.2864334146486
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
         },
-        "modes": [
-          "idle",
-          "walking",
-          "mounting",
-          "sitting"
-        ],
-        "redirected": false,
-        "worst": {
-          "after": {
-            "amount": 0.2973576371389545,
-            "at": 82517.80000001192,
-            "mode": "mounting",
-            "x": 575.2645777465741,
-            "y": 612.0152709067206
+        {
+          "name": "normal dismounting after geometry fix",
+          "result": "pass",
+          "boundary": {
+            "after": {
+              "amount": 0,
+              "at": 72197.5,
+              "mode": "idle",
+              "x": 614.9813740410457,
+              "y": 680.7810102535591
+            },
+            "before": {
+              "amount": 0,
+              "at": 72191.5,
+              "mode": "walking",
+              "x": 614.3366756108321,
+              "y": 680.1363118233455
+            },
+            "distance": 0.9117412636486696,
+            "dt": 6
           },
-          "before": {
-            "amount": 0.28526062903973043,
-            "at": 82511.89999997616,
-            "mode": "mounting",
-            "x": 575.9039634166292,
-            "y": 613.5704715191962
-          },
-          "distance": 1.6815061641623985,
-          "dt": 5.900000035762787
-        }
-      },
-      {
-        "name": "repeat bench dismount",
-        "result": "pass",
-        "boundary": {
-          "after": {
+          "final": {
             "amount": 0,
-            "at": 85648.39999997616,
+            "at": 73547.09999996424,
             "mode": "idle",
             "x": 614.9813740410457,
             "y": 680.7810102535591
           },
-          "before": {
-            "amount": 0,
-            "at": 85642.59999996424,
-            "mode": "walking",
-            "x": 614.465664352649,
-            "y": 680.2653005651624
-          },
-          "distance": 0.7293236355777718,
-          "dt": 5.800000011920929
+          "modes": [
+            "sitting",
+            "dismounting",
+            "walking",
+            "idle"
+          ],
+          "redirected": false,
+          "worst": {
+            "after": {
+              "amount": 0.10193275944170288,
+              "at": 71538.80000001192,
+              "mode": "dismounting",
+              "x": 585.593732306692,
+              "y": 643.0366139922929
+            },
+            "before": {
+              "amount": 0.11716062010642214,
+              "at": 71533.89999997616,
+              "mode": "dismounting",
+              "x": 584.7888658624643,
+              "y": 641.0353459099425
+            },
+            "distance": 2.1570544570034116,
+            "dt": 4.900000035762787
+          }
         },
-        "final": {
-          "amount": 0,
-          "at": 86996.80000001192,
-          "mode": "idle",
-          "x": 614.9813740410457,
-          "y": 680.7810102535591
+        {
+          "name": "normal approach and mounting",
+          "result": "pass",
+          "boundary": {
+            "after": {
+              "amount": 0,
+              "at": 82250.5,
+              "mode": "mounting",
+              "x": 590.9813740410457,
+              "y": 656.7810102535591
+            },
+            "before": {
+              "amount": 0,
+              "at": 82245.89999997616,
+              "mode": "walking",
+              "x": 591.6721534142843,
+              "y": 657.4717896267977
+            },
+            "distance": 0.9769095582415718,
+            "dt": 4.600000023841858
+          },
+          "final": {
+            "amount": 1,
+            "at": 84340.59999996424,
+            "mode": "sitting",
+            "x": 538.1265139954394,
+            "y": 568.2864334146486
+          },
+          "modes": [
+            "idle",
+            "walking",
+            "mounting",
+            "sitting"
+          ],
+          "redirected": false,
+          "worst": {
+            "after": {
+              "amount": 0.2973576371389545,
+              "at": 82517.80000001192,
+              "mode": "mounting",
+              "x": 575.2645777465741,
+              "y": 612.0152709067206
+            },
+            "before": {
+              "amount": 0.28526062903973043,
+              "at": 82511.89999997616,
+              "mode": "mounting",
+              "x": 575.9039634166292,
+              "y": 613.5704715191962
+            },
+            "distance": 1.6815061641623985,
+            "dt": 5.900000035762787
+          }
         },
-        "modes": [
-          "sitting",
-          "dismounting",
-          "walking",
-          "idle"
-        ],
-        "redirected": false,
-        "worst": {
-          "after": {
-            "amount": 0.256261351746194,
-            "at": 84887.5,
-            "mode": "dismounting",
-            "x": 577.4367161594027,
-            "y": 623.7392984530836
+        {
+          "name": "repeat bench dismount",
+          "result": "pass",
+          "boundary": {
+            "after": {
+              "amount": 0,
+              "at": 85648.39999997616,
+              "mode": "idle",
+              "x": 614.9813740410457,
+              "y": 680.7810102535591
+            },
+            "before": {
+              "amount": 0,
+              "at": 85642.59999996424,
+              "mode": "walking",
+              "x": 614.465664352649,
+              "y": 680.2653005651624
+            },
+            "distance": 0.7293236355777718,
+            "dt": 5.800000011920929
           },
-          "before": {
-            "amount": 0.26746449702882436,
-            "at": 84881.39999997616,
-            "mode": "dismounting",
-            "x": 576.8445754834187,
-            "y": 622.4325706406543
-          },
-          "distance": 1.434631714389197,
-          "dt": 6.100000023841858
-        }
-      },
-      {
-        "name": "redirect while mounting",
-        "result": "pass",
-        "boundary": {
-          "after": {
+          "final": {
             "amount": 0,
-            "at": 89260.80000001192,
+            "at": 86996.80000001192,
+            "mode": "idle",
+            "x": 614.9813740410457,
+            "y": 680.7810102535591
+          },
+          "modes": [
+            "sitting",
+            "dismounting",
+            "walking",
+            "idle"
+          ],
+          "redirected": false,
+          "worst": {
+            "after": {
+              "amount": 0.256261351746194,
+              "at": 84887.5,
+              "mode": "dismounting",
+              "x": 577.4367161594027,
+              "y": 623.7392984530836
+            },
+            "before": {
+              "amount": 0.26746449702882436,
+              "at": 84881.39999997616,
+              "mode": "dismounting",
+              "x": 576.8445754834187,
+              "y": 622.4325706406543
+            },
+            "distance": 1.434631714389197,
+            "dt": 6.100000023841858
+          }
+        },
+        {
+          "name": "redirect while mounting",
+          "result": "pass",
+          "boundary": {
+            "after": {
+              "amount": 0,
+              "at": 89260.80000001192,
+              "mode": "idle",
+              "x": 658.3337639957149,
+              "y": 642.7621263036467
+            },
+            "before": {
+              "amount": 0,
+              "at": 89254.89999997616,
+              "mode": "walking",
+              "x": 657.428844022211,
+              "y": 642.9504784631031
+            },
+            "distance": 0.9243141751688736,
+            "dt": 5.900000035762787
+          },
+          "final": {
+            "amount": 0,
+            "at": 89648.89999997616,
             "mode": "idle",
             "x": 658.3337639957149,
             "y": 642.7621263036467
           },
-          "before": {
-            "amount": 0,
-            "at": 89254.89999997616,
-            "mode": "walking",
-            "x": 657.428844022211,
-            "y": 642.9504784631031
-          },
-          "distance": 0.9243141751688736,
-          "dt": 5.900000035762787
+          "modes": [
+            "idle",
+            "walking",
+            "mounting",
+            "dismounting"
+          ],
+          "redirected": true,
+          "worst": {
+            "after": {
+              "amount": 0.24219347466584867,
+              "at": 87779.09999996424,
+              "mode": "mounting",
+              "x": 578.1802718336231,
+              "y": 619.3197633864363
+            },
+            "before": {
+              "amount": 0.23149822814048548,
+              "at": 87773.09999996424,
+              "mode": "mounting",
+              "x": 578.7455675918745,
+              "y": 620.7978054842549
+            },
+            "distance": 1.5824562354836516,
+            "dt": 6
+          }
         },
-        "final": {
-          "amount": 0,
-          "at": 89648.89999997616,
+        {
+          "name": "rabbit erase and redraw",
+          "result": "pass",
           "mode": "idle",
-          "x": 658.3337639957149,
-          "y": 642.7621263036467
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
         },
-        "modes": [
-          "idle",
-          "walking",
-          "mounting",
-          "dismounting"
-        ],
-        "redirected": true,
-        "worst": {
-          "after": {
-            "amount": 0.24219347466584867,
-            "at": 87779.09999996424,
-            "mode": "mounting",
-            "x": 578.1802718336231,
-            "y": 619.3197633864363
+        {
+          "name": "rabbit begins paired hopping",
+          "result": "pass",
+          "mode": "walking",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
           },
-          "before": {
-            "amount": 0.23149822814048548,
-            "at": 87773.09999996424,
-            "mode": "mounting",
-            "x": 578.7455675918745,
-            "y": 620.7978054842549
-          },
-          "distance": 1.5824562354836516,
-          "dt": 6
-        }
-      },
-      {
-        "name": "rabbit erase and redraw",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
         },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "rabbit begins paired hopping",
-        "result": "pass",
-        "mode": "walking",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
+        {
+          "name": "rabbit live airborne/paired foot sampling",
+          "result": "pass",
+          "distinctX": 99,
+          "frames": 114,
+          "maxFeetDifference": 0,
+          "maxLift": 0.07405853351834128
         },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
+        {
+          "name": "rabbit stops after travel",
+          "result": "superseded",
+          "note": "The chosen left destination intersects the bench footprint and intentionally queues seating; subsequent seating/step-down checks verify this path.",
+          "mode": "sitting",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
           },
-          "titleY": 104,
-          "width": 1120
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "rabbit doze",
+          "result": "pass",
+          "mode": "sitting",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "rabbit wakes with greeting",
+          "result": "pass",
+          "mode": "sitting",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "rabbit steps down before continuing",
+          "result": "pass",
+          "mode": "idle",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "owl redraw completes",
+          "result": "pass",
+          "mode": "idle",
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "owl walking begins",
+          "result": "pass",
+          "mode": "walking",
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "owl live alternate talon sampling",
+          "result": "pass",
+          "distinctX": 63,
+          "frames": 113,
+          "maxFeetDifference": 0.020374588623697645,
+          "maxLift": 0.015227524344420935
+        },
+        {
+          "name": "owl settles on ground",
+          "result": "pass",
+          "mode": "idle",
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "owl doze",
+          "result": "pass",
+          "mode": "idle",
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "owl wakes with wing greeting",
+          "result": "pass",
+          "mode": "idle",
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "mushroom redraw completes",
+          "result": "pass",
+          "mode": "idle",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "mushroom soft stepping",
+          "result": "pass",
+          "mode": "walking",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "mushroom settles",
+          "result": "pass",
+          "mode": "idle",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "mushroom doze",
+          "result": "pass",
+          "mode": "idle",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "mushroom wake",
+          "result": "pass",
+          "mode": "idle",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "work caption fully written in separate band",
+          "result": "pass",
+          "mode": "idle",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "final-source opening finishes",
+          "result": "pass",
+          "mode": "idle",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "final-source mount",
+          "result": "pass",
+          "boundary": {
+            "after": {
+              "amount": 0,
+              "at": 32246.19999998808,
+              "mode": "mounting",
+              "x": 590.9813740410457,
+              "y": 656.7810102535591
+            },
+            "before": {
+              "amount": 0,
+              "at": 32241,
+              "mode": "walking",
+              "x": 590.179306604377,
+              "y": 657.1139602987906
+            },
+            "distance": 0.8684284113178353,
+            "dt": 5.199999988079071
+          },
+          "final": {
+            "amount": 1,
+            "at": 34472.39999997616,
+            "mode": "sitting",
+            "x": 538.1265139954394,
+            "y": 568.2864334146486
+          },
+          "modes": [
+            "idle",
+            "walking",
+            "mounting",
+            "sitting"
+          ],
+          "redirected": false,
+          "worst": {
+            "after": {
+              "amount": 0.17345574999999788,
+              "at": 32441.5,
+              "mode": "mounting",
+              "x": 581.8133946506902,
+              "y": 629.1511231513047
+            },
+            "before": {
+              "amount": 0.1633007248534123,
+              "at": 32434.799999952316,
+              "mode": "mounting",
+              "x": 582.3501370835725,
+              "y": 630.6677740497327
+            },
+            "distance": 1.6088264005040656,
+            "dt": 6.700000047683716
+          }
+        },
+        {
+          "name": "final-source step down",
+          "result": "pass",
+          "boundary": {
+            "after": {
+              "amount": 0,
+              "at": 35794.59999996424,
+              "mode": "idle",
+              "x": 614.9813740410457,
+              "y": 680.7810102535591
+            },
+            "before": {
+              "amount": 0,
+              "at": 35788.59999996424,
+              "mode": "walking",
+              "x": 614.468941376691,
+              "y": 680.2685775892044
+            },
+            "distance": 0.724689223733424,
+            "dt": 6
+          },
+          "final": {
+            "amount": 0,
+            "at": 37132.19999998808,
+            "mode": "idle",
+            "x": 614.9813740410457,
+            "y": 680.7810102535591
+          },
+          "modes": [
+            "sitting",
+            "dismounting",
+            "walking",
+            "idle"
+          ],
+          "redirected": false,
+          "worst": {
+            "after": {
+              "amount": 0.3129901082216193,
+              "at": 34994.89999997616,
+              "mode": "dismounting",
+              "x": 574.4383256753329,
+              "y": 617.2664457181713
+            },
+            "before": {
+              "amount": 0.324793831762188,
+              "at": 34988.39999997616,
+              "mode": "dismounting",
+              "x": 573.8144415195791,
+              "y": 615.965467239766
+            },
+            "distance": 1.4428362488773594,
+            "dt": 6.5
+          }
+        },
+        {
+          "name": "walk to post office before detail",
+          "result": "pass",
+          "mode": "detail",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0.001409307471,
+          "caption": 0.005714285714285714,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "detail picture settles",
+          "result": "pass",
+          "mode": "detail",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0.9932594073179268,
+          "caption": 1,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "picture internal response",
+          "result": "pass",
+          "mode": "detail",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0.9988311694280556,
+          "caption": 1,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "picture erases and returns",
+          "result": "pass",
+          "mode": "idle",
+          "character": "mushroom",
+          "openingDone": true,
+          "view": 0.004751182726226359,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "390px layout and separate title band",
+          "result": "pass",
+          "canvas": {
+            "bottom": 693.3503370285034,
+            "height": 686.7604370117188,
+            "left": 9,
+            "right": 381,
+            "top": 6.589900016784668,
+            "width": 372,
+            "x": 9,
+            "y": 6.589900016784668
+          },
+          "documentWidth": 390,
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          },
+          "viewport": {
+            "height": 844,
+            "width": 390
+          }
+        },
+        {
+          "name": "narrow rabbit redraw",
+          "result": "pass",
+          "mode": "idle",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "narrow bench native tap mounts",
+          "result": "pass",
+          "mode": "sitting",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "narrow repeated bench tap steps down",
+          "result": "pass",
+          "mode": "idle",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "narrow first work name fully written",
+          "result": "pass",
+          "mode": "idle",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "narrow lamp response after header shift",
+          "result": "pass",
+          "mode": "idle",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "mute holds audio count",
+          "result": "pass",
+          "before": 54,
+          "after": 54
+        },
+        {
+          "name": "gentle mode enabled",
+          "result": "pass",
+          "mode": "idle",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "gentle bench mounts",
+          "result": "pass",
+          "mode": "sitting",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "gentle bench descends and finishes",
+          "result": "pass",
+          "mode": "idle",
+          "character": "rabbit",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 330,
+            "height": 1200,
+            "projection": {
+              "k": 0.57,
+              "x": 5,
+              "y": 370
+            },
+            "titleY": 136,
+            "width": 650
+          }
+        },
+        {
+          "name": "restore normal owl selection",
+          "result": "pass",
+          "mode": "idle",
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
+        },
+        {
+          "name": "desktop caption spacing final",
+          "result": "pass",
+          "mode": "idle",
+          "character": "owl",
+          "openingDone": true,
+          "view": 0,
+          "caption": 0,
+          "visitorDrawing": {
+            "next": 1,
+            "old": 0,
+            "phase": "complete"
+          },
+          "layout": {
+            "exhibitTitleY": 229,
+            "height": 940,
+            "projection": {
+              "k": 1,
+              "x": 0,
+              "y": 108
+            },
+            "titleY": 104,
+            "width": 1120
+          }
         }
-      },
-      {
-        "name": "rabbit live airborne/paired foot sampling",
-        "result": "pass",
+      ]
+    },
+    "chineseType": {
+      "source": "hanzi-writer-data@2.0.1 medians; approach adapted from local demo-4-claude/scripts/build-hanzi.mjs, src/engine/writing.js and ink.js",
+      "license": "Arphic PL data; generated file has modification notice, fonts/ARPHICPL.TXT retained",
+      "generatedCharacters": 299,
+      "pages": [
+        "demos/chinese-type.html",
+        "demos/chinese-pair.html",
+        "demos/chinese-ink.html",
+        "demos/chinese-notes.html"
+      ],
+      "checks": [
+        "All three WOFF2 faces loaded and visibly differ at shared title/body/control sizes",
+        "Ordered source medians wrote 今日待办 and custom 你好今天写字 in browser",
+        "Slow reverse erased part of final 字 at 94% while previous characters remained",
+        "390px note and ink pages fit without horizontal overflow; DOM scrollWidth 375 at viewport 390",
+        "Keyboard focus and local note save returned from navigation with drawn title intact",
+        "Pair page compared Xiaolai and Yozai at identical task and record content, shared checks and saved state",
+        "Pair page keyboard Enter switched examples; size and pigment controls worked",
+        "Pair page 390px viewport showed both stacked sheets and scale samples; scrollWidth 375 at innerWidth 390",
+        "Pair page reduced mode reached 0 and 1 immediately; mute disabled audio with zero active sources",
+        "Mute, reduced motion, repeated reversal and latest-target replacement covered by controls and model tests",
+        "No browser error logs on the four pages"
+      ],
+      "limits": [
+        "No physical touch device test",
+        "Audio events checked, subjective listening not verified",
+        "Generated stroke subset is not a complete Chinese font"
+      ]
+    },
+    "benchBefore": {
+      "maxJump": 34.1512946423421,
+      "units": "scene units",
+      "cause": "blocked approach treated as arrived; interrupted hop lost"
+    },
+    "locomotion": {
+      "rabbit": {
         "distinctX": 99,
         "frames": 114,
         "maxFeetDifference": 0,
         "maxLift": 0.07405853351834128
       },
-      {
-        "name": "rabbit stops after travel",
-        "result": "superseded",
-        "note": "The chosen left destination intersects the bench footprint and intentionally queues seating; subsequent seating/step-down checks verify this path.",
-        "mode": "sitting",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "rabbit doze",
-        "result": "pass",
-        "mode": "sitting",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "rabbit wakes with greeting",
-        "result": "pass",
-        "mode": "sitting",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "rabbit steps down before continuing",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "owl redraw completes",
-        "result": "pass",
-        "mode": "idle",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "owl walking begins",
-        "result": "pass",
-        "mode": "walking",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "owl live alternate talon sampling",
-        "result": "pass",
+      "owl": {
         "distinctX": 63,
         "frames": 113,
         "maxFeetDifference": 0.020374588623697645,
         "maxLift": 0.015227524344420935
-      },
-      {
-        "name": "owl settles on ground",
-        "result": "pass",
-        "mode": "idle",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "owl doze",
-        "result": "pass",
-        "mode": "idle",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "owl wakes with wing greeting",
-        "result": "pass",
-        "mode": "idle",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "mushroom redraw completes",
-        "result": "pass",
-        "mode": "idle",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "mushroom soft stepping",
-        "result": "pass",
-        "mode": "walking",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "mushroom settles",
-        "result": "pass",
-        "mode": "idle",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "mushroom doze",
-        "result": "pass",
-        "mode": "idle",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "mushroom wake",
-        "result": "pass",
-        "mode": "idle",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "work caption fully written in separate band",
-        "result": "pass",
-        "mode": "idle",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "final-source opening finishes",
-        "result": "pass",
-        "mode": "idle",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "final-source mount",
-        "result": "pass",
-        "boundary": {
-          "after": {
-            "amount": 0,
-            "at": 32246.19999998808,
-            "mode": "mounting",
-            "x": 590.9813740410457,
-            "y": 656.7810102535591
-          },
-          "before": {
-            "amount": 0,
-            "at": 32241,
-            "mode": "walking",
-            "x": 590.179306604377,
-            "y": 657.1139602987906
-          },
-          "distance": 0.8684284113178353,
-          "dt": 5.199999988079071
-        },
-        "final": {
-          "amount": 1,
-          "at": 34472.39999997616,
-          "mode": "sitting",
-          "x": 538.1265139954394,
-          "y": 568.2864334146486
-        },
-        "modes": [
-          "idle",
-          "walking",
-          "mounting",
-          "sitting"
-        ],
-        "redirected": false,
-        "worst": {
-          "after": {
-            "amount": 0.17345574999999788,
-            "at": 32441.5,
-            "mode": "mounting",
-            "x": 581.8133946506902,
-            "y": 629.1511231513047
-          },
-          "before": {
-            "amount": 0.1633007248534123,
-            "at": 32434.799999952316,
-            "mode": "mounting",
-            "x": 582.3501370835725,
-            "y": 630.6677740497327
-          },
-          "distance": 1.6088264005040656,
-          "dt": 6.700000047683716
-        }
-      },
-      {
-        "name": "final-source step down",
-        "result": "pass",
-        "boundary": {
-          "after": {
-            "amount": 0,
-            "at": 35794.59999996424,
-            "mode": "idle",
-            "x": 614.9813740410457,
-            "y": 680.7810102535591
-          },
-          "before": {
-            "amount": 0,
-            "at": 35788.59999996424,
-            "mode": "walking",
-            "x": 614.468941376691,
-            "y": 680.2685775892044
-          },
-          "distance": 0.724689223733424,
-          "dt": 6
-        },
-        "final": {
-          "amount": 0,
-          "at": 37132.19999998808,
-          "mode": "idle",
-          "x": 614.9813740410457,
-          "y": 680.7810102535591
-        },
-        "modes": [
-          "sitting",
-          "dismounting",
-          "walking",
-          "idle"
-        ],
-        "redirected": false,
-        "worst": {
-          "after": {
-            "amount": 0.3129901082216193,
-            "at": 34994.89999997616,
-            "mode": "dismounting",
-            "x": 574.4383256753329,
-            "y": 617.2664457181713
-          },
-          "before": {
-            "amount": 0.324793831762188,
-            "at": 34988.39999997616,
-            "mode": "dismounting",
-            "x": 573.8144415195791,
-            "y": 615.965467239766
-          },
-          "distance": 1.4428362488773594,
-          "dt": 6.5
-        }
-      },
-      {
-        "name": "walk to post office before detail",
-        "result": "pass",
-        "mode": "detail",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0.001409307471,
-        "caption": 0.005714285714285714,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "detail picture settles",
-        "result": "pass",
-        "mode": "detail",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0.9932594073179268,
-        "caption": 1,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "picture internal response",
-        "result": "pass",
-        "mode": "detail",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0.9988311694280556,
-        "caption": 1,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "picture erases and returns",
-        "result": "pass",
-        "mode": "idle",
-        "character": "mushroom",
-        "openingDone": true,
-        "view": 0.004751182726226359,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "390px layout and separate title band",
-        "result": "pass",
-        "canvas": {
-          "bottom": 693.3503370285034,
-          "height": 686.7604370117188,
-          "left": 9,
-          "right": 381,
-          "top": 6.589900016784668,
-          "width": 372,
-          "x": 9,
-          "y": 6.589900016784668
-        },
-        "documentWidth": 390,
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        },
-        "viewport": {
-          "height": 844,
-          "width": 390
-        }
-      },
-      {
-        "name": "narrow rabbit redraw",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "narrow bench native tap mounts",
-        "result": "pass",
-        "mode": "sitting",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "narrow repeated bench tap steps down",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "narrow first work name fully written",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "narrow lamp response after header shift",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "mute holds audio count",
-        "result": "pass",
-        "before": 54,
-        "after": 54
-      },
-      {
-        "name": "gentle mode enabled",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "gentle bench mounts",
-        "result": "pass",
-        "mode": "sitting",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "gentle bench descends and finishes",
-        "result": "pass",
-        "mode": "idle",
-        "character": "rabbit",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 330,
-          "height": 1200,
-          "projection": {
-            "k": 0.57,
-            "x": 5,
-            "y": 370
-          },
-          "titleY": 136,
-          "width": 650
-        }
-      },
-      {
-        "name": "restore normal owl selection",
-        "result": "pass",
-        "mode": "idle",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
-      },
-      {
-        "name": "desktop caption spacing final",
-        "result": "pass",
-        "mode": "idle",
-        "character": "owl",
-        "openingDone": true,
-        "view": 0,
-        "caption": 0,
-        "visitorDrawing": {
-          "next": 1,
-          "old": 0,
-          "phase": "complete"
-        },
-        "layout": {
-          "exhibitTitleY": 229,
-          "height": 940,
-          "projection": {
-            "k": 1,
-            "x": 0,
-            "y": 108
-          },
-          "titleY": 104,
-          "width": 1120
-        }
       }
-    ]
-  },
-  "chineseType": {
-    "source": "hanzi-writer-data@2.0.1 medians; approach adapted from local demo-4-claude/scripts/build-hanzi.mjs, src/engine/writing.js and ink.js",
-    "license": "Arphic PL data; generated file has modification notice, fonts/ARPHICPL.TXT retained",
-    "generatedCharacters": 299,
-    "pages": [
-      "demos/chinese-type.html",
-      "demos/chinese-pair.html",
-      "demos/chinese-ink.html",
-      "demos/chinese-notes.html"
-    ],
-    "checks": [
-      "All three WOFF2 faces loaded and visibly differ at shared title/body/control sizes",
-      "Ordered source medians wrote 今日待办 and custom 你好今天写字 in browser",
-      "Slow reverse erased part of final 字 at 94% while previous characters remained",
-      "390px note and ink pages fit without horizontal overflow; DOM scrollWidth 375 at viewport 390",
-      "Keyboard focus and local note save returned from navigation with drawn title intact",
-      "Pair page compared Xiaolai and Yozai at identical task and record content, shared checks and saved state",
-      "Pair page keyboard Enter switched examples; size and pigment controls worked",
-      "Pair page 390px viewport showed both stacked sheets and scale samples; scrollWidth 375 at innerWidth 390",
-      "Pair page reduced mode reached 0 and 1 immediately; mute disabled audio with zero active sources",
-      "Mute, reduced motion, repeated reversal and latest-target replacement covered by controls and model tests",
-      "No browser error logs on the four pages"
-    ],
-    "limits": [
-      "No physical touch device test",
-      "Audio events checked, subjective listening not verified",
-      "Generated stroke subset is not a complete Chinese font"
-    ]
-  },
-  "benchBefore": {
-    "maxJump": 34.1512946423421,
-    "units": "scene units",
-    "cause": "blocked approach treated as arrived; interrupted hop lost"
-  },
-  "locomotion": {
-    "rabbit": {
-      "distinctX": 99,
-      "frames": 114,
-      "maxFeetDifference": 0,
-      "maxLift": 0.07405853351834128
     },
-    "owl": {
-      "distinctX": 63,
-      "frames": 113,
-      "maxFeetDifference": 0.020374588623697645,
-      "maxLift": 0.015227524344420935
+    "narrow": {
+      "canvas": {
+        "bottom": 693.3503370285034,
+        "height": 686.7604370117188,
+        "left": 9,
+        "right": 381,
+        "top": 6.589900016784668,
+        "width": 372,
+        "x": 9,
+        "y": 6.589900016784668
+      },
+      "documentWidth": 390,
+      "layout": {
+        "exhibitTitleY": 330,
+        "height": 1200,
+        "projection": {
+          "k": 0.57,
+          "x": 5,
+          "y": 370
+        },
+        "titleY": 136,
+        "width": 650
+      },
+      "viewport": {
+        "height": 844,
+        "width": 390
+      },
+      "input": "mouse and keyboard in 390x844 emulation; no physical touch claim"
+    },
+    "screenshots": [
+      "species-gallery-final.jpg",
+      "species-gallery-narrow.png",
+      "chinese-type.png",
+      "chinese-pair-tasks.png",
+      "chinese-pair-record.png",
+      "chinese-ink.png",
+      "chinese-notes.png"
+    ],
+    "livingDrawings": {
+      "date": "2026-10-06",
+      "baseline": "baseline/living-drawings",
+      "codeScope": "Opt-in full redraw; original solver, atlas, gait and gallery model unchanged",
+      "interiorSamples": {
+        "rabbitBody": {
+          "changed": 1505,
+          "total": 4658
+        },
+        "owlBody": {
+          "changed": 2884,
+          "total": 5341
+        },
+        "owlWing": {
+          "changed": 436,
+          "total": 484
+        }
+      },
+      "sampleDefinition": "RGB sum difference >12 between frames 0/1; interior mask at least 2 local pixels from visible boundary, alpha thresholds 120/100",
+      "rasterChecks": {
+        "costFromDrawingZero": true,
+        "frameTwoExplicit": true,
+        "reducedOverridesExplicitFrame": true,
+        "reverseHalfMatchesEarlierHalf": true
+      },
+      "actualInteraction": [
+        "Components sleep and knight move",
+        "Studio cast selection by keyboard; frozen pose three drawings",
+        "Gallery owl/rabbit redraw replacement",
+        "Gallery sleep and wake",
+        "Gallery pond and flower response",
+        "390px Gallery document width",
+        "390px Studio controls within viewport"
+      ],
+      "screenshots": {
+        "desktop": "living-drawings-studio.png",
+        "narrowCanvas": "living-drawings-narrow.png"
+      },
+      "errors": [],
+      "failedObservations": [
+        {
+          "probe": "Awaited RAF in hidden preview",
+          "result": "timeout",
+          "followup": "Visible preview and bounded subsequent samples"
+        }
+      ],
+      "limits": [
+        "Existing 44-observation matrix retained as prior evidence, not re-run",
+        "Narrow screenshot adapter inconsistent; Canvas export and DOM dimensions used",
+        "No physical touch or new listening QA",
+        "Not all reference action pose atlases reconstructed"
+      ]
     }
-  },
-  "narrow": {
-    "canvas": {
-      "bottom": 693.3503370285034,
-      "height": 686.7604370117188,
-      "left": 9,
-      "right": 381,
-      "top": 6.589900016784668,
-      "width": 372,
-      "x": 9,
-      "y": 6.589900016784668
-    },
-    "documentWidth": 390,
-    "layout": {
-      "exhibitTitleY": 330,
-      "height": 1200,
-      "projection": {
-        "k": 0.57,
-        "x": 5,
-        "y": 370
-      },
-      "titleY": 136,
-      "width": 650
-    },
-    "viewport": {
-      "height": 844,
-      "width": 390
-    },
-    "input": "mouse and keyboard in 390x844 emulation; no physical touch claim"
-  },
-  "screenshots": [
-    "species-gallery-final.jpg",
-    "species-gallery-narrow.png",
-    "chinese-type.png",
-    "chinese-pair-tasks.png",
-    "chinese-pair-record.png",
-    "chinese-ink.png",
-    "chinese-notes.png"
-  ],
-  "livingDrawings": {
-    "date": "2026-10-06",
-    "baseline": "baseline/living-drawings",
-    "codeScope": "Opt-in full redraw; original solver, atlas, gait and gallery model unchanged",
-    "interiorSamples": {
-      "rabbitBody": {
-        "changed": 1505,
-        "total": 4658
-      },
-      "owlBody": {
-        "changed": 2884,
-        "total": 5341
-      },
-      "owlWing": {
-        "changed": 436,
-        "total": 484
-      }
-    },
-    "sampleDefinition": "RGB sum difference >12 between frames 0/1; interior mask at least 2 local pixels from visible boundary, alpha thresholds 120/100",
-    "rasterChecks": {
-      "costFromDrawingZero": true,
-      "frameTwoExplicit": true,
-      "reducedOverridesExplicitFrame": true,
-      "reverseHalfMatchesEarlierHalf": true
-    },
-    "actualInteraction": [
-      "Components sleep and knight move",
-      "Studio cast selection by keyboard; frozen pose three drawings",
-      "Gallery owl/rabbit redraw replacement",
-      "Gallery sleep and wake",
-      "Gallery pond and flower response",
-      "390px Gallery document width",
-      "390px Studio controls within viewport"
-    ],
-    "screenshots": {
-      "desktop": "living-drawings-studio.png",
-      "narrowCanvas": "living-drawings-narrow.png"
-    },
-    "errors": [],
-    "failedObservations": [
-      {
-        "probe": "Awaited RAF in hidden preview",
-        "result": "timeout",
-        "followup": "Visible preview and bounded subsequent samples"
-      }
-    ],
-    "limits": [
-      "Existing 44-observation matrix retained as prior evidence, not re-run",
-      "Narrow screenshot adapter inconsistent; Canvas export and DOM dimensions used",
-      "No physical touch or new listening QA",
-      "Not all reference action pose atlases reconstructed"
-    ]
   }
 }
