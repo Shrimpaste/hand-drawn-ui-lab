@@ -107,9 +107,10 @@
     {
       "path": "src/engine/app.js",
       "sourceSha256": "2cbabc4b23c69603ac75c9841b3b504564654d1b0c28cd7dace802984c190697",
-      "importedSha256": "13d20810f5392b259a4330a6e7e45d4129f4408bd2138e52ac1f7be922ecbe89",
+      "importedSha256": "39456a2b33399c10a267e313021e2f0e1dde55075ffbdead5aa9abdf4f36ceb1",
       "changes": [
-        "UI-lab review fix: reduced-motion aria-pressed reflects reduced mode; retain the original animated/static icon state."
+        "UI-lab review fix: reduced-motion aria-pressed reflects reduced mode; retain the original animated/static icon state.",
+        "UI-lab navigation: persistent Reference link in reserved top margin; anchor pointer input does not reach the scene."
       ]
     },
     {
@@ -127,9 +128,10 @@
     {
       "path": "src/engine/controls.js",
       "sourceSha256": "46f20ca7c235e26fca2d6a0a1e3b787e1ccb381a7dc0c88680aede056d82a636",
-      "importedSha256": "e957d5ae89bcb3859f2c7761fbb5591310a9cda20f98d87ac54ebfcf614da1c5",
+      "importedSha256": "3308aa42d12764d459df61d02384016c1a3c78d43302f6bad333c562257c057b",
       "changes": [
-        "UI-lab review fix: synchronize aria-pressed after story/keyboard changes; support a separate semantic state getter without changing drawn state."
+        "UI-lab review fix: synchronize aria-pressed after story/keyboard changes; support a separate semantic state getter without changing drawn state.",
+        "UI-lab navigation: optional href creates a native anchor with shared drawn mark, label and keyboard focus."
       ]
     },
     {
@@ -419,9 +421,10 @@
     {
       "path": "src/styles.css",
       "sourceSha256": "503775b9cb4add6b6e185ec124c1c7b3fdcb2ae8b95ea1bb4eea8374086eaca3",
-      "importedSha256": "d9d6dfbf8c821c0679ae74cd72a2993ba50cff7b99d22c3f13612c8287ca71bd",
+      "importedSha256": "d9721846b181d019e5e5bdabc6bce06accc04691b98a15e512f92371bd148198",
       "changes": [
-        "Resolve font inside experiment."
+        "Resolve font inside experiment.",
+        "UI-lab navigation: shared hit styling also applies to semantic anchors."
       ]
     },
     {

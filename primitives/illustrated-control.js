@@ -91,7 +91,18 @@ export function drawControlMark(
       width: (opts.width ?? 1.5) * 1.25,
       progress: Math.min(opts.progress ?? 1, progress),
     });
-  if (type === "doze") {
+  if (type === "bio") {
+    // A compact molecule: bonds meet the rings; hover flexes only the upper bond.
+    const nodes = [[-18, 12, C.teal], [0, -16 - h * 3, C.blue], [20, 10, C.honey]];
+    p.line([[-14, 6], [-4, -10 - h * 3]], { color: C.teal, width: 1.7 });
+    p.line([[5, -10 - h * 3], [16, 4]], { color: C.blue, width: 1.7 });
+    p.line([[-11, 12], [13, 10]], { color: C.honey, width: 1.5 });
+    for (const [nx, ny, color] of nodes)
+      p.line(Array.from({ length: 13 }, (_, i) => {
+        const a = i / 12 * Math.PI * 2;
+        return [nx + Math.cos(a) * 7, ny + Math.sin(a) * 7];
+      }), { color, width: 1.8 });
+  } else if (type === "doze") {
     for (const [i, xx, yy, size] of [
       [0, -18, 14, 26],
       [1, 7, -5, 19],

@@ -436,6 +436,7 @@ async function init() {
   }));
   controls.push(...[
     ['nav-gallery','gallery','gallery'],['nav-characters','components','character lab'],
+    ['nav-bio','bio','bio lab'],
   ].map(([id,type,label])=>new SketchLink($(id),{type,label,reduced:()=>reduced})));
   makeCast(); resize(); $('loading').remove();
   for (const button of document.querySelectorAll('.toolbar button')) button.disabled = false;

@@ -146,11 +146,11 @@ export function drawMark(c, type, { x = 0, y = 0, scale = 0.62, hover = 0, on = 
 }
 
 /**
- * A real <button> for keyboard, focus and names; the canvas draws its mark and label.
+ * A real button or navigation link for keyboard, focus and names; canvas draws its mark and label.
  * The handwritten hint writes in on hover/focus and erases from its current ink on leave.
  */
 export class Control {
-  constructor(host, { id, label, hint = label, mark = "info", art = null, x = 0, y = 0, w = 64, h = 60, depth = null, onClick, isOn, isPressed = isOn, labelAt = "below", labelSize = 17, labelOffset = [0, 0], scale = 0.6, labelColor = P.teal, always = false }) {
+  constructor(host, { id, label, hint = label, mark = "info", art = null, x = 0, y = 0, w = 64, h = 60, depth = null, href, onClick, isOn, isPressed = isOn, labelAt = "below", labelSize = 17, labelOffset = [0, 0], scale = 0.6, labelColor = P.teal, always = false }) {
     this.host = host;
     this.mark = mark;
     this.art = art;
@@ -174,8 +174,9 @@ export class Control {
     this.resp = new Spring(0, { stiffness: 130, damping: 15 });
     this.label = new HandLabel(hint, { size: labelSize, color: labelColor, align: labelAt === "right" ? "left" : labelAt === "left" ? "right" : "center", write: 0.5, erase: 0.25 });
     this.label.ink.snap(always);
-    const el = document.createElement("button");
-    el.type = "button";
+    const el = document.createElement(href ? "a" : "button");
+    if (href) el.href = href;
+    else el.type = "button";
     el.className = "hit";
     el.id = id;
     el.setAttribute("aria-label", label);
@@ -189,7 +190,10 @@ export class Control {
     el.addEventListener("blur", () => (this.focus = false));
     el.addEventListener("click", (e) => {
       e.stopPropagation();
-      if (this.disabled || !this.host.interactive) return;
+      if (this.disabled || !this.host.interactive) {
+        e.preventDefault();
+        return;
+      }
       this.resp.kick(-6);
       this.onClick?.(e);
       if (this.isPressed) el.setAttribute("aria-pressed", String(!!this.isPressed()));

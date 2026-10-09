@@ -8,7 +8,7 @@
     "start": "node scripts/serve.mjs",
     "hanzi": "node scripts/build-chinese-medians.mjs",
     "test": "node --test tests/*.test.mjs && npm run test:bio",
-    "test:bio": "vitest run experiments/bio/tests",
+    "test:bio": "vitest run --root experiments/bio tests",
     "check:bio": "node scripts/check-bio-import.mjs",
     "bio:structure": "node experiments/bio/scripts/build-structure.mjs",
     "bio:font": "node experiments/bio/scripts/build-font.mjs"

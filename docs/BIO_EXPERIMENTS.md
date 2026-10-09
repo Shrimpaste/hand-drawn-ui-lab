@@ -13,7 +13,9 @@
 | [Block](http://127.0.0.1:5184/experiments/bio/block.html) | 肝细胞碳流、正常/患儿、进食/禁食感染、补糖；圆圈进入反应特写，特写结束后重播或看下一处；“看结构”进入 Room |
 | [Room](http://127.0.0.1:5184/experiments/bio/room.html) | FBP1 四聚体，拖动旋转；底物、水解、AMP、突变、重置；“共同瓶颈”返回 Block |
 
-两页支持 `→` / 空格 / PageDown 下一句，`←` / PageUp 上一句，Home 回第一步，T 展开/收起讲义。Block 特写中 Esc 退出。顶部重画、声音、减少动画是相同的简笔语言；声音和动作偏好仍使用源项目的 `fbp1-sound` / `fbp1-still` 本地键。两页都没有注册原大厅，顶部大厅按钮隐藏；Room 无特写时 Esc 没有页面跳转。UI-lab 其它入口从 README 访问。
+从 [Reference](http://127.0.0.1:5184/) 左上角的分子简笔选项「bio lab」进入 Block，再通过「看结构」进入 Room。两页顶部均有常驻的左箭头与「Reference」标签，返回 `/index.html`；直接打开 Bio 或刷新后也可使用，不依赖浏览历史。入口与返回均为真实链接，支持 Tab 聚焦、Enter 打开及浏览器原生链接操作。
+
+两页支持 `→` / 空格 / PageDown 下一句，`←` / PageUp 上一句，Home 回第一步，T 展开/收起讲义。Block 特写中 Esc 退出。顶部重画、声音、减少动画是相同的简笔语言；声音和动作偏好仍使用源项目的 `fbp1-sound` / `fbp1-still` 本地键。两页都没有注册原大厅，原顶部大厅按钮隐藏；Room 无特写时 Esc 没有页面跳转。
 
 原构图为 1280×800，保持比例适配窗口。窄屏会缩小全页并提示横屏，不是已经实现的移动端重排，不能据无横向溢出声称文字和点击区已适合手机。
 
@@ -24,7 +26,8 @@
 - `public/` 只带运行所需的小赖字体子集和 OFL 全文；`references/` 带完整源字体与三份 PDB；`scripts/` 带字体/结构生成脚本；`tests/` 带闭包内的 20 份原测试。
 - 不复制原 `.git`、`node_modules`、`dist`、输出目录、报告 PDF/DOCX、大厅入口和其它场景。两页未加载 `hanzi.json`，未带入无用笔画数据或其生成脚本。
 - HTML、CSS 改为副本内的相对 URL；入口去掉 JS 的 CSS import（HTML 已加载），JSON 改为原生 `with { type: "json" }`，移除 Vite 专属的 `import.meta.env.DEV` 调试挂载。需要支持 JSON import attributes 的现代浏览器。
-- 自查修复 `Control.update`：步骤/键盘改变模型时同步 `aria-pressed`；增加独立 `isPressed`，让减少动画按钮的语义与 `reduced` 对应，而保留原 `isOn` 的绘图状态。新增 1 项本地回归。总计复制 86 个源文件，7 个有记录的适配/修正，其余 79 个按字节保存。
+- 自查修复 `Control.update`：步骤/键盘改变模型时同步 `aria-pressed`；增加独立 `isPressed`，让减少动画按钮的语义与 `reduced` 对应，而保留原 `isOn` 的绘图状态。新增 1 项本地回归。初次复制 86 个源文件，7 个有记录的适配/修正，其余 79 个按字节保存。后续导航适配见清单的 `changes`，原始哈希保持不变。
+- UI-lab 导航复用 Reference 的 `SketchLink` 写擦与焦点标记；分子图标是三环/三键的简笔符号。Bio `Control` 的可选 `href` 生成语义链接，返回选项复用已有 `prev` 笔迹和同色标签；DOM 命中与 Canvas 使用同一舞台缩放，链接指针不会落到场景点击/旋转处理。两套引擎通过 URL 连接，Bio 不加载旧 runtime。
 - UI-lab 静态服务器增加 WOFF2 MIME；其它原作、工具和场景代码不因导入修改。服务无热更新，修改后主动刷新；修改服务器后重启。
 - `.gitattributes` 为副本关闭文本行尾转换，保证干净 checkout 的字节仍符合清单；保留 PDB 固定列空格和许可原文，PDB 作为数据不输出常规文本 diff。
 

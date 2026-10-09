@@ -1,6 +1,6 @@
 {
   "date": "2026-10-09",
-  "scope": "Bio Block/Room import, static module/resource adaptation, docs and semantic control state fix",
+  "scope": "Bio Block/Room import, static module/resource adaptation, docs and semantic control state fix; Reference/Bio native link navigation and visual alignment",
   "source": {
     "project": "demo-4-claude",
     "commit": "52141ce11b3dc66e65dfe8c85a296b1e2d3c9486",
@@ -1485,5 +1485,56 @@
         "Not all reference action pose atlases reconstructed"
       ]
     }
+  },
+  "navigation": {
+    "date": "2026-10-09",
+    "baseCommit": "bce92fe",
+    "flow": "Reference / or /index.html → bio/block.html → bio/room.html; both Bio pages → /index.html",
+    "desktop": [
+      1280,
+      800
+    ],
+    "narrow": [
+      390,
+      844
+    ],
+    "checks": [
+      "Reference mouse and Enter entry",
+      "Block Enter return",
+      "Block to Room and Room mouse return",
+      "Room direct URL return available",
+      "Native anchor semantics and focus pen mark",
+      "Shared stage input guard includes anchors",
+      "Muted/reduced preferences persist across Bio navigation and restored after checks",
+      "No new horizontal overflow; title and nav do not overlap on desktop"
+    ],
+    "tests": {
+      "node": 55,
+      "bio": 133,
+      "failed": 0,
+      "bioRoot": "experiments/bio"
+    },
+    "sourceCheck": {
+      "snapshotHashes": 87,
+      "dependencyEdges": 193
+    },
+    "review": [
+      "Moved initial return mark out of source title area",
+      "Scoped Vitest root to exclude an ignored temporary checkout; duplicate results not counted",
+      "Diff/source manifest/input flow review used because graph tools unavailable"
+    ],
+    "limitations": [
+      "Inherited Bio portrait scale also shrinks return target (about 34×24 px at 390px); no mobile reflow or physical touch validation",
+      "One boot wait timed out; later loaded state and actual interaction verified"
+    ],
+    "logs": {
+      "errors": [],
+      "warnings": []
+    },
+    "screenshots": [
+      "research/bio-reference-navigation.jpg",
+      "research/bio-block.jpg",
+      "research/bio-room.jpg"
+    ]
   }
 }

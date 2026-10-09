@@ -55,6 +55,11 @@ export class App {
   }
   buildNav() {
     const host = { app: this, get interactive() { return true; } };
+    this.referenceLink = new Control(host, {
+      id: "nav-reference", label: "返回 Reference", hint: "Reference",
+      href: "../../index.html", mark: "prev", x: W - 336, y: 44, w: 112, h: 80,
+      labelAt: "below", labelSize: 17, labelOffset: [0, -18], always: true,
+    });
     this.homeBtn = new Control(host, { id: "nav-home", label: "返回肝小叶大厅", hint: "回到大厅", mark: "home", x: 54, y: 44, labelAt: "below", onClick: () => this.go("hall") });
     this.soundBtn = new Control(host, {
       id: "nav-sound",
@@ -94,7 +99,7 @@ export class App {
       y: 44,
       onClick: () => this.replay(),
     });
-    this.nav = [this.homeBtn, this.replayBtn, this.soundBtn, this.stillBtn];
+    this.nav = [this.referenceLink, this.homeBtn, this.replayBtn, this.soundBtn, this.stillBtn];
     for (const n of this.nav) n.attach(this.navLayer);
   }
   bind() {
@@ -107,7 +112,7 @@ export class App {
       const p = toLocal(e);
       this.camera.point(p.x / W * 2 - 1, p.y / H * 2 - 1);
       const z = this.zoom;
-      this.current?.pointer?.((p.x - z.cx) / z.s + z.cx, (p.y - z.cy) / z.s + z.cy, e.buttons, !!e.target.closest?.("button"));
+      this.current?.pointer?.((p.x - z.cx) / z.s + z.cx, (p.y - z.cy) / z.s + z.cy, e.buttons, !!e.target.closest?.("button, a"));
     });
     addEventListener("pointerup", () => this.current?.release?.());
     addEventListener("pointercancel", () => this.current?.release?.());
@@ -117,7 +122,7 @@ export class App {
     });
     this.stage.addEventListener("pointerdown", (e) => {
       this.foley.unlock();
-      if (e.target.closest("button") || !this.current?.interactive) return;
+      if (e.target.closest("button, a") || !this.current?.interactive) return;
       const p = toLocal(e),
         z = this.zoom;
       this.current.click?.((p.x - z.cx) / z.s + z.cx, (p.y - z.cy) / z.s + z.cy);

@@ -40,7 +40,7 @@ npm start
 | [Bio Room](http://127.0.0.1:5184/experiments/bio/room.html) | 当前原创参考：FBP1 结构、拖动旋转、位点、水解、AMP 与突变 |
 | [Gallery](http://127.0.0.1:5184/demos/gallery.html) / [Lab](http://127.0.0.1:5184/lab.html) | 同一个原创庭院：空间、物件交互、三种步态、逐笔开场、擦除重绘、极简选项 |
 | [绘制小样](http://127.0.0.1:5184/scenes/studio.html)                                        | 局部笔触、固定/活轮廓、手写、Foley 的检查台                            |
-| [Reference](http://127.0.0.1:5184/)                                                         | 原图集和原动作的最小还原，没有完整棋类规则                             |
+| [Reference](http://127.0.0.1:5184/)                                                         | 原图集和原动作的最小还原；左上角「bio lab」进入 Bio，两页均可返回；没有完整棋类规则 |
 | [Characters](http://127.0.0.1:5184/components.html)                                         | 十二个原角色的部件、睡眠、紧张与简化搬运实验                           |
 | [中文字样](http://127.0.0.1:5184/demos/chinese-type.html) / [双字体](http://127.0.0.1:5184/demos/chinese-pair.html) / [笔迹](http://127.0.0.1:5184/demos/chinese-ink.html) / [便笺](http://127.0.0.1:5184/demos/chinese-notes.html) | 小赖与悠哉实页对照、三字体字样、有序笔画写擦和便笺组合；[说明](docs/CHINESE_TYPE.md) |
 

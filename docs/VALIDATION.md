@@ -1,6 +1,14 @@
 # 当前验证与审核方法
 
-当前验证日期 2026-10-09，范围为 Bio Block/Room 源码迁入、静态服务适配、文档与语义状态修正。完整三稿、Gallery/中文页的记录是标注日期的既有基线，不视为本轮重测。原作 vendor 与 assets 未修改。
+当前验证日期 2026-10-09，最新范围为 Reference → Bio 入口和两页返回导航；同日此前的导入检查保留其明确范围。完整三稿、Gallery/中文页的记录是标注日期的既有基线，不视为本轮重测。原作 vendor 与 assets 未修改。
+
+## Reference / Bio 往返导航
+
+- Reference 新增三环/三键分子简笔图标，复用 `SketchLink` 的低频笔稿、局部 hover 响应、标签写擦和键盘焦点线。两页返回复用 Bio `prev` 笔迹和小赖常驻标签；不引入新的标准 navbar。返回位于顶部标题与重画之间，不遮标题，点击区覆盖图标及标签。
+- 实际浏览器检查 1280×800 与 390×844：Reference 鼠标进入 Block、Enter 进入/返回、Block → Room → Reference、Room 直接打开后的返回、静音和减少动画偏好跨页保留。恢复测试前声音开/减少动画关；窄屏无新增横向溢出。Bio 仍整体缩小，返回点击区也缩小，未修复既有移动端可用性限制。
+- 当前回归为 Node 55 项与正式 Bio 133 项通过；清单 87 个哈希、193 条资源/模块依赖通过。旧 `.planning/` checkout 被初次 Vitest 收集导致重复计数，已将 `test:bio` 的 root 限定为 `experiments/bio`，不把重复测试计入结果。没有为简单导航新增镜像测试，关键证据为浏览器真实往返与焦点操作。
+- 自查发现初版左上返回遮挡源标题，已调整到顶部留白；检查共享 Control 的按钮行为、原生链接默认导航、指针防穿透、相对 URL、字体字符覆盖与来源哈希，未发现阻止提交的问题。图工具本会话未提供，逐文件差异与实际输入流代替；未改源目录/vendor/assets。
+- 一次加载完成等待发生超时，后续页面已实际加载并完成交互，超时未记为通过。浏览器捕获 error/warn 为空。当前桌面图为 [Reference 导航](../research/bio-reference-navigation.jpg)、[Block](../research/bio-block.jpg)、[Room](../research/bio-room.jpg)。旧导入图由 Git 保存。
 
 ## 本轮 Bio 结果与自查
 

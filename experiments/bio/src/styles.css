@@ -69,7 +69,7 @@ body {
 .notes-layer {
   transform-origin: 0 0;
 }
-button.hit {
+.hit {
   position: absolute;
   border: 0;
   padding: 0;
@@ -85,7 +85,7 @@ button.hit {
 button.hit:disabled {
   cursor: default;
 }
-button.hit[hidden] {
+.hit[hidden] {
   display: none;
 }
 .note {
